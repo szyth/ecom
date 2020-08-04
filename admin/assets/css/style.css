@@ -3337,12 +3337,7 @@ footer.site-footer .footer-inner a {
 
 .card .box-link {
     font-weight: 600;
-    font-size: 0.9em;
+    font-size: 1.2em;
     padding: 5px 0
-
-}
-.card .box-link a{
-    color: #000;
-    text-decoration: underline;
 
 }

@@ -3,7 +3,7 @@ require('top.inc.php');
 
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value($con, $_GET['type']);
-   
+
     if ($type == 'status') {
 
         $operation = get_safe_value($con, $_GET['operation']);
@@ -11,26 +11,24 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 
         if ($operation == 'active') {
             $status = '1';
-        } 
-        else if ($operation == 'deactive')   {
+        } else if ($operation == 'deactive') {
             $status = '0';
-        }
-        else{
+        } else {
             echo "Wrong Input";
         }
 
-        $sql_update_status = "UPDATE categories SET status='$status' WHERE id='$id'";
+        $sql_update_status = "UPDATE product SET status='$status' WHERE id='$id'";
         mysqli_query($con, $sql_update_status);
     }
     if ($type == "delete") {
         $id = get_safe_value($con, $_GET['id']);
-        $sql_delete_status = "DELETE FROM categories WHERE id='$id'";
+        $sql_delete_status = "DELETE FROM product WHERE id='$id'";
         mysqli_query($con, $sql_delete_status);
     }
 }
 
 
-$sql = "SELECT * FROM categories ORDER BY categories ASC";
+$sql = "SELECT product.*,categories.categories FROM product,categories WHERE product.categories_id=categories.id ORDER BY product.id DESC";
 $res = mysqli_query($con, $sql);
 ?>
 
@@ -41,8 +39,8 @@ $res = mysqli_query($con, $sql);
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Categories </h4>
-                        <h4 class="box-link"><a href="manage_categories.php"><span class='badge badge-danger'>Click to add Category</span></a></h4>
+                        <h4 class="box-title">Products </h4>
+                        <h4 class="box-link"><a href="manage_product.php"><span class='badge badge-danger'>Click to add Product</span></a></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -51,7 +49,12 @@ $res = mysqli_query($con, $sql);
                                     <tr>
                                         <th class="serial">#</th>
                                         <th>ID</th>
+                                        <th>Name</th>
                                         <th>Categories</th>
+                                        <th>Image</th>
+                                        <th>MRP</th>
+                                        <th>Price</th>
+                                        <th>QTY</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -63,7 +66,12 @@ $res = mysqli_query($con, $sql);
                                         <tr>
                                             <td class="serial"><?php echo $i ?></td>
                                             <td><?php echo $row['id'] ?></td>
+                                            <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
+                                            <td><?php echo $row['image'] ?></td>
+                                            <td><?php echo $row['mrp'] ?></td>
+                                            <td><?php echo $row['price'] ?></td>
+                                            <td><?php echo $row['qty'] ?></td>
                                             <td>
                                                 <?php
                                                 if ($row['status'] == 1) {
