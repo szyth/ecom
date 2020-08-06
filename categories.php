@@ -1,12 +1,13 @@
 <?php
 require('includes/header.inc.php');
 $cat_id = mysqli_real_escape_string($con, $_GET['id']);
-if($cat_id>0){
-    $get_product = get_product($con, '', $cat_id,'');
-}
-else {
-    ?>
-<script>window.location.href='index.php'</script>
+if ($cat_id > 0) {
+    $get_product = get_product($con, '', $cat_id, '');
+} else {
+?>
+    <script>
+        window.location.href = 'index.php'
+    </script>
 <?php } ?>
 
 
@@ -22,7 +23,7 @@ else {
                         <nav class="bradcaump-inner">
                             <a class="breadcrumb-item" href="index.html">Home</a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <span class="breadcrumb-item active">Products</span>
+                            <span class="breadcrumb-item active"><?php echo $get_product['0']['categories'] ?></span>
                         </nav>
                     </div>
                 </div>
@@ -97,7 +98,9 @@ else {
                         <!-- End Product View -->
                     </div>
                 </div>
-            <?php } else{ echo "Data not found";}  ?>
+            <?php } else {
+                echo "Data not found";
+            }  ?>
         </div>
     </div>
 </section>

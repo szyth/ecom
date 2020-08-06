@@ -11,7 +11,7 @@ if ($product_id > 0) {
 <?php } ?>
 
 <!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.png) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -69,7 +69,7 @@ if ($product_id > 0) {
                                     <li><a href="#"><?php echo $get_product['0']['categories'] ?></a></li>
                                 </ul>
                             </div>
-
+                            <a class="fr__btn" href="#">Add to Cart</a>
                         </div>
                     </div>
                 </div>
