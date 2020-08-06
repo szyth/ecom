@@ -78,7 +78,7 @@ require('includes/header.inc.php');
                     <?php?>
                     <?php
 
-                    $get_product = get_product($con, 'latest', 8);
+                    $get_product = get_product($con, 8,'','');
                     foreach ($get_product as $list) {
 
                     ?>
