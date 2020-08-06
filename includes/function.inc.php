@@ -12,6 +12,12 @@ function prx($arr)
     print_r($arr);
     die();
 }
+function get_safe_value($con,$str) {
+    if($str!=''){
+        $str = trim($str);
+        return mysqli_real_escape_string($con,$str);
+    }
+}
 
 //custom function to get products
 function get_product($con, $limit = '', $cat_id = '', $product_id = '')
@@ -31,7 +37,7 @@ function get_product($con, $limit = '', $cat_id = '', $product_id = '')
     $sql .= " ORDER BY product.id DESC";
 
     if ($limit != '') {
-        $sql .= " product.LIMIT $limit";
+        $sql .= " LIMIT $limit";
     }
 
 
