@@ -1,8 +1,14 @@
 <?php
 require('includes/header.inc.php');
 $product_id = mysqli_real_escape_string($con, $_GET['id']);
-$get_product = get_product($con, '', '', $product_id);
+if ($product_id > 0) {
+    $get_product = get_product($con, '', '', $product_id);
+} else {
 ?>
+    <script>
+        window.location.href = 'index.php'
+    </script>
+<?php } ?>
 
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
@@ -14,7 +20,7 @@ $get_product = get_product($con, '', '', $product_id);
                         <nav class="bradcaump-inner">
                             <a class="breadcrumb-item" href="index.php">Home</a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <a class="breadcrumb-item" href="categories.php?id=<?php echo $get_product['0']['categories_id']?>"><?php echo $get_product['0']['categories']?></a>
+                            <a class="breadcrumb-item" href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"><?php echo $get_product['0']['categories'] ?></a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                             <span class="breadcrumb-item active"><?php echo $get_product['0']['name'] ?></span>
                         </nav>
@@ -92,7 +98,7 @@ $get_product = get_product($con, '', '', $product_id);
                     <!-- Start Single Content -->
                     <div role="tabpanel" id="description" class="pro__single__content tab-pane fade in active">
                         <div class="pro__tab__content__inner">
-                        <?php echo $get_product['0']['description'] ?>
+                            <?php echo $get_product['0']['description'] ?>
                         </div>
                     </div>
                     <!-- End Single Content -->
