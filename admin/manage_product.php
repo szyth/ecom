@@ -70,9 +70,10 @@ if (isset($_POST['submit'])) {
             $msg = "Product already exists!";
         }
     }
-    if($_FILES['image']['type']!='image/png' && $_FILES['image']['type']!='image/jpg' && $_FILES['image']['type']!='image/jpeg')
-    $msg = "Please select only PNG,JPG or JPEG image format";
-    if ($msg == '') {
+    if ($_FILES['image']['type'] != $image && $_FILES['image']['type'] != 'image/png' && $_FILES['image']['type'] != 'image/jpg' && $_FILES['image']['type'] != 'image/jpeg') {
+        $msg = "Please select only PNG,JPG or JPEG image format";
+    }
+    if ($msg == '' && $categories_id!='0') {
         if (isset($_GET['id']) && $_GET['id'] != '') {
             if ($_FILES['image']['name'] != '') {
                 $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
