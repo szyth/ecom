@@ -66,7 +66,7 @@ if ($cat_id > 0) {
                                             <div class="category">
                                                 <div class="ht__cat__thumb">
                                                     <a href="product.php?id=<?php echo $list['id'] ?>">
-                                                        <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
+                                                        <img src="<?php echo "media/product/" . $list['image'] ?>" alt="product images">
                                                     </a>
                                                 </div>
                                                 <!-- <div class="fr__hover__info">

@@ -68,7 +68,7 @@ $res = mysqli_query($con, $sql);
                                             <td><?php echo $row['id'] ?></td>
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
-                                            <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image'] ?>"/></td>
+                                            <td><img src="<?php echo "../media/product".$row['image'] ?>"/></td>
                                             <td><?php echo $row['mrp'] ?></td>
                                             <td><?php echo $row['price'] ?></td>
                                             <td><?php echo $row['qty'] ?></td>
