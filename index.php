@@ -15,8 +15,8 @@ require('includes/header.inc.php');
                     <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
                         <div class="slide">
                             <div class="slider__inner">
-                                <h2>collection 2018</h2>
-                                <h1>NICE CHAIR</h1>
+                                <h2>collection 2020</h2>
+                                <h1>WOMEN'S WEAR</h1>
                                 <div class="cr__btn">
                                     <a href="cart.html">Shop Now</a>
                                 </div>
@@ -25,7 +25,7 @@ require('includes/header.inc.php');
                     </div>
                     <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                         <div class="slide__thumb">
-                            <img src="images/slider/fornt-img/1.png" alt="slider images">
+                            <img src="media/slider/1.jpg" alt="slider images">
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@ require('includes/header.inc.php');
             <div class="col-xs-12">
                 <div class="section__title--2 text-center">
                     <h2 class="title__line">New Arrivals</h2>
-                    <p>But I must explain to you how all this mistaken idea</p>
+                    <p>Some of the latest trends in town</p>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@ require('includes/header.inc.php');
                     <?php?>
                     <?php
 
-                    $get_product = get_product($con, '8','','');
+                    $get_product = get_product($con, '8', '', '');
                     foreach ($get_product as $list) {
 
                     ?>
@@ -86,8 +86,8 @@ require('includes/header.inc.php');
                         <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
                             <div class="category">
                                 <div class="ht__cat__thumb">
-                                    <a href="product.php?id=<?php echo $list['id']?>">
-                                        <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                                    <a href="product.php?id=<?php echo $list['id'] ?>">
+                                        <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
                                     </a>
                                 </div>
                                 <!-- <div class="fr__hover__info">
@@ -100,11 +100,11 @@ require('includes/header.inc.php');
                                 </ul>
                             </div> -->
                                 <div class="fr__product__inner">
-                                    <h4><a href="product-details.html"> <?php echo $list['name']?>
+                                    <h4><a href="product-details.html"> <?php echo $list['name'] ?>
                                         </a></h4>
                                     <ul class="fr__pro__prize">
-                                        <li class="old__prize">₹<?php echo $list['mrp']?></li>
-                                        <li>₹<?php echo $list['price']?></li>
+                                        <li class="old__prize">₹<?php echo $list['mrp'] ?></li>
+                                        <li>₹<?php echo $list['price'] ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ require('includes/header.inc.php');
             <div class="col-xs-12">
                 <div class="section__title--2 text-center">
                     <h2 class="title__line">Best Seller</h2>
-                    <p>But I must explain to you how all this mistaken idea</p>
+                    <p>Some of the latest trends in town</p>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@ require('includes/header.inc.php');
                     <div class="category">
                         <div class="ht__cat__thumb">
                             <a href="product-details.html">
-                                <img src="images/product/9.jpg" alt="product images">
+                                <img src="media/placeholder.jpg" alt="product images">
                             </a>
                         </div>
                         <div class="fr__hover__info">
@@ -153,8 +153,8 @@ require('includes/header.inc.php');
                         <div class="fr__product__inner">
                             <h4><a href="product-details.html">Special Wood Basket</a></h4>
                             <ul class="fr__pro__prize">
-                                <li class="old__prize">$30.3</li>
-                                <li>$25.9</li>
+                                <li class="old__prize">₹30.3</li>
+                                <li>₹25.9</li>
                             </ul>
                         </div>
                     </div>
@@ -165,7 +165,7 @@ require('includes/header.inc.php');
                     <div class="category">
                         <div class="ht__cat__thumb">
                             <a href="product-details.html">
-                                <img src="images/product/10.jpg" alt="product images">
+                                <img src="media/placeholder.jpg" alt="product images">
                             </a>
                         </div>
                         <div class="fr__hover__info">
@@ -180,8 +180,8 @@ require('includes/header.inc.php');
                         <div class="fr__product__inner">
                             <h4><a href="product-details.html">voluptatem accusantium</a></h4>
                             <ul class="fr__pro__prize">
-                                <li class="old__prize">$30.3</li>
-                                <li>$25.9</li>
+                                <li class="old__prize">₹30.3</li>
+                                <li>₹25.9</li>
                             </ul>
                         </div>
                     </div>
@@ -192,7 +192,7 @@ require('includes/header.inc.php');
                     <div class="category">
                         <div class="ht__cat__thumb">
                             <a href="product-details.html">
-                                <img src="images/product/11.jpg" alt="product images">
+                                <img src="media/placeholder.jpg" alt="product images">
                             </a>
                         </div>
                         <div class="fr__hover__info">
@@ -207,8 +207,8 @@ require('includes/header.inc.php');
                         <div class="fr__product__inner">
                             <h4><a href="product-details.html">Product Dummy Name</a></h4>
                             <ul class="fr__pro__prize">
-                                <li class="old__prize">$30.3</li>
-                                <li>$25.9</li>
+                                <li class="old__prize">₹30.3</li>
+                                <li>₹25.9</li>
                             </ul>
                         </div>
                     </div>
@@ -219,7 +219,7 @@ require('includes/header.inc.php');
                     <div class="category">
                         <div class="ht__cat__thumb">
                             <a href="product-details.html">
-                                <img src="images/product/12.jpg" alt="product images">
+                                <img src="media/placeholder.jpg" alt="product images">
                             </a>
                         </div>
                         <div class="fr__hover__info">
@@ -234,8 +234,8 @@ require('includes/header.inc.php');
                         <div class="fr__product__inner">
                             <h4><a href="product-details.html">Product Title Here </a></h4>
                             <ul class="fr__pro__prize">
-                                <li class="old__prize">$30.3</li>
-                                <li>$25.9</li>
+                                <li class="old__prize">₹30.3</li>
+                                <li>₹25.9</li>
                             </ul>
                         </div>
                     </div>

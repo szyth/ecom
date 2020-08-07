@@ -1,6 +1,6 @@
 <?php
-require('connection.inc.php');
-require('functions.inc.php');
+require('includes/connection.inc.php');
+require('includes/functions.inc.php');
 
 $msg = '';
 if(isset($_POST['submit'])) {

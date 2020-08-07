@@ -45,9 +45,6 @@ while ($row = mysqli_fetch_assoc($cat_res)) {
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <!-- Body main wrapper start -->
     <div class="wrapper">
@@ -60,7 +57,7 @@ while ($row = mysqli_fetch_assoc($cat_res)) {
                         <div class="menumenu__container clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
                                 <div class="logo">
-                                    <a href="index.php"><img src="images/logo/4.png" alt="logo images"></a>
+                                    <a href="index.php"><img src="media/logo.png" alt="logo images"></a>
                                 </div>
                             </div>
                             <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">

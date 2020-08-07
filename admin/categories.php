@@ -1,9 +1,9 @@
 <?php
-require('top.inc.php');
+require('includes/top.inc.php');
 
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value($con, $_GET['type']);
-   
+
     if ($type == 'status') {
 
         $operation = get_safe_value($con, $_GET['operation']);
@@ -11,11 +11,9 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 
         if ($operation == 'active') {
             $status = '1';
-        } 
-        else if ($operation == 'deactive')   {
+        } else if ($operation == 'deactive') {
             $status = '0';
-        }
-        else{
+        } else {
             echo "Wrong Input";
         }
 
@@ -91,5 +89,5 @@ $res = mysqli_query($con, $sql);
 </div>
 
 <?php
-require('footer.inc.php');
+require('includes/footer.inc.php');
 ?>

@@ -3,7 +3,7 @@ require('includes/header.inc.php');
 ?>
 
 <!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.png) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(media/banner.png) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -38,7 +38,7 @@ require('includes/header.inc.php');
                     </div>
                     <div class="address__details">
                         <h2 class="ct__title">our address</h2>
-                        <p>666 5th Ave New York, NY, United </p>
+                        <p>C-25, Aliganj, Lucknow, Uttar Pradesh, India.  </p>
                     </div>
                 </div>
                 <div class="address">
@@ -46,8 +46,8 @@ require('includes/header.inc.php');
                         <i class="icon-envelope icons"></i>
                     </div>
                     <div class="address__details">
-                        <h2 class="ct__title">openning hour</h2>
-                        <p>666 5th Ave New York, NY, United </p>
+                        <h2 class="ct__title">customer support</h2>
+                        <p>24x7</p>
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ require('includes/header.inc.php');
                     </div>
                     <div class="address__details">
                         <h2 class="ct__title">Phone Number</h2>
-                        <p>123-6586-587456</p>
+                        <p>+91-522-431-6496</p>
                     </div>
                 </div>
             </div>
@@ -74,14 +74,18 @@ require('includes/header.inc.php');
                         <div class="single-contact-form">
                             <div class="contact-box name">
                                 <input type="text" id="name" name="name" placeholder="Your Name*">
+                                <span class="field_error" id="name_error"></span>
                                 <input type="email" id="email" name="email" placeholder="Email*">
+                                <span class="field_error" id="email_error"></span>
                                 <input type="email" id="mobile" name="mobile" placeholder="Phone No.*">
+                                <span class="field_error" id="mobile_error"></span>
                             </div>
                         </div>
                         <div class="single-contact-form">
                             <div class="contact-box message">
                                 <textarea name="comment" id="comment" placeholder="Your Message"></textarea>
                             </div>
+                            <span class="field_error" id="comment_error"></span>
                         </div>
                         <div class="contact-btn">
                             <button type="button" onclick="send_message()" class="fv-btn">Send MESSAGE</button>

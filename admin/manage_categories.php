@@ -1,5 +1,5 @@
 <?php
-require('top.inc.php');
+require('includes/top.inc.php');
 
 $categories = '';
 $msg = '';
@@ -74,5 +74,5 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <?php
-require('footer.inc.php');
+require('includes/footer.inc.php');
 ?>

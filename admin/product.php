@@ -1,5 +1,5 @@
 <?php
-require('top.inc.php');
+require('includes/top.inc.php');
 
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value($con, $_GET['type']);
@@ -99,5 +99,5 @@ $res = mysqli_query($con, $sql);
 </div>
 
 <?php
-require('footer.inc.php');
+require('includes/footer.inc.php');
 ?>

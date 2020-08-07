@@ -1,5 +1,5 @@
 <?php
-require('top.inc.php');
+require('includes/top.inc.php');
 
 $categories_id = '';
 $name = '';
@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     if ($_FILES['image']['type'] != $image && $_FILES['image']['type'] != 'image/png' && $_FILES['image']['type'] != 'image/jpg' && $_FILES['image']['type'] != 'image/jpeg') {
         $msg = "Please select only PNG,JPG or JPEG image format";
     }
-    if ($msg == '' && $categories_id!='0') {
+    if ($msg == '' && $categories_id != '0') {
         if (isset($_GET['id']) && $_GET['id'] != '') {
             if ($_FILES['image']['name'] != '') {
                 $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
@@ -174,5 +174,5 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <?php
-require('footer.inc.php');
+require('includes/footer.inc.php');
 ?>
