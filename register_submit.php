@@ -8,11 +8,13 @@ $mobile = get_safe_value($con, $_POST['mobile']);
 $password = get_safe_value($con, $_POST['password']);
 $added_on = date('Y-m-d h:i:s');
 
-$check_user = mysqli_num_rows(mysqli_query($con, "SELECT * FROM users WHERE email='$email'"));
+
+$sql = "SELECT * FROM users WHERE email='$email'";
+$check_user = mysqli_num_rows(mysqli_query($con, $sql));
 
 if ($check_user > 0) {
-    echo "Email already exists";
+    echo "wrong";
 } else {
     mysqli_query($con, "INSERT INTO users(name,password,email,mobile,added_on) VALUES ('$name','$password','$email','$mobile','$added_on')");
-    echo 'Thank You!';
+    echo 'valid';
 }

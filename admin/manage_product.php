@@ -39,7 +39,12 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
         $meta_desc = $row['meta_desc'];
         $meta_keyword = $row['meta_keyword'];
     } else {
-        header('location:product.php');
+        //header('location:product.php'); 
+?>
+        <script>
+            location.replace("product.php");
+        </script>
+<?php
         die();
     }
 }
