@@ -14,56 +14,58 @@
 
 
 <body>
+  <div class="navbar-fixed">
+    <nav class="white z-depth-0" role="navigation">
+      <div class="row">
+        <div class="col m4 l4 s12 ">
+          <ul class="right hide-on-med-and-down nav-ul">
+            <li><a href="index.html">Home</a></li>
+            <li id="dropdown"><a href="#">Categories &#9662;</a>
+              <ul class="dropdown">
+                <li><a href="#">Kids &#9656;</a></li>
+                <li><a href="#">Women's &#9656;</a></li>
+                <li><a href="#">Men's &#9656;</a></li>
+              </ul>
+            </li>
 
-  <nav class="white z-depth-0" role="navigation">
-    <div class="row">
-      <div class="col m4 l4 s12 ">
-        <ul class="right hide-on-med-and-down nav-ul">
-          <li><a href="#">Home</a></li>
-          <li id="dropdown"><a href="#">Categories &#9662;</a>
-            <ul class="dropdown">
-              <li><a href="#">Kids &#9656;</a></li>
-              <li><a href="#">Women's &#9656;</a></li>
-              <li><a href="#">Men's &#9656;</a></li>
-            </ul>
+          </ul>
+        </div>
+        <div class="col m4 l4 s12">
+          <a id="logo-container" class="brand-logo center" href="index.html">ECOMMERCE</a>
+        </div>
+        <div class="col m4 l4 s12">
+          <ul class="left hide-on-med-and-down nav-ul">
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <div class="divider"></div>
           </li>
-
-        </ul>
-      </div>
-      <div class="col m4 l4 s12">
-        <a id="logo-container" class="brand-logo center" href="index.php">ECOMMERCE</a>
-      </div>
-      <div class="col m4 l4 s12">
-        <ul class="left hide-on-med-and-down nav-ul">
+          <li><a class="subheader">Categories</a></li>
+          <ul>
+            <li><a href="#">Kids</a></li>
+            <li><a href="#">Women's</a></li>
+            <li><a href="#">Men's</a></li>
+          </ul>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">Cart</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="login.html">Login</a></li>
         </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
+    </nav>
 
-      <!-- MOBILE MENU -->
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Home</a></li>
-        <li>
-          <div class="divider"></div>
-        </li>
-        <li><a class="subheader">Categories</a></li>
-        <ul>
-          <li><a href="#">Kids</a></li>
-          <li><a href="#">Women's</a></li>
-          <li><a href="#">Men's</a></li>
-        </ul>
-        </li>
-        <li>
-          <div class="divider"></div>
-        </li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Cart</a></li>
-        <li><a href="#">Login</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+  </div>
 
 
   <!-- SLIDER -->
@@ -465,7 +467,7 @@
         <div class="col l3 s12">
           <h5 class="white-text">Quick Links</h5>
           <ul class="quick-links">
-            <li><a class="white-text" href="#!">HOME</a></li>
+            <li><a class="white-text" href="index.html">HOME</a></li>
             <li><a class="white-text" href="#!">CATEGORIES</a></li>
             <li><a class="white-text" href="#!">CONTACT</a></li>
             <li><a class="white-text" href="#!">LOGIN</a></li>

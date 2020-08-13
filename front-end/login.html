@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OBB - ECOM</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav class="white z-depth-0" role="navigation">
+            <div class="row">
+                <div class="col m4 l4 s12 ">
+                    <ul class="right hide-on-med-and-down nav-ul">
+                        <li><a href="index.html">Home</a></li>
+                        <li id="dropdown"><a href="#">Categories &#9662;</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Kids &#9656;</a></li>
+                                <li><a href="#">Women's &#9656;</a></li>
+                                <li><a href="#">Men's &#9656;</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col m4 l4 s12">
+                    <a id="logo-container" class="brand-logo center" href="index.html">ECOMMERCE</a>
+                </div>
+                <div class="col m4 l4 s12">
+                    <ul class="left hide-on-med-and-down nav-ul">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- MOBILE MENU -->
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li><a class="subheader">Categories</a></li>
+                    <ul>
+                        <li><a href="#">Kids</a></li>
+                        <li><a href="#">Women's</a></li>
+                        <li><a href="#">Men's</a></li>
+                    </ul>
+                    </li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+    </div>
+
+    <section>
+        <div class="parallax-container valign-wrapper">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <div class="row center">
+                        <h5 class="header col s12 white black-text">Login/Register
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax"><img src="media/parallax/2.jpg" alt="Unsplashed background img 2"></div>
+        </div>
+        <div class="row container center">
+            <form class="col m6 l6 s12 ">
+                <h2>Login</h2>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="login-email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="login-password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <a id="all_product_button" class="waves-effect waves-light btn-large  btn-flat center">Login</a>
+
+            </form>
+
+
+            <form class="col m6 l6 s12 ">
+                <h2>Register</h2>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="Incorrect Email ID" data-success="right"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="mobile" type="number" class="validate">
+                        <label for="mobile">Mobile No.</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <a id="all_product_button" class="waves-effect waves-light btn-large  btn-flat center">Sign Up</a>
+
+            </form>
+        </div>
+    </section>
+
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5>ECOMMERCE</h5>
+                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like
+                        it's our
+                        full time job. Any amount would help support and continue development on this project and is
+                        greatly
+                        appreciated.</p>
+
+
+                </div>
+                <div class="col l3 s12">
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Quick Links</h5>
+                    <ul class="quick-links">
+                        <li><a class="white-text" href="#!">HOME</a></li>
+                        <li><a class="white-text" href="#!">CATEGORIES</a></li>
+                        <li><a class="white-text" href="#!">CONTACT</a></li>
+                        <li><a class="white-text" href="#!">LOGIN</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="https://onebigbit.com/">One Big Bit</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+</body>
+
+</html>
