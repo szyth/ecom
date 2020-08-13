@@ -233,3 +233,20 @@ nav {
 
 
 /* NEW ARRIVALS - END */
+
+/* ALL PRODUCTS */
+
+#all_product_button.btn-large {
+  margin: 20px;
+  background-color: rgb(255, 102, 186);
+  color: rgb(255, 255, 255);
+
+}
+
+#all_product_button.btn-large:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
+/* ALL PRODUCTS - END */
