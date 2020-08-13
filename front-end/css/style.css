@@ -64,6 +64,13 @@ footer.page-footer {
 
 /* CUSTOM EDIT FROM HERE */
 
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  background-color: rgb(248, 248, 248);
+}
+
 /* NAV */
 
 nav {
@@ -72,7 +79,7 @@ nav {
   text-transform: uppercase;
 }
 
-.nav-ul{
+.nav-ul {
   font-weight: 600;
 }
 
@@ -83,9 +90,59 @@ nav {
 
 /* NAV - END  */
 
+/* SLIDER */
+
+.slider-container {
+  padding: 5%;
+}
+
+.text-translate {
+  transform: translateX(-100px);
+
+}
+
+.slider-title {
+  font-size: 4em;
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+}
 
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: #000;
+
+.btn-large {
+  width: 200px;
+  transform: translateX(20px);
+  height: 70px;
+  line-height: 70px;
+  font-size: larger;
+  background-color: rgb(255, 102, 186);
+  color: rgb(255, 255, 255);
+
+}
+
+.btn-large:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+}
+
+/* SLIDER - END */
+
+@media screen and (max-width: 768px) {
+  .text-translate {
+    transform: translateX(0px);
+
+  }
+
+  .slider-title {
+    font-size: 2.7em;
+  }
+
+  .btn-large {
+    width: 150px;
+    transform: translateX(0px);
+    height: 40px;
+    line-height: 40px;
+    font-size: smaller;
+
+  }
 }
