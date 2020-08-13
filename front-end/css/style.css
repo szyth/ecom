@@ -19,7 +19,8 @@ p {
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+  color: rgb(190, 0, 105);
+  margin-top: 10px !important;
 }
 
 .parallax-container {
@@ -60,6 +61,8 @@ p {
 
 footer.page-footer {
   margin: 0;
+  background-color: rgb(66, 42, 77);
+  color: rgb(223, 223, 223) !important;
 }
 
 /* CUSTOM EDIT FROM HERE */
@@ -87,6 +90,35 @@ nav {
   font-size: 2.1rem !important;
   font-family: 'Oswald', sans-serif;
 }
+
+nav ul a:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* DROPDOWN */
+nav ul li {
+  position: relative;
+}
+
+ul li ul.dropdown {
+  /* Set width of the dropdown */
+  background: #ffffff;
+  display: none;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+}
+
+nav ul li ul a:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+ul li:hover ul.dropdown {
+  display: block;
+  /* Display the dropdown */
+}
+
+@media screen and (max-width: 768px) {}
 
 /* NAV - END  */
 
@@ -138,7 +170,7 @@ nav {
 
   .btn-large {
     width: 150px;
-    transform: translateX(0px);
+    transform: translateX(0px) !important;
     height: 40px;
     line-height: 40px;
     font-size: smaller;
@@ -250,3 +282,16 @@ nav {
 }
 
 /* ALL PRODUCTS - END */
+
+/* QUICK LINKS */
+.quick-links li {
+  padding: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  .quick-links li {
+    padding: 2%;
+  }
+}
+
+/* QUICK LINKS - END */
