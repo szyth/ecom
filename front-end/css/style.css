@@ -109,7 +109,7 @@ nav {
 
 
 
-.btn-large {
+#banner_button.btn-large {
   width: 200px;
   transform: translateX(20px);
   height: 70px;
@@ -120,12 +120,11 @@ nav {
 
 }
 
-.btn-large:hover {
+#banner_button.btn-large:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(36, 36, 36);
+  border: solid #444 1px;
 }
-
-/* SLIDER - END */
 
 @media screen and (max-width: 768px) {
   .text-translate {
@@ -146,3 +145,91 @@ nav {
 
   }
 }
+
+/* SLIDER - END */
+
+/* NEW ARRIVALS */
+
+#new_arrivals {
+  background-color: #fff;
+  padding-top: 10px;
+}
+
+#new_arrivals .title h1 {
+  color: #313131;
+  font-family: Poppins, sans-serif;
+  font-size: 2.7em !important;
+  font-weight: 700;
+}
+
+#new_arrivals .title p {
+  color: #686868;
+  font-size: 1em !important;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+
+
+/* card */
+
+.dress-card {
+  border: solid rgb(219, 219, 219) 1px;
+  border-radius: 14px;
+  margin: 7%;
+}
+
+.dress-card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 7px 7px 0 0;
+}
+
+.dress-card-body {
+  padding: 1rem;
+  border-radius: 0 0 7px 7px;
+}
+
+.dress-card-title {
+  line-height: 0.5rem;
+  font-size: 1.8em;
+}
+
+.dress-card-crossed {
+  text-decoration: line-through;
+}
+
+.dress-card-price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.dress-card-off {
+  color: #E06C9F;
+}
+
+.dress-card-para {
+  font-size: 1.0rem;
+}
+
+
+#product_button.btn-small {
+  background-color: rgb(255, 102, 186);
+  color: rgb(255, 255, 255);
+
+}
+
+#product_button.btn-small:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .dress-card {
+    margin: 3%;
+  }
+}
+
+
+
+/* NEW ARRIVALS - END */
