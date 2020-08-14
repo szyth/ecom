@@ -76,7 +76,7 @@
                         <h5 class="header col s12">
                             <div class="breadcrumb_wrapper">
                                 <a href="index.html" class="breadcrumb">Home</a>
-                                <a href="login.html" class="breadcrumb">User Login</a>
+                                <a href="login.html" class="breadcrumb">Contact</a>
                             </div>
                         </h5>
                     </div>
@@ -84,78 +84,85 @@
             </div>
             <div class="parallax"><img src="media/parallax/2.jpg" alt="Unsplashed background img 2"></div>
         </div>
+    </section>
 
-        <!-- TABS -->
-        <div class="login_wrapper">
-            <div class="row">
-                <div class="col s12 m6 push-m3">
-                    <ul class="tabs">
-                        <li class="tab col s6"><a class="active" href="#tab1">Login</a></li>
-                        <li class="tab col s6"><a href="#tab2">Register</a></li>
-                    </ul>
+    <div class="row">
+        <div class="col s12 m6 offset-m1 maps">
+            <a href="https://onebigbit.com/"> <img src="media/map/obb_map.PNG" alt=""></a>
+        </div>
+        <div class="col s12 m4">
+            <div class="address">
+                <div class="address__icon">
+                    <i class="material-icons prefix">place</i>
+
                 </div>
-
+                <div class="address__details">
+                    <h2 class="ct__title">our address</h2>
+                    <p>C-25, Aliganj, Lucknow, Uttar Pradesh, India. </p>
+                </div>
             </div>
 
-            <div class="row">
-                <!-- LOGIN FORM -->
-                <form class="col s10 push-s1 m6 push-m3" id="tab1">
-                    <!-- <h2>Login</h2> -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="login-email" type="email" class="validate">
-                            <label for="login-email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="login-password" type="password" class="validate">
-                            <label for="login-password">Password</label>
-                        </div>
-                    </div>
-                    <a id="submit_button" class="left waves-effect waves-light btn-large btn-flat">Login</a>
-
-                </form>
-
-                <!-- SIGNUP FORM  -->
-                <form class="col s10 push-s1 m6 push-m3" id="tab2">
-                    <!-- <h2>Register</h2> -->
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="signup-name" type="text" class="validate">
-                            <label for="signup-name">Name</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                            <span class="helper-text" data-error="Incorrect Email ID" data-success="right"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="mobile" type="number" class="validate">
-                            <label for="mobile">Mobile No.</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <a id="submit_button" class="waves-effect waves-light btn-large  btn-flat center">Sign Up</a>
-
-                </form>
+            <div class="address">
+                <div class="address__icon">
+                    <i class="material-icons">phone</i>
+                </div>
+                <div class="address__details">
+                    <h2 class="ct__title">Phone Number</h2>
+                    <p>+91-522-431-6496</p>
+                </div>
+            </div>
+            <div class="address">
+                <div class="address__icon">
+                    <i class="material-icons prefix">build</i>
+                </div>
+                <div class="address__details">
+                    <h2 class="ct__title">customer support</h2>
+                    <p>24x7</p>
+                </div>
             </div>
 
         </div>
+    </div>
+    </div>
 
-    </section>
 
+    <div id="" class="row">
+        <div class="col s12 m10  offset-m1">
+            <div class="card">
+                <div class="card-content white-text">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12 m4">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Name</label>
+                                </div>
+                                <div class="input-field col s12 m4">
+                                    <i class="material-icons prefix">mail</i>
+                                    <input id="icon_email" type="email" class="validate">
+                                    <label for="icon_email">Email</label>
+                                </div>
+                                <div class="input-field col s12 m4">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Telephone</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">chat</i>
+                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                    <label for="textarea1">Your Message</label>
+                                </div>
+                            </div>
+                            <a id="submit_button" class="waves-effect waves-light btn-large  btn-flat center">Send
+                                Message</a>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <footer class="page-footer">
@@ -163,8 +170,10 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5>ECOMMERCE</h5>
-                    <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                        scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna
+                    <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Nullam
+                        scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non
+                        consequat magna
                         fermentum ac.</p>
                 </div>
                 <div class="col l3 s12">
@@ -182,7 +191,8 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                Made by <a class="brown-text text-lighten-3" href="https://onebigbit.com/">One Big Bit</a>
+                Made by <a class="brown-text text-lighten-3" href="https://onebigbit.com/">One Big
+                    Bit</a>
             </div>
         </div>
     </footer>

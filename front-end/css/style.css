@@ -129,6 +129,7 @@ ul li:hover ul.dropdown {
 
 .slider-container {
   padding: 5%;
+  background-color: rgb(245, 245, 245);
 }
 
 .text-translate {
@@ -317,6 +318,7 @@ ul li:hover ul.dropdown {
 
 .card {
   background-color: rgb(66, 42, 77);
+  border-radius: 18px;
 }
 
 .input-field>label {
@@ -371,11 +373,16 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border: solid #444 1px;
 }
 
+.input-field .prefix.active {
+  color: rgb(255, 172, 217);
+}
+
 /* LOGIN - END */
 
 /* BREADCRUMB */
 .breadcrumb_wrapper {
   font-family: Poppins, sans-serif;
+  z-index: -1;
   padding-top: 2%;
   padding-bottom: 2%;
   background-color: rgba(29, 29, 29, 0.459);
@@ -385,10 +392,18 @@ textarea.materialize-textarea:focus:not([readonly]) {
   font-size: 1em;
 }
 
+
+
 @media screen and (max-width: 768px) {
+
   .breadcrumb_wrapper a {
     font-size: 0.7em;
   }
+
+  .breadcrumb_wrapper .header {
+    font-size: 1em;
+  }
+
 }
 
 /* BREADCRUMB - END */
@@ -485,3 +500,55 @@ select {
 }
 
 /* PRODUCT - END */
+
+/* CONTACT.HTML */
+/* MAPS */
+.maps {
+  margin-top: 30px;
+}
+
+.maps img {
+  width: 100%;
+  height: auto;
+}
+
+.address {
+  align-items: center;
+  display: flex;
+  margin-top: 20px;
+}
+
+.address__icon i {
+  color: #fefefe;
+  font-size: 36px;
+}
+
+.address__icon {
+  background: #c43b68 none repeat scroll 0 0;
+  height: 120px;
+  line-height: 144px;
+  text-align: center;
+  width: 110px;
+}
+
+.address__details {
+  background: #f5f5f5 none repeat scroll 0 0;
+  flex-basis: calc(100% - 110px);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.address__details h2 {
+  color: #212121;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.address__details p {
+  color: #666666;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* MAPS - END*/
