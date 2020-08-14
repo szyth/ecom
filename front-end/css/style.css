@@ -299,7 +299,52 @@ ul li:hover ul.dropdown {
 
 
 /* LOGIN */
-.login_form{
-  
+.login_wrapper {
+  /* background-color: #fff; */
 }
+
+.tabs .tab a {
+  color: rgba(32, 32, 32, 0.7);
+  font-size: 1.2em;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+  background-color: transparent;
+  color: rgb(243, 142, 198);
+}
+
+.tabs .indicator {
+  background-color: rgb(243, 142, 198);
+}
+
+#submit_button.btn-large {
+  margin: 20px;
+  margin-left: 0;
+  background-color: rgb(255, 102, 186);
+  color: rgb(255, 255, 255);
+
+}
+
+#submit_button.btn-large:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
 /* LOGIN - END */
+
+/* BREADCRUMB */
+.breadcrumb_wrapper {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: rgba(29, 29, 29, 0.459);
+}
+
+.breadcrumb_wrapper a {
+  /* color: #E06C9F; */
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+/* BREADCRUMB - END */
