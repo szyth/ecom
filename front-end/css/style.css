@@ -121,7 +121,28 @@ ul li:hover ul.dropdown {
   /* Display the dropdown */
 }
 
-@media screen and (max-width: 768px) {}
+#nav_cart {
+  margin-left: 10px;
+
+}
+
+.material-icons-outlined {
+  margin-top: 15px;
+  font-weight: 300;
+  color: #925692;
+  vertical-align: middle;
+  font-size: 40px;
+}
+
+@media screen and (max-width: 992px) {
+  .material-icons-outlined {
+    margin-top: 0px;
+    font-weight: 300;
+    color: rgb(156, 0, 86);
+    vertical-align: unset;
+    font-size: 30px;
+  }
+}
 
 /* NAV - END  */
 
