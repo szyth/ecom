@@ -240,7 +240,7 @@ nav i.material-icons {
 /* card */
 .box_shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transform: translate(3px,3px);
+  transform: translate(3px, 3px);
   transition: ease-in-out 140ms;
 }
 
@@ -349,13 +349,71 @@ nav i.material-icons {
 
 
 /* LOGIN */
+
 #login {
+  overflow: hidden;
+  background: url('../media/login/1.jpg');
+  margin: 0;
+}
+
+
+.login-title {
+
+  font-size: 4em;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1%;
+
+}
+
+.login-body {
+  border: solid #e2e2e2 1px;
+  line-height: 1.7em;
+  font-size: 1.4em;
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+
+}
+
+#login .card {
   margin-top: 10px;
 }
 
-.card {
-  background-color: rgb(66, 42, 77);
-  border-radius: 18px;
+.tabs {
+  background-color: inherit;
+}
+
+.tabs li a {
+  color: rgb(185, 185, 185) !important;
+}
+
+.tabs .tab .active {
+  transition: ease 300ms;
+  font-size: 2rem;
+  color: #ffffff !important;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.tabs .indicator {
+  display: none;
+}
+
+
+
+.login_card_custom {
+  background-color: #422a4d;
+}
+
+
+.register-card {
+  background-color: #095f58 !important;
+
 }
 
 .input-field>label {
@@ -411,7 +469,16 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .input-field .prefix.active {
-  color: rgb(255, 172, 217);
+  color: rgb(206, 206, 206);
+}
+
+@media screen and (max-width: 768px) {
+
+
+  .login-title {
+    padding: 3%;
+    font-size: 2.7em;
+  }
 }
 
 /* LOGIN - END */
@@ -589,3 +656,23 @@ select {
 }
 
 /* MAPS - END*/
+
+.contact_card_custom {
+  background-color: #c43b68;
+  border-radius: 18px;
+}
+
+#contact_submit_button.btn-large {
+  margin: 20px;
+  margin-left: 0;
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+}
+
+#contact_submit_button.btn-large:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
+/* CONTACT - END */
