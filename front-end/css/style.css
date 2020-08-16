@@ -153,7 +153,7 @@ nav i.material-icons {
 }
 
 .carousel.carousel-slider {
-  max-height: 60vh;
+  max-height: 60vh !important;
 }
 
 .text-translate {
@@ -190,8 +190,9 @@ nav i.material-icons {
 @media screen and (max-width: 768px) {
 
   .carousel.carousel-slider {
-    max-height: 45vh;
+    max-height: 60vh !important;
   }
+
 
   .text-translate {
     transform: translateX(0px);
@@ -454,20 +455,36 @@ textarea.materialize-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #d1d1d1;
 }
 
-#submit_button.btn-large {
+
+/* BUTTONS */
+
+.btn-large {
   margin: 20px;
   margin-left: 0;
-  background-color: rgb(255, 102, 186);
-  color: rgb(255, 255, 255);
-
-}
-
-#submit_button.btn-large:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(36, 36, 36);
-  border: solid #444 1px;
+
 }
 
+.btn-large:hover {
+  color: rgb(255, 255, 255);
+  border: solid rgb(255, 255, 255) 1px;
+}
+
+#submit_login_button.btn-large:hover {
+  background-color: #422a4d;
+}
+
+#submit_signup_button.btn-large:hover {
+  background-color: #095f58;
+}
+
+
+#contact_submit_button.btn-large:hover {
+  background-color: #c43b68;
+}
+
+/* BUTTONS - END */
 .input-field .prefix.active {
   color: rgb(206, 206, 206);
 }
@@ -662,17 +679,89 @@ select {
   border-radius: 18px;
 }
 
-#contact_submit_button.btn-large {
-  margin: 20px;
-  margin-left: 0;
-  background-color: rgb(255, 255, 255);
-  color: rgb(36, 36, 36);
-}
-
-#contact_submit_button.btn-large:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(36, 36, 36);
-  border: solid #444 1px;
-}
 
 /* CONTACT - END */
+
+
+
+/* FILTERS */
+/* .row #filters.push-m1 {
+  left: 5.3333333333%
+} */
+
+#filters {
+  /* font-family: Roboto, sans-serif; */
+  overflow: hidden;
+  z-index: 0;
+  text-transform: uppercase;
+}
+
+#filters .title {
+  color: #202020;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3em !important;
+  font-weight: 600;
+}
+
+.filter_content {
+  margin: 5%;
+}
+
+.filter_head {
+  font-family: 'Roboto', sans-serif;
+  padding: 1rem;
+  margin: 0;
+  font-size: 0.8em !important;
+  font-weight: 700;
+  color: #212121;
+
+}
+
+.filter_head:hover {
+  background-color: rgb(245, 245, 245);
+
+}
+
+.filter_options {
+  display: none;
+  padding: 5%;
+}
+
+#color_body {
+  display: block;
+}
+
+.filter_options p {
+  line-height: 1em;
+}
+
+.filter_options label {
+  color: #242424;
+}
+
+[type="checkbox"]+span:not(.lever) {
+  font-size: 0.9rem;
+}
+
+[type="radio"]:not(:checked)+span,
+[type="radio"]:checked+span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgb(68, 68, 68);
+
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  background-color: rgb(59, 0, 94);
+  z-index: 0;
+}
+
+.color_buttons a {
+  margin: 2%;
+}
+
+/* FILTERS - END */
