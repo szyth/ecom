@@ -63,11 +63,7 @@ p {
   font-size: inherit;
 }
 
-footer.page-footer {
-  margin: 0;
-  background-color: rgb(66, 42, 77);
-  color: rgb(223, 223, 223) !important;
-}
+
 
 /* CUSTOM EDIT FROM HERE */
 
@@ -98,6 +94,7 @@ nav {
 nav ul a:hover {
   background-color: rgba(255, 0, 0, 0.1);
 }
+
 .row .col.push-custom {
   left: 13% !important;
 }
@@ -768,3 +765,37 @@ select {
 }
 
 /* FILTERS - END */
+
+/* FOOTER */
+footer.page-footer {
+  margin: 0;
+  background-color: rgb(66, 42, 77);
+  color: rgb(223, 223, 223) !important;
+}
+
+.footer-copyright {
+  background-color: rgb(17, 17, 17) !important;
+}
+
+#curve {
+  transform: translateY(10px);
+}
+
+#curve path {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  fill: rgb(66, 42, 77);
+}
+
+.footer_card {
+  background-color: rgb(83, 53, 97);
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-size: 1em !important;
+}
+
+/* FOOTER - END */
