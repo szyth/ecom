@@ -334,25 +334,11 @@ nav i.material-icons {
 
 /* ALL PRODUCTS - END */
 
-/* QUICK LINKS */
-.quick-links li {
-  padding: 5%;
-}
-
-@media screen and (max-width: 768px) {
-  .quick-links li {
-    padding: 2%;
-  }
-}
-
-/* QUICK LINKS - END */
-
 
 
 /* LOGIN */
 
 #login {
-  overflow: hidden;
   background: url('../media/login/1.jpg');
   margin: 0;
 }
@@ -767,6 +753,10 @@ select {
 /* FILTERS - END */
 
 /* FOOTER */
+
+footer{
+  
+}
 footer.page-footer {
   margin: 0;
   background-color: rgb(66, 42, 77);
@@ -777,14 +767,15 @@ footer.page-footer {
   background-color: rgb(17, 17, 17) !important;
 }
 
-#curve {
+.curve {
   transform: translateY(10px);
 }
 
-#curve path {
+.curve path {
   margin: 0;
   padding: 0;
   bottom: 0;
+  background-color: #fff;
   fill: rgb(66, 42, 77);
 }
 
@@ -797,5 +788,36 @@ footer.page-footer {
   text-transform: uppercase;
   font-size: 1em !important;
 }
+
+.socials a{
+  color: rgb(248, 248, 248);
+  margin: 4%;
+  font-size: 2.5rem;
+}
+
+.socials a:hover{
+  color: rgb(197, 197, 197);
+}
+
+
+.quick-links li {
+  font-size: 0.8em;
+  padding: 3%;
+}
+
+@media screen and (max-width: 768px) {
+  .quick-links li {
+    padding: 2%;
+  }
+
+  .socials a{
+    margin: 2%;
+    font-size: 1.5rem;
+  }
+  
+}
+
+
+
 
 /* FOOTER - END */
