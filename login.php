@@ -8,8 +8,8 @@
                 <div class="row center">
                     <h5 class="header col s12">
                         <div class="breadcrumb_wrapper">
-                            <a href="index.html" class="breadcrumb">Home</a>
-                            <a href="login.html" class="breadcrumb">User Login</a>
+                            <a href="index.php" class="breadcrumb">Home</a>
+                            <a class="breadcrumb">User Login</a>
                         </div>
                     </h5>
                 </div>
@@ -46,42 +46,52 @@
                             <i class="material-icons prefix">mail</i>
                             <input id="login_email" type="email" class="validate white-text">
                             <label for="login_email">Email</label>
-                            <span class="helper-text" data-error="Incorrect Email ID" data-success="right"></span>
+                            <span class="field_error" id="login_email_error"></span>
                         </div>
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock</i>
                             <input id="login_password" type="password" class="validate white-text">
                             <label for="login_password">Password</label>
+                            <span class="field_error" id="login_password_error"></span>
                         </div>
                     </div>
-                    <a id="submit_login_button" class="waves-effect waves-light btn-large  btn-flat center">Login</a>
+                    <div class="form-output login_msg">
+                        <p class="form-messege"></p>
+                    </div>
+                    <a id="submit_login_button" onclick="user_login()" class="waves-effect waves-light btn-large  btn-flat center">Login</a>
 
                 </form>
                 <form id="signup_form">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="signup-name" type="text" class="validate white-text">
-                            <label for="signup-name">Name</label>
+                            <input id="name" type="text" class="validate white-text">
+                            <label for="name">Name</label>
+                            <span class="field_error" id="name_error"></span>
                         </div>
                         <div class="input-field col s12 m6 ">
                             <i class="material-icons prefix">mail</i>
                             <input id="email" type="email" class="validate white-text">
                             <label for="email">Email</label>
-                            <span class="helper-text" data-error="Incorrect Email ID" data-success="right"></span>
+                            <span class="field_error" id="email_error"></span>
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">phone</i>
                             <input id="mobile" type="number" class="validate white-text">
                             <label for="mobile">Mobile No.</label>
+                            <span class="field_error" id="mobile_error"></span>
                         </div>
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock</i>
                             <input id="password" type="password" class="validate white-text">
                             <label for="password">Password</label>
+                            <span class="field_error" id="password_error"></span>
                         </div>
                     </div>
-                    <a id="submit_signup_button" class="waves-effect waves-light btn-large btn-flat center">Sign
+                    <div class="form-output register_msg">
+                        <p class="form-messege"></p>
+                    </div>
+                    <a id="submit_signup_button" onclick="user_register()" class="waves-effect waves-light btn-large btn-flat center">Sign
                         Up</a>
 
                 </form>

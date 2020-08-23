@@ -3,6 +3,15 @@
 require('connection.inc.php');
 require('function.inc.php');
 
+
+$cat_res = mysqli_query($con, "SELECT * FROM categories WHERE status=1 ORDER BY categories ASC");
+
+$cat_arr = array();
+while ($row = mysqli_fetch_assoc($cat_res)) {
+    $cat_arr[] = $row;
+}
+
+
 ?>
 
 
@@ -32,9 +41,16 @@ require('function.inc.php');
                 <div class="col s12 m6 push-custom">
                     <ul class="hide-on-med-and-down nav-ul">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="categories.php">Kid's</a></li>
-                        <li><a href="categories.php">Women's</a></li>
-                        <li><a href="categories.php">Men's</a></li>
+
+                        <?php
+                        foreach ($cat_arr as $list) {
+                        ?>
+                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+
+                        <?php
+                        }
+                        ?>
+
                         <!-- dropdown -->
                         <!-- <li id="dropdown"><a href="#">Categories &#9662;</a>
                         <ul class="dropdown">
@@ -50,7 +66,14 @@ require('function.inc.php');
                 <div class="col s12 m3">
                     <ul class="hide-on-med-and-down nav-ul">
                         <li><a href="contact.php">Contact</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <li> <?php
+                                if (isset($_SESSION['USER_LOGIN'])) {
+                                    echo '<a href="logout.php">Logout</a>';
+                                } else {
+                                    echo '<a href="login.php">Login</a>';
+                                }
+                                ?>
+                        </li>
                         <li id="nav_cart"><a href="#"> <i class="material-icons-outlined">shopping_cart</i>
                             </a></li>
                     </ul>
@@ -65,9 +88,14 @@ require('function.inc.php');
                     </li>
                     <li><a class="subheader">Categories</a></li>
                     <ul>
-                        <li><a href="categories.php">Kids</a></li>
-                        <li><a href="categories.php">Women's</a></li>
-                        <li><a href="categories.php">Men's</a></li>
+                        <?php
+                        foreach ($cat_arr as $list) {
+                        ?>
+                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+
+                        <?php
+                        }
+                        ?>
                     </ul>
                     </li>
                     <li>
@@ -75,7 +103,14 @@ require('function.inc.php');
                     </li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="#">Cart</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li><?php
+                        if (isset($_SESSION['USER_LOGIN'])) {
+                            echo '<a href="logout.php">Logout</a>';
+                        } else {
+                            echo '<a href="login.php">Login</a>';
+                        }
+                        ?>
+                    </li>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
                 <a href="cart.html" class="right sidenav-trigger"><i class="material-icons-outlined">shopping_cart</i></a>

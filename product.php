@@ -1,4 +1,13 @@
-<?php require('includes/header.inc.php'); ?>
+<?php require('includes/header.inc.php');
+$product_id = mysqli_real_escape_string($con, $_GET['id']);
+if ($product_id > 0) {
+    $get_product = get_product($con, '', '', $product_id);
+} else {
+?>
+    <script>
+        window.location.href = 'index.php'
+    </script>
+<?php } ?>
 
 
 
@@ -10,9 +19,9 @@
                 <div class="row center">
                     <h5 class="header col s12">
                         <div class="breadcrumb_wrapper">
-                            <a href="index.html" class="breadcrumb">Home</a>
-                            <a href="categories.html" class="breadcrumb">Category</a>
-                            <a href="login.html" class="breadcrumb">Product</a>
+                            <a href="index.php" class="breadcrumb">Home</a>
+                            <a href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>" class="breadcrumb"><?php echo $get_product['0']['categories'] ?></a>
+                            <a class="breadcrumb"><?php echo $get_product['0']['name'] ?></a>
                         </div>
                     </h5>
                 </div>
@@ -26,22 +35,19 @@
 <!-- PRODUCT -->
 <div class="row">
     <div class="col m4 push-m1 l4 push-l1 s12 product_image">
-        <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7578929/2018/10/23/86988cdc-cbe3-4b13-93f9-b37ad571b4761540274855321-Harpa-Women-Dresses-9171540274855158-1.jpg" alt="">
+        <img src="<?php echo "media/product/" . $get_product['0']['image'] ?>" alt="">
     </div>
 
 
     <div class="col m6 push-m1 l6 push-l1 s10 push-s1">
         <div class="product_details">
-            <h2 class="product_title">New Product</h2>
+            <h2 class="product_title"><?php echo $get_product['0']['name'] ?></h2>
             <ul class="">
-                <li class="mrp">Rs. 499</li>
-                <li class="price">Rs. 299</li>
+                <li class="mrp">Rs. <?php echo $get_product['0']['mrp'] ?></li>
+                <li class="price">Rs. <?php echo $get_product['0']['price'] ?></li>
             </ul>
-            <p class="">This is a short description about this product.Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Nullam scelerisque id
-                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
-                ultricies
-                eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros.</p>
+            <p class=""><?php echo $get_product['0']['short_desc'] ?></p>
+            <p class=""><?php echo $get_product['0']['description'] ?></p>
             <div class="">
                 <div class="product_availability">
                     <p><span class="black-text">Availability:</span> In Stock</p>
@@ -63,7 +69,7 @@
                     </p>
                 </div>
                 <div class="product_category">
-                    <span class="black-text">Category:</span> <a href="categories.html"> CAT1</a>
+                    <span class="black-text">Category:</span> <a href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
                 </div>
 
                 <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>

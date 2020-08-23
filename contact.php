@@ -69,26 +69,30 @@
                         <div class="row">
                             <div class="input-field col s12 m4">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="icon_prefix" type="text" class="validate">
-                                <label for="icon_prefix">Name</label>
+                                <input id="name" type="text" class="validate white-text">
+                                <span class="field_error" id="name_error"></span>
+                                <label for="name">Name</label>
                             </div>
                             <div class="input-field col s12 m4">
                                 <i class="material-icons prefix">mail</i>
-                                <input id="icon_email" type="email" class="validate">
-                                <label for="icon_email">Email</label>
+                                <input id="email" type="email" class="validate white-text">
+                                <span class="field_error" id="email_error"></span>
+                                <label for="email">Email</label>
                             </div>
                             <div class="input-field col s12 m4">
                                 <i class="material-icons prefix">phone</i>
-                                <input id="icon_telephone" type="tel" class="validate">
-                                <label for="icon_telephone">Telephone</label>
+                                <input id="mobile" type="tel" class="validate white-text">
+                                <span class="field_error" id="mobile_error"></span>
+                                <label for="mobile">Telephone</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">chat</i>
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Your Message</label>
+                                <textarea id="comment" class="materialize-textarea white-text"></textarea>
+                                <span class="field_error" id="comment_error"></span>
+                                <label for="comment">Your Message</label>
                             </div>
                         </div>
-                        <a id="contact_submit_button" class="waves-effect waves-light btn-large  btn-flat center">Send
+                        <a id="contact_submit_button" onclick="send_message()" class="waves-effect waves-light btn-large  btn-flat center">Send
                             Message</a>
 
                     </form>
