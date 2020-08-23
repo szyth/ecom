@@ -1,299 +1,109 @@
-<?php
-require('includes/header.inc.php');
-?>
+<?php require('includes/header.inc.php'); ?>
 
-<!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(media/banner.png) no-repeat scroll center center / cover ;">
-    <div class="ht__bradcaump__wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="bradcaump__inner">
-                        <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.html">Home</a>
-                            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <span class="breadcrumb-item active">Contact Us</span>
-                        </nav>
-                    </div>
+
+<section>
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12">
+                        <div class="breadcrumb_wrapper">
+                            <a href="index.html" class="breadcrumb">Home</a>
+                            <a href="login.html" class="breadcrumb">Contact</a>
+                        </div>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="media/parallax/2.jpg" alt="Unsplashed background img 2"></div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col s12 m6 offset-m1 maps">
+        <a href="https://onebigbit.com/"> <img src="media/map/obb_map.PNG" alt=""></a>
+    </div>
+    <div class="col s12 m4">
+        <div class="address">
+            <div class="address__icon">
+                <i class="material-icons prefix">place</i>
+
+            </div>
+            <div class="address__details">
+                <h2 class="ct__title">our address</h2>
+                <p>C-25, Aliganj, Lucknow, Uttar Pradesh, India. </p>
+            </div>
+        </div>
+
+        <div class="address">
+            <div class="address__icon">
+                <i class="material-icons">phone</i>
+            </div>
+            <div class="address__details">
+                <h2 class="ct__title">Phone Number</h2>
+                <p>+91-522-431-6496</p>
+            </div>
+        </div>
+        <div class="address">
+            <div class="address__icon">
+                <i class="material-icons prefix">build</i>
+            </div>
+            <div class="address__details">
+                <h2 class="ct__title">customer support</h2>
+                <p>24x7</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+<div id="" class="row">
+    <div class="col s12 m10  offset-m1">
+        <div class="card contact_card_custom">
+            <div class="card-content white-text">
+                <span class="card-title">Contact Us</span>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12 m4">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">Name</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <i class="material-icons prefix">mail</i>
+                                <input id="icon_email" type="email" class="validate">
+                                <label for="icon_email">Email</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone">Telephone</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">chat</i>
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Your Message</label>
+                            </div>
+                        </div>
+                        <a id="contact_submit_button" class="waves-effect waves-light btn-large  btn-flat center">Send
+                            Message</a>
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End Bradcaump area -->
-<!-- Start Contact Area -->
-<section class="htc__contact__area ptb--100 bg__white">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                <div class="map-contacts--2">
-                    <div id="googleMap"></div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                <h2 class="title__line--6">CONTACT US</h2>
-                <div class="address">
-                    <div class="address__icon">
-                        <i class="icon-location-pin icons"></i>
-                    </div>
-                    <div class="address__details">
-                        <h2 class="ct__title">our address</h2>
-                        <p>C-25, Aliganj, Lucknow, Uttar Pradesh, India.  </p>
-                    </div>
-                </div>
-                <div class="address">
-                    <div class="address__icon">
-                        <i class="icon-envelope icons"></i>
-                    </div>
-                    <div class="address__details">
-                        <h2 class="ct__title">customer support</h2>
-                        <p>24x7</p>
-                    </div>
-                </div>
 
-                <div class="address">
-                    <div class="address__icon">
-                        <i class="icon-phone icons"></i>
-                    </div>
-                    <div class="address__details">
-                        <h2 class="ct__title">Phone Number</h2>
-                        <p>+91-522-431-6496</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="contact-form-wrap mt--60">
-                <div class="col-xs-12">
-                    <div class="contact-title">
-                        <h2 class="title__line--6">SEND A MAIL</h2>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <form id="contact-form" action="#" method="post">
-                        <div class="single-contact-form">
-                            <div class="contact-box name">
-                                <input type="text" id="name" name="name" placeholder="Your Name*">
-                                <span class="field_error" id="name_error"></span>
-                                <input type="email" id="email" name="email" placeholder="Email*">
-                                <span class="field_error" id="email_error"></span>
-                                <input type="email" id="mobile" name="mobile" placeholder="Phone No.*">
-                                <span class="field_error" id="mobile_error"></span>
-                            </div>
-                        </div>
-                        <div class="single-contact-form">
-                            <div class="contact-box message">
-                                <textarea name="comment" id="comment" placeholder="Your Message"></textarea>
-                            </div>
-                            <span class="field_error" id="comment_error"></span>
-                        </div>
-                        <div class="contact-btn">
-                            <button type="button" onclick="send_message()" class="fv-btn">Send MESSAGE</button>
-                        </div>
-                    </form>
-                    <div class="form-output">
-                        <p class="form-messege"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section>
+    <svg class="curve" data-name="layer" viewBox="0 0 1416.9 174.01">
+        <path d="M0,220.8S283.66,120,608.94,163.56s437.93,100.57,818,10.34V309.54H0V280.8Z" transform="translate(0 -120.53)" />
+
+    </svg>
 </section>
-<!-- End Contact Area -->
-<!-- Google Map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo "></script>
-<script src="js/contact-map.js"></script>
-<script>
-    // When the window has finished loading create our google map below
-    google.maps.event.addDomListener(window, 'load', init);
 
-    function init() {
-        // Basic options for a simple Google Map
-        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-        var mapOptions = {
-            // How zoomed in you want the map to start at (always required)
-            zoom: 12,
 
-            scrollwheel: false,
-
-            // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(23.7286, 90.3854), // New York
-
-            // How you would like to style the map. 
-            // This is where you would paste any style found on Snazzy Maps.
-            styles: [{
-                    "featureType": "all",
-                    "elementType": "labels.text.fill",
-                    "stylers": [{
-                            "saturation": 36
-                        },
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 40
-                        }
-                    ]
-                },
-                {
-                    "featureType": "all",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [{
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 16
-                        }
-                    ]
-                },
-                {
-                    "featureType": "all",
-                    "elementType": "labels.icon",
-                    "stylers": [{
-                        "visibility": "off"
-                    }]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry.fill",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 20
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry.stroke",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 17
-                        },
-                        {
-                            "weight": 1.2
-                        }
-                    ]
-                },
-                {
-                    "featureType": "landscape",
-                    "elementType": "geometry",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 20
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "geometry",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 21
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 17
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 29
-                        },
-                        {
-                            "weight": 0.2
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 18
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 16
-                        }
-                    ]
-                },
-                {
-                    "featureType": "transit",
-                    "elementType": "geometry",
-                    "stylers": [{
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 19
-                        }
-                    ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [{
-                            "color": "#141516"
-                        },
-                        {
-                            "lightness": 17
-                        }
-                    ]
-                }
-            ]
-        };
-
-        // Get the HTML DOM element that will contain your map 
-        // We are using a div with id="map" seen below in the <body>
-        var mapElement = document.getElementById('googleMap');
-
-        // Create the Google Map using our element and options defined above
-        var map = new google.maps.Map(mapElement, mapOptions);
-
-        // Let's also add a marker while we're at it
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(23.7286, 90.3854),
-            map: map,
-            title: 'Ramble!',
-            icon: 'images/icons/map-2.png',
-            animation: google.maps.Animation.BOUNCE
-
-        });
-    }
-</script>
-
-<?php
-require('includes/footer.inc.php');
-?>
+<?php require('includes/footer.inc.php'); ?>

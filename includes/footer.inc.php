@@ -1,122 +1,77 @@
-     <!-- Start Footer Area -->
-     <footer id="htc__footer">
-         <!-- Start Footer Widget -->
-         <div class="footer__container bg__cat--1">
-             <div class="container">
-                 <div class="row">
-                     <!-- Start Single Footer Widget -->
-                     <div class="col-md-3 col-sm-6 col-xs-12">
-                         <div class="footer">
-                             <h2 class="title__line--2">ABOUT US</h2>
-                             <div class="ft__details">
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
-                                 <div class="ft__social__link">
-                                     <ul class="social__link">
-                                         <li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card footer_card z-depth-0">
+                    <div class="card-content white-text">
+                        <span class="card-title">about</span>
+                        <ul class="quick-links">
+                            <li>24x7 Customer Support</li>
+                            <li>Easy Returns</li>
+                            <li>Convenient Shopping</li>
+                            <li>One Stop Shop</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card footer_card z-depth-0">
+                    <div class="card-content white-text">
+                        <span class="card-title">Contact details</span>
+                        <ul class="quick-links">
+                            <li>C-25, Aliganj, Lucknow - 226024, Uttar Pradesh, India.</li>
+                            <li>info@onebigbit.com
+                                business@onebigbit.com</li>
+                            <li>+91-522-431-6496</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card footer_card z-depth-0">
+                    <div class="card-content white-text">
+                        <span class="card-title">Quick Links</span>
+                        <ul class="quick-links">
+                            <li><a class="white-text" href="index.php">HOME</a></li>
+                            <li><a class="white-text" href="categories.php">CATEGORIES</a></li>
+                            <li><a class="white-text" href="contact.php">CONTACT</a></li>
+                            <li><a class="white-text" href="login.php">LOGIN</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-                                         <li><a href="#"><i class="icon-social-instagram icons"></i></a></li>
-
-                                         <li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-
-                                         <li><a href="#"><i class="icon-social-google icons"></i></a></li>
-
-                                         <li><a href="#"><i class="icon-social-linkedin icons"></i></a></li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Single Footer Widget -->
-                     <!-- Start Single Footer Widget -->
-                     <div class="col-md-2 col-sm-6 col-xs-12 xmt-40">
-                         <div class="footer">
-                             <h2 class="title__line--2">information</h2>
-                             <div class="ft__inner">
-                                 <ul class="ft__list">
-                                     <li><a href="#">About us</a></li>
-                                     <li><a href="#">Delivery Information</a></li>
-                                     <li><a href="#">Privacy & Policy</a></li>
-                                     <li><a href="#">Terms & Condition</a></li>
-                                     <li><a href="#">Manufactures</a></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Single Footer Widget -->
-                     <!-- Start Single Footer Widget -->
-                     <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
-                         <div class="footer">
-                             <h2 class="title__line--2">my account</h2>
-                             <div class="ft__inner">
-                                 <ul class="ft__list">
-                                     <li><a href="#">My Account</a></li>
-                                     <li><a href="cart.html">My Cart</a></li>
-                                     <li><a href="#">Login</a></li>
-                                     <li><a href="wishlist.html">Wishlist</a></li>
-                                     <li><a href="checkout.html">Checkout</a></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Single Footer Widget -->
-                     <!-- Start Single Footer Widget -->
-                     <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
-                         <div class="footer">
-                             <h2 class="title__line--2">Our service</h2>
-                             <div class="ft__inner">
-                                 <ul class="ft__list">
-                                     <li><a href="#">My Account</a></li>
-                                     <li><a href="cart.html">My Cart</a></li>
-                                     <li><a href="#">Login</a></li>
-                                     <li><a href="wishlist.html">Wishlist</a></li>
-                                     <li><a href="admin/login.php">ADMIN LOGIN</a></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Single Footer Widget -->
-                     <!-- Start Single Footer Widget -->
-                     <div class="col-md-3 col-sm-6 col-xs-12 xmt-40 smt-40">
-                         <div class="footer">
-                             <h2 class="title__line--2">NEWSLETTER </h2>
-                             <div class="ft__inner">
-                                 <div class="news__input">
-                                     <input type="text" placeholder="Your Mail*">
-                                     <div class="send__btn">
-                                         <a class="fr__btn" href="#">Send Mail</a>
-                                     </div>
-                                 </div>
-
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Single Footer Widget -->
-                 </div>
-             </div>
-         </div>
-         <!-- End Footer Widget -->
-
-     </footer>
-     <!-- End Footer Style -->
-     </div>
-     <!-- Body main wrapper end -->
-
-     <!-- Placed js at the end of the document so the pages load faster -->
+        </div>
+        <div class="row valign-wrapper">
+            <div class="col s12 m4 center">
+                <a id="logo-container" class="brand-logo-footer white-text" href="index.html">CLASSY CLOSET</a>
+            </div>
+            <div class="col s12 m8">
+                <div class="card footer_card z-depth-0">
+                    <div class="card-content center socials">
+                        <a href=""> <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by <a class="brown-text text-lighten-3" href="https://onebigbit.com/">One Big Bit</a>
+        </div>
+    </div>
+</footer>
 
 
-     <!-- jquery latest version -->
-     <script src="js/vendor/jquery-3.2.1.min.js"></script>
-     <!-- Bootstrap framework js -->
-     <script src="js/bootstrap.min.js"></script>
-     <!-- All js plugins included in this file. -->
-     <script src="js/plugins.js"></script>
-     <script src="js/slick.min.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <!-- Waypoints.min.js. -->
-     <script src="js/waypoints.min.js"></script>
-     <!-- Main js file that contents all jQuery plugins activation. -->
-     <script src="js/main.js"></script>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
 
-     </body>
+</body>
 
-     </html>
+</html>

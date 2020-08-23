@@ -2,123 +2,84 @@
 
 require('connection.inc.php');
 require('function.inc.php');
-$cat_res = mysqli_query($con, "SELECT * FROM categories WHERE status=1 ORDER BY categories ASC");
-
-$cat_arr = array();
-while ($row = mysqli_fetch_assoc($cat_res)) {
-    $cat_arr[] = $row;
-}
 
 ?>
 
-<!doctype html>
-<html class="no-js" lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>One Big Bit</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OBB - ECOM</title>
 
-
-    <!-- All css files are included here. -->
-    <!-- Bootstrap fremwork main css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Owl Carousel min css -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="css/core.css">
-    <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
-    <!-- Theme main style -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- User style -->
-    <link rel="stylesheet" href="css/custom.css">
-
-
-    <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
+
 <body>
-
-    <!-- Body main wrapper start -->
-    <div class="wrapper">
-        <!-- Start Header Style -->
-        <header id="htc__header" class="htc__header__area header--one">
-            <!-- Start Mainmenu Area -->
-            <div id="sticky-header-with-topbar" class="mainmenu__wrap sticky__header">
-                <div class="container">
-                    <div class="row">
-                        <div class="menumenu__container clearfix">
-                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
-                                <div class="logo">
-                                    <a href="index.php"><img src="media/logo.png" alt="logo images"></a>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
-                                <nav class="main__menu__nav hidden-xs hidden-sm">
-                                    <ul class="main__menu">
-                                        <li class="drop"><a href="index.php">Home</a></li>
-                                        <?php
-                                        foreach ($cat_arr as $list) {
-                                        ?>
-                                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
-
-                                        <?php
-                                        }
-                                        ?>
-                                        <li><a href="contact.php">contact</a></li>
-                                    </ul>
-                                </nav>
-
-                                <div class="mobile-menu clearfix visible-xs visible-sm">
-                                    <nav id="mobile_dropdown">
-                                        <ul>
-                                            <li><a href="index.php">Home</a></li>
-                                            <?php
-                                            foreach ($cat_arr as $list) {
-                                            ?>
-                                                <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
-
-                                            <?php
-                                            }
-                                            ?>
-                                            <li><a href="contact.php">contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-lg-2 col-sm-4 col-xs-4">
-                                <div class="header__right">
-                                    <!-- <div class="header__search search search__open">
-                                        <a href="#"><i class="icon-magnifier icons"></i></a>
-                                    </div> -->
-                                    <div class="header__account">
-                                        <?php
-                                        if (isset($_SESSION['USER_LOGIN'])) {
-                                            echo '<a href="logout.php">Logout</a>';
-                                        } else {
-                                            echo '<a href="login.php">Login/Register</a>';
-                                        }
-                                        ?>
-
-                                    </div>
-                                    <div class="htc__shopping__cart">
-                                        <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                        <a href="#"><span class="htc__qua">0</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mobile-menu-area"></div>
+    <div class="">
+        <nav class="white z-depth-0" role="navigation">
+            <div class="row">
+                <div class="col s12 m3 center">
+                    <a id="logo-container" class="brand-logo" href="index.php">CLASSY CLOSET</a>
                 </div>
+                <div class="col s12 m6 push-custom">
+                    <ul class="hide-on-med-and-down nav-ul">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="categories.php">Kid's</a></li>
+                        <li><a href="categories.php">Women's</a></li>
+                        <li><a href="categories.php">Men's</a></li>
+                        <!-- dropdown -->
+                        <!-- <li id="dropdown"><a href="#">Categories &#9662;</a>
+                        <ul class="dropdown">
+                            <li><a href="categories.html">Kids &#9656;</a></li>
+                            <li><a href="categories.html">Women's &#9656;</a></li>
+                            <li><a href="categories.html">Men's &#9656;</a></li>
+                        </ul>
+                    </li> -->
+
+                    </ul>
+                </div>
+
+                <div class="col s12 m3">
+                    <ul class="hide-on-med-and-down nav-ul">
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="login.php">Login</a></li>
+                        <li id="nav_cart"><a href="#"> <i class="material-icons-outlined">shopping_cart</i>
+                            </a></li>
+                    </ul>
+
+                </div>
+
+                <!-- MOBILE MENU -->
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="index.php">Home</a></li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li><a class="subheader">Categories</a></li>
+                    <ul>
+                        <li><a href="categories.php">Kids</a></li>
+                        <li><a href="categories.php">Women's</a></li>
+                        <li><a href="categories.php">Men's</a></li>
+                    </ul>
+                    </li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="cart.html" class="right sidenav-trigger"><i class="material-icons-outlined">shopping_cart</i></a>
             </div>
-            <!-- End Mainmenu Area -->
-        </header>
-        <!-- End Header Area -->
+        </nav>
+
+    </div>
