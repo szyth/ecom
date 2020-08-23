@@ -32,10 +32,10 @@
                     <div class="card-content white-text">
                         <span class="card-title">Quick Links</span>
                         <ul class="quick-links">
-                            <li><a class="white-text" href="index.html">HOME</a></li>
-                            <li><a class="white-text" href="categories.html">CATEGORIES</a></li>
-                            <li><a class="white-text" href="contact.html">CONTACT</a></li>
-                            <li><a class="white-text" href="login.html">LOGIN</a></li>
+                            <li><a class="white-text" href="index.php">HOME</a></li>
+                            <li><a class="white-text" href="categories.php">CATEGORIES</a></li>
+                            <li><a class="white-text" href="contact.php">CONTACT</a></li>
+                            <li><a class="white-text" href="login.php">LOGIN</a></li>
                         </ul>
                     </div>
                 </div>

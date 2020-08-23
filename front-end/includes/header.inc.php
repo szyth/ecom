@@ -23,10 +23,10 @@
                 </div>
                 <div class="col s12 m6 push-custom">
                     <ul class="hide-on-med-and-down nav-ul">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="categories.html">Kid's</a></li>
-                        <li><a href="categories.html">Women's</a></li>
-                        <li><a href="categories.html">Men's</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="categories.php">Kid's</a></li>
+                        <li><a href="categories.php">Women's</a></li>
+                        <li><a href="categories.php">Men's</a></li>
                         <!-- dropdown -->
                         <!-- <li id="dropdown"><a href="#">Categories &#9662;</a>
                         <ul class="dropdown">
@@ -41,8 +41,8 @@
 
                 <div class="col s12 m3">
                     <ul class="hide-on-med-and-down nav-ul">
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Login</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="login.php">Login</a></li>
                         <li id="nav_cart"><a href="#"> <i class="material-icons-outlined">shopping_cart</i>
                             </a></li>
                     </ul>
@@ -51,23 +51,23 @@
 
                 <!-- MOBILE MENU -->
                 <ul id="nav-mobile" class="sidenav">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li>
                         <div class="divider"></div>
                     </li>
                     <li><a class="subheader">Categories</a></li>
                     <ul>
-                        <li><a href="categories.html">Kids</a></li>
-                        <li><a href="categories.html">Women's</a></li>
-                        <li><a href="categories.html">Men's</a></li>
+                        <li><a href="categories.php">Kids</a></li>
+                        <li><a href="categories.php">Women's</a></li>
+                        <li><a href="categories.php">Men's</a></li>
                     </ul>
                     </li>
                     <li>
                         <div class="divider"></div>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="#">Cart</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
                 <a href="cart.html" class="right sidenav-trigger"><i class="material-icons-outlined">shopping_cart</i></a>
