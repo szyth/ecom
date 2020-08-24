@@ -33,7 +33,7 @@
                         <span class="card-title">Quick Links</span>
                         <ul class="quick-links">
                             <li><a class="white-text" href="index.php">HOME</a></li>
-                            <li><a class="white-text" href="categories.php">CATEGORIES</a></li>
+                            <li><a class="white-text" href="super_categories.php">CATEGORIES</a></li>
                             <li><a class="white-text" href="contact.php">CONTACT</a></li>
                             <li><a class="white-text" href="login.php">LOGIN</a></li>
                         </ul>
@@ -44,7 +44,7 @@
         </div>
         <div class="row valign-wrapper">
             <div class="col s12 m4 center">
-                <a id="logo-container" class="brand-logo-footer white-text" href="index.html">CLASSY CLOSET</a>
+                <a id="logo-container" class="brand-logo-footer white-text" href="index.php">CLASSY CLOSET</a>
             </div>
             <div class="col s12 m8">
                 <div class="card footer_card z-depth-0">

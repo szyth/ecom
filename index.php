@@ -100,7 +100,7 @@
         $get_product = get_product($con, '', '', '');
         foreach ($get_product as $list) {
         ?>
-            <div class="col s6 m4 l3 xl2">
+            <div class="col s6 m4 l3">
                 <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                     <div class="dress-card box_shadow">
                         <div class="dress-card-head">

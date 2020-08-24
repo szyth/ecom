@@ -28,8 +28,15 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 }
 
 
-$sql = "SELECT * FROM categories ORDER BY categories ASC";
+$sql = "SELECT * FROM categories ORDER BY id DESC";
 $res = mysqli_query($con, $sql);
+
+$super_cat_res = mysqli_query($con, "SELECT * FROM super_category");
+$super_cat_arr = array();
+while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
+    $super_cat_arr[] = $row1;
+}
+
 ?>
 
 
@@ -49,7 +56,8 @@ $res = mysqli_query($con, $sql);
                                     <tr>
                                         <th class="serial">#</th>
                                         <th>ID</th>
-                                        <th>Categories</th>
+                                        <th>Main Categories</th>
+                                        <th>Sub Categories</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -61,6 +69,7 @@ $res = mysqli_query($con, $sql);
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
                                             <td><?php echo $row['id'] ?></td>
+                                            <td><?php echo  $super_cat_arr[$row['super_categories_id'] - 1]['super_category'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
                                             <td>
                                                 <?php

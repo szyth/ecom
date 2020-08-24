@@ -19,6 +19,9 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
 }
 if (isset($_POST['submit'])) {
     $categories = get_safe_value($con, $_POST['categories']);
+    $super_categories_id = get_safe_value($con, $_POST['super_categories_id']);
+
+
 
     $sql = "SELECT * FROM categories WHERE categories = '$categories'";
     $res = mysqli_query($con, $sql);
@@ -37,9 +40,9 @@ if (isset($_POST['submit'])) {
     }
     if ($msg == '') {
         if (isset($_GET['id']) && $_GET['id'] != '') {
-            $sql = "UPDATE categories SET categories='$categories' WHERE id='$id'";
+            $sql = "UPDATE categories SET categories='$categories',super_categories_id='$super_categories_id' WHERE id='$id'";
         } else {
-            $sql = "INSERT INTO categories(categories,status) VALUES ('$categories', '1')";
+            $sql = "INSERT INTO categories(super_categories_id,categories,status) VALUES ('$super_categories_id','$categories', '1')";
         }
         mysqli_query($con, $sql);
         header('location:categories.php');
@@ -55,6 +58,24 @@ if (isset($_POST['submit'])) {
                     <div class="card-header"><strong>Categories</strong><small> Form</small></div>
                     <form action="" method="post">
                         <div class="card-body card-block">
+                            <div class="form-group">
+                                <select name="super_categories_id" class="form-control">
+                                    <option>Select Main Category</option>
+                                    <?php
+
+
+                                    $res = mysqli_query($con, "SELECT id,super_category FROM super_category ORDER BY super_category ASC");
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        if ($row['id'] == $categories_id) {
+                                            echo "<option selected value=" . $row['id'] . ">" . $row['super_category'] . "</option>";
+                                        } else {
+                                            echo "<option value=" . $row['id'] . ">" . $row['super_category'] . "</option>";
+                                        }
+                                    }
+
+                                    ?>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="categories" class="form-control-label">Category</label>
                                 <input type="text" name="categories" placeholder="Enter Category name" value="<?php echo $categories ?>" class="form-control" required>

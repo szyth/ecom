@@ -4,12 +4,13 @@ require('connection.inc.php');
 require('function.inc.php');
 
 
-$cat_res = mysqli_query($con, "SELECT * FROM categories WHERE status=1 ORDER BY categories ASC");
+$super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category ASC");
 
-$cat_arr = array();
-while ($row = mysqli_fetch_assoc($cat_res)) {
-    $cat_arr[] = $row;
+$super_cat_arr = array();
+while ($row = mysqli_fetch_assoc($super_cat_res)) {
+    $super_cat_arr[] = $row;
 }
+
 
 
 ?>
@@ -43,9 +44,9 @@ while ($row = mysqli_fetch_assoc($cat_res)) {
                         <li><a href="index.php">Home</a></li>
 
                         <?php
-                        foreach ($cat_arr as $list) {
+                        foreach ($super_cat_arr as $list) {
                         ?>
-                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['super_category'] ?></a></li>
 
                         <?php
                         }
