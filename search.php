@@ -1,17 +1,19 @@
 <?php require('includes/header.inc.php');
 
 if (isset($_POST['submit'])) {
-    $search = get_safe_value($con, $_POST['search']);
-    $sql = "SELECT * FROM product WHERE name LIKE '%$search%' OR short_desc LIKE '%$search%' OR description LIKE '%$search%'";
-    $res = mysqli_query($con, $sql);
-    $search_data = array();
+    if ($_POST['search'] != '') {
+        $search = get_safe_value($con, $_POST['search']);
+        $sql = "SELECT * FROM product WHERE name LIKE '%$search%' OR short_desc LIKE '%$search%' OR description LIKE '%$search%'";
+        $res = mysqli_query($con, $sql);
+        $search_data = array();
 
-    while ($row = mysqli_fetch_assoc($res)) {
-        $search_data[] =  $row;
+        while ($row = mysqli_fetch_assoc($res)) {
+            $search_data[] =  $row;
+        }
+    } else {
+        $search = '';
     }
 }
-
-
 
 ?>
 
@@ -19,14 +21,14 @@ if (isset($_POST['submit'])) {
 <br>
 <br>
 <div class="row">
-    <form class="col s8 offset-s2" method="POST">
+    <form class="col s10 offset-s1 m8 offset-m2" method="POST">
         <div class="row">
-            <div class="input-field col s10">
+            <div class="input-field col s12 m10">
                 <i class="material-icons prefix">search</i>
                 <input id="search" name="search" type="text" class="validate">
-                <label for="search" class="black-text">Search for Products</label>
+                <label for="search" class="black-text">Type Here "Maxi, Womens Dress" ...etc </label>
             </div>
-            <div class="col s2">
+            <div class="col s12 m2">
                 <button type="submit" name="submit" id="search_button" class="waves-effect waves-light btn-large btn-flat center">Search</button>
 
             </div>
@@ -39,15 +41,10 @@ if (isset($_POST['submit'])) {
 
 
 <div class="row">
-
-
     <?php
     if (!empty($search_data)) {
 
     ?>
-
-
-
         <div class="row" style="background-color: #fff;margin-bottom: 0px;">
             <div id="filters" class="col s12 m3" ;>
                 <h1 class="title center">Filters</h1>
@@ -253,8 +250,13 @@ if (isset($_POST['submit'])) {
 </div>
 <?php
     } else {
+
         if (isset($_POST['submit'])) {
-            echo '<h4 class="center">No results for "' . $search . '"</h4>';
+            if ($search != '') {
+                echo '<h4 class="center">No results for "' . $search . '"</h4>';
+            } else {
+                echo '<h4 class="center">Please enter data to search</h4>';
+            }
         }
     }
 ?>

@@ -90,9 +90,9 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
                     <li><a class="subheader">Categories</a></li>
                     <ul>
                         <?php
-                        foreach ($cat_arr as $list) {
+                        foreach ($super_cat_arr as $list) {
                         ?>
-                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['super_category'] ?></a></li>
 
                         <?php
                         }
