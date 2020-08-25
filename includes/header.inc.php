@@ -66,6 +66,7 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
 
                 <div class="col s12 m3">
                     <ul class="hide-on-med-and-down nav-ul">
+                        <li id="nav_cart"><a href="search.php"> <i class="material-icons-outlined">search</i></a> </li>
                         <li><a href="contact.php">Contact</a></li>
                         <li> <?php
                                 if (isset($_SESSION['USER_LOGIN'])) {
@@ -75,8 +76,7 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
                                 }
                                 ?>
                         </li>
-                        <li id="nav_cart"><a href="#"> <i class="material-icons-outlined">shopping_cart</i>
-                            </a></li>
+                        <li id="nav_cart"><a href="#"> <i class="material-icons-outlined">shopping_cart</i></a> </li>
                     </ul>
 
                 </div>

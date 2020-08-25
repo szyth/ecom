@@ -505,6 +505,16 @@ textarea.materialize-textarea:focus:not([readonly]) {
   background-color: #c43b68;
 }
 
+#search_button.btn-large {
+  border: solid #000 1px;
+
+}
+
+#search_button.btn-large:hover {
+  background-color: #1f1f1f;
+
+}
+
 #category_card_button.btn-large {
   width: 200px;
   transform: translateX(20px);
@@ -845,7 +855,7 @@ select {
   left: 0;
   right: 0;
   padding: 20px;
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0,0.973) 0%, transparent 100%);
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.973) 0%, transparent 100%);
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.973) 0%, transparent 100%);
   display: flex;
   flex-direction: column;
