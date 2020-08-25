@@ -275,7 +275,7 @@ if (count($get_product) > 0) {
         </div>
     </div>
 <?php } else {
-    echo "Data not found";
+    echo '<h4 class="center">No products found</h4>';
 }  ?>
 
 <section style="background-color: rgb(255, 255, 255);">
