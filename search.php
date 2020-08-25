@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 
     // $get_product = get_product($con, '8', '', '');
     if (!empty($search_data)) {
-        echo  '<h4>Seach results for "' . $search . '"</h4>';
+        echo  '<h4>Search results for "' . $search . '"</h4>';
         foreach ($search_data as $list) {
     ?>
 

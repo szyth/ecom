@@ -153,7 +153,7 @@ nav i.material-icons {
 /* SLIDER */
 
 .slider-container {
-  padding: 5%;
+  padding: 2%;
   background-color: rgb(245, 245, 245);
 }
 
@@ -506,6 +506,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 #search_button.btn-large {
+  margin: 10px;
   border: solid #000 1px;
 
 }

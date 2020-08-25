@@ -4,7 +4,7 @@
 <!-- SLIDER -->
 <div class="slider-container">
     <div class="row">
-        <div class="col m8 l8 s12">
+        <div class="col s12 m7 offset-m1">
             <div class="carousel carousel-slider">
                 <a class="carousel-item" href="#one!"><img src="media/slider/1.jpg"></a>
                 <a class="carousel-item" href="#two!"><img src="media/slider/2.jpg"></a>
@@ -12,7 +12,7 @@
                 <a class="carousel-item" href="#four!"><img src="media/slider/4.jpg"></a>
             </div>
         </div>
-        <div class="col m4 l4 s12">
+        <div class="col s12 m4">
             <div class="text-translate">
                 <div>
                     <h1 class="slider-title">Summer Collection 2020</h1>

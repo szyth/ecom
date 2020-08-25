@@ -7,7 +7,20 @@ if ($product_id > 0) {
     <script>
         window.location.href = 'index.php'
     </script>
-<?php } ?>
+
+
+<?php
+}
+
+$cat_id = $get_product['0']['categories_id'];
+
+$super_cat_res = mysqli_query($con, "SELECT super_category.*,categories.super_categories_id FROM super_category,categories WHERE super_category.id = categories.super_categories_id AND categories.id=$cat_id");
+$super_cat_arr = array();
+while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
+    $super_cat_arr[] = $row1;
+}
+
+?>
 
 
 
@@ -20,7 +33,13 @@ if ($product_id > 0) {
                     <h5 class="header col s12">
                         <div class="breadcrumb_wrapper">
                             <a href="index.php" class="breadcrumb">Home</a>
-                            <a href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>" class="breadcrumb"><?php echo $get_product['0']['categories'] ?></a>
+                            <a href="super_categories.php" class="breadcrumb">Categories</a>
+                            <a href="categories.php?id=<?php echo $super_cat_arr[0]['super_categories_id'] ?>" class="breadcrumb">
+                                <?php
+                                echo $super_cat_arr[0]['super_category'];
+                                ?>
+                            </a>
+                            <a href="sub_categories.php?id=<?php echo $get_product['0']['categories_id'] ?>" class="breadcrumb"><?php echo $get_product['0']['categories'] ?></a>
                             <a class="breadcrumb"><?php echo $get_product['0']['name'] ?></a>
                         </div>
                     </h5>
