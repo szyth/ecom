@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 26, 2020 at 03:41 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.31
+-- Host: localhost
+-- Generation Time: Aug 26, 2020 at 07:02 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,11 +58,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `super_categories_id`, `categories`, `status`) VALUES
-(14, 1, 'Cat2', 1),
-(17, 2, 'Cat1', 1),
-(18, 3, 'Cat3', 1),
-(21, 3, 'asdsd', 1),
-(22, 3, 'dsdf', 1);
+(14, 1, 'subCat2', 1),
+(17, 2, 'subCat1', 1),
+(18, 3, 'subCat3', 1),
+(21, 3, 'subCat4', 1),
+(22, 3, 'subCat5', 1),
+(26, 2, 'subCat6', 1);
 
 -- --------------------------------------------------------
 
@@ -228,7 +229,7 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
