@@ -47,22 +47,21 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 </section>
 
 
-<div class="row">
-    <?php
-    foreach ($cat_arr as $list) {
-    ?>
-        <div class="col s12 m4">
-            <div class="card">
-                <h1>
-                    <a href="sub_categories.php?id=<?php echo $list['id'] ?>">
-                        <?php echo $list['categories'] ?>
-                    </a>
-                </h1>
+<div class="row center">
+    <div class="">
+
+
+        <?php
+        foreach ($cat_arr as $list) {
+        ?>
+            <div class="col s2">
+                <a id="cat_button" href="sub_categories.php?id=<?php echo $list['id'] ?>" class="waves-effect waves-light btn-large btn-flat">
+                    <?php echo $list['categories'] ?>
+                </a>
             </div>
-        </div>
-    <?php
-    }
-    ?>
+        <?php
+        }
+        ?> </div>
 </div>
 
 

@@ -5,9 +5,8 @@
  *
  * Made By MaterializeCSS.com
  */
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,800');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,800");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap");
 
 nav ul a,
 nav .brand-logo {
@@ -21,21 +20,20 @@ p {
 .sidenav-trigger {
   color: rgb(190, 0, 105);
   margin-top: 1vh !important;
-
 }
 
 .parallax-container {
   min-height: 300px;
   line-height: 0;
   height: auto;
-  color: rgba(255, 255, 255, .9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .parallax-container .section {
   width: 100%;
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
   .parallax-container {
     min-height: 150px;
   }
@@ -49,7 +47,7 @@ p {
   }
 }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   #index-banner .section {
     top: 0;
   }
@@ -63,13 +61,10 @@ p {
   font-size: inherit;
 }
 
-
-
 /* CUSTOM EDIT FROM HERE */
 
-
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #000;
   background-color: rgb(248, 248, 248);
 }
@@ -89,7 +84,7 @@ nav {
 
 .brand-logo {
   font-size: 2.1rem !important;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 nav ul a:hover {
@@ -164,7 +159,6 @@ nav i.material-icons {
 
 .text-translate {
   transform: translateX(-100px);
-
 }
 
 .slider-title {
@@ -173,8 +167,6 @@ nav i.material-icons {
   padding: 1%;
 }
 
-
-
 #banner_button.btn-large {
   width: 200px;
   transform: translateX(20px);
@@ -182,9 +174,13 @@ nav i.material-icons {
   line-height: 70px;
   font-size: larger;
   background: rgb(255, 90, 90);
-  background: linear-gradient(90deg, rgba(255, 90, 90, 1) 0%, rgba(253, 123, 29, 1) 44%, rgba(252, 176, 69, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 90, 90, 1) 0%,
+    rgba(253, 123, 29, 1) 44%,
+    rgba(252, 176, 69, 1) 100%
+  );
   color: rgb(255, 255, 255);
-
 }
 
 #banner_button.btn-large:hover {
@@ -194,15 +190,12 @@ nav i.material-icons {
 }
 
 @media screen and (max-width: 768px) {
-
   .carousel.carousel-slider {
     max-height: 60vh !important;
   }
 
-
   .text-translate {
     transform: translateX(0px);
-
   }
 
   .slider-title {
@@ -216,7 +209,6 @@ nav i.material-icons {
     height: 50px !important;
     line-height: 50px !important;
     font-size: smaller !important;
-
   }
 }
 
@@ -231,7 +223,7 @@ nav i.material-icons {
 
 #new_arrivals .title h1 {
   color: #313131;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2.7em !important;
   font-weight: 700;
 }
@@ -242,7 +234,6 @@ nav i.material-icons {
   font-weight: 400;
   padding-bottom: 10px;
 }
-
 
 /* card */
 .box_shadow:hover {
@@ -270,7 +261,6 @@ nav i.material-icons {
   .dress-card-img-top {
     height: 35vw;
   }
-
 }
 
 @media only screen and (min-width: 993px) {
@@ -309,20 +299,18 @@ nav i.material-icons {
 }
 
 .dress-card-off {
-  color: #E06C9F;
+  color: #e06c9f;
 }
 
 .dress-card-para {
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
-
 
 #product_button.btn-small {
   height: 50px;
   line-height: 50px;
   background-color: rgb(255, 102, 186);
   color: rgb(255, 255, 255);
-
 }
 
 #product_button.btn-small:hover {
@@ -334,7 +322,6 @@ nav i.material-icons {
 @media screen and (max-width: 768px) {
   .dress-card {
     margin: 2% 0 2% 0;
-
   }
 
   .dress-card-title {
@@ -344,11 +331,8 @@ nav i.material-icons {
   #product_button.btn-small {
     height: 40px;
     line-height: 40px;
-
   }
 }
-
-
 
 /* NEW ARRIVALS - END */
 
@@ -358,7 +342,6 @@ nav i.material-icons {
   margin: 20px;
   background-color: rgb(75, 75, 75);
   color: rgb(255, 255, 255);
-
 }
 
 #all_product_button.btn-large:hover {
@@ -369,23 +352,18 @@ nav i.material-icons {
 
 /* ALL PRODUCTS - END */
 
-
-
 /* LOGIN */
 
 #login {
-  background: url('../media/login/1.jpg');
+  background: url("../media/login/1.jpg");
   margin: 0;
 }
 
-
 .login-title {
-
   font-size: 4em;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1%;
-
 }
 
 .login-body {
@@ -394,7 +372,6 @@ nav i.material-icons {
   font-size: 1.4em;
   background-color: rgb(255, 255, 255);
   padding: 1%;
-
 }
 
 #login .card {
@@ -426,56 +403,52 @@ nav i.material-icons {
   display: none;
 }
 
-
-
 .login_card_custom {
   background-color: #422a4d;
 }
 
-
 .register-card {
   background-color: #095f58 !important;
-
 }
 
-.input-field>label {
+.input-field > label {
   color: #fff;
 }
 
-input:not([type]):focus:not([readonly])+label,
-input[type=text]:not(.browser-default):focus:not([readonly])+label,
-input[type=password]:not(.browser-default):focus:not([readonly])+label,
-input[type=email]:not(.browser-default):focus:not([readonly])+label,
-input[type=url]:not(.browser-default):focus:not([readonly])+label,
-input[type=time]:not(.browser-default):focus:not([readonly])+label,
-input[type=date]:not(.browser-default):focus:not([readonly])+label,
-input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
-input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
-input[type=tel]:not(.browser-default):focus:not([readonly])+label,
-input[type=number]:not(.browser-default):focus:not([readonly])+label,
-input[type=search]:not(.browser-default):focus:not([readonly])+label,
-textarea.materialize-textarea:focus:not([readonly])+label {
+input:not([type]):focus:not([readonly]) + label,
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly])
+  + label,
+input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
   color: #c4c4c4;
 }
 
 input:not([type]):focus:not([readonly]),
-input[type=text]:not(.browser-default):focus:not([readonly]),
-input[type=password]:not(.browser-default):focus:not([readonly]),
-input[type=email]:not(.browser-default):focus:not([readonly]),
-input[type=url]:not(.browser-default):focus:not([readonly]),
-input[type=time]:not(.browser-default):focus:not([readonly]),
-input[type=date]:not(.browser-default):focus:not([readonly]),
-input[type=datetime]:not(.browser-default):focus:not([readonly]),
-input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
-input[type=tel]:not(.browser-default):focus:not([readonly]),
-input[type=number]:not(.browser-default):focus:not([readonly]),
-input[type=search]:not(.browser-default):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #d1d1d1;
   -webkit-box-shadow: 0 1px 0 0 #d1d1d1;
   box-shadow: 0 1px 0 0 #d1d1d1;
 }
-
 
 /* BUTTONS */
 
@@ -484,7 +457,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   margin-left: 0;
   background-color: rgb(255, 255, 255);
   color: rgb(36, 36, 36);
-
 }
 
 .btn-large:hover {
@@ -500,7 +472,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   background-color: #095f58;
 }
 
-
 #contact_submit_button.btn-large:hover {
   background-color: #c43b68;
 }
@@ -508,35 +479,22 @@ textarea.materialize-textarea:focus:not([readonly]) {
 #search_button.btn-large {
   margin: 10px;
   border: solid #000 1px;
-
 }
 
 #search_button.btn-large:hover {
   background-color: #1f1f1f;
-
 }
 
-#category_card_button.btn-large {
-  width: 200px;
-  transform: translateX(20px);
-  height: 70px;
-  line-height: 70px;
-  font-size: larger;
-  background: rgb(182, 93, 182);
-  background: -moz-linear-gradient(90deg, rgba(182, 93, 182, 1) 0%, rgba(128, 118, 181, 1) 44%, rgba(176, 69, 252, 1) 100%);
-  background: -webkit-linear-gradient(90deg, rgba(182, 93, 182, 1) 0%, rgba(128, 118, 181, 1) 44%, rgba(176, 69, 252, 1) 100%);
-  background: linear-gradient(90deg, rgba(182, 93, 182, 1) 0%, rgba(128, 118, 181, 1) 44%, rgba(176, 69, 252, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b65db6", endColorstr="#b045fc", GradientType=1);
-  color: rgb(255, 255, 255);
-
+#cat_button.btn-large {
+  background-color: #ffffff;
+  color: #000000;
+  border: solid #000 1px;
+  border-radius: 10px;
 }
-
-#category_card_button.btn-large:hover {
-  background: rgb(255, 255, 255);
-  color: rgb(36, 36, 36);
-  border: solid #444 1px;
+#cat_button.btn-large:hover {
+  color: #e4e0e0;
+  background-color: #161616;
 }
-
 
 /* BUTTONS - END */
 .input-field .prefix.active {
@@ -544,8 +502,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 @media screen and (max-width: 768px) {
-
-
   .login-title {
     padding: 3%;
     font-size: 2.7em;
@@ -567,10 +523,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   font-size: 1em;
 }
 
-
-
 @media screen and (max-width: 768px) {
-
   .breadcrumb_wrapper a {
     font-size: 0.7em;
   }
@@ -578,16 +531,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
   .breadcrumb_wrapper .header {
     font-size: 1em;
   }
-
 }
 
 /* BREADCRUMB - END */
 
-
 /* PRODUCT */
 .product_image {
   text-align: center;
-
 }
 
 .product_image img {
@@ -597,7 +547,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .product_details {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .product_details h2 {
@@ -626,7 +576,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .product_details ul .price {
   font-size: 1.7em;
 }
-
 
 .product_details .product_availability p {
   font-size: 1.1em;
@@ -658,7 +607,6 @@ select {
   font-size: larger;
   background-color: rgb(255, 102, 186);
   color: rgb(255, 255, 255);
-
 }
 
 #add_to_cart.btn-large:hover {
@@ -733,10 +681,7 @@ select {
   border-radius: 18px;
 }
 
-
 /* CONTACT - END */
-
-
 
 /* FILTERS */
 /* .row #filters.push-m1 {
@@ -752,7 +697,7 @@ select {
 
 #filters .title {
   color: #202020;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.3em !important;
   font-weight: 600;
 }
@@ -762,18 +707,16 @@ select {
 }
 
 .filter_head {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 1rem;
   margin: 0;
   font-size: 0.8em !important;
   font-weight: 700;
   color: #212121;
-
 }
 
 .filter_head:hover {
   background-color: rgb(245, 245, 245);
-
 }
 
 .filter_options {
@@ -793,19 +736,18 @@ select {
   color: #242424;
 }
 
-[type="checkbox"]+span:not(.lever) {
+[type="checkbox"] + span:not(.lever) {
   font-size: 0.9rem;
 }
 
-[type="radio"]:not(:checked)+span,
-[type="radio"]:checked+span {
+[type="radio"]:not(:checked) + span,
+[type="radio"]:checked + span {
   font-size: 0.9rem;
   font-weight: 400;
   color: rgb(68, 68, 68);
-
 }
 
-[type="checkbox"].filled-in:checked+span:not(.lever):after {
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
   top: 0;
   width: 20px;
   height: 20px;
@@ -820,9 +762,7 @@ select {
 
 /* FILTERS - END */
 
-
 /* SUPER CATEGORIES */
-
 
 .snip1581 {
   position: relative;
@@ -849,6 +789,12 @@ select {
   vertical-align: top;
 }
 
+@media screen and (min-width: 601px) {
+  .snip1581 img {
+    height: 20vw;
+  }
+}
+
 .snip1581 figcaption {
   position: absolute;
   top: 0;
@@ -856,8 +802,16 @@ select {
   left: 0;
   right: 0;
   padding: 20px;
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.973) 0%, transparent 100%);
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.973) 0%, transparent 100%);
+  background-image: -webkit-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.973) 0%,
+    transparent 100%
+  );
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.973) 0%,
+    transparent 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -868,7 +822,6 @@ select {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: 1px;
-  /* text-transform: uppercase; */
   margin: 3px 0;
 }
 
@@ -882,7 +835,6 @@ select {
 }
 
 .snip1581 .title3 {
-  /* font-weight: 700; */
   font-size: 25px;
 }
 
@@ -896,24 +848,30 @@ select {
 
 .snip1581:hover img,
 .snip1581.hover img {
-  -webkit-transform: scale(1..1) rotate(1deg);
+  -webkit-transform: scale(1.1) rotate(1deg);
   transform: scale(1.1) rotate(1deg);
 }
 
 /* SUPER CATEGORIES - END */
+/* CATEGORIES */
 
+#cat a {
+  font-size: 3em;
+  text-align: center;
+  color: #e6e6e6;
+}
 
+/* CATEGORIES - END */
 
 /* FOOTER */
 
-footer {}
+footer {
+}
 
 .brand-logo-footer {
   font-size: 2.1rem !important;
-  font-family: 'Oswald', sans-serif;
-
+  font-family: "Oswald", sans-serif;
 }
-
 
 footer.page-footer {
   margin: 0;
@@ -939,7 +897,7 @@ footer.page-footer {
 
 .footer_card {
   background-color: rgb(83, 53, 97);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .card-title {
@@ -957,7 +915,6 @@ footer.page-footer {
   color: rgb(197, 197, 197);
 }
 
-
 .quick-links li {
   font-size: 0.8em;
   padding: 3%;
@@ -972,10 +929,6 @@ footer.page-footer {
     margin: 2%;
     font-size: 1.5rem;
   }
-
 }
-
-
-
 
 /* FOOTER - END */
