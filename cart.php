@@ -70,6 +70,21 @@
             </tbody>
         <?php } ?>
     </table>
+    <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">Continue Shopping</a>
+
+
+    <?php
+    if (!isset($_SESSION['USER_LOGIN'])) {
+        echo ' <a href="login.php" class="waves-effect waves-light btn-large  btn-flat right">Login to Checkout
+    </a>';
+    } else {
+        echo ' <a href="checkout.php" class="waves-effect waves-light btn-large  btn-flat right">Checkout
+    </a>';
+    }
+    ?>
+
+
+
 </div>
 
 

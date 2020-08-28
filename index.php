@@ -53,8 +53,8 @@
                             <div class="dress-card-body">
                                 <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                                 <p class="dress-card-para">
-                                    <span class="dress-card-price">Rs.<?php echo $list['mrp'] ?> &ensp;</span>
-                                    <span class="dress-card-crossed">Rs.<?php echo $list['price'] ?></span>
+                                    <span class="dress-card-price">Rs.<?php echo $list['price'] ?> &ensp;</span>
+                                    <span class="dress-card-crossed">Rs.<?php echo $list['mrp'] ?></span>
                                     <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                 </p>
                                 <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
@@ -109,8 +109,8 @@
                         <div class="dress-card-body">
                             <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                             <p class="dress-card-para">
-                                <span class="dress-card-price">Rs.<?php echo $list['mrp'] ?> &ensp;</span>
-                                <span class="dress-card-crossed">Rs.<?php echo $list['price'] ?></span>
+                                <span class="dress-card-price">Rs.<?php echo $list['price'] ?> &ensp;</span>
+                                <span class="dress-card-crossed">Rs.<?php echo $list['mrp'] ?></span>
                                 <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                             </p>
                             <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View

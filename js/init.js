@@ -84,8 +84,7 @@ function send_message() {
     jQuery.ajax({
       url: "send_message.php",
       type: "post",
-      data:
-        "name=" +
+      data: "name=" +
         name +
         "&email=" +
         email +
@@ -129,8 +128,7 @@ function user_register() {
     jQuery.ajax({
       url: "register_submit.php",
       type: "post",
-      data:
-        "name=" +
+      data: "name=" +
         name +
         "&email=" +
         email +
@@ -195,7 +193,7 @@ function manage_cart(pid, type) {
     data: "pid=" + pid + "&qty=" + qty + "&type=" + type,
     success: function (result) {
       if (type == "update" || type == "remove") {
-        window.location.href = "cart.php";
+        location.reload(true);
       }
       jQuery(".htc__qua").html(result);
     },
