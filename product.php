@@ -73,7 +73,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 </div>
                 <div class="">
                     <p><span>Quantity:</span>
-                        <select class="browser-default">
+                        <select id="qty" class="browser-default">
                             <option value="1" selected>1</option>
                             <option>2</option>
                             <option>3</option>

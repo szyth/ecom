@@ -863,6 +863,37 @@ select {
 
 /* CATEGORIES - END */
 
+/* ADD TO CART */
+span.htc__qua {
+  background: #c43b68;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 9px;
+  height: 17px;
+  line-height: 19px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 30%;
+  width: 17px;
+}
+
+@media screen and (max-width: 601px) {
+  span.htc__qua {
+    background: #c43b68;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 9px;
+    height: 17px;
+    line-height: 19px;
+    right: 0;
+    text-align: center;
+    top: 5%;
+    width: 17px;
+  }
+}
+/* ADD TO CART - END */
+
 /* FOOTER */
 
 footer {

@@ -100,7 +100,6 @@ function send_message() {
   }
 }
 
-
 function user_register() {
   jQuery(".field_error").html("");
   var name = jQuery("#name").val();
@@ -185,14 +184,20 @@ function user_login() {
 }
 
 function manage_cart(pid, type) {
-  var qty = jQuery("#qty").val();
+  if (type == "update") {
+    var qty = jQuery("#" + pid + "qty").val();
+  } else {
+    var qty = jQuery("#qty").val();
+  }
   jQuery.ajax({
     url: "manage_cart.php",
     type: "post",
     data: "pid=" + pid + "&qty=" + qty + "&type=" + type,
     success: function (result) {
-      jQuery('.htc__qua').html(result);
+      if (type == "update" || type == "remove") {
+        window.location.href = "cart.php";
+      }
+      jQuery(".htc__qua").html(result);
     },
   });
 }
-

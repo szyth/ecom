@@ -2,6 +2,7 @@
 
 require('connection.inc.php');
 require('function.inc.php');
+require('add_to_cart.inc.php');
 
 
 $super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category ASC");
@@ -11,7 +12,8 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
     $super_cat_arr[] = $row;
 }
 
-
+$obj = new add_to_cart();
+$totalProduct = $obj->totalProduct();
 
 ?>
 
@@ -76,7 +78,13 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
                                 }
                                 ?>
                         </li>
-                        <li id="nav_cart"><a href="#"> <i class="material-icons-outlined">shopping_cart</i></a> </li>
+                        <li id="nav_cart">
+                            <div class="htc__shopping__cart">
+                                <a class="cart__menu" href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a>
+                                <a href="cart.php"><span class="htc__qua"><?php echo $totalProduct ?></span></a>
+                            </div>
+
+                        </li>
                     </ul>
 
                 </div>
@@ -115,6 +123,7 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
                 </ul>
                 <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
                 <a href="cart.html" class="right sidenav-trigger"><i class="material-icons-outlined">shopping_cart</i></a>
+                <!-- <a href="#"><span class="htc__qua">0</span></a> -->
             </div>
         </nav>
 
