@@ -69,15 +69,6 @@ $totalProduct = $obj->totalProduct();
                 <div class="col s12 m3">
                     <ul class="hide-on-med-and-down nav-ul">
                         <li id="nav_cart"><a href="search.php"> <i class="material-icons-outlined">search</i></a> </li>
-                        <li><a href="contact.php">Contact</a></li>
-                        <li> <?php
-                                if (isset($_SESSION['USER_LOGIN'])) {
-                                    echo '<a href="logout.php">Logout</a>';
-                                } else {
-                                    echo '<a href="login.php">Login</a>';
-                                }
-                                ?>
-                        </li>
                         <li id="nav_cart">
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a>
@@ -85,6 +76,18 @@ $totalProduct = $obj->totalProduct();
                             </div>
 
                         </li>
+                        <li> <?php
+                                if (isset($_SESSION['USER_LOGIN'])) {
+                                    echo '<a href="logout.php">' . $_SESSION['USER_NAME'] . '&#9662;</a></li> <li><a href="my_order.php">Orders</a>';
+                                } else {
+                                    echo '<a href="login.php">Login</a>';
+                                }
+                                ?>
+                        </li>
+                        <li><a href="contact.php">Contact</a></li>
+
+
+
                     </ul>
 
                 </div>

@@ -13,6 +13,51 @@ if (empty($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
     </script>
 <?php
 }
+
+$cart_total = 0;
+foreach ($_SESSION['cart'] as $key => $val) {
+    $productAr = get_product($con, '', '', $key);
+    $price = $productAr[0]['price'];
+    $qty = $val['qty'];
+    $cart_total = $cart_total + ($price * $qty);
+}
+
+
+if (isset($_POST['submit'])) {
+    $user_id = $_SESSION['USER_ID'];
+    $name = get_safe_value($con, $_POST['name']);
+    $number = get_safe_value($con, $_POST['number']);
+    $address = get_safe_value($con, $_POST['address']);
+    $city = get_safe_value($con, $_POST['city']);
+    $pincode = get_safe_value($con, $_POST['pincode']);
+    $payment_type = 'cod';
+    $total_price = $cart_total;
+    if ($payment_type == 'cod') {
+        $payment_status = 'success';
+    }
+    $order_status = 'pending';
+    $added_on = date('Y-m-d h:i:s');
+
+
+    $sql = "INSERT INTO `orders`(user_id,name,number,address,city,pincode,payment_type,total_price,payment_status,order_status,added_on) values('$user_id','$name','$number','$address','$city','$pincode','$payment_type','$total_price','$payment_status','$order_status','$added_on')";
+    mysqli_query($con, $sql);
+
+    $order_id = mysqli_insert_id($con);
+    foreach ($_SESSION['cart'] as $key => $val) {
+        $productAr = get_product($con, '', '', $key);
+        $price = $productAr[0]['price'];
+        $qty = $val['qty'];
+
+        mysqli_query($con, "INSERT INTO `order_detail`(order_id, product_id, qty, price) values('$order_id','$key','$qty','$price')");
+    }
+
+    unset($_SESSION['cart']);
+?>
+    <script>
+        window.location.href = 'thankyou.php'
+    </script>
+<?php
+}
 ?>
 
 
@@ -87,8 +132,38 @@ if (empty($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
         </div>
 
     </div>
-    <div class="col s12 m6">
+    <div class="col s12 m6 offset-m1">
+        <form method="POST">
+            <div class="row">
+                <h4>Address details</h4>
+                <div class="input-field col s6">
+                    <input id="name" name="name" type="text" class="validate">
+                    <label for="name" class="black-text">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="number" name="number" type="tel" class="validate">
+                    <label for="number" class="black-text">Mobile</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="address" name="address" type="text" class="validate">
+                    <label for="address" class="black-text">Address</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="city" name="city" type="text" class="validate">
+                    <label for="city" class="black-text">City</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="pincode" name="pincode" type="text" class="validate">
+                    <label for="pincode" class="black-text">Pincode</label>
+                </div>
+            </div>
 
+            <input type="submit" name="submit" id="" value="Submit">
+        </form>
     </div>
 
 </div>

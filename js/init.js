@@ -53,6 +53,8 @@ $("#fabric").click(function () {
   $("#fabric_body").toggle();
 });
 
+$('.dropdown-trigger').dropdown();
+
 //contact
 
 function send_message() {
