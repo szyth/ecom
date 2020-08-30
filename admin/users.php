@@ -1,10 +1,11 @@
 <?php
 require('includes/top.inc.php');
+isAdmin();
 
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value($con, $_GET['type']);
-   
-    
+
+
     if ($type == "delete") {
         $id = get_safe_value($con, $_GET['id']);
         $sql_delete_status = "DELETE FROM users WHERE id='$id'";

@@ -1,6 +1,13 @@
 <?php
 require('includes/top.inc.php');
 
+$condition = '';
+$condition1 = '';
+if ($_SESSION['ADMIN_ROLE'] == 1) {
+    $condition = " AND product.added_by = '" . $_SESSION['ADMIN_ID'] . "'";
+    $condition1 = " AND added_by = '" . $_SESSION['ADMIN_ID'] . "'";
+}
+
 $categories_id = '';
 $name = '';
 $mrp = '';
@@ -22,7 +29,7 @@ $image_required = 'required';
 if (isset($_GET['id']) && $_GET['id'] != '') {
     $image_required = '';
     $id = get_safe_value($con, $_GET['id']);
-    $sql = "SELECT * FROM product WHERE id = '$id'";
+    $sql = "SELECT * FROM product WHERE id = '$id' $condition1";
     $res = mysqli_query($con, $sql);
     $check = mysqli_num_rows($res);
     if ($check > 0) {
@@ -60,7 +67,7 @@ if (isset($_POST['submit'])) {
     $meta_desc = get_safe_value($con, $_POST['meta_desc']);
     $meta_keyword = get_safe_value($con, $_POST['meta_keyword']);
 
-    $sql = "SELECT * FROM product WHERE name = '$name'";
+    $sql = "SELECT * FROM product WHERE name = '$name' $condition1";
     $res = mysqli_query($con, $sql);
     $check = mysqli_num_rows($res);
 
@@ -90,7 +97,7 @@ if (isset($_POST['submit'])) {
         } else {
             $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'], "../media/product/" . $image);
-            $sql = "INSERT INTO product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) VALUES ('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword','1','$image')";
+            $sql = "INSERT INTO product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image,added_by) VALUES ('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword','1','$image','" . $_SESSION['ADMIN_ID'] . "')";
         }
         mysqli_query($con, $sql);
         header('location:product.php');

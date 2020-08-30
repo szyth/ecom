@@ -1,4 +1,13 @@
-<?php require('includes/header.inc.php'); ?>
+<?php require('includes/header.inc.php');
+
+if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
+?>
+    <script>
+        window.location.href = 'my_order.php'
+    </script>
+<?php
+}
+?>
 
 
 <section>

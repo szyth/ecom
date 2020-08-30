@@ -1,5 +1,6 @@
 <?php
 require('includes/top.inc.php');
+isAdmin();
 
 $categories = '';
 $msg = '';

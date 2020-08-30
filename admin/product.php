@@ -1,6 +1,15 @@
 <?php
 require('includes/top.inc.php');
 
+
+$condition = '';
+$condition1 = '';
+if ($_SESSION['ADMIN_ROLE'] == 1) {
+    $condition = " AND product.added_by = '" . $_SESSION['ADMIN_ID'] . "'";
+    $condition1 = " AND added_by = '" . $_SESSION['ADMIN_ID'] . "'";
+}
+
+
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value($con, $_GET['type']);
 
@@ -17,18 +26,19 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
             echo "Wrong Input";
         }
 
-        $sql_update_status = "UPDATE product SET status='$status' WHERE id='$id'";
+        $sql_update_status = "UPDATE product SET status='$status' $condition1 WHERE id='$id'";
         mysqli_query($con, $sql_update_status);
     }
     if ($type == "delete") {
         $id = get_safe_value($con, $_GET['id']);
-        $sql_delete_status = "DELETE FROM product WHERE id='$id'";
+        $sql_delete_status = "DELETE FROM product WHERE id='$id' $condition1";
         mysqli_query($con, $sql_delete_status);
     }
 }
 
 
-$sql = "SELECT product.*,categories.categories FROM product,categories WHERE product.categories_id=categories.id ORDER BY product.id DESC";
+
+$sql = "SELECT product.*,categories.categories FROM product,categories WHERE product.categories_id=categories.id $condition ORDER BY product.id DESC";
 $res = mysqli_query($con, $sql);
 ?>
 
@@ -68,7 +78,7 @@ $res = mysqli_query($con, $sql);
                                             <td><?php echo $row['id'] ?></td>
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
-                                            <td><img src="<?php echo "../media/product/".$row['image'] ?>"/></td>
+                                            <td><img src="<?php echo "../media/product/" . $row['image'] ?>" /></td>
                                             <td><?php echo $row['mrp'] ?></td>
                                             <td><?php echo $row['price'] ?></td>
                                             <td><?php echo $row['qty'] ?></td>
