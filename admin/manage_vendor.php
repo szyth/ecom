@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 
 
 
-    $sql = "SELECT * FROM admin_users WHERE username = '$categories' AND password='$password'";
+    $sql = "SELECT * FROM admin_users WHERE username = '$username'";
     $res = mysqli_query($con, $sql);
     $check = mysqli_num_rows($res);
 
