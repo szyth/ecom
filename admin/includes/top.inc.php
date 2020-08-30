@@ -40,7 +40,14 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
                   <a href="product.php"> Product Master</a>
                </li>
                <li class="menu-item-has-children dropdown">
-                  <a href="order_master.php"> Order Master</a>
+                  <?php
+                  if ($_SESSION['ADMIN_ROLE'] == 1) {
+                     echo ' <a href="order_master_vendor.php"> Order Master</a>';
+                  } else {
+                     echo ' <a href="order_master.php"> Order Master</a>';
+                  }
+                  ?>
+
                </li>
                <?php
                if ($_SESSION['ADMIN_ROLE'] != 1) {
@@ -54,6 +61,9 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="contact_us.php"> Contact Us</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="vendor_management.php"> Vendor Management</a>
                   </li>
                <?php } ?>
             </ul>

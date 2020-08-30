@@ -24,8 +24,15 @@ function get_safe_value($con, $str)
 
 function isAdmin()
 {
-    if ($_SESSION['ADMIN_ROLE'] == 1) {
+    if (!isset($_SESSION['ADMIN_LOGIN'])) {
 ?>
+        <script>
+            window.location.href = 'login.php'
+        </script>
+    <?php
+    }
+    if ($_SESSION['ADMIN_ROLE'] == 1) {
+    ?>
         <script>
             window.location.href = 'product.php'
         </script>
