@@ -95,6 +95,10 @@ nav ul a:hover {
   left: 13% !important;
 }
 
+#index_search {
+  display: none;
+}
+
 /* DROPDOWN */
 nav ul li {
   position: relative;
@@ -174,12 +178,10 @@ nav i.material-icons {
   line-height: 70px;
   font-size: larger;
   background: rgb(255, 90, 90);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 90, 90, 1) 0%,
-    rgba(253, 123, 29, 1) 44%,
-    rgba(252, 176, 69, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 90, 90, 1) 0%,
+      rgba(253, 123, 29, 1) 44%,
+      rgba(252, 176, 69, 1) 100%);
   color: rgb(255, 255, 255);
 }
 
@@ -411,24 +413,23 @@ nav i.material-icons {
   background-color: #095f58 !important;
 }
 
-.input-field > label {
+.input-field>label {
   color: #fff;
 }
 
-input:not([type]):focus:not([readonly]) + label,
-input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="password"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="datetime-local"]:not(.browser-default):focus:not([readonly])
-  + label,
-input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
+input:not([type]):focus:not([readonly])+label,
+input[type="text"]:not(.browser-default):focus:not([readonly])+label,
+input[type="password"]:not(.browser-default):focus:not([readonly])+label,
+input[type="email"]:not(.browser-default):focus:not([readonly])+label,
+input[type="url"]:not(.browser-default):focus:not([readonly])+label,
+input[type="time"]:not(.browser-default):focus:not([readonly])+label,
+input[type="date"]:not(.browser-default):focus:not([readonly])+label,
+input[type="datetime"]:not(.browser-default):focus:not([readonly])+label,
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly])+label,
+input[type="tel"]:not(.browser-default):focus:not([readonly])+label,
+input[type="number"]:not(.browser-default):focus:not([readonly])+label,
+input[type="search"]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
   color: #c4c4c4;
 }
 
@@ -478,7 +479,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 #search_button.btn-large {
   margin: 10px;
-  border: solid #000 1px;
+  /* border: solid #000 1px; */
 }
 
 #search_button.btn-large:hover {
@@ -491,6 +492,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border: solid #000 1px;
   border-radius: 10px;
 }
+
 #cat_button.btn-large:hover {
   color: #e4e0e0;
   background-color: #161616;
@@ -736,18 +738,18 @@ select {
   color: #242424;
 }
 
-[type="checkbox"] + span:not(.lever) {
+[type="checkbox"]+span:not(.lever) {
   font-size: 0.9rem;
 }
 
-[type="radio"]:not(:checked) + span,
-[type="radio"]:checked + span {
+[type="radio"]:not(:checked)+span,
+[type="radio"]:checked+span {
   font-size: 0.9rem;
   font-weight: 400;
   color: rgb(68, 68, 68);
 }
 
-[type="checkbox"].filled-in:checked + span:not(.lever):after {
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
   top: 0;
   width: 20px;
   height: 20px;
@@ -802,16 +804,12 @@ select {
   left: 0;
   right: 0;
   padding: 20px;
-  background-image: -webkit-linear-gradient(
-    bottom,
-    rgba(0, 0, 0, 0.973) 0%,
-    transparent 100%
-  );
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.973) 0%,
-    transparent 100%
-  );
+  background-image: -webkit-linear-gradient(bottom,
+      rgba(0, 0, 0, 0.973) 0%,
+      transparent 100%);
+  background-image: linear-gradient(to top,
+      rgba(0, 0, 0, 0.973) 0%,
+      transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -892,12 +890,12 @@ span.htc__qua {
     width: 17px;
   }
 }
+
 /* ADD TO CART - END */
 
 /* FOOTER */
 
-footer {
-}
+footer {}
 
 .brand-logo-footer {
   font-size: 2.1rem !important;

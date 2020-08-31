@@ -68,7 +68,7 @@ $totalProduct = $obj->totalProduct();
 
                 <div class="col s12 m3">
                     <ul class="hide-on-med-and-down nav-ul">
-                        <li id="nav_cart"><a href="search.php"> <i class="material-icons-outlined">search</i></a> </li>
+                        <li id="search_icon"><a> <i class="material-icons-outlined">search</i></a> </li>
                         <li id="nav_cart">
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a>
@@ -84,7 +84,7 @@ $totalProduct = $obj->totalProduct();
                                 }
                                 ?>
                         </li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <!-- <li><a href="contact.php">Contact</a></li> -->
 
 
 
@@ -129,5 +129,30 @@ $totalProduct = $obj->totalProduct();
                 <!-- <a href="#"><span class="htc__qua">0</span></a> -->
             </div>
         </nav>
+        <!-- <div style="background-color: #fff;" class="row ">
+            <div class="col s8 offset-s2">
+                <div class="input-field black-text">
+                    <input placeholder="Search here" id="first_name" type="text" class="validate">
+                </div>
+            </div>
+        </div> -->
+        <div id="index_search" class="row" style="background-color: #fff;">
+            <form class="col s10 offset-s1 m8 offset-m2" method="POST" action="search.php">
+                <div class="row">
+                    <div class="input-field col s12 m10">
+
+                        <input id="search" name="search" type="text" class="validate">
+                        <label for="search" class="black-text">Type Here "Maxi, Womens Dress" ...etc </label>
+                    </div>
+                    <div class="col s12 m2">
+                        <button type="submit" name="submit" id="search_button" class="waves-effect waves-light btn-large btn-flat ">
+                            <i class="material-icons prefix">search</i>
+                        </button>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
 
     </div>

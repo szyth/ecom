@@ -39,6 +39,12 @@ $(".btn-floating").click(function () {
   }
 });
 
+//Search toggle
+$("#search_icon").click(function () {
+  $("#index_search").toggle();
+});
+
+
 //toggle filter menu
 $("#price").click(function () {
   $("#price_body").toggle();

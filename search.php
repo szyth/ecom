@@ -1,5 +1,4 @@
 <?php require('includes/header.inc.php');
-
 if (isset($_POST['submit'])) {
     if ($_POST['search'] != '') {
         $search = get_safe_value($con, $_POST['search']);
@@ -14,28 +13,11 @@ if (isset($_POST['submit'])) {
         $search = '';
     }
 }
-
 ?>
 
 <br>
 <br>
 <br>
-<div class="row">
-    <form class="col s10 offset-s1 m8 offset-m2" method="POST">
-        <div class="row">
-            <div class="input-field col s12 m10">
-                <i class="material-icons prefix">search</i>
-                <input id="search" name="search" type="text" class="validate">
-                <label for="search" class="black-text">Type Here "Maxi, Womens Dress" ...etc </label>
-            </div>
-            <div class="col s12 m2">
-                <button type="submit" name="submit" id="search_button" class="waves-effect waves-light btn-large btn-flat center">Search</button>
-
-            </div>
-        </div>
-
-    </form>
-</div>
 
 
 
