@@ -231,6 +231,14 @@ nav i.material-icons {
 /* SLIDER - END */
 
 /* NEW ARRIVALS */
+.product_container {
+  padding: 1% 4% !important;
+
+}
+
+.product_container_inner {
+  padding: 2% !important;
+}
 
 #new_arrivals {
   background-color: #fff;
@@ -261,28 +269,28 @@ nav i.material-icons {
 .dress-card {
   border: solid rgb(219, 219, 219) 1px;
   border-radius: 14px;
-  width: 80%;
-  margin: 7% 1% 7% 1%;
+  width: 100%;
+  /* margin: 7% 1% 7% 1%; */
 }
 
 .dress-card-img-top {
   width: auto;
   max-width: 100%;
   object-fit: cover;
-  height: 45vw;
+  height: 40vw;
 
   border-radius: 7px 7px 0 0;
 }
 
 @media only screen and (min-width: 601px) {
   .dress-card-img-top {
-    height: 35vw;
+    height: 30vw;
   }
 }
 
 @media only screen and (min-width: 993px) {
   .dress-card-img-top {
-    height: 25vw;
+    height: 20vw;
   }
 }
 
@@ -354,6 +362,24 @@ nav i.material-icons {
 /* NEW ARRIVALS - END */
 
 /* ALL PRODUCTS */
+#all_products {
+  background-color: #fff;
+  padding-top: 10px;
+}
+
+#all_products .title h1 {
+  color: #313131;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.7em !important;
+  font-weight: 700;
+}
+
+#all_products .title p {
+  color: #686868;
+  font-size: 1em !important;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
 
 #all_product_button.btn-large {
   margin: 20px;

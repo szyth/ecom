@@ -33,9 +33,7 @@
 
 
     <div class="">
-        <div class="row slider-container">
-
-
+        <div class="row product_container">
             <?php
 
             $get_product = get_product($con, '8', '', '');
@@ -44,9 +42,9 @@
 
 
 
-                <div class="col s6 m4 l3 center center-block centered center-align">
-                    <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
-                        <div class="dress-card box_shadow">
+                <div class="col s6 m4 l3 product_container_inner">
+                    <div class="dress-card box_shadow center">
+                        <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                             <div class="dress-card-head">
                                 <img class="dress-card-img-top" src="<?php echo "media/product/" . $list['image'] ?>" alt="">
                             </div>
@@ -60,8 +58,8 @@
                                 <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
                                     More</a>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             <?php
             }
@@ -94,13 +92,13 @@
     </div>
 
 
-    <div class="row center">
+    <div class="row center product_container">
 
         <?php
         $get_product = get_product($con, '', '', '');
         foreach ($get_product as $list) {
         ?>
-            <div class="col s6 m4 l3">
+            <div class="col s6 m4 l3 product_container_inner">
                 <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                     <div class="dress-card box_shadow">
                         <div class="dress-card-head">

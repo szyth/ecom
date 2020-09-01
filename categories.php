@@ -245,7 +245,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
     </div>
     <div class="col s12 m9" style="border-left: solid rgb(196, 196, 196) 1px;">
         <!-- ALL PRODUCTS -->
-        <div id="new_arrivals">
+        <div id="new_arrivals" class="product_container">
             <div class="title center">
                 <h1>
                     <?php echo $super_cat_arr[0]['super_category']; ?>
@@ -261,7 +261,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 ?>
 
 
-                        <div class="col s6 m4 l3">
+                        <div class="col s6 m4 l3 product_container_inner">
                             <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                                 <div class="dress-card box_shadow">
                                     <div class="dress-card-head">

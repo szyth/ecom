@@ -35,7 +35,7 @@ $totalProduct = $obj->totalProduct();
                 </div>
                 <div class="col s12 m6 push-custom">
                     <ul id="hover" class="hide-on-med-and-down nav-ul">
-                        <li><a>Home</a> </li>
+                        <li><a href="index.php">Home</a> </li>
                         <?php
 
                         $super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category ASC");

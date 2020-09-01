@@ -232,8 +232,8 @@ if (count($get_product) > 0) {
         </div>
         <div class="col s12 m9" style="border-left: solid rgb(196, 196, 196) 1px;">
             <!-- ALL PRODUCTS -->
-            <div id="new_arrivals">
-                <div class="title center">
+            <div id="new_arrivals" class="product_container">
+                <div class="title center ">
                     <h1>
                         <?php
                         if (!empty($get_product)) {
@@ -248,7 +248,7 @@ if (count($get_product) > 0) {
                     <?php foreach ($get_product as $list) { ?>
 
 
-                        <div class="col s6 m4 l3">
+                        <div class="col s6 m4 l3 product_container_inner">
                             <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                                 <div class="dress-card box_shadow">
                                     <div class="dress-card-head">
