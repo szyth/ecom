@@ -55,6 +55,9 @@ $("#back_button_mobile").click(function () {
 
 
 //toggle filter menu
+$("#subcategory").click(function () {
+  $("#subcategory_body").toggle();
+});
 $("#price").click(function () {
   $("#price_body").toggle();
 });

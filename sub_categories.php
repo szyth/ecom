@@ -12,6 +12,8 @@ if ($cat_id > 0) {
     </script>
 <?php }
 
+
+
 $super_cat_res = mysqli_query($con, "SELECT super_category.*,categories.super_categories_id FROM super_category,categories WHERE super_category.id = categories.super_categories_id AND categories.id=$cat_id");
 $super_cat_arr = array();
 while ($row1 = mysqli_fetch_assoc($super_cat_res)) {

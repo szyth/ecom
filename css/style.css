@@ -761,6 +761,21 @@ select {
   padding: 5%;
 }
 
+#subcategory_body {
+  display: block;
+}
+
+#subcategory_body.filter_options {
+  padding: 0%;
+  text-transform: capitalize;
+}
+
+.filter_options li {
+  line-height: 1.7em;
+  font-size: large;
+  color: #242424;
+}
+
 #color_body {
   display: block;
 }
@@ -772,6 +787,8 @@ select {
 .filter_options label {
   color: #242424;
 }
+
+
 
 [type="checkbox"]+span:not(.lever) {
   font-size: 0.9rem;
