@@ -26,20 +26,23 @@
 </section>
 
 <div class="container">
-    <table class="highlight centered" id="cart">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Name</th>
-                <th>Old Price</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
-        <?php
-        if (!empty($_SESSION['cart'])) {
+    <?php
+    if (!empty($_SESSION['cart'])) {
+    ?>
+        <table class="highlight centered" id="cart">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Old Price</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <?php
+
 
 
             foreach ($_SESSION['cart'] as $key => $val) {
@@ -49,7 +52,7 @@
                 $price = $productAr[0]['price'];
                 $image = $productAr[0]['image'];
                 $qty = $val['qty'];
-        ?>
+            ?>
                 <tbody>
                     <tr>
                         <td>
@@ -71,20 +74,28 @@
                         </td>
                     </tr>
                 </tbody>
-        <?php }
-        }    ?>
-    </table>
-    <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">&#8249; Continue Shopping</a>
+            <?php }
+            ?>
+        </table>
+        <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">&#8249; Continue Shopping</a>
 
 
     <?php
 
-    if (!isset($_SESSION['USER_LOGIN'])) {
-        echo ' <a href="login.php" class="waves-effect waves-light btn-large  btn-flat right">Login to Checkout
+        if (!isset($_SESSION['USER_LOGIN'])) {
+            echo ' <a href="login.php" class="waves-effect waves-light btn-large  btn-flat right">Login to Checkout
     </a>';
+        } else {
+            echo ' <a href="checkout.php" class="waves-effect waves-light btn-large  btn-flat right">Checkout&#187;
+    </a>';
+        }
     } else {
-        echo ' <a href="checkout.php" class="waves-effect waves-light btn-large  btn-flat right">Checkout&#187;
-    </a>';
+        echo '
+        <div class="center"> 
+            <h4>Empty Cart</h4>        
+            <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">&#8249; Continue Shopping</a>
+        </div>
+';
     }
 
     ?>

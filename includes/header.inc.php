@@ -41,6 +41,7 @@ $totalProduct = $obj->totalProduct();
                         $super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category ASC");
 
                         while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
+                            $super_cat_arr[] = $row1;
                         ?>
                             <li><a href="categories.php?id=<?php echo $row1['id'] ?>"><?php echo $row1['super_category'] ?></a>
                                 <ul>
@@ -123,10 +124,12 @@ $totalProduct = $obj->totalProduct();
                         <div class="divider"></div>
                     </li>
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="cart.php">Cart</a></li>
                     <li><?php
                         if (isset($_SESSION['USER_LOGIN'])) {
-                            echo '<a href="logout.php">Logout</a>';
+                            echo '<a href="my_order.php">My Orders</a></li>
+                             <li> <a href="logout.php">Logout</a>
+                            ';
                         } else {
                             echo '<a href="login.php">Login</a>';
                         }
