@@ -26,7 +26,7 @@
 </section>
 
 <div class="container">
-    <table class="highlight centered responsive-table" id="cart">
+    <table class="highlight centered" id="cart">
         <thead>
             <tr>
                 <th>Product</th>
@@ -39,41 +39,46 @@
             </tr>
         </thead>
         <?php
-        foreach ($_SESSION['cart'] as $key => $val) {
-            $productAr = get_product($con, '', '', $key);
-            $pname = $productAr[0]['name'];
-            $mrp = $productAr[0]['mrp'];
-            $price = $productAr[0]['price'];
-            $image = $productAr[0]['image'];
-            $qty = $val['qty'];
-        ?>
-            <tbody>
-                <tr>
-                    <td>
-                        <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "media/product/" . $image ?>" alt="">
-                    </td>
-                    <td><?php echo $pname ?></td>
-                    <td>Rs. <?php echo $mrp ?></td>
-                    <td>Rs. <?php echo $price ?></td>
-                    <td>
-                        <input id="<?php echo $key ?>qty" type="number" value="<?php echo $qty ?>">
+        if (!empty($_SESSION['cart'])) {
 
-                        <br>
-                        <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','update')">update</a></td>
-                    <td>Rs. <?php echo $qty * $price ?></td>
-                    <td>
-                        <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')">
-                            <i class="material-icons-outlined">delete</i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        <?php } ?>
+
+            foreach ($_SESSION['cart'] as $key => $val) {
+                $productAr = get_product($con, '', '', $key);
+                $pname = $productAr[0]['name'];
+                $mrp = $productAr[0]['mrp'];
+                $price = $productAr[0]['price'];
+                $image = $productAr[0]['image'];
+                $qty = $val['qty'];
+        ?>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "media/product/" . $image ?>" alt="">
+                        </td>
+                        <td><?php echo $pname ?></td>
+                        <td>Rs. <?php echo $mrp ?></td>
+                        <td>Rs. <?php echo $price ?></td>
+                        <td>
+                            <input id="<?php echo $key ?>qty" type="number" value="<?php echo $qty ?>">
+
+                            <br>
+                            <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','update')">update</a></td>
+                        <td>Rs. <?php echo $qty * $price ?></td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')">
+                                <i class="material-icons-outlined">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+        <?php }
+        }    ?>
     </table>
     <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">&#8249; Continue Shopping</a>
 
 
     <?php
+
     if (!isset($_SESSION['USER_LOGIN'])) {
         echo ' <a href="login.php" class="waves-effect waves-light btn-large  btn-flat right">Login to Checkout
     </a>';
@@ -81,6 +86,7 @@
         echo ' <a href="checkout.php" class="waves-effect waves-light btn-large  btn-flat right">Checkout&#187;
     </a>';
     }
+
     ?>
 
 

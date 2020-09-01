@@ -26,7 +26,7 @@ $order_id = get_safe_value($con, $_GET['id']);
 </section>
 
 <div class="container">
-    <table class="highlight centered responsive-table" id="cart">
+    <table class="highlight centered" id="cart">
         <thead>
             <tr>
                 <th>Product Name</th>

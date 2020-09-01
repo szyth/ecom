@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
         <div class=" center">
             <h4>Order Details </h4>
             <div class="divider"></div>
-            <table class="highlight centered responsive-table" id="cart">
+            <table class="highlight centered " id="cart">
                 <thead>
                     <tr>
                         <th>Product</th>

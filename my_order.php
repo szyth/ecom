@@ -45,7 +45,12 @@
             while ($row = mysqli_fetch_assoc($res)) {
             ?>
                 <tr>
-                    <td><a href="my_order_details.php?id=<?php echo $row['id'] ?>"><?php echo $row['id'] ?></a></td>
+                    <td>
+                        <a href="my_order_details.php?id=<?php echo $row['id'] ?>">
+                            <!-- <?php echo $row['id'] ?> -->
+                            Click to know more
+                        </a>
+                    </td>
                     <td><?php echo $row['added_on'] ?></td>
                     <td>
                         <?php echo $row['address'] ?>
