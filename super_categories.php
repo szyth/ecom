@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
 </section>
 
 
-<div class="row">
+<div class="row" class="container">
     <?php
     $i = 1;
     foreach ($super_cat_arr as $list) {

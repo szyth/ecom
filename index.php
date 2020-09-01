@@ -25,7 +25,7 @@
 </div>
 
 <!-- NEW ARRIVALS -->
-<div id="new_arrivals">
+<div id="new_arrivals" class="container">
     <div class="title center">
         <h1>New Arrivals</h1>
         <p>Some of the latest trends in town</p>
@@ -87,7 +87,7 @@
 <!-- PARALLAX - END -->
 
 <!-- ALL PRODUCTS -->
-<div id="new_arrivals">
+<div id="all_products">
     <div class="title center">
         <h1>All Products</h1>
         <p>Some of the latest trends in town</p>
