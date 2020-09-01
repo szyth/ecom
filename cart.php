@@ -70,7 +70,7 @@
             </tbody>
         <?php } ?>
     </table>
-    <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">Continue Shopping</a>
+    <a href="index.php" class="waves-effect waves-light btn-large  btn-flat">&#8249; Continue Shopping</a>
 
 
     <?php
@@ -78,7 +78,7 @@
         echo ' <a href="login.php" class="waves-effect waves-light btn-large  btn-flat right">Login to Checkout
     </a>';
     } else {
-        echo ' <a href="checkout.php" class="waves-effect waves-light btn-large  btn-flat right">Checkout
+        echo ' <a href="checkout.php" class="waves-effect waves-light btn-large  btn-flat right">Checkout&#187;
     </a>';
     }
     ?>

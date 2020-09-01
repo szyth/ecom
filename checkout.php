@@ -84,7 +84,40 @@ if (isset($_POST['submit'])) {
 </section>
 
 <div class="row">
-    <div class="col s12 m4" style="border: solid #444 1px;padding:20px">
+    <div class="col s12 m5 offset-m1">
+        <form method="POST">
+            <div class="row">
+                <h4>Address details</h4>
+                <div class="input-field col s6">
+                    <input id="name" name="name" type="text" class="validate">
+                    <label for="name" class="black-text">Full Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="number" name="number" type="tel" class="validate">
+                    <label for="number" class="black-text">Mobile</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="address" name="address" type="text" class="validate">
+                    <label for="address" class="black-text">Address</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="city" name="city" type="text" class="validate">
+                    <label for="city" class="black-text">City</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="pincode" name="pincode" type="text" class="validate">
+                    <label for="pincode" class="black-text">Pincode</label>
+                </div>
+            </div>
+
+            <input type="submit" name="submit" id="" value="Place Order">
+        </form>
+    </div>
+    <div class="col s12 m4 offset-m1" style="padding:20px">
         <div class=" center">
             <h4>Order Details </h4>
             <div class="divider"></div>
@@ -132,39 +165,7 @@ if (isset($_POST['submit'])) {
         </div>
 
     </div>
-    <div class="col s12 m6 offset-m1">
-        <form method="POST">
-            <div class="row">
-                <h4>Address details</h4>
-                <div class="input-field col s6">
-                    <input id="name" name="name" type="text" class="validate">
-                    <label for="name" class="black-text">Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="number" name="number" type="tel" class="validate">
-                    <label for="number" class="black-text">Mobile</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="address" name="address" type="text" class="validate">
-                    <label for="address" class="black-text">Address</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="city" name="city" type="text" class="validate">
-                    <label for="city" class="black-text">City</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="pincode" name="pincode" type="text" class="validate">
-                    <label for="pincode" class="black-text">Pincode</label>
-                </div>
-            </div>
 
-            <input type="submit" name="submit" id="" value="Submit">
-        </form>
-    </div>
 
 </div>
 

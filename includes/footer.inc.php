@@ -20,8 +20,8 @@
                         <span class="card-title">Contact details</span>
                         <ul class="quick-links">
                             <li>C-25, Aliganj, Lucknow - 226024, Uttar Pradesh, India.</li>
-                            <li>info@onebigbit.com
-                                business@onebigbit.com</li>
+                            <li>info@onebigbit.com</li>
+                            <li> business@onebigbit.com</li>
                             <li>+91-522-431-6496</li>
                         </ul>
                     </div>

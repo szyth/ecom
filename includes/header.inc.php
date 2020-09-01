@@ -125,7 +125,13 @@ $totalProduct = $obj->totalProduct();
                     </li>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
-                <a href="cart.html" class="right sidenav-trigger"><i class="material-icons-outlined">shopping_cart</i></a>
+                <ul class="right sidenav-trigger">
+                    <li> <a href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a></li>
+                    <li id="search_icon_mobile"><a> <i class="material-icons-outlined">search</i></a> </li>
+
+                </ul>
+
+
                 <!-- <a href="#"><span class="htc__qua">0</span></a> -->
             </div>
         </nav>
@@ -137,16 +143,24 @@ $totalProduct = $obj->totalProduct();
             </div>
         </div> -->
         <div id="index_search" class="row" style="background-color: #fff;">
-            <form class="col s10 offset-s1 m8 offset-m2" method="POST" action="search.php">
+            <form method="POST" action="search.php" id="search_form">
                 <div class="row">
-                    <div class="input-field col s12 m10">
-
-                        <input id="search" name="search" type="text" class="validate">
-                        <label for="search" class="black-text">Type Here "Maxi, Womens Dress" ...etc </label>
+                    <div class="col s2 left">
+                        <div id="back_button_mobile" class="hide-on-large-only waves-effect waves-light  btn-flat btn-large center">
+                            <i class="material-icons-outlined left">keyboard_backspace</i>
+                        </div>
                     </div>
-                    <div class="col s12 m2">
-                        <button type="submit" name="submit" id="search_button" class="waves-effect waves-light btn-large btn-flat ">
-                            <i class="material-icons prefix">search</i>
+                    <div class="input-field col s8 m7">
+
+                        <input id="search" placeholder="Search for products and more " name="search" type="text" class="validate">
+                        <!-- <label for="search" style="color: #9e9e9e;">Search for products and more </label> -->
+                    </div>
+                    <div class="col s2 m2">
+                        <button type="submit" name="submit" id="search_button" class="hide-on-med-and-down waves-effect waves-light btn-large btn-flat ">
+                            <i class="material-icons-outlined">search</i>Search
+                        </button>
+                        <button type="submit" name="submit" id="search_button_mobile" class="hide-on-large-only waves-effect waves-light btn-large btn-flat right">
+                            <i class="material-icons-outlined">search</i>
                         </button>
 
                     </div>

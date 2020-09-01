@@ -25,7 +25,7 @@
 </div>
 
 <!-- NEW ARRIVALS -->
-<div id="new_arrivals" class="container">
+<div id="new_arrivals">
     <div class="title center">
         <h1>New Arrivals</h1>
         <p>Some of the latest trends in town</p>
@@ -33,7 +33,7 @@
 
 
     <div class="">
-        <div class="row center">
+        <div class="row slider-container">
 
 
             <?php
@@ -44,7 +44,7 @@
 
 
 
-                <div class="col s6 m4 l3">
+                <div class="col s6 m4 l3 center center-block centered center-align">
                     <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                         <div class="dress-card box_shadow">
                             <div class="dress-card-head">

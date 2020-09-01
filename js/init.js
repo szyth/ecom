@@ -41,7 +41,16 @@ $(".btn-floating").click(function () {
 
 //Search toggle
 $("#search_icon").click(function () {
+  $("#index_search").fadeToggle(250, "linear");
+});
+
+$("#search_icon_mobile").click(function () {
   $("#index_search").toggle();
+  $("nav").toggle();
+});
+$("#back_button_mobile").click(function () {
+  $("#index_search").toggle();
+  $("nav").toggle();
 });
 
 

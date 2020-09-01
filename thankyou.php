@@ -1,30 +1,9 @@
 <?php require('includes/header.inc.php'); ?>
 
 
-<section>
-    <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center">
-                    <h5 class="header col s12">
-                        <div class="breadcrumb_wrapper">
-                            <a href="index.php" class="breadcrumb">Home</a>
-                            <a class="breadcrumb">Thank You</a>
-                        </div>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="parallax"><img src="media/parallax/2.jpg" alt="Unsplashed background img 2"></div>
-    </div>
 
 
-
-
-</section>
-
-
-<h4>Thank You! Your order has been placed.</h4>
+<h5 class="center" style="background-color: rgb(255, 255, 255);">Thank You! Your order has been placed.</h5>
 
 
 
