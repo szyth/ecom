@@ -35,7 +35,8 @@
                             <li><a class="white-text" href="index.php">HOME</a></li>
                             <li><a class="white-text" href="super_categories.php">CATEGORIES</a></li>
                             <li><a class="white-text" href="contact.php">CONTACT</a></li>
-                            <li><a class="white-text" href="login.php">LOGIN</a></li>
+                            <!-- <li><a class="white-text" href="login.php">LOGIN</a></li> -->
+                            <li><a class="white-text" href="admin/login.php">ADMIN LOGIN</a></li>
                         </ul>
                     </div>
                 </div>

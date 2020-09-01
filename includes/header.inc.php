@@ -4,14 +4,6 @@ require('connection.inc.php');
 require('function.inc.php');
 require('add_to_cart.inc.php');
 
-
-$super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category ASC");
-
-$super_cat_arr = array();
-while ($row = mysqli_fetch_assoc($super_cat_res)) {
-    $super_cat_arr[] = $row;
-}
-
 $obj = new add_to_cart();
 $totalProduct = $obj->totalProduct();
 
@@ -42,32 +34,40 @@ $totalProduct = $obj->totalProduct();
                     <a id="logo-container" class="brand-logo" href="index.php">CLASSY CLOSET</a>
                 </div>
                 <div class="col s12 m6 push-custom">
-                    <ul class="hide-on-med-and-down nav-ul">
-                        <li><a href="index.php">Home</a></li>
-
+                    <ul id="hover" class="hide-on-med-and-down nav-ul">
+                        <li><a>Home</a> </li>
                         <?php
-                        foreach ($super_cat_arr as $list) {
+
+                        $super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category ASC");
+
+                        while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                         ?>
-                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['super_category'] ?></a></li>
+                            <li><a href="categories.php?id=<?php echo $row1['id'] ?>"><?php echo $row1['super_category'] ?></a>
+                                <ul>
+                                    <?php
+                                    $x = $row1['id'];
+                                    $cat_res = mysqli_query($con, "SELECT * FROM categories WHERE super_categories_id = $x");
+                                    while ($row = mysqli_fetch_assoc($cat_res)) {
+                                    ?>
+                                        <li>
+                                            <a id="cat_button" href="sub_categories.php?id=<?php echo $row['id'] ?>" class="black-text">
+                                                <?php echo $row['categories'] ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            </li>
 
                         <?php
                         }
                         ?>
-
-                        <!-- dropdown -->
-                        <!-- <li id="dropdown"><a href="#">Categories &#9662;</a>
-                        <ul class="dropdown">
-                            <li><a href="categories.html">Kids &#9656;</a></li>
-                            <li><a href="categories.html">Women's &#9656;</a></li>
-                            <li><a href="categories.html">Men's &#9656;</a></li>
-                        </ul>
-                    </li> -->
-
                     </ul>
                 </div>
 
                 <div class="col s12 m3">
-                    <ul class="hide-on-med-and-down nav-ul">
+                    <ul id="hover" class="hide-on-med-and-down nav-ul">
                         <li id="search_icon"><a> <i class="material-icons-outlined">search</i></a> </li>
                         <li id="nav_cart">
                             <div class="htc__shopping__cart">
@@ -76,13 +76,22 @@ $totalProduct = $obj->totalProduct();
                             </div>
 
                         </li>
-                        <li> <?php
-                                if (isset($_SESSION['USER_LOGIN'])) {
-                                    echo '<a href="logout.php">' . $_SESSION['USER_NAME'] . '&#9662;</a></li> <li><a href="my_order.php">Orders</a>';
-                                } else {
-                                    echo '<a href="login.php">Login</a>';
-                                }
-                                ?>
+                        <li>
+
+                            <?php
+                            if (isset($_SESSION['USER_LOGIN'])) {
+                                echo
+                                    '<a>' . $_SESSION['USER_NAME'] . '  &#9662;</a>
+                                    <ul>
+                                <li><a href="my_order.php">Orders
+                                     </a></li>
+                                <li><a href="logout.php">Logout</a></li>
+                            </ul>
+                                     ';
+                            } else {
+                                echo '<a href="login.php">Login</a>';
+                            }
+                            ?>
                         </li>
                         <!-- <li><a href="contact.php">Contact</a></li> -->
 
@@ -125,7 +134,7 @@ $totalProduct = $obj->totalProduct();
                     </li>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right sidenav-trigger">
+                <ul class="right sidenav-trigger hide-on-large-only">
                     <li> <a href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a></li>
                     <li id="search_icon_mobile"><a> <i class="material-icons-outlined">search</i></a> </li>
 

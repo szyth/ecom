@@ -75,7 +75,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                         <?php
                         }
                         ?>
-                        </ul>
+                    </ol>
 
                 </form>
             </div>
@@ -293,7 +293,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 <?php
 ?>
 
-<section>
+<section style="background-color: rgb(255, 255, 255);">
     <svg class="curve" data-name="layer" viewBox="0 0 1416.9 174.01">
         <path d="M0,220.8S283.66,120,608.94,163.56s437.93,100.57,818,10.34V309.54H0V280.8Z" transform="translate(0 -120.53)" />
 
