@@ -156,7 +156,7 @@ $totalProduct = $obj->totalProduct();
         </div> -->
         <div id="index_search" class="row" style="background-color: #fff;">
             <form method="POST" action="search.php" id="search_form">
-                <div class="row">
+                <div class="row" style="overflow: hidden;">
                     <div class="col s2 left">
                         <div id="back_button_mobile" class="hide-on-large-only waves-effect waves-light  btn-flat btn-large">
                             <i class="material-icons-outlined left">keyboard_backspace</i>

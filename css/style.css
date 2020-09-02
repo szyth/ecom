@@ -540,6 +540,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 #search_button_mobile.btn-large {
   width: 0px !important;
+  padding-left: 5px;
 }
 
 #back_button_mobile {
@@ -559,10 +560,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 #search_form .row {
   margin-bottom: 0px !important;
-}
-
-#back_button_mobile.btn-large {
-  width: 2% !important;
 }
 
 
