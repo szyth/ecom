@@ -138,13 +138,15 @@ $totalProduct = $obj->totalProduct();
                 </ul>
                 <a href="#" data-target="nav-mobile" class="left sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right sidenav-trigger hide-on-large-only">
-                    <li> <a href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a></li>
+                    <li>
+                        <a href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a>
+                        <a href="cart.php"><span class="htc__qua"><?php echo $totalProduct ?></span></a>
+                    </li>
                     <li id="search_icon_mobile"><a> <i class="material-icons-outlined">search</i></a> </li>
 
                 </ul>
 
 
-                <!-- <a href="#"><span class="htc__qua">0</span></a> -->
             </div>
         </nav>
         <!-- <div style="background-color: #fff;" class="row ">

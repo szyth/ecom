@@ -34,7 +34,7 @@
                 <tr>
                     <th>Product</th>
                     <th>Name</th>
-                    <th>Old Price</th>
+                    <!-- <th>Old Price</th> -->
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -48,7 +48,7 @@
             foreach ($_SESSION['cart'] as $key => $val) {
                 $productAr = get_product($con, '', '', $key);
                 $pname = $productAr[0]['name'];
-                $mrp = $productAr[0]['mrp'];
+                // $mrp = $productAr[0]['mrp'];
                 $price = $productAr[0]['price'];
                 $image = $productAr[0]['image'];
                 $qty = $val['qty'];
@@ -59,7 +59,7 @@
                             <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "media/product/" . $image ?>" alt="">
                         </td>
                         <td><?php echo $pname ?></td>
-                        <td>Rs. <?php echo $mrp ?></td>
+                        <!-- <td>Rs. <?php echo $mrp ?></td> -->
                         <td>Rs. <?php echo $price ?></td>
                         <td>
                             <input id="<?php echo $key ?>qty" type="number" value="<?php echo $qty ?>">

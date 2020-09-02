@@ -974,18 +974,14 @@ span.htc__qua {
   width: 17px;
 }
 
-@media screen and (max-width: 601px) {
+@media screen and (max-width: 992px) {
   span.htc__qua {
-    background: #c43b68;
-    border-radius: 100%;
-    color: #fff;
-    font-size: 9px;
-    height: 17px;
-    line-height: 19px;
-    right: 0;
-    text-align: center;
-    top: 5%;
-    width: 17px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    right: 0px;
+    top: 15%;
+
   }
 }
 
