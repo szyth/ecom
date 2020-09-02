@@ -174,7 +174,7 @@ nav i.material-icons {
     font-size: 1.5rem !important;
   }
 
-  .material-icons-outlined {
+  #nav .material-icons-outlined {
     color: rgb(156, 0, 86);
     vertical-align: unset;
   }
@@ -585,19 +585,60 @@ textarea.materialize-textarea:focus:not([readonly]) {
   background-color: #1f1f1f;
 }
 
-#cat_button.btn-large {
+
+#continue_shopping_button::before {
+  content: "\2039";
+  position: absolute;
+  margin: 0 auto;
+  color: rgb(85, 85, 85);
+  font-size: 2em;
+  top: -3px;
+  left: 5px;
+}
+
+#continue_shopping_button.btn-large {
+  padding-right: 20px;
   background-color: #ffffff;
   color: #000000;
   border: solid #000 1px;
-  border-radius: 10px;
 }
 
-#cat_button.btn-large:hover {
+#continue_shopping_button.btn-large:hover {
+  color: #e4e0e0;
+  background-color: #161616;
+}
+
+
+#checkout_button::after {
+  content: "\00BB";
+  position: absolute;
+  margin: 0 auto;
+  color: rgb(85, 85, 85);
+  font-size: 2em;
+  top: -3px;
+  right: 5px;
+}
+
+
+#checkout_button.btn-large {
+  padding-left: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: solid #000 1px;
+}
+
+#checkout_button.btn-large:hover {
   color: #e4e0e0;
   background-color: #161616;
 }
 
 /* BUTTONS - END */
+
+
+
+
+
+
 .input-field .prefix.active {
   color: rgb(206, 206, 206);
 }

@@ -235,9 +235,9 @@ if (isset($_POST['submit'])) {
 
         if (isset($_POST['submit'])) {
             if ($search != '') {
-                echo '<h4 class="center">No results for "' . $search . '"</h4>';
+                echo '<h5 class="center"><i class="material-icons-outlined" style="font-size: 8em;">search_off</i><br>No results for "' . $search . '"</h5>';
             } else {
-                echo '<h4 class="center">Please enter data to search</h4>';
+                echo '<h5 class="center"><i class="material-icons-outlined" style="font-size: 10em;">error_outline</i><br>Please enter data to search</h5>';
             }
         }
     }

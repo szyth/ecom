@@ -43,6 +43,7 @@
 
             $res = mysqli_query($con, "SELECT orders.*,order_status.name as order_status_str FROM orders,order_status WHERE orders.user_id = '$uid' AND order_status.id = orders.order_status");
             while ($row = mysqli_fetch_assoc($res)) {
+
             ?>
                 <tr>
                     <td>
@@ -62,7 +63,7 @@
                     <td><?php echo $row['order_status_str'] ?></td>
 
                 </tr>
-            <?php } ?>
+            <?php }  ?>
         </tbody>
     </table>
 

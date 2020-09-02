@@ -3,6 +3,7 @@ session_start();
 unset($_SESSION['USER_LOGIN']);
 unset($_SESSION['USER_ID']);
 unset($_SESSION['USER_NAME']);
+unset($_SESSION['cart']);
 ?>
 <script>
     location.replace("index.php");

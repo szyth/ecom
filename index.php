@@ -10,13 +10,13 @@
         <a class="carousel-item" href="#three!"><img src="media/slider/3.jpg"></a>
         <a class="carousel-item" href="#four!"><img src="media/slider/4.jpg"></a>
     </div>
-    <div class="text-translate">
+    <!-- <div class="text-translate">
         <div>
             <h1 class="slider-title">Summer Collection 2020</h1>
         </div>
         <a href="#all_products" id="banner_button" class="waves-effect waves-light btn-large  btn-flat ">Shop Now!</a>
 
-    </div>
+    </div> -->
 
 </div>
 

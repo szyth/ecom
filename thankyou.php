@@ -3,7 +3,7 @@
 
 
 
-<h5 class="center" style="background-color: rgb(255, 255, 255);">Thank You! Your order has been placed.</h5>
+<h5 class="center" style="background-color: rgb(255, 255, 255);margin:0;"><i class="material-icons-outlined" style="font-size: 10em;">check_circle_outline</i><br> Thank You! Your order has been placed.</h5>
 
 
 
@@ -16,6 +16,10 @@
 </section>
 
 
-
+<script>
+    setTimeout(function() {
+        window.location.href = 'index.php';
+    }, 2500)
+</script>
 
 <?php require('includes/footer.inc.php'); ?>
