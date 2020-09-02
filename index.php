@@ -2,26 +2,21 @@
 
 
 <!-- SLIDER -->
-<div class="slider-container">
-    <div class="row">
-        <div class="col s12 m7 offset-m1">
-            <div class="carousel carousel-slider">
-                <a class="carousel-item" href="#one!"><img src="media/slider/1.jpg"></a>
-                <a class="carousel-item" href="#two!"><img src="media/slider/2.jpg"></a>
-                <a class="carousel-item" href="#three!"><img src="media/slider/3.jpg"></a>
-                <a class="carousel-item" href="#four!"><img src="media/slider/4.jpg"></a>
-            </div>
-        </div>
-        <div class="col s12 m4">
-            <div class="text-translate">
-                <div>
-                    <h1 class="slider-title">Summer Collection 2020</h1>
-                </div>
-                <a id="banner_button" class="waves-effect waves-light btn-large  btn-flat">Shop Now!</a>
-            </div>
+<div class="slider-container" style="background-color: #fff;">
 
-        </div>
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="#one!"><img src="media/slider/1.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="media/slider/2.jpg"></a>
+        <a class="carousel-item" href="#three!"><img src="media/slider/3.jpg"></a>
+        <a class="carousel-item" href="#four!"><img src="media/slider/4.jpg"></a>
     </div>
+    <div class="text-translate">
+        <div>
+            <h1 class="slider-title">Summer Collection 2020</h1>
+        </div>
+        <a href="#all_products" id="banner_button" class="waves-effect waves-light btn-large  btn-flat">Shop Now!</a>
+    </div>
+
 </div>
 
 <!-- NEW ARRIVALS -->
