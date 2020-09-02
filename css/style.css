@@ -104,7 +104,7 @@ nav ul a:hover {
 }
 
 .row .col.push-custom {
-  left: 13% !important;
+  left: 10% !important;
 }
 
 
@@ -118,7 +118,11 @@ nav ul li {
 }
 
 /* DROPDOWN */
+#hover .cat {
+  min-width: 16% !important;
+  text-align: center;
 
+}
 
 #hover li ul li {
   height: 6vw;

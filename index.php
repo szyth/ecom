@@ -14,7 +14,8 @@
         <div>
             <h1 class="slider-title">Summer Collection 2020</h1>
         </div>
-        <a href="#all_products" id="banner_button" class="waves-effect waves-light btn-large  btn-flat">Shop Now!</a>
+        <a href="#all_products" id="banner_button" class="waves-effect waves-light btn-large  btn-flat ">Shop Now!</a>
+
     </div>
 
 </div>
