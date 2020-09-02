@@ -60,66 +60,49 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-
-<section>
-    <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center">
-                    <h5 class="header col s12">
-                        <div class="breadcrumb_wrapper">
-                            <a href="index.php" class="breadcrumb">Home</a>
-                            <a class="breadcrumb">Checkout</a>
-                        </div>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="parallax"><img src="media/parallax/4.jpg" alt="Unsplashed background img 2"></div>
-    </div>
+<div class="divider"></div>
 
 
-
-
-</section>
 
 <div class="row">
-    <div class="col s12 m5 offset-m1">
-        <form method="POST">
+    <div class="col s10 offset-s1 m5 offset-m1">
+        <form id="address_form" method="POST">
             <div class="row">
-                <h4>Address details</h4>
-                <div class="input-field col s6">
-                    <input id="name" name="name" type="text" class="validate">
-                    <label for="name" class="black-text">Full Name</label>
+                <div id="address_details" class="title center">
+                    <h1>Address Details</h1>
                 </div>
                 <div class="input-field col s6">
-                    <input id="number" name="number" type="tel" class="validate">
-                    <label for="number" class="black-text">Mobile</label>
+                    <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="&nbsp;Mobile No." id="number" name="number" type="tel" class="validate">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="address" name="address" type="text" class="validate">
-                    <label for="address" class="black-text">Address</label>
+                    <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="city" name="city" type="text" class="validate">
-                    <label for="city" class="black-text">City</label>
+                    <input placeholder="&nbsp;City" id="city" name="city" type="text" class="validate">
                 </div>
                 <div class="input-field col s6">
-                    <input id="pincode" name="pincode" type="text" class="validate">
-                    <label for="pincode" class="black-text">Pincode</label>
+                    <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="text" class="validate">
                 </div>
             </div>
-
-            <input type="submit" name="submit" id="" value="Place Order">
         </form>
+        <div id="payment_mode" class="title center">
+            <h1>Payment Mode</h1>
+            <br>
+            <h5 style="border: solid #444 1px; padding: 5px; color:#444">Cash on Delivery</h5>
+        </div>
     </div>
-    <div class="col s12 m4 offset-m1" style="padding:20px">
+    <div class="col s10 offset-s1 m4 offset-m1">
         <div class=" center">
-            <h4>Order Details </h4>
+            <div id="order_details" class="title center">
+                <h1>Order Details</h1>
+            </div>
             <div class="divider"></div>
             <table class="highlight centered " id="cart">
                 <thead>
@@ -162,7 +145,18 @@ if (isset($_POST['submit'])) {
             <h6 class="left">ORDER TOTAL</h6>
             <h6 class="right">Rs. <?php echo $cart_total ?></h6>
 
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div id="address_form_submit">
+                <input type="submit" name="submit" value="Place Order" form="address_form">
+            </div>
+
+
         </div>
+
 
     </div>
 

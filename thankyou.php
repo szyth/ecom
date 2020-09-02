@@ -18,7 +18,7 @@
 
 <script>
     setTimeout(function() {
-        window.location.href = 'index.php';
+        window.location.href = 'my_order.php';
     }, 2500)
 </script>
 
