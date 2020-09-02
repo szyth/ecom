@@ -53,6 +53,11 @@ $("#back_button_mobile").click(function () {
   $("nav").toggle();
 });
 
+//add to cart button toggle
+$("#add_to_cart").click(function () {
+  $(this).text("Added!");
+});
+
 
 //toggle filter menu
 $("#subcategory").click(function () {

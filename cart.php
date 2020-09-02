@@ -33,10 +33,10 @@
             <thead>
                 <tr>
                     <th>Product</th>
-                    <th>Name</th>
+                    <th style="width:250px">Name</th>
                     <!-- <th>Old Price</th> -->
                     <th>Price</th>
-                    <th>Quantity</th>
+                    <th style="width:10px">Quantity</th>
                     <th>Total</th>
                     <th>Remove</th>
                 </tr>
@@ -65,7 +65,7 @@
                             <input id="<?php echo $key ?>qty" type="number" value="<?php echo $qty ?>">
 
                             <br>
-                            <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','update')">update</a></td>
+                            <a style="font-size: 0.8em;color: #444;" href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','update')">update</a></td>
                         <td>Rs. <?php echo $qty * $price ?></td>
                         <td>
                             <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')">

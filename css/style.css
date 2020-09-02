@@ -118,9 +118,14 @@ nav ul li {
 }
 
 /* DROPDOWN */
-#hover .cat {
+.cat {
   min-width: 16% !important;
   text-align: center;
+
+}
+
+.user {
+  min-width: 150px !important;
 
 }
 
@@ -708,6 +713,12 @@ select {
 #add_to_cart.btn-large:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
+#add_to_cart.btn-large:focus {
+  background-color: rgb(31, 31, 31);
+  color: rgb(209, 209, 209);
   border: solid #444 1px;
 }
 

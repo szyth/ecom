@@ -44,7 +44,7 @@ $totalProduct = $obj->totalProduct();
                             $super_cat_arr[] = $row1;
                         ?>
                             <li class="cat"><a href="categories.php?id=<?php echo $row1['id'] ?>"><?php echo $row1['super_category'] ?> </a>
-                                <ul>
+                                <ul class="cat">
                                     <?php
                                     $x = $row1['id'];
                                     $cat_res = mysqli_query($con, "SELECT * FROM categories WHERE super_categories_id = $x");
@@ -77,14 +77,14 @@ $totalProduct = $obj->totalProduct();
                             </div>
 
                         </li>
-                        <li>
+                        <li class="user">
 
                             <?php
                             if (isset($_SESSION['USER_LOGIN'])) {
                                 echo
                                     '<a> <i class="material-icons-outlined">account_circle</i> &#8964;</a> 
                                     </a>
-                                    <ul>
+                                    <ul  class="user">
                                 <li><a>'
                                         . $_SESSION['USER_NAME'] . '
                                     </a></li>  
