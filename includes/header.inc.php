@@ -43,7 +43,7 @@ $totalProduct = $obj->totalProduct();
                         while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                             $super_cat_arr[] = $row1;
                         ?>
-                            <li><a href="categories.php?id=<?php echo $row1['id'] ?>"><?php echo $row1['super_category'] ?></a>
+                            <li><a href="categories.php?id=<?php echo $row1['id'] ?>"><?php echo $row1['super_category'] ?> </a>
                                 <ul>
                                     <?php
                                     $x = $row1['id'];
@@ -82,8 +82,12 @@ $totalProduct = $obj->totalProduct();
                             <?php
                             if (isset($_SESSION['USER_LOGIN'])) {
                                 echo
-                                    '<a>' . $_SESSION['USER_NAME'] . '  &#9662;</a>
+                                    '<a> <i class="material-icons-outlined">account_circle</i> &#8964;</a> 
+                                    </a>
                                     <ul>
+                                <li><a>'
+                                        . $_SESSION['USER_NAME'] . '
+                                    </a></li>  
                                 <li><a href="my_order.php">Orders
                                      </a></li>
                                 <li><a href="logout.php">Logout</a></li>
