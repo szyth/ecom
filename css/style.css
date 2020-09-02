@@ -80,6 +80,16 @@ nav {
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 992px) {
+  nav {
+    overflow: hidden;
+  }
+
+  nav ul a {
+    padding-right: 2%;
+  }
+}
+
 .nav-ul {
   font-weight: 600;
 }
@@ -532,12 +542,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
   width: 0px !important;
 }
 
-#back_button_mobile.btn-large {
-  width: 2% !important;
+#back_button_mobile {
+  padding-left: 2px;
 }
 
-#back_button_mobile.btn-large i {
-  /* transform: translateX(-20px); */
+#back_button_mobile.btn-large {
+  width: 2% !important;
 }
 
 

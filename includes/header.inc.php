@@ -158,7 +158,7 @@ $totalProduct = $obj->totalProduct();
             <form method="POST" action="search.php" id="search_form">
                 <div class="row">
                     <div class="col s2 left">
-                        <div id="back_button_mobile" class="hide-on-large-only waves-effect waves-light  btn-flat btn-large center">
+                        <div id="back_button_mobile" class="hide-on-large-only waves-effect waves-light  btn-flat btn-large">
                             <i class="material-icons-outlined left">keyboard_backspace</i>
                         </div>
                     </div>
@@ -167,13 +167,14 @@ $totalProduct = $obj->totalProduct();
                         <input id="search" placeholder="Search for products and more " name="search" type="text" class="validate">
                         <!-- <label for="search" style="color: #9e9e9e;">Search for products and more </label> -->
                     </div>
-                    <div class="col s2 m2">
+                    <div class="col s2 m2 right">
                         <button type="submit" name="submit" id="search_button" class="hide-on-med-and-down waves-effect waves-light btn-large btn-flat ">
                             <i class="material-icons-outlined">search</i>Search
                         </button>
-                        <button type="submit" name="submit" id="search_button_mobile" class="hide-on-large-only waves-effect waves-light btn-large btn-flat right">
+                        <button type="submit" name="submit" id="search_button_mobile" class="hide-on-large-only waves-effect waves-light btn-large btn-flat">
                             <i class="material-icons-outlined">search</i>
                         </button>
+
 
                     </div>
                 </div>
