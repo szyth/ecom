@@ -1252,6 +1252,35 @@ span.htc__qua1 {
 
 /* CHECKOUT - END */
 
+
+/* IMAGE ZOOM ON HOVER  */
+figure.zoom {
+  background-position: 50% 50%;
+  position: relative;
+  width: 80%;
+  height: auto;
+  margin: 10%;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+figure.zoom img:hover {
+  opacity: 0;
+}
+
+figure.zoom img {
+  transition: opacity .5s;
+  display: block;
+  width: 100%;
+}
+
+
+/* IMAGE ZOOM ON HOVER - END */
+
+
+
+
+
 /* FOOTER */
 
 footer {}

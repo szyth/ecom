@@ -63,16 +63,16 @@ $("#add_to_cart").click(function () {
 $("#subcategory").click(function () {
   $("#subcategory_body").slideToggle(250, "swing");
 });
-$("#price").click(function () {
+$("#price").hover(function () {
   $("#price_body").slideToggle(250, "swing");
 });
-$("#size").click(function () {
+$("#size").hover(function () {
   $("#size_body").slideToggle(250, "swing");
 });
-$("#type").click(function () {
+$("#type").hover(function () {
   $("#type_body").slideToggle(250, "swing");
 });
-$("#fabric").click(function () {
+$("#fabric").hover(function () {
   $("#fabric_body").slideToggle(250, "swing");
 });
 
@@ -266,3 +266,18 @@ $(function () {
   });
 
 });
+
+//image hover zoom
+
+function zoom(e) {
+  var zoomer = e.currentTarget;
+  e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+  e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+  x = offsetX / zoomer.offsetWidth * 100
+  y = offsetY / zoomer.offsetHeight * 100
+  zoomer.style.backgroundPosition = x + '% ' + y + '%';
+}
+
+
+//filter products
+//script in footer

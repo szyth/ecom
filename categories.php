@@ -1,6 +1,8 @@
 <?php require('includes/header.inc.php');
-$super_cat_id = mysqli_real_escape_string($con, $_GET['id']);
 
+
+$super_cat_id = mysqli_real_escape_string($con, $_GET['id']);
+// $GLOBALS['super_cat'] = $super_cat_id;
 
 $cat_res = mysqli_query($con, "SELECT * FROM categories WHERE status=1 AND super_categories_id=$super_cat_id ORDER BY categories ASC");
 $cat_arr = array();
@@ -16,11 +18,6 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
     $super_cat_arr[] = $row1;
     $cat_id[] = $row1['id'];
 }
-
-
-
-
-
 
 ?>
 
@@ -85,30 +82,10 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
             <div id="price" class="">
                 <h1 class="filter_head">Price <span class="right"> &#9662;</span></h1>
                 <form action="#" id="price_body" class="filter_options">
-                    <p>
-                        <label>
-                            <input name="group1" type="radio" checked />
-                            <span>Under Rs. 1000</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="group1" type="radio" />
-                            <span>Rs.1000 to Rs.2500</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="group1" type="radio" checked />
-                            <span>Rs. 2500 to Rs. 4000</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="group1" type="radio" />
-                            <span>Rs. 4000 & ABOVE</span>
-                        </label>
-                    </p>
+                    <input type="hidden" id="hidden_minimum_price" value="0" />
+                    <input type="hidden" id="hidden_maximum_price" value="65000" />
+                    <p id="price_show">100 - 65000</p>
+                    <div id="price_range"></div>
                 </form>
             </div>
             <div class="divider"></div>
@@ -117,74 +94,58 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
             <div id="size" class="">
                 <h1 class="filter_head">Size <span class="right"> &#9662;</span></h1>
                 <form id="size_body" action="#" class="filter_options">
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
-                            <span>32</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>34</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
-                            <span>36</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>38</span>
-                        </label>
-                    </p>
-                    <p>
+                    <?php
+                    $query = "
+                    SELECT DISTINCT(size) FROM product WHERE status = '1' ORDER BY size ASC
+                    ";
+                    $res = mysqli_query($con, $query);
+                    while ($row = mysqli_fetch_assoc($res)) {
+                    ?>
+                        <div class="list-group-item checkbox">
+                            <label>
+                                <input type="checkbox" class="filled-in common_selector size" value="<?php echo $row['size']; ?>">
+                                <span><?php echo $row['size']; ?></span>
+                            </label>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <!-- <p>
                         <label>
                             <input type="checkbox" class="filled-in" />
                             <span>40</span>
                         </label>
-                    </p>
+                    </p> -->
 
                 </form>
             </div>
             <div class="divider"></div>
 
             <div id="type" class="">
-                <h1 class="filter_head">Type <span class="right"> &#9662;</span></h1>
+                <h1 class="filter_head">BRAND <span class="right"> &#9662;</span></h1>
                 <form id="type_body" action="#" class="filter_options">
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
-                            <span>Shirt</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>Kaftan</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
-                            <span>Ribbed</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>Sweater</span>
-                        </label>
-                    </p>
-                    <p>
+                    <?php
+
+                    $query = "SELECT DISTINCT(brand) FROM product WHERE status = '1' ORDER BY id DESC";
+                    $res = mysqli_query($con, $query);
+                    while ($row = mysqli_fetch_assoc($res)) {
+                    ?>
+                        <div class="list-group-item checkbox">
+                            <label>
+                                <input type="checkbox" class="filled-in common_selector brand" value="<?php echo $row['brand']; ?>">
+                                <span><?php echo $row['brand']; ?></span>
+                            </label>
+                        </div>
+                    <?php
+                    }
+
+                    ?>
+                    <!-- <p>
                         <label>
                             <input type="checkbox" class="filled-in" />
                             <span>Gown</span>
                         </label>
-                    </p>
+                    </p> -->
 
                 </form>
             </div>
@@ -193,30 +154,30 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
             <div id="fabric" class="">
                 <h1 class="filter_head">Fabric <span class="right"> &#9662;</span></h1>
                 <form id="fabric_body" action="#" class="filter_options">
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
-                            <span>Velvet</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>Chiffon</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
-                            <span>Denim</span>
-                        </label>
-                    </p>
-                    <p>
+                    <?php
+
+                    $query = "
+                    SELECT DISTINCT(fabric) FROM product WHERE status = '1' ORDER BY fabric DESC
+                    ";
+                    $res = mysqli_query($con, $query);
+                    while ($row = mysqli_fetch_assoc($res)) {
+                    ?>
+                        <div class="list-group-item checkbox">
+                            <label>
+                                <input type="checkbox" class="filled-in common_selector fabric" value="<?php echo $row['fabric']; ?>">
+                                <span><?php echo $row['fabric']; ?></span>
+                            </label>
+                        </div>
+                    <?php
+                    }
+
+                    ?>
+                    <!-- <p>
                         <label>
                             <input type="checkbox" class="filled-in" />
                             <span>Poplin</span>
                         </label>
-                    </p>
+                    </p> -->
 
 
                 </form>
@@ -244,16 +205,16 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
     </div>
     <div class="col s12 m9" style="border-left: solid rgb(196, 196, 196) 1px;">
-        <!-- ALL PRODUCTS -->
+        <!-- FILTERED PRODUCTS -->
         <div id="new_arrivals" class="product_container">
             <div class="title center">
                 <h1>
                     <?php echo $super_cat_arr[0]['super_category']; ?>
                 </h1>
-                <p>Some of the latest trends in town</p>
+                <!-- <p>Some of the latest trends in town</p> -->
             </div>
 
-            <div class="row center">
+            <!-- <div class="row center">
                 <?php
                 foreach ($cat_id as $id) {
                     $get_product = get_product($con, '', $id, '');
@@ -272,7 +233,6 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                                         <p class="dress-card-para">
                                             <span class="dress-card-price">Rs.<?php echo $list['price'] ?> &ensp;</span>
                                             <span class="dress-card-crossed">Rs.<?php echo $list['mrp'] ?></span>
-                                            <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                         </p>
                                         <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
                                             More</a>
@@ -284,9 +244,13 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                     }
                 }
                 ?>
+            </div> -->
+            <div class="row filter_data center">
+
             </div>
         </div>
-        <!-- ALL PRODUCTS - END -->
+
+        <!-- FILTERED PRODUCTS - END -->
 
     </div>
 </div>
@@ -299,6 +263,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
     </svg>
 </section>
+
 
 
 

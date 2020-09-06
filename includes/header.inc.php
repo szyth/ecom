@@ -23,6 +23,7 @@ $totalProduct = $obj->totalProduct();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/jquery-ui.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 
@@ -164,7 +165,7 @@ $totalProduct = $obj->totalProduct();
                             <a class="cart__menu" href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a>
                             <a href="cart.php">
                                 <span class="htc__qua"><?php echo $totalProduct ?></span>
-                                <span class="htc__qua1"><?php echo $totalProduct ?></span>
+                                <!-- <span class="htc__qua1"><?php echo $totalProduct ?></span> -->
 
                             </a>
                         </div>
@@ -241,7 +242,7 @@ $totalProduct = $obj->totalProduct();
                     <a href="cart.php"><i class="material-icons-outlined">shopping_cart</i></a>
                     <a href="cart.php">
                         <span class="htc__qua"><?php echo $totalProduct ?></span>
-                        <span class="htc__qua1"><?php echo $totalProduct ?></span>
+                        <!-- <span class="htc__qua1"><?php echo $totalProduct ?></span> -->
                     </a>
                 </li>
 
