@@ -41,7 +41,7 @@ $(".btn-floating").click(function () {
 
 //Search toggle
 $("#search_icon").click(function () {
-  $("#index_search").fadeToggle(250, "linear");
+  $("#index_search").slideToggle(250, "swing");
 });
 
 $("#search_icon_mobile").click(function () {
@@ -49,8 +49,8 @@ $("#search_icon_mobile").click(function () {
   $("nav").toggle();
 });
 $("#back_button_mobile").click(function () {
-  $("#index_search").toggle();
-  $("nav").toggle();
+  $("#index_search").slideToggle(250, "swing");
+  $("nav").slideToggle(250, "swing");
 });
 
 //add to cart button toggle
@@ -61,19 +61,19 @@ $("#add_to_cart").click(function () {
 
 //toggle filter menu
 $("#subcategory").click(function () {
-  $("#subcategory_body").toggle();
+  $("#subcategory_body").slideToggle(250, "swing");
 });
 $("#price").click(function () {
-  $("#price_body").toggle();
+  $("#price_body").slideToggle(250, "swing");
 });
 $("#size").click(function () {
-  $("#size_body").toggle();
+  $("#size_body").slideToggle(250, "swing");
 });
 $("#type").click(function () {
-  $("#type_body").toggle();
+  $("#type_body").slideToggle(250, "swing");
 });
 $("#fabric").click(function () {
-  $("#fabric_body").toggle();
+  $("#fabric_body").slideToggle(250, "swing");
 });
 
 //dropdown
@@ -239,7 +239,7 @@ function user_login() {
   }
 }
 
-function manage_cart(pid, type) {
+function manage_cart(pid, type, price) {
   if (type == "update") {
     var qty = jQuery("#" + pid + "qty").val();
   } else {
@@ -257,3 +257,12 @@ function manage_cart(pid, type) {
     },
   });
 }
+
+//category mega menu 
+$(function () {
+  $('.toggle-menu').click(function () {
+    $('.exo-menu').toggleClass('display');
+
+  });
+
+});

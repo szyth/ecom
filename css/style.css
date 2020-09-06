@@ -70,7 +70,6 @@ body {
 }
 
 /* NAV */
-
 nav {
   height: 15vh !important;
   position: relative;
@@ -112,10 +111,46 @@ nav ul a:hover {
   display: none;
 }
 
-
+/* 
 nav ul li {
   position: relative;
-}
+} */
+
+/*
+
+    nav ul li ul {
+    position: initial;
+    width: 800px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    }
+
+    nav ul li ul li {
+    position: initial;
+    padding: 0 !important;
+    margin: 0 !important;
+    }
+
+    nav ul li ul li a {
+    padding: 0 !important;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 !important;
+    font-size: 1em;
+    }
+
+    nav ul li ul li ul li {
+    padding: 0 !important;
+    height: 50px !important;
+    line-height: 50px !important;
+    margin: 0 !important;
+    }
+
+    nav ul li ul li ul li a {
+    padding: 0 !important;
+    margin: 0 !important;
+    }
+    */
 
 /* DROPDOWN */
 .cat {
@@ -179,6 +214,75 @@ nav i.material-icons {
     vertical-align: unset;
   }
 }
+
+/*mega menu*/
+
+.mega-menu {
+  left: 0;
+  right: 0;
+  padding: 15px;
+  display: none;
+  padding-top: 0;
+  min-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: translate(3px, 3px);
+  transition: ease-in-out 140ms;
+
+}
+
+h4.row.mega-title {
+  color: rgb(3, 3, 3);
+  margin-top: 0px;
+  font-size: 14px;
+  text-align: center;
+  padding-bottom: 13px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #547787;
+  padding-top: 15px;
+  background-color: #ffffff
+}
+
+.mega-menu ul li a {
+  text-align: center;
+  color: rgb(37, 37, 37);
+  line-height: 25px;
+  font-size: 90%;
+  display: block;
+}
+
+ul.icon-des li {
+  width: 100%;
+  display: table;
+  margin-bottom: 11px;
+}
+
+/*common*/
+.mega-menu {
+  background-color: #ffffff;
+  margin: 0 5%;
+}
+
+/*hover*/
+.mega-menu:hover,
+.drop-down-ul:hover,
+li.drop-down>a:hover+.drop-down-ul,
+.mega-drop-down a:hover+.mega-menu {
+  display: block;
+}
+
+/*responsive*/
+@media (min-width:991px) {
+
+  .mega-menu,
+  li.drop-down>ul {
+    position: absolute;
+  }
+
+}
+
+
 
 /* NAV - END  */
 
@@ -1034,9 +1138,23 @@ span.htc__qua {
   height: 17px;
   line-height: 19px;
   position: absolute;
-  right: 0;
+  right: 17;
   text-align: center;
-  top: 30%;
+  top: 20%;
+  width: 17px;
+}
+
+span.htc__qua1 {
+  border-radius: 100%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 9px;
+  height: 17px;
+  line-height: 19px;
+  position: absolute;
+  right: 17;
+  text-align: center;
+  bottom: 10px;
   width: 17px;
 }
 
@@ -1047,6 +1165,16 @@ span.htc__qua {
     line-height: 15px;
     right: 0px;
     top: 15%;
+
+  }
+
+  span.htc__qua1 {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    right: 0px;
+    bottom: 10px;
+
 
   }
 }
