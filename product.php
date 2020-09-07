@@ -25,6 +25,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
 
 
+
 <section>
     <div class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
@@ -53,12 +54,8 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
 <!-- PRODUCT -->
 <div class="row">
-    <div class="col m4 push-m1 l4 push-l1 s12">
-
-        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url('<?php echo "media/product/" . $get_product['0']['image'] ?>')">
-            <img src="<?php echo "media/product/" . $get_product['0']['image'] ?>" alt="">
-        </figure>
-        <!-- <img src="<?php echo "media/product/" . $get_product['0']['image'] ?>" alt=""> -->
+    <div class="col m4 push-m1 l4 push-l1 s12 product_image">
+        <img src="<?php echo "media/product/" . $get_product['0']['image'] ?>" class="block__pic" alt="">
     </div>
 
 

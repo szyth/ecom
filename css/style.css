@@ -1260,26 +1260,11 @@ span.htc__qua1 {
 
 
 /* IMAGE ZOOM ON HOVER  */
-figure.zoom {
-  background-position: 50% 50%;
+
+.block__pic {
   position: relative;
-  width: 80%;
-  height: auto;
-  margin: 10%;
-  overflow: hidden;
-  cursor: zoom-in;
+  z-index: 9999;
 }
-
-figure.zoom img:hover {
-  opacity: 0;
-}
-
-figure.zoom img {
-  transition: opacity .5s;
-  display: block;
-  width: 100%;
-}
-
 
 /* IMAGE ZOOM ON HOVER - END */
 
