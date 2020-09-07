@@ -101,7 +101,11 @@ if (isset($_POST['submit'])) {
         if (isset($_GET['id']) && $_GET['id'] != '') {
             if ($_FILES['image']['name'] != '') {
                 $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
-                move_uploaded_file($_FILES['image']['tmp_name'], "../media/product/" . $image);
+                $destFile = "../media/product/" . $image;
+                move_uploaded_file($_FILES['image']['tmp_name'], $destFile);
+                chmod($destFile, 0755);
+
+
 
                 $sql = "UPDATE product SET categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',brand='$brand',color='$color',size='$size',fabric='$fabric',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' WHERE id='$id'";
             } else {
@@ -109,7 +113,11 @@ if (isset($_POST['submit'])) {
             }
         } else {
             $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
-            move_uploaded_file($_FILES['image']['tmp_name'], "../media/product/" . $image);
+            $destFile = "../media/product/" . $image;
+            move_uploaded_file($_FILES['image']['tmp_name'], $destFile);
+            chmod($destFile, 0755);
+
+
             $sql = "INSERT INTO product(categories_id,name,mrp,price,brand,color,size,fabric,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image,added_by) VALUES ('$categories_id','$name','$mrp','$price','$brand','$color','$size','$fabric','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword','1','$image','" . $_SESSION['ADMIN_ID'] . "')";
         }
         mysqli_query($con, $sql);
