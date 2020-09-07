@@ -1,18 +1,6 @@
 <?php require('includes/header.inc.php');
 
-
-$super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category DESC");
-
-$super_cat_arr = array();
-while ($row = mysqli_fetch_assoc($super_cat_res)) {
-    $super_cat_arr[] = $row;
-}
-
-
 ?>
-
-
-
 
 <section>
     <div class="parallax-container valign-wrapper">
@@ -35,17 +23,18 @@ while ($row = mysqli_fetch_assoc($super_cat_res)) {
 
 <div class="row" class="container">
     <?php
+    $super_cat_res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1 ORDER BY super_category DESC");
     $i = 1;
-    foreach ($super_cat_arr as $list) {
+    while ($row = mysqli_fetch_assoc($super_cat_res)) {
     ?>
 
         <div class="col s12 m4">
             <figure class="snip1581">
                 <img src="media/category/<?php echo $i++; ?>.jpg" alt="profile" />
                 <figcaption>
-                    <h3 class="title3"><?php echo $list['super_category'] ?></h3>
+                    <h3 class="title3"><?php echo $row['super_category'] ?></h3>
                 </figcaption>
-                <a href="categories.php?id=<?php echo $list['id'] ?>">
+                <a href="categories.php?id=<?php echo $row['id'] ?>">
                 </a>
             </figure>
         </div>
