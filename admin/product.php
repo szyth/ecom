@@ -58,7 +58,7 @@ $res = mysqli_query($con, $sql);
                                 <thead>
                                     <tr>
                                         <th class="serial">#</th>
-                                        <th>ID</th>
+                                        <!-- <th>ID</th> -->
                                         <th>Name</th>
                                         <th>Categories</th>
                                         <th>Image</th>
@@ -75,7 +75,7 @@ $res = mysqli_query($con, $sql);
                                     ?>
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
-                                            <td><?php echo $row['id'] ?></td>
+                                            <!-- <td><?php echo $row['id'] ?></td> -->
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
                                             <td><img src="<?php echo "../media/product/" . $row['image'] ?>" /></td>

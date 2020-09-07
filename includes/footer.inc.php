@@ -96,6 +96,7 @@
             var brand = get_filter('brand');
             var fabric = get_filter('fabric');
             var size = get_filter('size');
+            var color = get_filter('color');
             var super_cat_id = "<?php echo $_GET['id'] ?>";
             $.ajax({
                 url: "fetch_data.php",
@@ -107,6 +108,7 @@
                     brand: brand,
                     fabric: fabric,
                     size: size,
+                    color: color,
                     super_cat_id: super_cat_id
                 },
                 success: function(data) {
@@ -123,6 +125,7 @@
             var brand = get_filter('brand');
             var fabric = get_filter('fabric');
             var size = get_filter('size');
+            var color = get_filter('color');
             var super_cat_id = "<?php echo $_GET['id'] ?>";
             $.ajax({
                 url: "fetch_data_subcategory.php",
@@ -134,6 +137,7 @@
                     brand: brand,
                     fabric: fabric,
                     size: size,
+                    color: color,
                     super_cat_id: super_cat_id
                 },
                 success: function(data) {

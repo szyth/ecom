@@ -170,14 +170,32 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 <h1 class="filter_head">Color <span class="right"> &#9662;</span></h1>
             </div>
             <form id="color_body" action="#" class="filter_options color_buttons">
-                <a class="btn-floating  yellow darken-1"><i class="material-icons">done</i></a>
+                <?php
+
+                $query = "
+                    SELECT DISTINCT(color) FROM product WHERE status = '1' ORDER BY color DESC
+                    ";
+                $res = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($res)) {
+                ?>
+                    <div class="list-group-item checkbox">
+                        <label>
+                            <input type="checkbox" class="filled-in common_selector color" value="<?php echo $row['color']; ?>">
+                            <span><?php echo $row['color']; ?></span>
+                        </label>
+                    </div>
+                <?php
+                }
+
+                ?>
+                <!-- <a class="btn-floating  yellow darken-1"><i class="material-icons">done</i></a>
                 <a class="btn-floating  red darken-1"><i class="material-icons"></i></a>
                 <a class="btn-floating  green darken-1"><i class="material-icons"></i></a>
                 <a class="btn-floating  blue darken-1"><i class="material-icons">done</i></a>
                 <a class="btn-floating  black darken-1"><i class="material-icons"></i></a>
                 <a class="btn-floating  indigo darken-1"><i class="material-icons"></i></a>
                 <a class="btn-floating  orange darken-1"><i class="material-icons"></i></a>
-                <a class="btn-floating  teal darken-1"><i class="material-icons"></i></a>
+                <a class="btn-floating  teal darken-1"><i class="material-icons"></i></a> -->
             </form>
 
 

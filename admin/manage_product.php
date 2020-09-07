@@ -12,6 +12,10 @@ $categories_id = '';
 $name = '';
 $mrp = '';
 $price = '';
+$brand = '';
+$color = '';
+$size = '';
+$fabric = '';
 $qty = '';
 $image = '';
 $short_desc = '';
@@ -39,6 +43,10 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
         $name = $row['name'];
         $mrp = $row['mrp'];
         $price = $row['price'];
+        $brand = $row['brand'];
+        $color = $row['color'];
+        $size = $row['size'];
+        $fabric = $row['fabric'];
         $qty = $row['qty'];
         $short_desc = $row['short_desc'];
         $description = $row['description'];
@@ -60,6 +68,10 @@ if (isset($_POST['submit'])) {
     $name = get_safe_value($con, $_POST['name']);
     $mrp = get_safe_value($con, $_POST['mrp']);
     $price = get_safe_value($con, $_POST['price']);
+    $brand = get_safe_value($con, $_POST['brand']);
+    $color = get_safe_value($con, $_POST['color']);
+    $size = get_safe_value($con, $_POST['size']);
+    $fabric = get_safe_value($con, $_POST['fabric']);
     $qty = get_safe_value($con, $_POST['qty']);
     $short_desc = get_safe_value($con, $_POST['short_desc']);
     $description = get_safe_value($con, $_POST['description']);
@@ -90,14 +102,15 @@ if (isset($_POST['submit'])) {
             if ($_FILES['image']['name'] != '') {
                 $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
                 move_uploaded_file($_FILES['image']['tmp_name'], "../media/product/" . $image);
-                $sql = "UPDATE product SET categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' WHERE id='$id'";
+
+                $sql = "UPDATE product SET categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',brand='$brand',color='$color',size='$size',fabric='$fabric',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' WHERE id='$id'";
             } else {
-                $sql = "UPDATE product SET categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' WHERE id='$id'";
+                $sql = "UPDATE product SET categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',brand='$brand',color='$color',size='$size',fabric='$fabric',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' WHERE id='$id'";
             }
         } else {
             $image = rand(111111111, 999999999) . '_' . $_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'], "../media/product/" . $image);
-            $sql = "INSERT INTO product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image,added_by) VALUES ('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword','1','$image','" . $_SESSION['ADMIN_ID'] . "')";
+            $sql = "INSERT INTO product(categories_id,name,mrp,price,brand,color,size,fabric,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image,added_by) VALUES ('$categories_id','$name','$mrp','$price','$brand','$color','$size','$fabric','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword','1','$image','" . $_SESSION['ADMIN_ID'] . "')";
         }
         mysqli_query($con, $sql);
         header('location:product.php');
@@ -142,6 +155,22 @@ if (isset($_POST['submit'])) {
                             <div class="form-group">
                                 <label for="categories" class="form-control-label">Price</label>
                                 <input type="text" name="price" placeholder="Enter Product Price" value="<?php echo $price ?>" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categories" class="form-control-label">Brand</label>
+                                <input type="text" name="brand" placeholder="Enter Brand Name" value="<?php echo $brand ?>" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categories" class="form-control-label">Color</label>
+                                <input type="text" name="color" placeholder="Enter Color" value="<?php echo $color ?>" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categories" class="form-control-label">Size</label>
+                                <input type="text" name="size" placeholder="Enter Product Size" value="<?php echo $size ?>" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categories" class="form-control-label">Fabric</label>
+                                <input type="text" name="fabric" placeholder="Enter Cloth Fabric" value="<?php echo $fabric ?>" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="categories" class="form-control-label">Quantity</label>

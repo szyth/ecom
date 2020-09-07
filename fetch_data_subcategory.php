@@ -35,6 +35,13 @@ if (isset($_POST["action"])) {
 		 AND size IN('" . $size_filter . "')
 		";
 	}
+	if (isset($_POST["color"])) {
+		$color_filter = implode("','", $_POST["color"]);
+		$query .= "
+		 AND color IN('" . $color_filter . "')
+		";
+	}
+
 
 	$res = mysqli_query($con, $query);
 	while ($data = mysqli_fetch_assoc($res)) {

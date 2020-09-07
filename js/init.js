@@ -78,6 +78,9 @@ $("#type").click(function () {
 $("#fabric").click(function () {
   $("#fabric_body").slideToggle(250, "swing");
 });
+$("#color").click(function () {
+  $("#color_body").slideToggle(250, "swing");
+});
 
 //dropdown
 var timeout = 500;
