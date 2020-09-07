@@ -245,7 +245,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 }
                 ?>
             </div> -->
-            <div class="row filter_data center">
+            <div class="row filter_data center ">
 
             </div>
         </div>

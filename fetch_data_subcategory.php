@@ -1,16 +1,15 @@
 <?php
-
+// INNER JOIN categories ON product.categories_id = categories.id 
+// 	INNER JOIN super_category ON categories.super_categories_id = super_category.id 
 require('includes/connection.inc.php');
 require('includes/function.inc.php');
 
 $super_cat = $_POST["super_cat_id"];
 if (isset($_POST["action"])) {
 	$query = "
-	SELECT DISTINCT product.*, categories.*,super_category.* 
+	SELECT DISTINCT * 
 	FROM product 
-	INNER JOIN categories ON product.categories_id = categories.id 
-	INNER JOIN super_category ON categories.super_categories_id = super_category.id 
-	WHERE categories.id = '$super_cat'
+	WHERE categories_id = '$super_cat'
 	
 	";
 	if (isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["minimum_price"]) && !empty($_POST["maximum_price"])) {
@@ -42,7 +41,7 @@ if (isset($_POST["action"])) {
 		$result[] = $data;
 	}
 
-	// prx($total_row);
+	// prx($result);
 	$output = '';
 	if (!empty($result)) {
 		foreach ($result as $row)
