@@ -60,19 +60,22 @@ $("#add_to_cart").click(function () {
 
 
 //toggle filter menu
+$("#filters .title").click(function () {
+  $("#filter_body").slideToggle(250, "swing");
+});
 $("#subcategory").click(function () {
   $("#subcategory_body").slideToggle(250, "swing");
 });
-$("#price").hover(function () {
+$("#price").click(function () {
   $("#price_body").slideToggle(250, "swing");
 });
-$("#size").hover(function () {
+$("#size").click(function () {
   $("#size_body").slideToggle(250, "swing");
 });
-$("#type").hover(function () {
+$("#type").click(function () {
   $("#type_body").slideToggle(250, "swing");
 });
-$("#fabric").hover(function () {
+$("#fabric").click(function () {
   $("#fabric_body").slideToggle(250, "swing");
 });
 

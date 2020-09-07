@@ -42,21 +42,6 @@
     <?php
     }
     ?>
-    <!-- 
-    <?php
-    foreach ($super_cat_arr as $list) {
-    ?>
-        <div class="col s12 m4">
-            <div class="card">
-                <a href="categories.php?id=<?php echo $list['id'] ?>">
-                    <h1><?php echo $list['super_category'] ?></h1>
-                </a>
-            </div>
-        </div>
-    <?php
-    }
-    ?> -->
-
 </div>
 
 

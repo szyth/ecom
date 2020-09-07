@@ -52,11 +52,11 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
 <div class="row" style="background-color: #fff;margin-bottom: 0px;">
     <div id="filters" class="col s12 m3" ;>
-        <h1 class="title center">Filters</h1>
+        <h1 class="title center"><i class="material-icons-outlined" style="font-size: 1.3em;">settings</i>&nbsp;Filters </h1>
 
         <div class="divider"></div>
 
-        <div class="filter_content">
+        <div id="filter_body" class="filter_content">
             <div id="subcategory" class="">
                 <h1 class="filter_head">Sub Categories <span class="right"> &#9662;</span></h1>
                 <form action="#" id="subcategory_body" class="filter_options">
@@ -81,123 +81,105 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
             <div class="divider"></div>
             <div id="price" class="">
                 <h1 class="filter_head">Price <span class="right"> &#9662;</span></h1>
-                <form action="#" id="price_body" class="filter_options">
-                    <input type="hidden" id="hidden_minimum_price" value="0" />
-                    <input type="hidden" id="hidden_maximum_price" value="65000" />
-                    <p id="price_show">100 - 65000</p>
-                    <div id="price_range"></div>
-                </form>
             </div>
+            <form action="#" id="price_body" class="filter_options">
+                <input type="hidden" id="hidden_minimum_price" value="0" />
+                <input type="hidden" id="hidden_maximum_price" value="65000" />
+                <p id="price_show">100 - 65000</p>
+                <div id="price_range"></div>
+            </form>
+
+
             <div class="divider"></div>
 
 
             <div id="size" class="">
                 <h1 class="filter_head">Size <span class="right"> &#9662;</span></h1>
-                <form id="size_body" action="#" class="filter_options">
-                    <?php
-                    $query = "
+            </div>
+            <form id="size_body" action="#" class="filter_options">
+                <?php
+                $query = "
                     SELECT DISTINCT(size) FROM product WHERE status = '1' ORDER BY size ASC
                     ";
-                    $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                    ?>
-                        <div class="list-group-item checkbox">
-                            <label>
-                                <input type="checkbox" class="filled-in common_selector size" value="<?php echo $row['size']; ?>">
-                                <span><?php echo $row['size']; ?></span>
-                            </label>
-                        </div>
-                    <?php
-                    }
-                    ?>
-                    <!-- <p>
+                $res = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($res)) {
+                ?>
+                    <div class="list-group-item checkbox">
                         <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>40</span>
+                            <input type="checkbox" class="filled-in common_selector size" value="<?php echo $row['size']; ?>">
+                            <span><?php echo $row['size']; ?></span>
                         </label>
-                    </p> -->
+                    </div>
+                <?php
+                }
+                ?>
+            </form>
 
-                </form>
-            </div>
             <div class="divider"></div>
 
             <div id="type" class="">
                 <h1 class="filter_head">BRAND <span class="right"> &#9662;</span></h1>
-                <form id="type_body" action="#" class="filter_options">
-                    <?php
-
-                    $query = "SELECT DISTINCT(brand) FROM product WHERE status = '1' ORDER BY id DESC";
-                    $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                    ?>
-                        <div class="list-group-item checkbox">
-                            <label>
-                                <input type="checkbox" class="filled-in common_selector brand" value="<?php echo $row['brand']; ?>">
-                                <span><?php echo $row['brand']; ?></span>
-                            </label>
-                        </div>
-                    <?php
-                    }
-
-                    ?>
-                    <!-- <p>
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>Gown</span>
-                        </label>
-                    </p> -->
-
-                </form>
             </div>
+            <form id="type_body" action="#" class="filter_options">
+                <?php
+
+                $query = "SELECT DISTINCT(brand) FROM product WHERE status = '1' ORDER BY id DESC";
+                $res = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($res)) {
+                ?>
+                    <div class="list-group-item checkbox">
+                        <label>
+                            <input type="checkbox" class="filled-in common_selector brand" value="<?php echo $row['brand']; ?>">
+                            <span><?php echo $row['brand']; ?></span>
+                        </label>
+                    </div>
+                <?php
+                }
+
+                ?>
+            </form>
             <div class="divider"></div>
 
             <div id="fabric" class="">
                 <h1 class="filter_head">Fabric <span class="right"> &#9662;</span></h1>
-                <form id="fabric_body" action="#" class="filter_options">
-                    <?php
+            </div>
+            <form id="fabric_body" action="#" class="filter_options">
+                <?php
 
-                    $query = "
+                $query = "
                     SELECT DISTINCT(fabric) FROM product WHERE status = '1' ORDER BY fabric DESC
                     ";
-                    $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                    ?>
-                        <div class="list-group-item checkbox">
-                            <label>
-                                <input type="checkbox" class="filled-in common_selector fabric" value="<?php echo $row['fabric']; ?>">
-                                <span><?php echo $row['fabric']; ?></span>
-                            </label>
-                        </div>
-                    <?php
-                    }
-
-                    ?>
-                    <!-- <p>
+                $res = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($res)) {
+                ?>
+                    <div class="list-group-item checkbox">
                         <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span>Poplin</span>
+                            <input type="checkbox" class="filled-in common_selector fabric" value="<?php echo $row['fabric']; ?>">
+                            <span><?php echo $row['fabric']; ?></span>
                         </label>
-                    </p> -->
+                    </div>
+                <?php
+                }
 
-
-                </form>
-            </div>
+                ?>
+            </form>
             <div class="divider"></div>
 
 
             <div id="color" class="">
                 <h1 class="filter_head">Color <span class="right"> &#9662;</span></h1>
-                <form id="color_body" action="#" class="filter_options color_buttons">
-                    <a class="btn-floating  yellow darken-1"><i class="material-icons">done</i></a>
-                    <a class="btn-floating  red darken-1"><i class="material-icons"></i></a>
-                    <a class="btn-floating  green darken-1"><i class="material-icons"></i></a>
-                    <a class="btn-floating  blue darken-1"><i class="material-icons">done</i></a>
-                    <a class="btn-floating  black darken-1"><i class="material-icons"></i></a>
-                    <a class="btn-floating  indigo darken-1"><i class="material-icons"></i></a>
-                    <a class="btn-floating  orange darken-1"><i class="material-icons"></i></a>
-                    <a class="btn-floating  teal darken-1"><i class="material-icons"></i></a>
-                </form>
             </div>
+            <form id="color_body" action="#" class="filter_options color_buttons">
+                <a class="btn-floating  yellow darken-1"><i class="material-icons">done</i></a>
+                <a class="btn-floating  red darken-1"><i class="material-icons"></i></a>
+                <a class="btn-floating  green darken-1"><i class="material-icons"></i></a>
+                <a class="btn-floating  blue darken-1"><i class="material-icons">done</i></a>
+                <a class="btn-floating  black darken-1"><i class="material-icons"></i></a>
+                <a class="btn-floating  indigo darken-1"><i class="material-icons"></i></a>
+                <a class="btn-floating  orange darken-1"><i class="material-icons"></i></a>
+                <a class="btn-floating  teal darken-1"><i class="material-icons"></i></a>
+            </form>
+
 
 
         </div>
