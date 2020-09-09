@@ -89,7 +89,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                     </p>
                 </div>
                 <div class="product_category">
-                    <span class="black-text">Category:</span> <a href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
+                    <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
                 </div>
 
                 <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $get_product['0']['price'] ?>')">Add to cart</a>

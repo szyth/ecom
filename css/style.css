@@ -164,8 +164,9 @@ nav ul li {
 
 }
 
-#hover li ul li {
-  height: 6vw;
+#hover li ul li a {
+  height: 3vw;
+  line-height: 3vw;
 }
 
 #hover li ul {
@@ -293,8 +294,15 @@ li.drop-down>a:hover+.drop-down-ul,
 }
 
 .carousel.carousel-slider {
-  max-height: 85vh !important;
+  height: 350px !important;
+  /* max-height: 85vh !important; */
   object-fit: cover;
+}
+
+@media only screen and (max-width: 601px) {
+  .carousel.carousel-slider {
+    height: 150px !important;
+  }
 }
 
 .text-translate {
@@ -959,6 +967,7 @@ select {
 }
 
 .filter_head {
+  cursor: pointer;
   font-family: "Roboto", sans-serif;
   padding: 1rem;
   margin: 0;

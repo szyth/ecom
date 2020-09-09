@@ -44,7 +44,12 @@ $res = mysqli_query($con, $sql);
                     <div class="card-body">
                         <h4 class="box-title">Vendor Management </h4>
                         <h4 class="box-link"><a href="manage_vendor.php"><span class='badge badge-danger'>Click to add Vendors</span></a></h4>
+
+                        <br>
+                        <br>
+                        <h6 style="color: #ff1111;">Click on USERNAME to See their IDs and Add Transaction</h6>
                     </div>
+
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
                             <table class="table ">
@@ -67,7 +72,7 @@ $res = mysqli_query($con, $sql);
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
                                             <td><?php echo $row['id'] ?></td>
-                                            <td><?php echo $row['username'] ?></td>
+                                            <td><a href="vendor_details.php?id=<?php echo $row['id'] ?>"> <?php echo $row['username'] ?></a></td>
                                             <td><?php echo $row['password'] ?></td>
                                             <td><?php echo $row['email'] ?></td>
                                             <td><?php echo $row['mobile'] ?></td>

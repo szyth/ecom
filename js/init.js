@@ -16,7 +16,7 @@ $(document).ready(function () {
 //CAROUSEL AUTOPLAY
 setInterval(function () {
   $(".carousel").carousel("next");
-}, 2000); // every 2 seconds
+}, 5000); // every 5 seconds
 
 $(document).ready(function () {
   $(".tabs").tabs();

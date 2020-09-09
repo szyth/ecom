@@ -59,7 +59,7 @@ $res = mysqli_query($con, $sql);
                                     <tr>
                                         <th class="serial">#</th>
                                         <!-- <th>ID</th> -->
-                                        <th>Name</th>
+                                        <th style="width: 200px !important;">Name</th>
                                         <th>Categories</th>
                                         <th>Image</th>
                                         <th>MRP</th>

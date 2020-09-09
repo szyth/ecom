@@ -97,9 +97,12 @@ $totalProduct = $obj->totalProduct();
                 <a id="logo-container" class="brand-logo" href="index.php">CLASSY CLOSET</a>
             </div>
             <div class="col s12 m5 offset-m1">
-                <ul class="hide-on-med-and-down nav-ul">
+                <ul id="hover" class="hide-on-med-and-down nav-ul">
                     <li><a href="index.php">Home</a> </li>
-                    <li class="mega-drop-down hide-on-med-and-down">
+
+                    <!-- MEGA MENU -->
+
+                    <!-- <li class="mega-drop-down hide-on-med-and-down">
                         <a>Kid's &nbsp;&nbsp;&nbsp; Women's &nbsp;&nbsp;&nbsp;Men's</a>
                         <div class="animated fadeIn mega-menu">
                             <div class="mega-menu-wrap">
@@ -152,7 +155,27 @@ $totalProduct = $obj->totalProduct();
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
+
+                    <!-- MEGA MENU - END -->
+
+                    <?php
+                    $res = mysqli_query($con, "SELECT * FROM super_category WHERE status=1");
+                    while ($row = mysqli_fetch_assoc($res)) {
+
+                    ?>
+                        <li><a href="categories.php?id=<?php echo $row['id'] ?>"><?php echo $row['super_category'] ?></a>
+                            <ul>
+                                <?php
+                                $super_id = $row['id'];
+                                $res1 = mysqli_query($con, "SELECT * FROM categories WHERE status=1 AND super_categories_id='$super_id'");
+                                while ($row1 = mysqli_fetch_assoc($res1)) {
+                                ?>
+                                    <li><a href="sub_categories.php?id=<?php echo $row1['id'] ?>"><?php echo $row1['categories'] ?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    <?php } ?>
                 </ul>
 
             </div>

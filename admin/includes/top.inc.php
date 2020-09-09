@@ -50,6 +50,14 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
 
                </li>
                <?php
+               if ($_SESSION['ADMIN_ROLE'] == 1) {
+                  echo '
+                <li class="menu-item-has-children dropdown">
+                    <a href="vendor_profile.php" >Your Profile</a>
+                  </li>';
+               }
+               ?>
+               <?php
                if ($_SESSION['ADMIN_ROLE'] != 1) {
                ?>
                   <li class="menu-item-has-children dropdown">
@@ -75,7 +83,7 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
          <div class="top-left">
             <div class="navbar-header">
                <a class="navbar-brand" href="../index.php"><img src="images/logo.png" alt="Logo"></a>
-               <a class="navbar-brand hidden" href="index.html"><img src="images/logo2.png" alt="Logo"></a>
+               <a class="navbar-brand hidden" href="../index.php"><img src="images/logo2.png" alt="Logo"></a>
                <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
             </div>
          </div>

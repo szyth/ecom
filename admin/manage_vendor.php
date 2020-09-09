@@ -5,19 +5,7 @@ isAdmin();
 $categories = '';
 $msg = '';
 
-if (isset($_GET['id']) && $_GET['id'] != '') {
-    $id = get_safe_value($con, $_GET['id']);
-    $sql = "SELECT * FROM categories WHERE id = '$id'";
-    $res = mysqli_query($con, $sql);
-    $check = mysqli_num_rows($res);
-    if ($check > 0) {
-        $row = mysqli_fetch_assoc($res);
-        $categories = $row['categories'];
-    } else {
-        header('location:categories.php');
-        die();
-    }
-}
+
 if (isset($_POST['submit'])) {
     $username = get_safe_value($con, $_POST['username']);
     $password = get_safe_value($con, $_POST['password']);
