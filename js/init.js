@@ -285,3 +285,17 @@ $(document).ready(function () {
 
 //filter products
 //script in footer
+
+
+//active navbar
+$(document).ready(function () {
+  $('ul#hover li').on('click', function () {
+    var clicked = $(this);
+    $('ul#hover li').each(function () {
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      }
+    });
+    $(this).addClass('active');
+  });
+});

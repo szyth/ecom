@@ -36,8 +36,8 @@ $vendor_id = $_SESSION['ADMIN_ID'];
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
                                             <td><?php echo $list['id'] ?></td>
-                                            <td><?php echo $list['aadhar_card'] ?></td>
-                                            <td><?php echo $list['pan_card'] ?></td>
+                                            <td><img style="max-width: 300px !important;" src="<?php echo "../media/docs/" . $list['aadhar_card'] ?>" /></td>
+                                            <td><img style="max-width: 300px !important;" src="<?php echo "../media/docs/" . $list['pan_card'] ?>" /></td>
                                             <td><?php echo $list['added_on'] ?></td>
                                         </tr>
                                     <?php

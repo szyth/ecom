@@ -109,6 +109,11 @@ nav ul a:hover {
 
 #index_search {
   display: none;
+  background-color: #fff;
+  left: 32%;
+  width: 36%;
+  position: absolute;
+  z-index: 99999;
 }
 
 /* 
@@ -294,16 +299,25 @@ li.drop-down>a:hover+.drop-down-ul,
 }
 
 .carousel.carousel-slider {
-  height: 350px !important;
+  height: 60vh !important;
   /* max-height: 85vh !important; */
   object-fit: cover;
 }
 
 @media only screen and (max-width: 601px) {
   .carousel.carousel-slider {
-    height: 150px !important;
+    height: 30vh !important;
+
   }
 }
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .carousel.carousel-slider {
+    height: 45vh !important;
+
+  }
+}
+
 
 .text-translate {
   position: absolute;
@@ -401,13 +415,13 @@ li.drop-down>a:hover+.drop-down-ul,
 
 /* card */
 .box_shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transform: translate(3px, 3px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  transform: translate(1px, 1px);
   transition: ease-in-out 140ms;
 }
 
 .dress-card {
-  border: solid rgb(219, 219, 219) 1px;
+  /* border: solid rgb(219, 219, 219) 1px; */
   border-radius: 14px;
   width: 100%;
   /* margin: 7% 1% 7% 1%; */
@@ -430,7 +444,7 @@ li.drop-down>a:hover+.drop-down-ul,
 
 @media only screen and (min-width: 993px) {
   .dress-card-img-top {
-    height: 20vw;
+    height: 15vw;
   }
 }
 
@@ -446,7 +460,8 @@ li.drop-down>a:hover+.drop-down-ul,
 }
 
 .dress-card-title {
-  font-size: 1.3em;
+  font-size: 1em;
+  margin: 0;
   display: block;
   width: auto;
   overflow: hidden;
@@ -468,6 +483,7 @@ li.drop-down>a:hover+.drop-down-ul,
 }
 
 .dress-card-para {
+  margin: 0;
   font-size: 1rem;
 }
 

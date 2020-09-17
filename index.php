@@ -47,12 +47,10 @@
                             <div class="dress-card-body">
                                 <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                                 <p class="dress-card-para">
-                                    <span class="dress-card-price">Rs.<?php echo $list['price'] ?> &ensp;</span>
-                                    <span class="dress-card-crossed">Rs.<?php echo $list['mrp'] ?></span>
+                                    <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
+                                    <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
                                     <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                 </p>
-                                <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
-                                    More</a>
                             </div>
                         </a>
                     </div>
@@ -95,23 +93,21 @@
         foreach ($get_product as $list) {
         ?>
             <div class="col s6 m4 l3 product_container_inner">
-                <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
-                    <div class="dress-card box_shadow">
+                <div class="dress-card box_shadow center">
+                    <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                         <div class="dress-card-head">
                             <img class="dress-card-img-top" src="<?php echo "media/product/" . $list['image'] ?>" alt="">
                         </div>
                         <div class="dress-card-body">
                             <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                             <p class="dress-card-para">
-                                <span class="dress-card-price">Rs.<?php echo $list['price'] ?> &ensp;</span>
-                                <span class="dress-card-crossed">Rs.<?php echo $list['mrp'] ?></span>
+                                <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
+                                <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
                                 <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                             </p>
-                            <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
-                                More</a>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         <?php
         }

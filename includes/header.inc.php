@@ -278,7 +278,10 @@ $totalProduct = $obj->totalProduct();
 
 
 
-    <div id="index_search" class="row" style="background-color: #fff;">
+
+    </div>
+    <div id="index_search">
+
         <form method="POST" action="search.php" id="search_form">
             <div class="row" style="overflow: hidden;">
                 <div class="col s2 left">
@@ -292,9 +295,6 @@ $totalProduct = $obj->totalProduct();
                     <!-- <label for="search" style="color: #9e9e9e;">Search for products and more </label> -->
                 </div>
                 <div class="col s2 m2 right">
-                    <button type="submit" name="submit" id="search_button" class="hide-on-med-and-down waves-effect waves-light btn-large btn-flat ">
-                        <i class="material-icons-outlined">search</i>Search
-                    </button>
                     <button type="submit" name="submit" id="search_button_mobile" class="hide-on-large-only waves-effect waves-light btn-large btn-flat">
                         <i class="material-icons-outlined">search</i>
                     </button>
@@ -304,5 +304,4 @@ $totalProduct = $obj->totalProduct();
             </div>
 
         </form>
-    </div>
     </div>

@@ -66,8 +66,6 @@ if (isset($_POST["action"])) {
                                             <span class="dress-card-crossed">Rs.' . $row['mrp'] . '</span>
                                             <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                         </p>
-                                        <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=' . $row['id'] . '">View
-                                            More</a>
                                     </div>
                                 </div>
                             </a>

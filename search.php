@@ -215,8 +215,8 @@ if (isset($_POST['submit'])) {
                                             <span class="dress-card-crossed">Rs.<?php echo $list['price'] ?></span>
                                             <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                         </p>
-                                        <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
-                                            More</a>
+                                        <!-- <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
+                                            More</a> -->
                                     </div>
                                 </div>
                             </a>

@@ -92,7 +92,6 @@ if (!empty($_SESSION['cart'])) {
     echo '
         <div class="center"> 
             <h4><i class="material-icons-outlined" style="font-size: 6em;">sentiment_dissatisfied</i><br>Empty Cart</h4>        
-            <a id="continue_shopping_button" href="index.php" class="waves-effect waves-light btn-large  btn-flat">Continue Shopping</a>
         </div>
         
 <script>
