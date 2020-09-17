@@ -63,11 +63,13 @@ if (isset($_POST["action"])) {
                                         <p class="dress-card-para">
                                             <span class="dress-card-price">Rs.' . $row['price'] . ' &ensp;</span>
                                             <span class="dress-card-crossed">Rs.' . $row['mrp'] . '</span>
-                                            <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
+											<!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
+											<a class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
+											</a>
                                         </p>
                                     </div>
                                 </div>
-                            </a>
+                            </a> 
                         </div>
 			';
 	}

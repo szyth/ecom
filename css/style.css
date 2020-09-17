@@ -1365,3 +1365,33 @@ footer.page-footer {
 }
 
 /* FOOTER - END */
+
+/* WISHLIST */
+.wishlist {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  color: #ff0000;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  float: right;
+}
+
+.wishlist:hover {
+  background-color: rgba(255, 0, 0, 0.897);
+  color: #ffffff;
+  font-size: 15px;
+  transition: all ease-in 300ms;
+}
+
+.wishlist:focus {
+  background-color: rgb(255, 255, 255);
+  color: #160101;
+}
+
+/* WISHLIST - END*/
