@@ -135,23 +135,29 @@ if (isset($_POST['submit'])) {
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="card-body card-block">
                             <div class="form-group">
-                                <select name="categories_id" class="form-control">
+                                <select id="sid" class="form-control">
                                     <option>Select Category</option>
                                     <?php
-
-
-                                    $res = mysqli_query($con, "SELECT id,categories FROM categories ORDER BY categories ASC");
+                                    $res = mysqli_query($con, "SELECT * FROM super_category ORDER BY super_category ASC");
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        if ($row['id'] == $categories_id) {
-                                            echo "<option selected value=" . $row['id'] . ">" . $row['categories'] . "</option>";
-                                        } else {
-                                            echo "<option value=" . $row['id'] . ">" . $row['categories'] . "</option>";
-                                        }
+
+                                        echo "<option value=" . $row['id'] . ">" . $row['super_category'] . "</option>";
                                     }
 
                                     ?>
+
+
                                 </select>
                             </div>
+                            <div class="form-group">
+
+
+
+                                <select name="categories_id" class="form-control" id="sub_cat">
+                                    <option>Select Sub Category</option>
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="categories" class="form-control-label">Product Name</label>
                                 <input type="text" name="name" placeholder="Enter Product name" value="<?php echo $name ?>" class="form-control" required>
