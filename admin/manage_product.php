@@ -191,7 +191,7 @@ if (isset($_POST['submit'])) {
                                 <input type="text" name="qty" placeholder="Qty" value="<?php echo $qty ?>" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="categories" class="form-control-label">Image</label>
+                                <label for="image" class="form-control-label">Image</label>
                                 <input type="file" name="image" class="form-control" <?php echo $image_required ?>>
                             </div>
                             <div class="form-group">
