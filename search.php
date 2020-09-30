@@ -213,7 +213,7 @@ if (isset($_POST['submit'])) {
                                         <p class="dress-card-para">
                                             <span class="dress-card-price">Rs.<?php echo $list['mrp'] ?> &ensp;</span>
                                             <span class="dress-card-crossed">Rs.<?php echo $list['price'] ?></span>
-                                            <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> --> <a class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
+                                            <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> --> <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                             </a>
                                         </p>
                                         <!-- <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View

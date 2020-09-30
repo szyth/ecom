@@ -48,3 +48,11 @@ function get_product($con, $limit = '', $cat_id = '', $product_id = '')
     }
     return $data;
 }
+
+
+function wishlist_add($con, $uid, $pid)
+{
+    date_default_timezone_set('Asia/Kolkata');
+    $added_on = date('Y-m-d h:i:s');
+    mysqli_query($con, "insert into wishlist(user_id,product_id,added_on) values('$uid','$pid','$added_on')");
+}

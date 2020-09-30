@@ -49,7 +49,7 @@
                                 <p class="dress-card-para">
                                     <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
                                     <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
-                                    <a class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                     </a>
                                     <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                 </p>
@@ -107,7 +107,7 @@
                                 <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
                                 <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
                                 <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
-                                <a class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
+                                <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                 </a>
                             </p>
                         </div>

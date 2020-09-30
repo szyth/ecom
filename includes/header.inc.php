@@ -202,11 +202,12 @@ $totalProduct = $obj->totalProduct();
                                 '<a> <i class="material-icons-outlined">account_circle</i> &#8964;</a> 
                                     </a>
                                     <ul  class="user">
-                                <li><a>'
+                                <li><a href="user_profile.php">'
                                     . $_SESSION['USER_NAME'] . '
                                     </a></li>  
-                                <li><a href="my_order.php">My Orders
+                                <li><a href="user_profile.php#my_order">My Orders
                                      </a></li>
+                                     <li><a href="user_profile.php#my_wishlist">My Wishlist</a></li>
                                 <li><a href="logout.php">Logout</a></li>
                             </ul>
                                      ';
@@ -249,7 +250,9 @@ $totalProduct = $obj->totalProduct();
                 <li><a href="cart.php">Cart</a></li>
                 <li><?php
                     if (isset($_SESSION['USER_LOGIN'])) {
-                        echo '<a href="my_order.php">My Orders</a></li>
+                        echo '<a href="user_profile.php">My Profile</a></li>
+                        <li><a href="user_profile.php#my_order">My Orders</a></li>
+                        <li><a href="user_profile.php#my_wishlist">My Wishlist</a></li>
                              <li> <a href="logout.php">Logout</a>
                             ';
                     } else {

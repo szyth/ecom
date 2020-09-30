@@ -299,3 +299,23 @@ $(document).ready(function () {
     $(this).addClass('active');
   });
 });
+
+function wishlist_manage(pid, type) {
+  jQuery.ajax({
+    url: 'wishlist_manage.php',
+    type: 'post',
+    data: 'pid=' + pid + '&type=' + type,
+    success: function (result) {
+      if (result == 'not_login') {
+        window.location.href = 'login.php';
+      }
+      else if (result == 'remove') {
+        M.toast({ html: 'Removed from Wishlist' })
+
+      }
+      else {
+        M.toast({ html: 'Added to Wishlist' })
+      }
+    }
+  });
+}
