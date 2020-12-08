@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2020 at 05:39 PM
+-- Generation Time: Nov 28, 2020 at 10:48 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -123,8 +123,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `address`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `added_on`) VALUES
-(1, 17, 'Home', 987456321, '544 Balaganj', 'lko', 226001, 'cod', 24, 'success', 1, '2020-08-30 07:14:35'),
-(2, 17, 'Zaa', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 1698, 'success', 1, '2020-09-01 10:37:15'),
+(2, 17, 'Zaa', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 1698, 'success', 2, '2020-09-01 10:37:15'),
 (3, 17, 'a', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 159, 'success', 1, '2020-09-01 06:50:04');
 
 -- --------------------------------------------------------
@@ -159,7 +158,13 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALU
 (11, 0, 22, 4, 899),
 (12, 0, 24, 1, 159),
 (13, 0, 19, 1, 4299),
-(14, 0, 24, 1, 159);
+(14, 0, 24, 1, 159),
+(15, 0, 22, 1, 899),
+(16, 0, 15, 1, 4299),
+(17, 0, 24, 1, 159),
+(18, 0, 15, 1, 4299),
+(19, 0, 22, 1, 899),
+(20, 0, 23, 8, 399);
 
 -- --------------------------------------------------------
 
@@ -302,14 +307,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
-(1, 'zia', 'dfedf33513', 'dwsdad', '554545', '2020-08-04 21:06:06'),
-(2, 'zia', 'sf5f5f52f12f', 'zia@e.com', '541233566', '2020-08-04 21:06:06'),
-(9, 'dedsad', 'aedsdasa', 'Tesast@Teswwst.Com', '8574803737', '2020-08-08 05:06:43'),
-(10, 's', 'sss', 'test@test.com', '8574803737', '2020-08-08 05:56:55'),
-(11, 'a', 'a', 'a', 'a', '2020-08-08 06:07:20'),
-(15, 'a', 'a', 'admin@book.htb', '54', '2020-08-28 12:38:47'),
-(16, 'admin', 'admin', 'a@a.comss', '6465', '2020-08-28 12:45:20'),
-(17, 'Zia', 'zia', 'adrger@a.comss', '56', '2020-08-29 02:42:22');
+(1, 'Syed Shayan', 'shayan@123', 'Shayan@gmail.com', '9865857412', '2020-08-04 21:06:06'),
+(2, 'Areeb Shamsi', 'areeb@123', 'areeb@gmail.com', '9745823685', '2020-08-04 21:06:06'),
+(9, 'Shaabi Ataa Khan', 'shaabi@123', 'shaabi@gmail.com', '93256897456', '2020-08-08 05:06:43'),
+(10, 'Syed Zia', 'zia@123', 'zia@gmail.com', '8574803737', '2020-08-08 05:56:55');
 
 -- --------------------------------------------------------
 
@@ -332,6 +333,33 @@ CREATE TABLE `vendor_docs` (
 INSERT INTO `vendor_docs` (`id`, `vendor_id`, `aadhar_card`, `pan_card`, `added_on`) VALUES
 (2, 4, '304636264_aadhar.jpeg', '360000863_pan.jpg', '2020-09-09 10:30:58'),
 (4, 2, '818936043_aadhar.jpeg', '374842669_aadhar.jpg', '2020-09-09 10:29:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `added_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
+(6, 17, 25, '2020-09-30 10:49:10'),
+(7, 17, 24, '2020-09-30 10:49:14'),
+(8, 17, 23, '2020-09-30 10:49:27'),
+(9, 17, 22, '2020-09-30 11:14:50'),
+(10, 17, 20, '2020-09-30 11:15:44'),
+(11, 17, 19, '2020-09-30 11:16:26'),
+(12, 17, 17, '2020-09-30 11:30:08'),
+(13, 10, 24, '2020-09-30 09:07:18');
 
 --
 -- Indexes for dumped tables
@@ -410,6 +438,12 @@ ALTER TABLE `vendor_docs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -441,7 +475,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -478,6 +512,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `vendor_docs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

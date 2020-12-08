@@ -16,7 +16,8 @@
                     <div class="col s10 offset-s1 m5 offset-m1">
                         <h3 class="title">My Profile</h3>
                         <?php
-                        $row = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users"));
+                        $user_id = $_SESSION['USER_ID'];
+                        $row = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE id='$user_id'"));
 
                         ?>
 
@@ -29,7 +30,7 @@
                         <form id="address_form" method="POST">
                             <div class="row">
                                 <div id="address_details" class="title center">
-                                    <h1>My Saved Address</h1>
+                                    <h1 style="margin-top: 1.8rem !important;">My Saved Address</h1>
                                 </div>
                                 <div class="input-field col s6">
                                     <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
@@ -56,7 +57,10 @@
                 </div>
             </div>
             <div id="my_wishlist" class="card">
+
+
                 <div class="row" style="padding: 10px;">
+                    <h3 class="title center">Wishlist</h3>
                     <?php
                     $uid = $_SESSION['USER_ID'];
                     $res = mysqli_query($con, "SELECT product.* FROM product,wishlist WHERE wishlist.user_id='$uid' AND wishlist.product_id=product.id");
@@ -87,47 +91,52 @@
                 </div>
             </div>
             <div id="my_order" class="card">
-                <table class="highlight centered responsive-table" id="cart">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Order Date</th>
-                            <th>Address</th>
-                            <th>Payment Type</th>
-                            <th>Payment Status</th>
-                            <th>Order Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $uid = $_SESSION['USER_ID'];
+                <div class="row" style="padding: 10px;">
+                    <h3 class="title center">Orders</h3>
+                    <table class="highlight centered responsive-table" id="cart">
 
-                        $res = mysqli_query($con, "SELECT orders.*,order_status.name as order_status_str FROM orders,order_status WHERE orders.user_id = '$uid' AND order_status.id = orders.order_status");
-                        while ($row = mysqli_fetch_assoc($res)) {
-
-                        ?>
+                        <thead>
                             <tr>
-                                <td>
-                                    <a href="my_order_details.php?id=<?php echo $row['id'] ?>">
-                                        <!-- <?php echo $row['id'] ?> -->
-                                        Click to know more
-                                    </a>
-                                </td>
-                                <td><?php echo $row['added_on'] ?></td>
-                                <td>
-                                    <?php echo $row['address'] ?>
-                                    <?php echo $row['city'] ?>
-                                    <?php echo $row['pincode'] ?>
-                                </td>
-                                <td><?php echo $row['payment_type'] ?></td>
-                                <td><?php echo $row['payment_status'] ?></td>
-                                <td><?php echo $row['order_status_str'] ?></td>
-
+                                <th>Order ID</th>
+                                <th>Order Date</th>
+                                <th>Address</th>
+                                <th>Payment Type</th>
+                                <th>Payment Status</th>
+                                <th>Order Status</th>
                             </tr>
-                        <?php }  ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $uid = $_SESSION['USER_ID'];
+
+                            $res = mysqli_query($con, "SELECT orders.*,order_status.name as order_status_str FROM orders,order_status WHERE orders.user_id = '$uid' AND order_status.id = orders.order_status");
+                            while ($row = mysqli_fetch_assoc($res)) {
+
+                            ?>
+                                <tr>
+                                    <td>
+                                        <a href="my_order_details.php?id=<?php echo $row['id'] ?>">
+                                            <!-- <?php echo $row['id'] ?> -->
+                                            Click to know more
+                                        </a>
+                                    </td>
+                                    <td><?php echo $row['added_on'] ?></td>
+                                    <td>
+                                        <?php echo $row['address'] ?>
+                                        <?php echo $row['city'] ?>
+                                        <?php echo $row['pincode'] ?>
+                                    </td>
+                                    <td><?php echo $row['payment_type'] ?></td>
+                                    <td><?php echo $row['payment_status'] ?></td>
+                                    <td><?php echo $row['order_status_str'] ?></td>
+
+                                </tr>
+                            <?php }  ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
 
         </div>
     </div>
