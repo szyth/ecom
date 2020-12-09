@@ -102,10 +102,32 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
 
 <div class="container-fluid">
     <h3 class="center black-text">Add Product</h3>
+
     <div class="row card-wrapper">
         <div class="col s12">
-            <form class="card-panel product-card curvy z-depth-5">
+            <form class="card-panel product-card curvy z-depth-5" enctype="multipart/form-data" method="POST">
                 <div class="row">
+                    <div class="input-field col m6 s12">
+                        <select id="sid" class="form-control">
+                            <option value="" disabled selected>Select Category</option>
+                            <?php
+                            $res = mysqli_query($con, "SELECT * FROM super_category ORDER BY super_category ASC");
+                            while ($row = mysqli_fetch_assoc($res)) {
+
+                                echo "<option value=" . $row['id'] . ">" . $row['super_category'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                        <label>Category</label>
+                    </div>
+
+                    <div class="input-field col m6 s12">
+                        <select name="categories_id" class="form-control" id="sub_cat">
+                            <option value="" disabled selected>Select Sub Category</option>
+                        </select>
+                        <label>Sub-Category</label>
+                    </div>
+
                     <div class="col m6 s12">
                         <div class="input-field">
                             <input type="text" id="p_name" class="validate">
@@ -167,7 +189,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
     // $.noConflict();
     jQuery(document).ready(function($) {
         "use strict";
-
+        $('select').formSelect();
         var product = {
             name: "",
             description: ""
@@ -265,6 +287,8 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
 
         function FetchDetails() {
             var colors = [];
+            var category = $('#sid').val();
+            var subcategory = $('#sub_cat').val();
             product.name = $('#p_name').val();
             product.description = $('#p_desc').val();
             var variants = $('#variants .variant');
@@ -284,24 +308,34 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                 variantDetails["sizes"] = sizeDetails;
                 // debugger;
                 variantDetails["price"] = target.find('.v_price').val().trim();
+                variantDetails["mrp"] = target.find('.mrp').val().trim();
                 var media = target.find('.media input[type=file]');
                 var mediaDetails = [];
                 $.each(media, function(index, element) {
-                    mediaDetails.push(element.files[0]);
+                    mediaDetails.push(element.files[0].name);
                 })
                 variantDetails["media"] = mediaDetails;
                 colors.push(variantDetails);
             })
+            console.log(colors)
             $.ajax({
                 url: "manage_product_submit.php",
                 method: "POST",
+                enctype: 'multipart/form-data',
                 data: {
+                    formData,
                     "product": JSON.stringify(product),
                     "colors": JSON.stringify(colors),
+                    "category": category,
+                    "subcategory": subcategory,
 
                 },
                 success: function(result) {
-                    console.log(result)
+                    alert(result)
+                    // var w = window.open('about:blank');
+                    // w.document.open();
+                    // w.document.write(data);
+                    // w.document.close();
                 }
             })
         }
@@ -360,6 +394,11 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
             </div>
             <div class="row">
                 <div class="input-field col s12">
+                    <input type="number" class="mrp">
+                    <label for="mrp">MRP</label>
+                    <span class="helper-text" data-error="This field is required" data-success=""></span>
+                </div>
+                <div class="input-field col s12">
                     <input type="number" class="validate v_price" step=".01">
                     <label for="v_price">Price per piece</label>
                     <span class="helper-text" data-error="This field is required" data-success=""></span>
@@ -371,7 +410,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                 <div class="file-field input-field col s12">
                     <div class="btn">
                         <span>File 1</span>
-                        <input type="file" id="v_file_1">
+                        <input type="file" name="files[]" id="v_file_1" multiple>
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">

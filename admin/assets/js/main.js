@@ -79,6 +79,7 @@ jQuery(document).ready(function ($) {
             $("#sub_cat").empty();
             cat.forEach(function (subcat) {
                 $("#sub_cat").append('<option value=' + subcat.id + '>' + subcat.categories + '</option>')
+                $('#sub_cat').formSelect()
             })
         });
     });
