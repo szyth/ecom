@@ -20,6 +20,14 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
     $super_cat_arr[] = $row1;
 }
 
+$variantDetails_arr = array();
+$variantDetails_res = mysqli_query($con, "SELECT * FROM variantDetails WHERE product_id = $product_id");
+while ($row = mysqli_fetch_assoc($variantDetails_res)) {
+    $variantDetails_arr[] = $row;
+}
+// prx($variantDetails_res);
+// $variantImages = mysqli_query($con, "SELECT * FROM variantImages WHERE color_id = $product_id");
+
 ?>
 
 

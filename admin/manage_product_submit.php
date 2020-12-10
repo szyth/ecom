@@ -5,19 +5,19 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
     header('location:login.php');
     die();
 }
-print_r($_FILES);
 
 $product = $_POST['product'];
 $colors = $_POST['colors'];
 $category = $_POST['category'];
 $subcategory = $_POST['subcategory'];
-
 $product = json_decode($product, true);
 $colors = json_decode($colors, true);
 //inserting in product table
-$sql = "INSERT INTO product(categories_id,name,description,status,added_by) VALUES('$category','" . $product['name'] . "','" . $product['description'] . "','1','" . $_SESSION['ADMIN_ID'] . "')";
+$sql = "INSERT INTO product(categories_id,name,description,status,added_by) VALUES('$subcategory','" . $product['name'] . "','" . $product['description'] . "','1','" . $_SESSION['ADMIN_ID'] . "')";
 mysqli_query($con, $sql);
 $product_id =  mysqli_insert_id($con);
+
+
 //inserting in variantDetails table
 foreach ($colors as $color) {
     if (isset($color['sizes']['s'])) {
@@ -45,7 +45,6 @@ foreach ($colors as $color) {
 
     $color_id =  mysqli_insert_id($con);
     foreach ($color['media'] as $image) {
-        print_r($_FILES);
         $destFile = "../media/product" . $image;
         $moved = move_uploaded_file($image, $destFile);
         // if ($moved) {
