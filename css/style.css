@@ -764,6 +764,40 @@ textarea.materialize-textarea:focus:not([readonly]) {
   background-color: #161616;
 }
 
+
+#colors.btn-large {
+  margin: 5px;
+  margin-left: 0;
+  width: auto;
+  height: 40px;
+  line-height: 40px; 
+  padding: 0 10px;
+  font-size: medium;
+   background-color: rgb(255, 255, 255);
+   color: rgb(36, 36, 36);
+   border: solid #444 1px;
+
+}
+
+#colors.btn-large:hover {
+   background-color: rgb(66, 66, 66);
+   color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 768px) {
+ #colors.btn-large {
+   margin: 5px;
+   margin-left: 0;
+   width: auto;
+   height: 40px;
+   line-height: 40px;
+   padding: 0 10px;
+   font-size: small;
+
+ }
+
+}
+
 /* BUTTONS - END */
 
 
@@ -1464,3 +1498,9 @@ footer.page-footer {
 }
 
 /* USER PROFILE - END */
+
+
+
+/* PRODUCT SLIDER */
+
+/* PRODUCT SLIDER - END */

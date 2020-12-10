@@ -319,3 +319,5 @@ function wishlist_manage(pid, type) {
     }
   });
 }
+
+// PRODUCT SLIDER

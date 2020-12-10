@@ -207,7 +207,10 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
 
 
 <div class="container-fluid">
-    <h3 class="center black-text">Add Product</h3>
+    <div style="position: relative;">
+        <a style="position:absolute;left:10" class="btn btn-small red darken-4 z-depth-2" href="product.php">Go Back</a>
+        <h3 class="center black-text"> Add Product</h3>
+    </div>
 
     <div class="row card-wrapper">
         <div class="col s12">

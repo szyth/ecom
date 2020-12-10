@@ -47,7 +47,7 @@ $res = mysqli_query($con, $sql);
 
                         <br>
                         <br>
-                        <h6 style="color: #ff1111;">Click on USERNAME to See their IDs and Add Transaction</h6>
+                        <h6 style="color: #ff1111;">Click on USERNAME to See their IDs and To Add Transaction</h6>
                     </div>
 
                     <div class="card-body--">

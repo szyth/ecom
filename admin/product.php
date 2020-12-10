@@ -62,7 +62,6 @@ $res = mysqli_query($con, $sql);
                                         <th style="width: 200px !important;">Name</th>
                                         <th>Categories</th>
                                         <th>Image</th>
-                                        <th>MRP</th>
                                         <th>Price</th>
                                         <th>QTY</th>
                                         <th></th>
@@ -78,10 +77,9 @@ $res = mysqli_query($con, $sql);
                                             <!-- <td><?php echo $row['id'] ?></td> -->
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
-                                            <td><img src="<?php echo "../media/product/" . $row['image'] ?>" /></td>
-                                            <td><?php echo $row['mrp'] ?></td>
-                                            <td><?php echo $row['price'] ?></td>
-                                            <td><?php echo $row['qty'] ?></td>
+                                            <td><img src="../media/product/761452992_1 (2).jpg" /></td>
+                                            <td>Rs 799</td>
+                                            <td><?php echo $row['description'] ?></td>
                                             <td>
                                                 <?php
                                                 if ($row['status'] == 1) {
@@ -89,7 +87,7 @@ $res = mysqli_query($con, $sql);
                                                 } else {
                                                     echo " <a href='?type=status&operation=active&id=" . $row['id'] . "'><span class='badge badge-pending'>Deactive</span></a>&nbsp;";
                                                 }
-                                                echo "<a href='manage_product.php?id=" . $row['id'] . "'><span class='badge badge-primary'>Edit</span></a>&nbsp;&nbsp;";
+                                                // echo "<a href='manage_product.php?id=" . $row['id'] . "'><span class='badge badge-primary'>Edit</span></a>&nbsp;&nbsp;";
 
                                                 echo "<a href='?type=delete&id=" . $row['id'] . "'><span class='badge badge-danger'>Delete</span></a>";
                                                 ?>

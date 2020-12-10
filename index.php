@@ -42,13 +42,13 @@
                     <div class="dress-card box_shadow center">
                         <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                             <div class="dress-card-head">
-                                <img class="dress-card-img-top" src="<?php echo "media/product/" . $list['image'] ?>" alt="">
+                                <img class="dress-card-img-top" src="media/product/761452992_1 (2).jpg" alt="">
                             </div>
                             <div class="dress-card-body">
                                 <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                                 <p class="dress-card-para">
-                                    <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
-                                    <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
+                                    <span class="dress-card-price ">Rs.799<?php  ?> &ensp;</span>
+                                    <span class="dress-card-crossed ">Rs. 999<?php ?></span>
                                     <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                     </a>
                                     <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
@@ -99,13 +99,13 @@
                 <div class="dress-card box_shadow center">
                     <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                         <div class="dress-card-head">
-                            <img class="dress-card-img-top" src="<?php echo "media/product/" . $list['image'] ?>" alt="">
+                            <img class="dress-card-img-top" src="media/product/761452992_1 (2).jpg" alt="">
                         </div>
                         <div class="dress-card-body">
                             <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                             <p class="dress-card-para">
-                                <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
-                                <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
+                                <span class="dress-card-price ">Rs. 799 <?php  ?> &ensp;</span>
+                                <span class="dress-card-crossed ">Rs. 999<?php  ?></span>
                                 <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
                                 <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                 </a>

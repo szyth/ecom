@@ -20,16 +20,21 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
     $super_cat_arr[] = $row1;
 }
 
-$variantDetails_arr = array();
-$variantDetails_res = mysqli_query($con, "SELECT * FROM variantDetails WHERE product_id = $product_id");
-while ($row = mysqli_fetch_assoc($variantDetails_res)) {
-    $variantDetails_arr[] = $row;
+$colors = array();
+$colors_res = mysqli_query($con, "SELECT * FROM variantDetails WHERE product_id = $product_id");
+while ($row = mysqli_fetch_assoc($colors_res)) {
+
+
+    $color_id = $row['color_id'];
+    $media_res = mysqli_query($con, "SELECT * FROM variantImages WHERE color_id = $color_id ");
+    while ($media = mysqli_fetch_assoc($media_res)) {
+        array_push($row, $media['image']);
+    }
+    $colors[] = $row;
 }
-// prx($variantDetails_res);
-// $variantImages = mysqli_query($con, "SELECT * FROM variantImages WHERE color_id = $product_id");
+// prx($colors);
 
 ?>
-
 
 
 
@@ -63,7 +68,10 @@ while ($row = mysqli_fetch_assoc($variantDetails_res)) {
 <!-- PRODUCT -->
 <div class="row">
     <div class="col m4 push-m1 l4 push-l1 s12 product_image">
-        <img src="<?php echo "media/product/" . $get_product['0']['image'] ?>" class="block__pic" alt="">
+        <!-- <img src="<?php echo "media/product/" . $colors['0']['0'] ?>" class="block__pic" alt=""> -->
+        <img src="media/product/761452992_1 (2).jpg" class="block__pic" alt="">
+        <!-- PRODUCT SLIDER  -->
+
     </div>
 
 
@@ -71,18 +79,35 @@ while ($row = mysqli_fetch_assoc($variantDetails_res)) {
         <div class="product_details">
             <h2 class="product_title"><?php echo $get_product['0']['name'] ?></h2>
             <ul class="">
-                <li class="mrp">Rs. <?php echo $get_product['0']['mrp'] ?></li>
-                <li class="price">Rs. <?php echo $get_product['0']['price'] ?></li>
+                <li class="mrp">Rs. 999<?php ?></li>
+                <li class="price">Rs. 799<?php  ?></li>
             </ul>
-            <p class=""><?php echo $get_product['0']['short_desc'] ?></p>
             <p class=""><?php echo $get_product['0']['description'] ?></p>
             <div class="">
+                <b>Colors:</b>
+                <br>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Red</a>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Grey</a>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Blue</a>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Violet</a>
+                <br>
+                <br>
+
+                <b>Size:</b>
+                <br>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">S</a>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">M</a>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">L</a>
+                <a id="colors" class="waves-effect waves-light btn-large btn-flat">XL</a>
+
+
                 <div class="product_availability">
                     <p><span class="black-text">Availability:</span> In Stock</p>
                 </div>
                 <div class="">
-                    <p><span>Quantity:</span>
-                        <select id="qty" class="browser-default">
+                    <b>Quantity:</b>
+                    <input style="width: 50px;text-align:center;margin:0 10px" type="number" value="1" min="1" step="1">
+                    <!-- <select id="qty" class="browser-default">
                             <option value="1" selected>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -93,8 +118,7 @@ while ($row = mysqli_fetch_assoc($variantDetails_res)) {
                             <option>8</option>
                             <option>9</option>
                             <option>10</option>
-                        </select>
-                    </p>
+                        </select> -->
                 </div>
                 <div class="product_category">
                     <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
@@ -107,7 +131,6 @@ while ($row = mysqli_fetch_assoc($variantDetails_res)) {
     </div>
 </div>
 <!-- PRODUCT - END -->
-
 
 <section>
     <svg class="curve" data-name="layer" viewBox="0 0 1416.9 174.01">
