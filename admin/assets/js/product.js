@@ -1,5 +1,6 @@
 var productForm = {
-    isValidated: true
+    isValidated: true,
+    isSuccess: false
 }
 
 $(document).ready(function () {
@@ -10,7 +11,6 @@ $(document).ready(function () {
         validateFields();
         if (productForm.isValidated) {
             formToJson();
-            // alert("Product Added Successfully");
             // location.href = location.href;
         }
     });
@@ -207,21 +207,30 @@ $(document).ready(function () {
             contentType: false,
             processData: false
         });
+    });
+
+    $(document).on("change", "input[name=discount-type]", function () {
+        var attrVal = $(this).val();
+        if (attrVal === "percent" || attrVal === "rate") {
+            $(this).closest(".row").find("input[name=discount]").closest(".col-lg-6").removeClass("display-n");
+        } else {
+            $(this).closest(".row").find("input[name=discount]").val("").closest(".col-lg-6").addClass("display-n");
+        }
     })
-
-
 
     var validateFields = function () {
         productForm.isValidated = true;
         $("form#product-form").find(".form-control").each(function (index, elem) {
-            var attrValue = $(elem).val();
-            if (attrValue && attrValue.trim() && attrValue.trim().length) {
-                $(elem).closest(".form-group").find("span.error").html("").hide();
-            } else {
-                $(elem).closest(".form-group").find("span.error").html("This field is required").show();
-                productForm.isValidated = false;
+            if (!$(elem).closest(".col-lg-6").hasClass("display-n") && !$(elem).hasClass("optional-field")) {
+                var attrValue = $(elem).val();
+                if (attrValue && attrValue.trim() && attrValue.trim().length) {
+                    $(elem).closest(".form-group").find("span.error").html("").hide();
+                } else {
+                    $(elem).closest(".form-group").find("span.error").html("This field is required").show();
+                    productForm.isValidated = false;
+                }
             }
-        })
+        });
     }
 
     var addSubcategry = function (target) {
@@ -276,6 +285,7 @@ $(document).ready(function () {
     }
 
     var formToJson = function () {
+        var isSuccess = false;
         var products = [];
         $("form#product-form").find(".card").each(function (index, elem) {
             var productDetail = {};
@@ -289,11 +299,19 @@ $(document).ready(function () {
                     if (type === "file") {
                         productDetail[attrName] = $(e).data("newFileName");
                         imageCount++;
+                    } else if (attrName === "discount") {
                     }
                     else
                         productDetail[attrName] = attrValue;
                 }
             });
+
+            var discountType = $(elem).find("input[name=discount-type]:checked").val();
+            if (discountType !== "none") {
+                productDetail["discount"] = $(elem).find("input[name=discount]").val();
+            }
+            productDetail["discount-type"] = discountType;
+
             productDetail["imageCount"] = imageCount;
             products.push(productDetail);
         });
@@ -313,4 +331,4 @@ $(document).ready(function () {
         console.log(products);
     }
 
-})
+});

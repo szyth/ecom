@@ -153,6 +153,9 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
     #product-form .form-group input[type=file] {
         height: 100%;
     }
+    .display-n {
+        display: none;
+    }
 </style>
 
 <!-- <div class="loader-container">
@@ -262,9 +265,35 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                             <span class="error"></span>
                                         </div>
                                     </div>
+
+                                </div>
+
+                                <div class="row">
                                     <div class="col-lg-6 col-sm-12">
+                                        <h5 class="mb-2 mt-3">Discount Type</h5>
+                                        <div class="radio ml-3">
+                                            <label>
+                                                <input type="radio" name="discount-type" value="rate">
+                                                Rate Discount
+                                            </label>
+                                        </div>
+                                        <div class="radio ml-3">
+                                            <label>
+                                                <input type="radio" name="discount-type" value="percent">
+                                            Percentage Discount
+                                            </label>
+                                        </div>
+                                        <div class="radio ml-3">
+                                            <label>
+                                                <input type="radio" name="discount-type" value="none" checked>
+                                                None
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-sm-12 display-n">
                                         <div class="form-group">
-                                            <label for="discount" class="control-label">Discount (in %)</label>
+                                            <label for="discount" class="control-label">Discount <sup>*</sup></label>
                                             <input type="number" name="discount" class="form-control" placeholder="Enter Discount (if any)">
                                             <span class="error"></span>
                                         </div>
@@ -275,7 +304,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="articleid" class="control-label">Product Article ID</label>
-                                            <input type="text" name="articleid" class="form-control" placeholder="Enter Article ID">
+                                            <input type="text" name="articleid" class="form-control optional-field" placeholder="Enter Article ID">
                                             <span class="error"></span>
                                         </div>
                                     </div>

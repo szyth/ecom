@@ -172,7 +172,15 @@ function addProducts($con) {
                     $pdo->query("INSERT INTO product_images(super_id, name) VALUES('$image_p_id', '$imageName')");
                     $imageCount--;
                 }
-                $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$product->articleid', '$product->quantity', '$image_p_id')");
+
+                $articleID = isset($product->articleid) ? $product->articleid : "";
+
+                $discType = $product->{"discount-type"};
+                if ($discType == "none") {
+                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, article_id, quantity, image_super_id, discount_type) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$articleID', '$product->quantity', '$image_p_id', '$discType')");
+                } else {
+                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id, discount_type) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$articleID', '$product->quantity', '$image_p_id', '$discType')");
+                }
 
             }
             $pdo->commit();
