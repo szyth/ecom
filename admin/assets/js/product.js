@@ -11,7 +11,7 @@ $(document).ready(function () {
         validateFields();
         if (productForm.isValidated) {
             formToJson();
-            // location.href = location.href;
+            location.href = location.href;
         }
     });
 
@@ -35,6 +35,8 @@ $(document).ready(function () {
                     $(elem).val("");
                 }
             })
+
+            newProduct.find("input[type=radio]").prop("name", "discount-type-" + count);
 
             newProduct.insertAfter(lastProduct);
         } else {
@@ -209,7 +211,8 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("change", "input[name=discount-type]", function () {
+    // Handling discount
+    $(document).on("change", "input.discountType", function () {
         var attrVal = $(this).val();
         if (attrVal === "percent" || attrVal === "rate") {
             $(this).closest(".row").find("input[name=discount]").closest(".col-lg-6").removeClass("display-n");
@@ -306,7 +309,7 @@ $(document).ready(function () {
                 }
             });
 
-            var discountType = $(elem).find("input[name=discount-type]:checked").val();
+            var discountType = $(elem).find("input[name=discount-type-" + (index + 1) + "]:checked").val();
             if (discountType !== "none") {
                 productDetail["discount"] = $(elem).find("input[name=discount]").val();
             }

@@ -273,19 +273,19 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                         <h5 class="mb-2 mt-3">Discount Type</h5>
                                         <div class="radio ml-3">
                                             <label>
-                                                <input type="radio" name="discount-type" value="rate">
+                                                <input type="radio" class="discountType" name="discount-type-1" value="rate">
                                                 Rate Discount
                                             </label>
                                         </div>
                                         <div class="radio ml-3">
                                             <label>
-                                                <input type="radio" name="discount-type" value="percent">
+                                                <input type="radio" class="discountType" name="discount-type-1" value="percent">
                                             Percentage Discount
                                             </label>
                                         </div>
                                         <div class="radio ml-3">
                                             <label>
-                                                <input type="radio" name="discount-type" value="none" checked>
+                                                <input type="radio" class="discountType" name="discount-type-1" value="none" checked>
                                                 None
                                             </label>
                                         </div>
