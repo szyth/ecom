@@ -261,7 +261,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="color" class="control-label">Product MRP <sup>*</sup> </label>
-                                            <input type="number" name="mrp" class="form-control" placeholder="Enter MRP" required>
+                                            <input type="number" min="0" name="mrp" class="form-control" placeholder="Enter MRP" required>
                                             <span class="error"></span>
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12 display-n">
                                         <div class="form-group">
                                             <label for="discount" class="control-label">Discount <sup>*</sup></label>
-                                            <input type="number" name="discount" class="form-control" placeholder="Enter Discount (if any)">
+                                            <input type="number" name="discount" min="0" class="form-control" placeholder="Enter Discount (if any)">
                                             <span class="error"></span>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="quantity" class="control-label">Quantity <sup>*</sup></label>
-                                            <input type="number" name="quantity" class="form-control" placeholder="Enter Quantity" required>
+                                            <input type="number" name="quantity" min="0" class="form-control" placeholder="Enter Quantity" required>
                                             <span class="error"></span>
                                         </div>
                                     </div>
