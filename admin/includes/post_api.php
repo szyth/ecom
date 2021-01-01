@@ -17,6 +17,9 @@ if (isset($_POST['target'])) {
         case "color":
             addColor($con);
             break;
+        case "products":
+            addProducts($con);
+            break;
         default:
             echo $errorMsg;
     }
@@ -129,6 +132,60 @@ function addColor($con) {
 
     } else {
         $msg = "Incomplete request";
+    }
+    echo $msg;
+}
+
+function addProducts($con) {
+    // @param: target and data
+    $msg = "";
+    if (isset($_POST["data"])) {
+        $data = $_POST["data"];
+
+        $pdo = new PDO(
+            "mysql:host=localhost;dbname=ecom", 
+            "root", 
+            "", 
+            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+        );
+
+        $pdo->beginTransaction();
+
+        $res = $pdo->query("SELECT MAX(parent_id) FROM product_new");
+        $row = $res->fetch(PDO::FETCH_NUM);
+        $parent_p_id = $row[0];
+        $parent_p_id = $parent_p_id == "" ? 1 : $parent_p_id + 1;
+
+        try {
+            foreach ($data as $datum) {
+                $product = json_decode(json_encode($datum), false);
+
+                $res = $pdo->query("SELECT MAX(super_id) FROM product_images");
+                $row = $res->fetch(PDO::FETCH_NUM);
+                $image_p_id = $row[0];
+                $image_p_id = $image_p_id == "" ? 1 : $image_p_id + 1;
+
+
+                $imageCount = $product->imageCount;
+                while($imageCount > 0) {
+                    $imageName = $product->{"image_" . ($imageCount)};
+                    $pdo->query("INSERT INTO product_images(super_id, name) VALUES('$image_p_id', '$imageName')");
+                    $imageCount--;
+                }
+                $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$product->articleid', '$product->quantity', '$image_p_id')");
+
+            }
+            $pdo->commit();
+            
+        } catch (Exception $e) {
+            $pdo->rollBack();
+            $msg =  "Something went wrong. " . $e->getMessage();
+        }
+
+        $msg = $msg == "" ? "Product Added Successfully" : $msg;
+
+    } else {
+        $msg = "Incomplete API request";
     }
     echo $msg;
 }

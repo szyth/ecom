@@ -8,6 +8,11 @@ $(document).ready(function () {
     $("form#product-form").on("submit", function (e) {
         e.preventDefault();
         validateFields();
+        if (productForm.isValidated) {
+            formToJson();
+            // alert("Product Added Successfully");
+            // location.href = location.href;
+        }
     });
 
     // Add Product
@@ -160,11 +165,55 @@ $(document).ready(function () {
         return false;
     });
 
+    //File Upload
+    $(document).on('change', '#product-form .media-wrapper input[type=file]', function (e) {
+        var target = $(this)[0];
+        var jTarget = $(this)
+        var file = target.files[0]
+        var filename = file.name;
+        var ext = filename.substr(filename.lastIndexOf("."), filename.length);
+        var newFileName = createFileId(20) + ext;
+        $(this).data("newFileName", newFileName);
+        // console.log(file)
+
+        var formData = new FormData();
+        formData.append('file', file, newFileName);
+        // $('.loader-container').show();
+        $.ajax({
+            url: 'fileHandle.php',
+            type: 'POST',
+            data: formData,
+            success: function (data) {
+                if (data) {
+                    // alert(data)
+                    if (data.indexOf('Failed') > -1) {
+                        alert("Upload failed");
+                        jTarget.val('')
+                        jTarget.closest(".file-field").find("input.validate").val("")
+                    } else if (data.indexOf('Not Supported') > -1) {
+
+                        alert('Not Supported');
+                        jTarget.val('')
+                        jTarget.closest(".file-field").find("input.validate").val("")
+                    }
+                }
+                // $('.loader-container').hide();
+            },
+            error: function (e) {
+                // $('.loader-container').hide();
+                alert("Upload failed");
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    })
+
 
 
     var validateFields = function () {
         productForm.isValidated = true;
-        $(".form-control").each(function (index, elem) {
+        $("form#product-form").find(".form-control").each(function (index, elem) {
             var attrValue = $(elem).val();
             if (attrValue && attrValue.trim() && attrValue.trim().length) {
                 $(elem).closest(".form-group").find("span.error").html("").hide();
@@ -210,10 +259,58 @@ $(document).ready(function () {
                 parent = JSON.parse(parent);
                 $("select[name='" + target + "']").empty();
                 parent.forEach(function (child) {
-                    $("select[name='" + target + "']").append('<option value=' + child.value + '>' + child.name + '</option>')
+                    $("select[name='" + target + "']").append('<option value=' + child.id + '>' + child.name + '</option>')
                 });
             });
         }
+    }
+
+    var createFileId = function (length) {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+    var formToJson = function () {
+        var products = [];
+        $("form#product-form").find(".card").each(function (index, elem) {
+            var productDetail = {};
+            var imageCount = 0;
+            $(elem).find(".form-control").each(function (i, e) {
+                var attrValue = $(e).val();
+                var attrName = $(e).attr("name");
+                var type = $(e).attr("type");
+
+                if (attrName && attrValue) {
+                    if (type === "file") {
+                        productDetail[attrName] = $(e).data("newFileName");
+                        imageCount++;
+                    }
+                    else
+                        productDetail[attrName] = attrValue;
+                }
+            });
+            productDetail["imageCount"] = imageCount;
+            products.push(productDetail);
+        });
+        if (products.length) {
+            $.ajax({
+                url: "includes/post_api.php",
+                type: "POST",
+                data: { "target": "products", "data": products },
+                success: function (response) {
+                    alert(response);
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            })
+        }
+        console.log(products);
     }
 
 })

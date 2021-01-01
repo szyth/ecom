@@ -16,6 +16,107 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
 ?>
 
 <style>
+    /* .loader-container {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+    }
+
+    .loader {
+        margin: 100px auto;
+        font-size: 25px;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        position: relative;
+        text-indent: -9999em;
+        -webkit-animation: load5 1.1s infinite ease;
+        animation: load5 1.1s infinite ease;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    @-webkit-keyframes load5 {
+
+        0%,
+        100% {
+            box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+        }
+
+        12.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+        }
+
+        25% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        37.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        50% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        62.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        75% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        87.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+        }
+    }
+
+    @keyframes load5 {
+
+        0%,
+        100% {
+            box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+        }
+
+        12.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+        }
+
+        25% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        37.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        50% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        62.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        75% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+        }
+
+        87.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+        }
+    } */
     #product-form .form-group {
         margin-top: 20px;
     }
@@ -54,6 +155,9 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
     }
 </style>
 
+<!-- <div class="loader-container">
+    <div class="loader">Loading...</div>
+</div> -->
 <div class="content pb-0">
     <div class="animated fadeIn">
         <div class="row">
@@ -71,7 +175,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="cat" class="control-label">Category <sup>*</sup></label>
-                                            <select name="cat" class="form-control" placeholder="Select Category" required>
+                                            <select type="select" name="cat" class="form-control" placeholder="Select Category" required>
                                                 <option value="" disabled selected>Select Category</option>
                                                 <?php
                                                 $res = mysqli_query($con, "SELECT * FROM super_category ORDER BY super_category ASC");
@@ -88,7 +192,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                         <div class="form-group">
                                             <label for="subcat" class="control-label">Sub Category <sup>*</sup></label>
                                             <a href="javascript:void(0)" class="btn btn-default label-link">Add More</a>
-                                            <select name="subcat" class="form-control" placeholder="Select Category" disabled required>
+                                            <select type="select" name="subcat" class="form-control" placeholder="Select Category" disabled required>
                                                 <option value="" default>Select Sub Category</option>
                                             </select>
                                             <span class="error"></span>
@@ -118,13 +222,13 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                         <div class="form-group">
                                             <label for="color" class="control-label">Product Color <sup>*</sup></label>
                                             <a href="javascript:void(0)" class="btn btn-default label-link">Add More</a>
-                                            <select name="color" class="form-control" placeholder="Select Color" required>
+                                            <select type="select" name="color" class="form-control" placeholder="Select Color" required>
                                                 <option value="" disabled selected>Select Color</option>
                                                 <?php
                                                 $res = mysqli_query($con, "SELECT * FROM product_color ORDER BY value ASC");
                                                 while ($row = mysqli_fetch_assoc($res)) {
 
-                                                    echo "<option value=" . $row['value'] . ">" . $row['name'] . "</option>";
+                                                    echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
@@ -135,13 +239,13 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                         <div class="form-group">
                                             <label for="size" class="control-label">Product Size <sup>*</sup></label>
                                             <a href="javascript:void(0)" class="btn btn-default label-link">Add More</a>
-                                            <select name="size" class="form-control" placeholder="Select Size" required>
+                                            <select type="select" name="size" class="form-control" placeholder="Select Size" required>
                                                 <option value="" disabled selected>Select Size</option>
                                                 <?php
                                                 $res = mysqli_query($con, "SELECT * FROM product_size ORDER BY value ASC");
                                                 while ($row = mysqli_fetch_assoc($res)) {
 
-                                                    echo "<option value=" . $row['value'] . ">" . $row['name'] . "</option>";
+                                                    echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
