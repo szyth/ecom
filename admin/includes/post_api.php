@@ -7,8 +7,8 @@ $errorMsg = "Invalid API call. Please enter a valid target";
 if (isset($_POST['target'])) {
     $target = $_POST['target'];
 
-    switch($target) {
-        case "size": 
+    switch ($target) {
+        case "size":
             addSize($con);
             break;
         case "subcategory":
@@ -27,7 +27,8 @@ if (isset($_POST['target'])) {
     echo $errorMsg;
 }
 
-function addSize($con) {
+function addSize($con)
+{
     // @param: target, value and name
     if (isset($_POST['value']) && isset($_POST['name'])) {
         $value = get_safe_value($con, $_POST['value']);
@@ -36,7 +37,7 @@ function addSize($con) {
         $msg = "";
 
         if ($value == "" || $name == "")
-            $msg = "Incomplete request";        
+            $msg = "Incomplete request";
 
         $res = mysqli_query($con, $query);
         $check = mysqli_num_rows($res);
@@ -46,19 +47,17 @@ function addSize($con) {
             $result = mysqli_query($con, $updateQuery);
 
             $msg = $result == TRUE ? "Size added successfully" : "Action failed. Please try again";
-
         } else {
             $msg = "Size already exists";
         }
-
     } else {
         $msg = "Incomplete request";
     }
     echo $msg;
-
 }
 
-function addSubcategory($con) {
+function addSubcategory($con)
+{
     // @param: target, value and super_categories_id
     if (isset($_POST['value']) && isset($_POST['super_categories_id'])) {
         $value = get_safe_value($con, $_POST['value']);
@@ -96,7 +95,6 @@ function addSubcategory($con) {
             $result = mysqli_query($con, $sql);
             $msg = $result == TRUE ? "Subcategory added successfully" : "Action failed. Please try again";
         }
-
     } else {
         $msg = "Incomplete request";
     }
@@ -104,7 +102,8 @@ function addSubcategory($con) {
     echo $msg;
 }
 
-function addColor($con) {
+function addColor($con)
+{
     // @param: target, value and name
     if (isset($_POST['value']) && isset($_POST['name'])) {
         $value = get_safe_value($con, $_POST['value']);
@@ -124,28 +123,31 @@ function addColor($con) {
                 $result = mysqli_query($con, $updateQuery);
 
                 $msg = $result == TRUE ? "Color added successfully" : "Action failed. Please try again";
-
             } else {
                 $msg = "Color already exists";
             }
-        }        
-
+        }
     } else {
         $msg = "Incomplete request";
     }
     echo $msg;
 }
 
-function addProducts($con) {
+function addProducts($con)
+{
     // @param: target and data
     $msg = "";
     if (isset($_POST["data"])) {
         $data = $_POST["data"];
 
         $pdo = new PDO(
-            "mysql:host=localhost;dbname=ecom", 
-            "root", 
-            "", 
+            "mysql:host=localhost;dbname=classy_closet",
+            "classy_closet",
+            "O33y*ee3",
+            // $pdo = new PDO(
+            //     "mysql:host=localhost;dbname=ecom",
+            //     "root",
+            //     "",
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
         );
 
@@ -167,7 +169,7 @@ function addProducts($con) {
 
 
                 $imageCount = $product->imageCount;
-                while($imageCount > 0) {
+                while ($imageCount > 0) {
                     $imageName = $product->{"image_" . ($imageCount)};
                     $pdo->query("INSERT INTO product_images(super_id, name) VALUES('$image_p_id', '$imageName')");
                     $imageCount--;
@@ -181,17 +183,14 @@ function addProducts($con) {
                 } else {
                     $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id, discount_type) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$articleID', '$product->quantity', '$image_p_id', '$discType')");
                 }
-
             }
             $pdo->commit();
-            
         } catch (Exception $e) {
             $pdo->rollBack();
             $msg =  "Something went wrong. " . $e->getMessage();
         }
 
         $msg = $msg == "" ? "Product Added Successfully" : $msg;
-
     } else {
         $msg = "Incomplete API request";
     }

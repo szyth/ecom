@@ -12,7 +12,7 @@ if ($product_id > 0) {
 <?php
 }
 
-$cat_id = $get_product['0']['categories_id'];
+$cat_id = $get_product['0']['subcat_id'];
 
 $super_cat_res = mysqli_query($con, "SELECT super_category.*,categories.super_categories_id FROM super_category,categories WHERE super_category.id = categories.super_categories_id AND categories.id=$cat_id");
 $super_cat_arr = array();
@@ -20,19 +20,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
     $super_cat_arr[] = $row1;
 }
 
-$colors = array();
-$colors_res = mysqli_query($con, "SELECT * FROM variantDetails WHERE product_id = $product_id");
-while ($row = mysqli_fetch_assoc($colors_res)) {
 
-
-    $color_id = $row['color_id'];
-    $media_res = mysqli_query($con, "SELECT * FROM variantImages WHERE color_id = $color_id ");
-    while ($media = mysqli_fetch_assoc($media_res)) {
-        array_push($row, $media['image']);
-    }
-    $colors[] = $row;
-}
-// prx($colors);
 
 ?>
 
@@ -53,7 +41,7 @@ while ($row = mysqli_fetch_assoc($colors_res)) {
                                 echo $super_cat_arr[0]['super_category'];
                                 ?>
                             </a>
-                            <a href="sub_categories.php?id=<?php echo $get_product['0']['categories_id'] ?>" class="breadcrumb"><?php echo $get_product['0']['categories'] ?></a>
+                            <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>" class="breadcrumb"><?php echo $get_product['0']['categories'] ?></a>
                             <a class="breadcrumb"><?php echo $get_product['0']['name'] ?></a>
                         </div>
                     </h5>
@@ -69,7 +57,7 @@ while ($row = mysqli_fetch_assoc($colors_res)) {
 <div class="row">
     <div class="col m4 push-m1 l4 push-l1 s12 product_image">
         <!-- <img src="<?php echo "media/product/" . $colors['0']['0'] ?>" class="block__pic" alt=""> -->
-        <img src="media/product/761452992_1 (2).jpg" class="block__pic" alt="">
+        <img src="media/product/<?php echo $get_product['0']['image'] ?>" class="block__pic" alt="">
         <!-- PRODUCT SLIDER  -->
 
     </div>
@@ -79,8 +67,8 @@ while ($row = mysqli_fetch_assoc($colors_res)) {
         <div class="product_details">
             <h2 class="product_title"><?php echo $get_product['0']['name'] ?></h2>
             <ul class="">
-                <li class="mrp">Rs. 999<?php ?></li>
-                <li class="price">Rs. 799<?php  ?></li>
+                <li class="mrp">Rs. <?php echo $get_product['0']['mrp'] ?></li>
+                <li class="price">Rs. <?php echo $get_product['0']['mrp'] - $get_product['0']['discount']  ?></li>
             </ul>
             <p class=""><?php echo $get_product['0']['description'] ?></p>
             <div class="">
@@ -121,7 +109,7 @@ while ($row = mysqli_fetch_assoc($colors_res)) {
                         </select> -->
                 </div>
                 <div class="product_category">
-                    <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
+                    <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
                 </div>
 
                 <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $get_product['0']['price'] ?>')">Add to cart</a>

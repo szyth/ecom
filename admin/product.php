@@ -26,19 +26,19 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
             echo "Wrong Input";
         }
 
-        $sql_update_status = "UPDATE product SET status='$status' $condition1 WHERE id='$id'";
+        $sql_update_status = "UPDATE product_new SET status='$status' $condition1 WHERE id='$id'";
         mysqli_query($con, $sql_update_status);
     }
     if ($type == "delete") {
         $id = get_safe_value($con, $_GET['id']);
-        $sql_delete_status = "DELETE FROM product WHERE id='$id' $condition1";
+        $sql_delete_status = "DELETE FROM product_new WHERE id='$id' $condition1";
         mysqli_query($con, $sql_delete_status);
     }
 }
 
 
 
-$sql = "SELECT product.*,categories.categories FROM product,categories WHERE product.categories_id=categories.id $condition ORDER BY product.id DESC";
+$sql = "SELECT product_new.*,categories.categories FROM product_new,categories WHERE product_new.subcat_id=categories.id $condition ORDER BY product_new.id DESC";
 $res = mysqli_query($con, $sql);
 ?>
 
@@ -71,15 +71,19 @@ $res = mysqli_query($con, $sql);
                                     <?php
                                     $i = 1;
                                     while ($row = mysqli_fetch_assoc($res)) {
+                                        $image_super_id = $row['image_super_id'];
+                                        $image = "SELECT `name` AS `image` FROM product_images WHERE product_images.super_id=$image_super_id";
+                                        $res_image = mysqli_query($con, $image);
+                                        $row_image = mysqli_fetch_assoc($res_image);
                                     ?>
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
                                             <!-- <td><?php echo $row['id'] ?></td> -->
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
-                                            <td><img src="../media/product/761452992_1 (2).jpg" /></td>
-                                            <td>Rs 799</td>
-                                            <td><?php echo $row['description'] ?></td>
+                                            <td><img src="../media/product/<?php echo $row_image['image'] ?>" /></td>
+                                            <td><?php echo $row['mrp'] ?></td>
+                                            <td><?php echo $row['quantity'] ?></td>
                                             <td>
                                                 <?php
                                                 if ($row['status'] == 1) {

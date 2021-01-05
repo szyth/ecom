@@ -11,7 +11,7 @@ $(document).ready(function () {
         validateFields();
         if (productForm.isValidated) {
             formToJson();
-            location.href = location.href;
+            // location.href = location.href;
         }
     });
 
@@ -325,6 +325,7 @@ $(document).ready(function () {
                 data: { "target": "products", "data": products },
                 success: function (response) {
                     alert(response);
+                    location.href = 'product.php';
                 },
                 error: function (error) {
                     alert(error);

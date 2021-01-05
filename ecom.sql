@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2020 at 10:48 AM
+-- Generation Time: Dec 10, 2020 at 01:16 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -70,7 +70,9 @@ INSERT INTO `categories` (`id`, `super_categories_id`, `categories`, `status`) V
 (18, 3, 'T-Shirts', 1),
 (21, 3, 'Jeans', 1),
 (22, 3, 'Track Pants and Pyjamas', 1),
-(26, 2, 'Indian and Fusion Wear and Fusion Wear', 1);
+(26, 2, 'Indian and Fusion Wear and Fusion Wear', 1),
+(31, 2, 'Denims', 1),
+(32, 1, 'Tops', 1);
 
 -- --------------------------------------------------------
 
@@ -198,6 +200,28 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `categories_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `added_by` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `categories_id`, `name`, `description`, `added_by`, `status`) VALUES
+(141, 14, 'Applecreation Cotton Womens Dress', 'Designed and measured to fit a 12 to 14 laptops and with a convenient front pocket for your charger cable and notebook. We can also make you a custom sized and coloured sleeve to fit your laptop/macbook or tablet. Get in touch for details.\n\nHemp grows wild throughout Nepal and has long been used to create fabrics used in clothe making etc. You can now own a piece of this ancient tradition in the form of a functional, stylish laptop case.', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productBackup`
+--
+
+CREATE TABLE `productBackup` (
+  `id` int(11) NOT NULL,
+  `categories_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `mrp` float NOT NULL,
   `price` float NOT NULL,
   `qty` int(11) NOT NULL,
@@ -216,10 +240,10 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product`
+-- Dumping data for table `productBackup`
 --
 
-INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `image`, `brand`, `color`, `size`, `fabric`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `added_by`, `status`) VALUES
+INSERT INTO `productBackup` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `image`, `brand`, `color`, `size`, `fabric`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `added_by`, `status`) VALUES
 (15, 18, 'Maxi Dress', 4799, 4299, 4, '991190464_1 (1).jpg', 'BIBA', 'brown', 32, 'VELVET', 'Women\'s dress', 'Top Fabric - Digital Print Lycra and Slub Silk with Two-Tone Silky Yoke., Inner - Santoon., Bottom - N/A., Dupatta - Two-Tone', '', '', '', 0, 1),
 (17, 18, 'New Autumn Maxi', 1299, 1099, 565, '761452992_1 (2).jpg', 'LEVIS', 'black', 34, 'CHIFFON', 'Women Dress', '2016 New Autumn Maxi Women Dress Ladies Blue Knee Length Elegant Casual Shirt Dresses', '', '', '', 0, 1),
 (18, 17, 'Pink Sleeveless Halter Neck', 21599, 6599, 8, '605444974_1 (3).jpg', 'AURELIA', 'pink', 36, 'COTTON', 'Women Bridesmaid Dress', 'Women Bridesmaid Dress Pink Sleeveless Halter Neck High Waist Party Cocktail Dresses', '', '', '', 0, 1),
@@ -315,6 +339,50 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `variantDetails`
+--
+
+CREATE TABLE `variantDetails` (
+  `color_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `color` varchar(25) NOT NULL,
+  `mrp` float NOT NULL,
+  `price` float NOT NULL,
+  `S` int(11) NOT NULL DEFAULT 0,
+  `M` int(11) NOT NULL DEFAULT 0,
+  `L` int(11) NOT NULL DEFAULT 0,
+  `XL` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `variantDetails`
+--
+
+INSERT INTO `variantDetails` (`color_id`, `product_id`, `color`, `mrp`, `price`, `S`, `M`, `L`, `XL`) VALUES
+(116, 141, 'Blue', 299, 108.99, 23, 21, 123, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variantImages`
+--
+
+CREATE TABLE `variantImages` (
+  `image_id` int(11) NOT NULL,
+  `color_id` int(11) NOT NULL,
+  `image` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `variantImages`
+--
+
+INSERT INTO `variantImages` (`image_id`, `color_id`, `image`) VALUES
+(215, 116, '761452992_1 (2).jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `vendor_docs`
 --
 
@@ -359,7 +427,9 @@ INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
 (10, 17, 20, '2020-09-30 11:15:44'),
 (11, 17, 19, '2020-09-30 11:16:26'),
 (12, 17, 17, '2020-09-30 11:30:08'),
-(13, 10, 24, '2020-09-30 09:07:18');
+(13, 10, 24, '2020-09-30 09:07:18'),
+(14, 10, 20, '2020-12-10 12:44:45'),
+(15, 10, 135, '2020-12-10 12:15:10');
 
 --
 -- Indexes for dumped tables
@@ -408,6 +478,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `productBackup`
+--
+ALTER TABLE `productBackup`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -430,6 +506,18 @@ ALTER TABLE `transaction`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `variantDetails`
+--
+ALTER TABLE `variantDetails`
+  ADD PRIMARY KEY (`color_id`);
+
+--
+-- Indexes for table `variantImages`
+--
+ALTER TABLE `variantImages`
+  ADD PRIMARY KEY (`image_id`);
 
 --
 -- Indexes for table `vendor_docs`
@@ -457,7 +545,7 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -487,7 +575,13 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+
+--
+-- AUTO_INCREMENT for table `productBackup`
+--
+ALTER TABLE `productBackup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `super_category`
@@ -508,6 +602,18 @@ ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `variantDetails`
+--
+ALTER TABLE `variantDetails`
+  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+
+--
+-- AUTO_INCREMENT for table `variantImages`
+--
+ALTER TABLE `variantImages`
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
+
+--
 -- AUTO_INCREMENT for table `vendor_docs`
 --
 ALTER TABLE `vendor_docs`
@@ -517,7 +623,7 @@ ALTER TABLE `vendor_docs`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
