@@ -64,6 +64,7 @@ $res = mysqli_query($con, $sql);
                                         <th>Image</th>
                                         <th>MRP</th>
                                         <th>Discount</th>
+                                        <th>SP</th>
                                         <th>QTY</th>
                                         <th></th>
                                     </tr>
@@ -86,25 +87,26 @@ $res = mysqli_query($con, $sql);
                                             <td><?php echo $row['mrp'] ?></td>
                                             <td><?php
                                                 if ($row['discount_type'] == "rate") {
-                                                    echo "Rs. " . $row['discount'];
+                                                    echo "Rs. " . $row['discount'] . "</td><td>Rs. " . ($row["mrp"] - $row["discount"]) . "</td>";
                                                 } elseif ($row['discount_type'] == "percent") {
-                                                    echo  $row['discount'] . "%";
+                                                    echo  $row['discount'] .   "%</td><td>Rs. " . ($row["mrp"] - (($row["discount"] * $row["mrp"]) / 100)) . "</td>";
                                                 } else {
-                                                    echo 0;
+                                                    echo "0</td><td>Rs. " . $row["mrp"] . "</td>";
                                                 }
 
                                                 ?></td>
+
                                             <td><?php echo $row['quantity'] ?></td>
                                             <td>
                                                 <?php
                                                 if ($row['status'] == 1) {
-                                                    echo " <a href='?type=status&operation=deactive&id=" . $row['id'] . "'><span class='badge badge-complete'>Active</span></a>&nbsp;";
+                                                    echo " <a href='?type=status&operation=deactive&id=" . $row['id'] . "'><i style='color:#5AA57D' class='fa fa-toggle-on fa-2x' aria-hidden='true'></i></a>&nbsp;";
                                                 } else {
-                                                    echo " <a href='?type=status&operation=active&id=" . $row['id'] . "'><span class='badge badge-pending'>Deactive</span></a>&nbsp;";
+                                                    echo " <a href='?type=status&operation=active&id=" . $row['id'] . "'><i style='color:black' class='fa fa-toggle-off fa-2x' aria-hidden='true'></i></a>&nbsp;";
                                                 }
                                                 // echo "<a href='manage_product.php?id=" . $row['id'] . "'><span class='badge badge-primary'>Edit</span></a>&nbsp;&nbsp;";
 
-                                                echo "<a href='?type=delete&id=" . $row['id'] . "'><span class='badge badge-danger'>Delete</span></a>";
+                                                echo "&nbsp;&nbsp;<a href='?type=delete&id=" . $row['id'] . "'><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>";
                                                 ?>
                                             </td>
                                         </tr>
