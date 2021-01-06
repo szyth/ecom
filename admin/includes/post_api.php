@@ -140,14 +140,14 @@ function addProducts($con)
     if (isset($_POST["data"])) {
         $data = $_POST["data"];
 
-        // $pdo = new PDO(
-        //     "mysql:host=localhost;dbname=classy_closet",
-        //     "classy_closet",
-        //     "O33y*ee3",
         $pdo = new PDO(
-            "mysql:host=localhost;dbname=ecom",
-            "root",
-            "",
+            "mysql:host=localhost;dbname=classy_closet",
+            "classy_closet",
+            "O33y*ee3",
+            // $pdo = new PDO(
+            //     "mysql:host=localhost;dbname=ecom",
+            //     "root",
+            //     "",
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
         );
 
