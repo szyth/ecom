@@ -62,7 +62,8 @@ $res = mysqli_query($con, $sql);
                                         <th style="width: 200px !important;">Name</th>
                                         <th>Categories</th>
                                         <th>Image</th>
-                                        <th>Price</th>
+                                        <th>MRP</th>
+                                        <th>Discount</th>
                                         <th>QTY</th>
                                         <th></th>
                                     </tr>
@@ -79,10 +80,20 @@ $res = mysqli_query($con, $sql);
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
                                             <!-- <td><?php echo $row['id'] ?></td> -->
-                                            <td><?php echo $row['name'] ?></td>
+                                            <td style="cursor: pointer;" data-toggle="tooltip" title="<?php echo $row['description'] ?>"><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
                                             <td><img src="../media/product/<?php echo $row_image['image'] ?>" /></td>
                                             <td><?php echo $row['mrp'] ?></td>
+                                            <td><?php
+                                                if ($row['discount_type'] == "rate") {
+                                                    echo "Rs. " . $row['discount'];
+                                                } elseif ($row['discount_type'] == "percent") {
+                                                    echo  $row['discount'] . "%";
+                                                } else {
+                                                    echo 0;
+                                                }
+
+                                                ?></td>
                                             <td><?php echo $row['quantity'] ?></td>
                                             <td>
                                                 <?php

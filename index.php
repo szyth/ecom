@@ -49,8 +49,17 @@
                                 <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                                 <p class="dress-card-para">
 
-                                    <span class="dress-card-crossed ">Rs. <?php echo $list['mrp'] ?></span> &ensp;
-                                    <span class="dress-card-price ">Rs. <?php echo ($list['mrp'] - $list['discount']) ?></span>
+                                    <?php
+                                    if ($list['discount_type'] == "rate") {
+                                        echo  '<span class="dress-card-crossed ">Rs. ' . $list['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($list["mrp"] - $list["discount"]) . '</span>';
+                                    } elseif ($list['discount_type'] == "percent") {
+                                        echo '<span class="dress-card-crossed ">Rs. ' . $list['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($list["mrp"] - (($list["discount"] * $list["mrp"]) / 100)) . '</span>';
+                                    } else {
+                                        echo '<span class="dress-card-price ">Rs. ' . $list["mrp"]  . '</span>';
+                                    }
+                                    ?>
+
+
                                     <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                     </a>
                                     <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
@@ -107,8 +116,17 @@
                             <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
                             <p class="dress-card-para">
 
-                                <span class="dress-card-crossed ">Rs. <?php echo $list['mrp'] ?></span> &ensp;
-                                <span class="dress-card-price ">Rs. <?php echo ($list['mrp'] - $list['discount']) ?></span>
+                                <?php
+                                if ($list['discount_type'] == "rate") {
+                                    echo  '<span class="dress-card-crossed ">Rs. ' . $list['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($list["mrp"] - $list["discount"]) . '</span>';
+                                } elseif ($list['discount_type'] == "percent") {
+                                    echo '<span class="dress-card-crossed ">Rs. ' . $list['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($list["mrp"] - (($list["discount"] * $list["mrp"]) / 100)) . '</span>';
+                                } else {
+                                    echo '<span class="dress-card-price ">Rs. ' . $list["mrp"]  . '</span>';
+                                }
+                                ?>
+
+
                                 <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
                                 </a>
                                 <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->

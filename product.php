@@ -67,8 +67,21 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
         <div class="product_details">
             <h2 class="product_title"><?php echo $get_product['0']['name'] ?></h2>
             <ul class="">
-                <li class="mrp">Rs. <?php echo $get_product['0']['mrp'] ?></li>
-                <li class="price">Rs. <?php echo $get_product['0']['mrp'] - $get_product['0']['discount']  ?></li>
+
+                <?php
+                if ($get_product['0']['discount_type'] == "rate") {
+                    echo  '<li class="mrp">Rs. ' . $get_product['0']['mrp'] . '</li>
+                     <li class="price">Rs. ' . ($get_product['0']["mrp"] - $get_product['0']["discount"]) . '</li>';
+                } elseif ($get_product['0']['discount_type'] == "percent") {
+                    echo '<li class="mrp">Rs. ' . $get_product['0']['mrp'] . '</li>
+                    <li class="price">Rs. ' . ($get_product['0']["mrp"] - (($get_product['0']["discount"] * $get_product['0']["mrp"]) / 100)) . '</li>';
+                } else {
+                    echo '<li class="price">Rs. ' . $get_product['0']["mrp"]  . '</li>';
+                }
+
+                ?>
+                <!-- <li class="mrp">Rs. <?php echo $get_product['0']['mrp'] ?></li>
+                <li class="price">Rs. <?php echo $get_product['0']['mrp'] - $get_product['0']['discount']  ?></li> -->
             </ul>
             <p class=""><?php echo $get_product['0']['description'] ?></p>
             <div class="">
