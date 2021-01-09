@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2021 at 04:55 PM
+-- Generation Time: Jan 09, 2021 at 02:44 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -317,7 +317,7 @@ CREATE TABLE `product_new` (
   `quantity` int(11) NOT NULL,
   `image_super_id` int(11) NOT NULL,
   `discount_type` varchar(63) NOT NULL,
-  `added_on` int(11) NOT NULL,
+  `added_by` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -325,7 +325,7 @@ CREATE TABLE `product_new` (
 -- Dumping data for table `product_new`
 --
 
-INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_on`, `status`) VALUES
+INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_by`, `status`) VALUES
 (67, 2, 1, 14, 'Shirt', 'this is shirt', 4, 11, 345, 233, '', 23, 2, 'rate', 0, 1),
 (68, 3, 3, 18, 'adsfasdf', 'asdfasdfasd', 5, 13, 2345, 4, '', 234, 3, 'percent', 0, 1),
 (69, 4, 3, 18, 'asdfasfasf', 'asdfsgregrf', 2, 12, 2345, NULL, '', 23, 4, 'none', 0, 0);
