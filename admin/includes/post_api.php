@@ -140,14 +140,14 @@ function addProducts($con)
     if (isset($_POST["data"])) {
         $data = $_POST["data"];
 
+        // $pdo = new PDO(
+        //     "mysql:host=localhost;dbname=classy_closet",
+        //     "classy_closet",
+        //     "O33y*ee3",
         $pdo = new PDO(
-            "mysql:host=localhost;dbname=classy_closet",
-            "classy_closet",
-            "O33y*ee3",
-            // $pdo = new PDO(
-            //     "mysql:host=localhost;dbname=ecom",
-            //     "root",
-            //     "",
+            "mysql:host=localhost;dbname=ecom",
+            "root",
+            "",
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
         );
 
@@ -179,9 +179,9 @@ function addProducts($con)
 
                 $discType = $product->{"discount-type"};
                 if ($discType == "none") {
-                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, article_id, quantity, image_super_id, discount_type) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$articleID', '$product->quantity', '$image_p_id', '$discType')");
+                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, article_id, quantity, image_super_id, discount_type,added_by) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$articleID', '$product->quantity', '$image_p_id', '$discType','" . $_SESSION['ADMIN_ID'] . "')");
                 } else {
-                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id, discount_type) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$articleID', '$product->quantity', '$image_p_id', '$discType')");
+                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id, discount_type,added_by) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$articleID', '$product->quantity', '$image_p_id', '$discType','" . $_SESSION['ADMIN_ID'] . "')");
                 }
             }
             $pdo->commit();
