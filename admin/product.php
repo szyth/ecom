@@ -5,7 +5,7 @@ require('includes/top.inc.php');
 $condition = '';
 $condition1 = '';
 if ($_SESSION['ADMIN_ROLE'] == 1) {
-    $condition = " AND product.added_by = '" . $_SESSION['ADMIN_ID'] . "'";
+    $condition = " AND product_new.added_by = '" . $_SESSION['ADMIN_ID'] . "'";
     $condition1 = " AND added_by = '" . $_SESSION['ADMIN_ID'] . "'";
 }
 
@@ -106,7 +106,9 @@ $res = mysqli_query($con, $sql);
                                                 }
                                                 // echo "<a href='manage_product.php?id=" . $row['id'] . "'><span class='badge badge-primary'>Edit</span></a>&nbsp;&nbsp;";
 
-                                                echo "&nbsp;&nbsp;<a href='?type=delete&id=" . $row['id'] . "'><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>";
+                                                echo "&nbsp;&nbsp;<a title='Delete Product' href='?type=delete&id=" . $row['id'] . "'><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>";
+                                                echo "&nbsp;&nbsp;<a title='Edit Product' href='manage_products.php?action=edit&p_id=" . $row['id'] . "'><i style='color:#00587a' class='fa fa-edit fa-2x' aria-hidden='true'></i></a>";
+
                                                 ?>
                                             </td>
                                         </tr>

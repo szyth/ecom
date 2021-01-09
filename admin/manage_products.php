@@ -9,7 +9,7 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
 $condition = '';
 $condition1 = '';
 if ($_SESSION['ADMIN_ROLE'] == 1) {
-    $condition = " AND product.added_by = '" . $_SESSION['ADMIN_ID'] . "'";
+    $condition = " AND product_new.added_by = '" . $_SESSION['ADMIN_ID'] . "'";
     $condition1 = " AND added_by = '" . $_SESSION['ADMIN_ID'] . "'";
 }
 
@@ -156,6 +156,28 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
     .display-n {
         display: none;
     }
+    .media-viewer {
+        padding-top: 2%;
+    }
+    .media-viewer ol {
+        margin-left: 20px
+    }
+    .media-viewer ol li::marker {
+        color: grey;
+    }
+    .media-viewer ol li a:hover {
+        color: #11698e;
+    }
+    .media-viewer ol li a:nth-child(2) {
+        margin-right: 32%;
+        float: right;
+    }
+    @media(max-width: 768px) {
+        .media-viewer ol li a:nth-child(2) {
+        margin-right: 20px;
+        float: right;
+    }  
+    }
 </style>
 
 <!-- <div class="loader-container">
@@ -166,7 +188,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
         <div class="row">
             <div class="col-lg-12">
                 <h4 class="mb-4 text-center">ADD PRODUCT FORM</h4>
-                <form action="" id="product-form" novalidate>
+                <form action="" id="product-form" data-sg-ad="<?php echo $_SESSION['ADMIN_ID']; ?>" novalidate>
 
                     <div class="card">
                         <div class="card-header">
@@ -317,6 +339,16 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     </div>
                                 </div>
 
+                                <div class="media-viewer display-n">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <h5 class="mb-3">Existing Product Images</h5>
+                                            <ol>
+                                            </ol>
+                                        </div>
+                                    </div>                                
+                                </div>
+
                                 <div class="media-wrapper">
                                     <div class="row">
                                         <div class="col-lg-6 col-sm-12">
@@ -335,6 +367,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                         </div>
                     </div>
                     <div class="col-lg-12 col-sm-12 text-center mb-4">
+                        <a class="btn btn-danger text-white display-n" id="cancel-edit">Cancel</a>
                         <a class="btn btn-success text-white" id="add-product">Add More Products</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

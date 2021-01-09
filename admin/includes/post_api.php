@@ -162,10 +162,17 @@ function addProducts($con)
             foreach ($data as $datum) {
                 $product = json_decode(json_encode($datum), false);
 
-                $res = $pdo->query("SELECT MAX(super_id) FROM product_images");
-                $row = $res->fetch(PDO::FETCH_NUM);
-                $image_p_id = $row[0];
-                $image_p_id = $image_p_id == "" ? 1 : $image_p_id + 1;
+                if (!isset($product->image_super_id)) {
+                    $res = $pdo->query("SELECT MAX(super_id) FROM product_images");
+                    $row = $res->fetch(PDO::FETCH_NUM);
+                    $image_p_id = $row[0];
+                    $image_p_id = $image_p_id == "" ? 1 : $image_p_id + 1;
+                } else {
+                    $p_id = $product->id;
+                    $parent_p_id = $product->parent_id;
+                    $image_p_id = $product->image_super_id;
+                    $res = $pdo->query("DELETE FROM product_images WHERE super_id = '$image_p_id'");
+                }
 
 
                 $imageCount = $product->imageCount;
@@ -178,10 +185,18 @@ function addProducts($con)
                 $articleID = isset($product->articleid) ? $product->articleid : "";
 
                 $discType = $product->{"discount-type"};
-                if ($discType == "none") {
-                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, article_id, quantity, image_super_id, discount_type,added_by) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$articleID', '$product->quantity', '$image_p_id', '$discType','" . $_SESSION['ADMIN_ID'] . "')");
+                if (isset($product->id)) {
+                    if ($discType == "none") {
+                        $pdo->query("UPDATE product_new SET cat_id='$product->cat', subcat_id='$product->subcat', name='$product->name', description='$product->desc', color='$product->color', size='$product->size', mrp='$product->mrp', article_id='$articleID', quantity='$product->quantity', image_super_id='$image_p_id', discount_type='$discType', added_by='" . $_SESSION['ADMIN_ID'] . "' WHERE id='$p_id'");
+                    } else {
+                        $pdo->query("UPDATE product_new SET cat_id='$product->cat', subcat_id='$product->subcat', name='$product->name', description='$product->desc', color='$product->color', size='$product->size', mrp='$product->mrp', discount='$product->discount', article_id='$articleID', quantity='$product->quantity', image_super_id='$image_p_id', discount_type='$discType', added_by='" . $_SESSION['ADMIN_ID'] . "' WHERE id='$p_id'");
+                    }
                 } else {
-                    $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id, discount_type,added_by) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$articleID', '$product->quantity', '$image_p_id', '$discType','" . $_SESSION['ADMIN_ID'] . "')");
+                    if ($discType == "none") {
+                        $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, article_id, quantity, image_super_id, discount_type,added_by) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$articleID', '$product->quantity', '$image_p_id', '$discType','" . $_SESSION['ADMIN_ID'] . "')");
+                    } else {
+                        $pdo->query("INSERT INTO product_new(parent_id, cat_id, subcat_id, name, description, color, size, mrp, discount, article_id, quantity, image_super_id, discount_type,added_by) VALUES ('$parent_p_id', '$product->cat', '$product->subcat', '$product->name', '$product->desc', '$product->color', '$product->size', '$product->mrp', '$product->discount', '$articleID', '$product->quantity', '$image_p_id', '$discType','" . $_SESSION['ADMIN_ID'] . "')");
+                    }
                 }
             }
             $pdo->commit();

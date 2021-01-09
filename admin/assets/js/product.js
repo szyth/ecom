@@ -1,9 +1,33 @@
 var productForm = {
     isValidated: true,
-    isSuccess: false
+    isSuccess: false,
+    isEdit: false,
+    existingImages: 0
 }
 
+var editProduct = null;
+
 $(document).ready(function () {
+
+    var product_id = getParameterByName("p_id", window.location.search)
+    if (getParameterByName("action", window.location.search) && product_id && product_id.trim()) {
+        $.ajax({
+            url: "includes/get_api.php",
+            method: "post",
+            data: { "target": "product", "p_id": product_id }
+        }).done(function (response) {
+            productForm.isEdit = true;
+            editProduct = JSON.parse(response);
+            var owner = $("form#product-form").attr("data-sg-ad");
+
+            if (owner && editProduct.added_by && (owner === editProduct.added_by || owner === "1")) {
+                populateForm(JSON.parse(response));
+            } else {
+                alert("Only Product Owners can edit their products")
+                location.href = location.origin + "/ecom/admin/product.php";
+            }
+        })
+    }
 
     // Submit
     $("form#product-form").on("submit", function (e) {
@@ -48,6 +72,17 @@ $(document).ready(function () {
     // Remove Product
     $(document).on("click", "#remove-product", function () {
         $(this).closest(".card").remove();
+    })
+
+    // Remove Existing images
+    $(document).on("click", "#remove-li", function () {
+        $(this).closest("li").remove();
+        productForm.existingImages--;
+    })
+
+    // Cancel editing
+    $("#cancel-edit").on("click", function () {
+        location.href = location.origin + "/ecom/admin/product.php";
     })
 
     // Fetch Subcategories
@@ -226,11 +261,16 @@ $(document).ready(function () {
         $("form#product-form").find(".form-control").each(function (index, elem) {
             if (!$(elem).closest(".col-lg-6").hasClass("display-n") && !$(elem).hasClass("optional-field")) {
                 var attrValue = $(elem).val();
+                var type = $(elem).attr("type");
                 if (attrValue && attrValue.trim() && attrValue.trim().length) {
                     $(elem).closest(".form-group").find("span.error").html("").hide();
                 } else {
-                    $(elem).closest(".form-group").find("span.error").html("This field is required").show();
-                    productForm.isValidated = false;
+                    if (type === "file" && productForm.isEdit && productForm.existingImages > 0) {
+
+                    } else {
+                        $(elem).closest(".form-group").find("span.error").html("This field is required").show();
+                        productForm.isValidated = false;
+                    }
                 }
             }
         });
@@ -316,6 +356,19 @@ $(document).ready(function () {
             productDetail["discount-type"] = discountType;
 
             productDetail["imageCount"] = imageCount;
+
+            if (productForm.isEdit) {
+                imageCount = imageCount == 0 ? 1 : imageCount + 1;
+                productDetail["id"] = editProduct["id"];
+                productDetail["image_super_id"] = editProduct["image_super_id"]
+                productDetail["parent_id"] = editProduct["parent_id"]
+
+                $(".media-viewer ol").find("li").each(function (item, index) {
+                    productDetail["image_" + imageCount++] = $(this).find("a").html();
+                })
+                productDetail["imageCount"] = --imageCount;
+            }
+
             products.push(productDetail);
         });
         if (products.length) {
@@ -333,6 +386,63 @@ $(document).ready(function () {
             })
         }
         console.log(products);
+    }
+
+    // Get query parameter by name
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Fetch subcategory and select
+    var fetchCatPopulateSubcat = function (catID, subCatID) {
+        var src = $("select[name=cat]");
+        var sid = catID;
+        $.ajax({
+            url: 'includes/get_api.php',
+            method: 'post',
+            data: { "target": "subcategory", "cat_id": sid },
+        }).done(function (cat) {
+            cat = JSON.parse(cat);
+            src.closest(".card-body").find("select[name='subcat']").empty();
+            cat.forEach(function (subcat) {
+                if (subcat.id === subCatID)
+                    src.closest(".card-body").find("select[name='subcat']").removeAttr("disabled").append('<option value=' + subcat.id + ' selected >' + subcat.categories + '</option>')
+                else
+                    src.closest(".card-body").find("select[name='subcat']").removeAttr("disabled").append('<option value=' + subcat.id + '>' + subcat.categories + '</option>')
+            });
+        });
+        $("select[name=subcat]").val(subCatID)
+    }
+
+    var populateForm = function (product) {
+
+        $("select[name=cat]").val(product['cat_id'])
+        fetchCatPopulateSubcat(product['cat_id'], product['subcat_id']);
+        $("input[name=name]").val(product['name'])
+        $("textarea[name=desc]").val(product['description'])
+        $("select[name=color]").val(product['color'])
+        $("select[name=size]").val(product['size'])
+        $("input[name=mrp]").val(product['mrp'])
+        $("input[name=discount-type-1][value=" + product['discount_type'] + "]").prop("checked", true).trigger("change")
+        if (product['discount_type'] != "none")
+            $("input[name=discount]").val(product['discount']);
+        $("input[name=articleid]").val(product['article_id'])
+        $("input[name=quantity]").val(product['quantity'])
+
+        var media = product['media']
+        $(".media-viewer").removeClass("display-n");
+        media.forEach(function (item, index) {
+            $(".media-viewer ol").append('<li><a href="../media/product/' + item.name + '" target="_blank" >' + item.name + '</a><a href="javascript:void(0)" id="remove-li"> <i style="color:#ec4633" class="fa fa-trash-o" aria-hidden="true"></i> </a></li>')
+        })
+        productForm.existingImages = media.length;
+        $("#cancel-edit").removeClass("display-n");
+        $("#add-product").addClass("display-n");
+
     }
 
 });
