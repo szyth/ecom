@@ -81,7 +81,12 @@ $res = mysqli_query($con, $sql);
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
                                             <!-- <td><?php echo $row['id'] ?></td> -->
-                                            <td style="cursor: pointer;" data-toggle="tooltip" title="<?php echo $row['description'] ?>"><?php echo $row['name'] ?></td>
+                                            <td style="cursor: pointer;" data-toggle="tooltip" title="<?php echo "Description: " . $row['description']; ?>
+                                            <?php
+                                            $res_added_by = mysqli_query($con, "SELECT username FROM admin_users WHERE id=" . $row['added_by'] . "");
+                                            $row_added_by  = mysqli_fetch_assoc($res_added_by);
+                                            echo "\nAdded By: " . $row_added_by['username'];
+                                            ?>"><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
                                             <td><img src="../media/product/<?php echo $row_image['image'] ?>" /></td>
                                             <td><?php echo $row['mrp'] ?></td>
