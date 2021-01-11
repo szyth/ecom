@@ -83,8 +83,10 @@ $res = mysqli_query($con, $sql);
                                                 } else {
                                                     echo " <a href='?type=status&operation=active&id=" . $row['id'] . "'><span class='badge badge-pending'>Deactive</span></a>&nbsp;";
                                                 }
-                                                echo "<a href='?type=delete&id=" . $row['id'] . "'><span class='badge badge-danger'>Delete</span></a>";
+                                                $msg = "Are you sure you want to delete this vendor?";
+                                                $deleteQuery = "?type=delete&id=" . $row['id'];
                                                 ?>
+                                                <a href='javascript:void(0)' onclick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteQuery ?>')"><span class='badge badge-danger'>Delete</span></a>
                                             </td>
                                         </tr>
                                     <?php

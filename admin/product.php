@@ -66,7 +66,7 @@ $res = mysqli_query($con, $sql);
                                         <th>Discount</th>
                                         <th>SP</th>
                                         <th>QTY</th>
-                                        <th></th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -110,11 +110,12 @@ $res = mysqli_query($con, $sql);
                                                     echo " <a href='?type=status&operation=active&id=" . $row['id'] . "'><i style='color:black' class='fa fa-toggle-off fa-2x' aria-hidden='true'></i></a>&nbsp;";
                                                 }
                                                 // echo "<a href='manage_product.php?id=" . $row['id'] . "'><span class='badge badge-primary'>Edit</span></a>&nbsp;&nbsp;";
-
-                                                echo "&nbsp;&nbsp;<a title='Delete Product' href='?type=delete&id=" . $row['id'] . "'><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>";
-                                                echo "&nbsp;&nbsp;<a title='Edit Product' href='manage_products.php?action=edit&p_id=" . $row['id'] . "'><i style='color:#00587a' class='fa fa-edit fa-2x' aria-hidden='true'></i></a>";
-
+                                                $msg = "Are you sure you want to delete this product?";
+                                                $deleteString = "?type=delete&id=" . $row['id'];
+                                                $editString = "manage_products.php?action=edit&p_id=" . $row['id'];
                                                 ?>
+                                                <a title='Delete Product' href='javascript:void(0)' onClick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteString ?>')"><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>
+                                                <a title='Edit Product' href='<?php echo $editString ?>'><i style='color:#00587a' class='fa fa-edit fa-2x' aria-hidden='true'></i></a>
                                             </td>
                                         </tr>
                                     <?php

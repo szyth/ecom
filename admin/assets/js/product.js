@@ -24,8 +24,10 @@ $(document).ready(function () {
                 populateForm(JSON.parse(response));
             } else {
                 alert("Only Product Owners can edit their products")
-                location.href = location.origin + "/ecom/admin/product.php";
+                var index = location.href.lastIndexOf("manage");
+                location.href = location.href.substr(0, index) + "product.php";
             }
+
         })
     }
 

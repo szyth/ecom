@@ -57,8 +57,10 @@ $res = mysqli_query($con, $sql);
                                             <td><?php echo $row['added_on'] ?></td>
                                             <td>
                                                 <?php
-                                                echo "<a href='?type=delete&id=" . $row['id'] . "'><span class='badge badge-danger'>Delete</span></a>";
+                                                $msg = "Are you sure you want delete this User?";
+                                                $deleteQuery = "?type=delete&id=" . $row['id'];
                                                 ?>
+                                                <a href='javascript:void(0)' onclick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteQuery ?>')"><span class='badge badge-danger'>Delete</span></a>
                                             </td>
                                         </tr>
                                     <?php
