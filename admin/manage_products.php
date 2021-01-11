@@ -172,6 +172,9 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
         margin-right: 32%;
         float: right;
     }
+    #gen-modal small {
+        color: grey;
+    }
     @media(max-width: 768px) {
         .media-viewer ol li a:nth-child(2) {
         margin-right: 20px;
@@ -283,7 +286,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="color" class="control-label">Product MRP <sup>*</sup> </label>
-                                            <input type="number" min="0" name="mrp" class="form-control" placeholder="Enter MRP" required>
+                                            <input type="text" name="mrp" class="form-control regex-field" regex-val="^[0-9]*$" regex-msg="Please enter only numbers(0-9)" placeholder="Enter MRP" required>
                                             <span class="error"></span>
                                         </div>
                                     </div>
@@ -316,7 +319,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12 display-n">
                                         <div class="form-group">
                                             <label for="discount" class="control-label">Discount <sup>*</sup></label>
-                                            <input type="number" name="discount" min="0" class="form-control" placeholder="Enter Discount (if any)">
+                                            <input type="text" name="discount" min="0" class="form-control regex-field" regex-val="^[0-9]*$" regex-msg="Please enter only numbers(0-9)" placeholder="Enter Discount (if any)">
                                             <span class="error"></span>
                                         </div>
                                     </div>
@@ -333,7 +336,7 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="quantity" class="control-label">Quantity <sup>*</sup></label>
-                                            <input type="number" name="quantity" min="0" class="form-control" placeholder="Enter Quantity" required>
+                                            <input type="text" name="quantity" class="form-control regex-field" regex-val="^[0-9]*$" regex-msg="Please enter only numbers(0-9)" placeholder="Enter Quantity" required>
                                             <span class="error"></span>
                                         </div>
                                     </div>
@@ -419,14 +422,14 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
             <div class="modal-body">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="gen_modal_val" class="control-label">Value <sup>*</sup> </label>
+                        <label for="gen_modal_val" class="control-label">Value <small>( e.g. xl, lime-green)</small> <sup>*</sup> </label>
                         <input type="text" name="gen_modal_val" class="form-control" required>
                         <span class="error"></span>
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="gen_modal_name" class="control-label">Name <sup>*</sup> </label>
+                        <label for="gen_modal_name" class="control-label">Name <small>( e.g. Extra Large, Lime Green)</small> <sup>*</sup> </label>
                         <input type="text" name="gen_modal_name" class="form-control" required>
                         <span class="error"></span>
                     </div>

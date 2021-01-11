@@ -34,10 +34,11 @@ $(document).ready(function () {
     // Submit
     $("form#product-form").on("submit", function (e) {
         e.preventDefault();
-        validateFields();
-        if (productForm.isValidated) {
+
+        if (validateFields() && validateRegexFields() && productForm.isValidated) {
             formToJson();
-            // location.href = location.href;
+        } else {
+            scrollToError();
         }
     });
 
@@ -69,6 +70,12 @@ $(document).ready(function () {
             alert("Please Select a Category");
         }
 
+    })
+
+    // handle discounted price
+    $(document).on("focusout", "form#product-form input[name=discount]", function () {
+        var discountType = $(this).closest(".card").find("input.discountType:checked").val();
+        handleDiscount(discountType, $(this));
     })
 
     // Remove Product
@@ -258,6 +265,7 @@ $(document).ready(function () {
         }
     })
 
+    // Validate required fields
     var validateFields = function () {
         productForm.isValidated = true;
         $("form#product-form").find(".form-control").each(function (index, elem) {
@@ -265,17 +273,36 @@ $(document).ready(function () {
                 var attrValue = $(elem).val();
                 var type = $(elem).attr("type");
                 if (attrValue && attrValue.trim() && attrValue.trim().length) {
-                    $(elem).closest(".form-group").find("span.error").html("").hide();
+                    $(elem).closest(".form-group").removeClass("has-error").find("span.error").html("").hide();
                 } else {
                     if (type === "file" && productForm.isEdit && productForm.existingImages > 0) {
 
                     } else {
-                        $(elem).closest(".form-group").find("span.error").html("This field is required").show();
+                        $(elem).closest(".form-group").addClass("has-error").find("span.error").html("This field is required").css("color", "crimson").show();
                         productForm.isValidated = false;
                     }
                 }
             }
         });
+        return productForm.isValidated;
+    }
+
+    // validate regex fields
+    var validateRegexFields = function () {
+        $("form#product-form").find(".regex-field").each(function (index, elem) {
+            if (!$(elem).closest(".col-lg-6").hasClass("display-n") && !$(elem).hasClass("optional-field")) {
+                var attrValue = $(elem).val();
+                var re = new RegExp($(elem).attr("regex-val"));
+                var regexMsg = $(elem).attr("regex-msg") ? $(elem).attr("regex-msg") : "Please enter valid details";
+                if (!re.test(attrValue)) {
+                    $(elem).closest(".form-group").addClass("has-error").find("span.error").css("color", "crimson").html(regexMsg).show();
+                    productForm.isValidated = false;
+                } else {
+                    $(elem).closest(".form-group").removeClass("has-error").find("span.error").html("").hide();
+                }
+            }
+        })
+        return productForm.isValidated;
     }
 
     var addSubcategry = function (target) {
@@ -444,6 +471,49 @@ $(document).ready(function () {
         productForm.existingImages = media.length;
         $("#cancel-edit").removeClass("display-n");
         $("#add-product").addClass("display-n");
+
+    }
+
+    var scrollToError = function () {
+        if ($(".has-error") && $(".has-error").length) {
+            $('html, body').animate({
+                scrollTop: $(".has-error").offset().top - 80
+            }, 500);
+        }
+    }
+
+    var isNumber = function (n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    var handleDiscount = function (type, $target) {
+        var discount = $target.val();
+        var mrp = $target.closest(".card").find("input[name=mrp]").val();
+        var price = "";
+        if (mrp != "") {
+            if (type === "rate") {
+                price = mrp - discount;
+                if (price < 0) {
+                    $target.val("");
+                    alert("MRP: " + mrp + " | Discount: " + discount + " | Discounted Price: " + price + " | Discounted Price cannot be negative!");
+                    $target.closest(".form-group").find("span.error").html("").hide();
+                } else {
+                    $target.closest(".form-group").find("span.error").html("Discounted price: " + price).css("color", "green").show();
+                }
+            } else if (type === "percent") {
+                price = mrp - (mrp * (discount / 100));
+                if (price < 0) {
+                    $target.val("");
+                    alert("MRP: " + mrp + " | Discount: " + discount + " | Discounted Price: " + price + " | Discounted Price cannot be negative!");
+                    $target.closest(".form-group").find("span.error").html("").hide();
+                } else {
+                    $target.closest(".form-group").find("span.error").html("Discounted price: " + price).css("color", "green").show();
+                }
+            }
+        } else {
+            $target.val("");
+            alert('Please enter MRP')
+        }
 
     }
 
