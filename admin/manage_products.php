@@ -420,13 +420,13 @@ if ($_SESSION['ADMIN_ROLE'] == 1) {
                 <h4 class="modal-title" id="gen_modal_title">Add Color</h4>
             </div>
             <div class="modal-body">
-                <div class="col-sm-12">
+                <!-- <div class="col-sm-12">
                     <div class="form-group">
                         <label for="gen_modal_val" class="control-label">Value <small>( e.g. xl, lime-green)</small> <sup>*</sup> </label>
                         <input type="text" name="gen_modal_val" class="form-control" required>
                         <span class="error"></span>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="gen_modal_name" class="control-label">Name <small>( e.g. Extra Large, Lime Green)</small> <sup>*</sup> </label>

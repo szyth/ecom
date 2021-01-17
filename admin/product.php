@@ -53,8 +53,8 @@ $res = mysqli_query($con, $sql);
                         <h4 class="box-link"><a href="manage_products.php"><span class='badge badge-danger'>Click to add Product</span></a></h4>
                     </div>
                     <div class="card-body--">
-                        <div class="table-stats order-table ov-h">
-                            <table class="table ">
+                        <div class="table-stats order-table ov-h table-responsive-md">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th class="serial">#</th>
@@ -66,6 +66,7 @@ $res = mysqli_query($con, $sql);
                                         <th>Discount</th>
                                         <th>SP</th>
                                         <th>QTY</th>
+                                        <th>Added By</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -85,7 +86,8 @@ $res = mysqli_query($con, $sql);
                                             <?php
                                             $res_added_by = mysqli_query($con, "SELECT username FROM admin_users WHERE id=" . $row['added_by'] . "");
                                             $row_added_by  = mysqli_fetch_assoc($res_added_by);
-                                            echo "\nAdded By: " . $row_added_by['username'];
+                                            $addedBy = $row_added_by['username'] == null ? "NA" : $row_added_by['username'];
+                                            // echo "\nAdded By: " . $row_added_by['username'];
                                             ?>"><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['categories'] ?></td>
                                             <td><img src="../media/product/<?php echo $row_image['image'] ?>" /></td>
@@ -102,6 +104,7 @@ $res = mysqli_query($con, $sql);
                                                 ?></td>
 
                                             <td><?php echo $row['quantity'] ?></td>
+                                            <td><?php echo $addedBy; ?></td>
                                             <td>
                                                 <?php
                                                 if ($row['status'] == 1) {

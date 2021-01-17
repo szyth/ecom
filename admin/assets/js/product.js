@@ -56,6 +56,8 @@ $(document).ready(function () {
             })
             newProduct.find("select[name=cat]").attr("disabled", true);
             newProduct.find("select[name=subcat]").attr("disabled", true);
+            newProduct.find("input[name=name]").attr("disabled", true);
+            newProduct.find("textarea[name=desc]").attr("disabled", true);
 
             newProduct.find(".form-control").each(function (index, elem) {
                 if (!$(elem).attr("disabled")) {
@@ -190,22 +192,37 @@ $(document).ready(function () {
         var target = $("#gen-modal").data("target");
 
         if (validated && target) {
-            var value = $(this).closest('.modal-dialog').find("input[name=gen_modal_val]").val();
-            var name = $(this).closest('.modal-dialog').find("input[name=gen_modal_name]").val();
+            // var value = $(this).closest('.modal-dialog').find("input[name=gen_modal_val]").val();
+            var name = $(this).closest('.modal-dialog').find("input[name=gen_modal_name]").val().trim();
+            var value = name.toLowerCase().replaceAll(" ", "-")
+            var valueExists = false;
 
-            $.ajax({
-                url: "includes/post_api.php",
-                type: "POST",
-                data: { "target": target, "value": value, "name": name },
-                success: function (response) {
-                    alert(response);
-                    populateSelect(target);
-                    $("#gen-modal").modal("toggle");
-                },
-                error: function (response) {
-                    alert(response);
-                }
-            });
+            $("select[name=" + target + "] option").each(function (index, element) {
+                var existing = $(element).html();
+                existing = existing.toLowerCase().replaceAll(" ", "-");
+                if (value === existing)
+                    valueExists = true;
+            })
+
+            if (!valueExists) {
+
+                $.ajax({
+                    url: "includes/post_api.php",
+                    type: "POST",
+                    data: { "target": target, "value": value, "name": name },
+                    success: function (response) {
+                        alert(response);
+                        populateSelect(target);
+                        $("#gen-modal").modal("toggle");
+                    },
+                    error: function (response) {
+                        alert(response);
+                    }
+                });
+            } else {
+                alert(target + " already exists!");
+            }
+
         }
 
         return false;

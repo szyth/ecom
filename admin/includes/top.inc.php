@@ -65,13 +65,13 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
                   </li>
 
                   <li class="menu-item-has-children dropdown">
-                     <a href="users.php"> User Master</a>
-                  </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="contact_us.php"> Contact Us</a>
+                     <a href="users.php"> Customer Management</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="vendor_management.php"> Vendor Management</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="contact_us.php"> Contact Us</a>
                   </li>
                <?php } ?>
             </ul>
