@@ -1968,6 +1968,7 @@ header .form-inline .search-form.close {
 
 .table-stats table th,
 .table-stats table td {
+    cursor: pointer;
     border: none;
     border-bottom: 1px solid #e8e9ef;
     color: #868e96;
@@ -1992,7 +1993,7 @@ header .form-inline .search-form.close {
 
 .table-stats table td {
     color: #343a40;
-    font-size: 14px;
+    font-size: 0.8em;
     font-weight: 600;
     /* text-transform: capitalize; */
     vertical-align: middle

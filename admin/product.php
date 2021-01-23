@@ -36,9 +36,20 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
     }
 }
 
+// if (isset($_GET['order'])) {
+//     $order = $_GET['order'];
+// } else {
+//     $order = 'product_new.id';
+// }
+// if (isset($_GET['sort'])) {
+//     $sort = $_GET['sort'];
+// } else {
+//     $sort = 'ASC';
+// }
 
 
 $sql = "SELECT product_new.*,categories.categories FROM product_new,categories WHERE product_new.subcat_id=categories.id $condition ORDER BY product_new.id DESC";
+// $sql = "SELECT product_new.*,categories.categories FROM product_new,categories WHERE product_new.subcat_id=categories.id $condition ORDER BY $order $sort";
 $res = mysqli_query($con, $sql);
 ?>
 
@@ -54,19 +65,19 @@ $res = mysqli_query($con, $sql);
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h table-responsive-md">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="mytable">
                                 <thead>
                                     <tr>
-                                        <th class="serial">#</th>
+                                        <th class="serial" id="serial">#</th>
                                         <!-- <th>ID</th> -->
-                                        <th style="width: 200px !important;">Name</th>
-                                        <th>Categories</th>
+                                        <th style="width: 200px !important;" id="name">Name</th>
+                                        <th id="cat">Categories</th>
                                         <th>Image</th>
-                                        <th>MRP</th>
-                                        <th>Discount</th>
-                                        <th>SP</th>
-                                        <th>QTY</th>
-                                        <th>Added By</th>
+                                        <th id="mrp">MRP</th>
+                                        <th id="discount">Discount</th>
+                                        <th id="sp">SP</th>
+                                        <th id="qty">QTY</th>
+                                        <th id="added">Added By</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

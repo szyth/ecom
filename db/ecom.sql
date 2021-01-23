@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2021 at 02:44 PM
+-- Generation Time: Jan 10, 2021 at 09:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -90,7 +90,8 @@ INSERT INTO `categories` (`id`, `super_categories_id`, `categories`, `status`) V
 (54, 2, 'kitkat', 1),
 (55, 3, 'Cucumber', 1),
 (56, 2, 'Lolipop', 1),
-(57, 1, 'Dresses', 1);
+(57, 1, 'Dresses', 1),
+(58, 1, 'Tops', 1);
 
 -- --------------------------------------------------------
 
@@ -291,10 +292,9 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `super_id`, `name`) VALUES
-(85, 1, '6Bm9Lg8lkt9P1Zf1sd5c.jpeg'),
-(86, 2, 'SHGkdEPoOYXCUBUdVl9l.jpg'),
-(87, 3, 'VjmoSd9XMuPyTHI6hjUn.jpeg'),
-(88, 4, 'X9AT7EJgpjvP0bZkbkS8.jpg');
+(90, 4, 'X9AT7EJgpjvP0bZkbkS8.jpg'),
+(91, 5, 'y4FdgXbRCgvCS4cB8CYD.jpeg'),
+(92, 6, 'vEx8BINAKrprexlD12t6.jpeg');
 
 -- --------------------------------------------------------
 
@@ -326,9 +326,9 @@ CREATE TABLE `product_new` (
 --
 
 INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_by`, `status`) VALUES
-(67, 2, 1, 14, 'Shirt', 'this is shirt', 4, 11, 345, 233, '', 23, 2, 'rate', 0, 1),
-(68, 3, 3, 18, 'adsfasdf', 'asdfasdfasd', 5, 13, 2345, 4, '', 234, 3, 'percent', 0, 1),
-(69, 4, 3, 18, 'asdfasfasf', 'asdfsgregrf', 2, 12, 2345, NULL, '', 23, 4, 'none', 0, 0);
+(69, 4, 3, 18, 'kurti', 'this is a Kurti', 2, 12, 2345, NULL, '', 23, 4, 'none', 1, 1),
+(70, 5, 3, 55, 'shirt', 'shirt by areeb', 5, 12, 234, NULL, '', 23, 5, 'none', 2, 1),
+(71, 6, 1, 58, 'Top#555', 'This is a top by H&M', 3, 1, 2344, NULL, '', 23, 6, 'none', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -608,7 +608,7 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -650,13 +650,13 @@ ALTER TABLE `product_color`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `product_new`
 --
 ALTER TABLE `product_new`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `product_size`

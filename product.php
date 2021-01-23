@@ -125,7 +125,16 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                     <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
                 </div>
 
-                <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $get_product['0']['price'] ?>')">Add to cart</a>
+
+                <?php if ($get_product['0']['discount_type'] == 'rate') {
+                    $price = ($get_product['0']['mrp'] - $get_product['0']['discount']);
+                } elseif ($get_product['0']['discount_type'] == 'percent') {
+                    $price = ($get_product['0']['mrp'] - (($get_product['0']['discount'] * $get_product['0']['mrp']) / 100));
+                } else {
+                    $price = $get_product['0']['mrp'];
+                }
+                ?>
+                <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $get_product['0']['mrp'] ?>')">Add to cart</a>
 
             </div>
         </div>
