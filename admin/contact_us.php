@@ -32,13 +32,13 @@ $res = mysqli_query($con, $sql);
                             <table class="table ">
                                 <thead>
                                     <tr>
-                                        <th class="serial">#</th>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Mobile</th>
-                                        <th>Query</th>
-                                        <th>Date</th>
+                                        <th class="serial" id="1">#</th>
+                                        <th id="2">ID</th>
+                                        <th id="3">Name</th>
+                                        <th id="4">Email</th>
+                                        <th id="5">Mobile</th>
+                                        <th id="6">Query</th>
+                                        <th id="7">Date</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -60,7 +60,7 @@ $res = mysqli_query($con, $sql);
                                                 $msg = "Are you sure you want delete this Query?";
                                                 $deleteQuery = "?type=delete&id=" . $row['id'];
                                                 ?>
-                                                <a href='javascript:void(0)', onclick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteQuery ?>')"><span class='badge badge-danger'>Delete</span></a>
+                                                <a href='javascript:void(0)' , onclick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteQuery ?>')"><span class='badge badge-danger'>Delete</span></a>
                                             </td>
                                         </tr>
                                     <?php

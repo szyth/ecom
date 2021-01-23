@@ -134,9 +134,9 @@ jQuery(document).ready(function ($) {
         }
         return false;
     });
-
+    //ordering and sorting of product master
     function sortTable(f, n) {
-        var rows = $('#mytable tbody  tr').get();
+        var rows = $('table tbody  tr').get();
 
         rows.sort(function (a, b) {
 
@@ -161,47 +161,57 @@ jQuery(document).ready(function ($) {
         }
 
         $.each(rows, function (index, row) {
-            $('#mytable').children('tbody').append(row);
+            $('table').children('tbody').append(row);
         });
     }
     var f_sl = 1;
     var f_nm = 1;
-    $("#serial").click(function () {
+    $("#1").click(function () {
         f_sl *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_sl, n);
     });
-    $("#name").click(function () {
+    $("#2").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);
     });
-    $("#cat").click(function () {
+    $("#3").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);
     });
-    $("#mrp").click(function () {
+    $("#4").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);
     });
-    $("#discount").click(function () {
+    $("#5").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);
     });
-    $("#sp").click(function () {
+    $("#6").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);
     });
-    $("#qty").click(function () {
+    $("#7").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);
     });
-    $("#added").click(function () {
+    $("#8").click(function () {
+        f_nm *= -1;
+        var n = $(this).prevAll().length;
+        sortTable(f_nm, n);
+    });
+    $("#9").click(function () {
+        f_nm *= -1;
+        var n = $(this).prevAll().length;
+        sortTable(f_nm, n);
+    });
+    $("#10").click(function () {
         f_nm *= -1;
         var n = $(this).prevAll().length;
         sortTable(f_nm, n);

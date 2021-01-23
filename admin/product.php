@@ -68,16 +68,16 @@ $res = mysqli_query($con, $sql);
                             <table class="table table-hover" id="mytable">
                                 <thead>
                                     <tr>
-                                        <th class="serial" id="serial">#</th>
+                                        <th class="serial" id="1">#</th>
                                         <!-- <th>ID</th> -->
-                                        <th style="width: 200px !important;" id="name">Name</th>
-                                        <th id="cat">Categories</th>
+                                        <th style="width: 150px !important;" id="2">Name</th>
+                                        <th id="3">Categories</th>
                                         <th>Image</th>
-                                        <th id="mrp">MRP</th>
-                                        <th id="discount">Discount</th>
-                                        <th id="sp">SP</th>
-                                        <th id="qty">QTY</th>
-                                        <th id="added">Added By</th>
+                                        <th id="4">MRP</th>
+                                        <th id="5">Discount</th>
+                                        <th id="5">SP</th>
+                                        <th id="6">QTY</th>
+                                        <th id="7">Added By</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

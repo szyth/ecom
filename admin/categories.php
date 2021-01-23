@@ -56,10 +56,10 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                             <table class="table ">
                                 <thead>
                                     <tr>
-                                        <th class="serial">#</th>
-                                        <th>ID</th>
-                                        <th>Main Categories</th>
-                                        <th>Sub Categories</th>
+                                        <th class="serial" id="1">#</th>
+                                        <th id="2">ID</th>
+                                        <th id="3">Main Categories</th>
+                                        <th id="4">Sub Categories</th>
                                         <th></th>
                                     </tr>
                                 </thead>

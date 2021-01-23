@@ -20,12 +20,12 @@ $res = mysqli_query($con, $sql);
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Order ID</th>
-                                        <th>Order Date</th>
-                                        <th>Address</th>
-                                        <th>Payment Type</th>
-                                        <th>Payment Status</th>
-                                        <th>Order Status</th>
+                                        <th id="1">Order ID</th>
+                                        <th id="2">Order Date</th>
+                                        <th id="3">Address</th>
+                                        <th id="4">Payment Type</th>
+                                        <th id="5">Payment Status</th>
+                                        <th id="6">Order Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
