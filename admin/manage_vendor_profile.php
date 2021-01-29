@@ -10,6 +10,9 @@ $pan_required = '';
 
 
 if (isset($_POST['submit'])) {
+    date_default_timezone_set(
+        'Asia/Kolkata'
+    );
     $added_on = date('Y-m-d h:i:s');
 
 

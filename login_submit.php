@@ -4,6 +4,7 @@ require('includes/function.inc.php');
 
 $email = get_safe_value($con, $_POST['email']);
 $password = get_safe_value($con, $_POST['password']);
+date_default_timezone_set('Asia/Kolkata');
 $added_on = date('Y-m-d h:i:s');
 
 $sql =  "SELECT * FROM users WHERE email='$email' AND password='$password'";

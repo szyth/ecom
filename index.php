@@ -43,7 +43,7 @@
                     <div class="dress-card box_shadow center">
                         <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                             <div class="dress-card-head">
-                                <img class="dress-card-img-top" src="media/product/<?php echo $list['image'] ?>" alt="">
+                                <img class="dress-card-img-top" src="media/product/<?php echo $list['image'][0] ?>" alt="">
                             </div>
                             <div class="dress-card-body">
                                 <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
@@ -104,13 +104,14 @@
 
         <?php
         $get_product = get_product($con, '', '', '');
+        // prx($get_product);
         foreach ($get_product as $list) {
         ?>
             <div class="col s6 m4 l3 product_container_inner">
                 <div class="dress-card box_shadow center">
                     <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
                         <div class="dress-card-head">
-                            <img class="dress-card-img-top" src="media/product/<?php echo $list['image'] ?>" alt="">
+                            <img class="dress-card-img-top" src="media/product/<?php echo $list['image'][0] ?>" alt="">
                         </div>
                         <div class="dress-card-body">
                             <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>

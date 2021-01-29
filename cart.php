@@ -45,9 +45,11 @@ if (!empty($_SESSION['cart'])) {
 
             foreach ($_SESSION['cart'] as $key => $val) {
                 $productAr = get_product($con, '', '', $key);
+                $price = $_SESSION['cart'][$key]['price'];
+                // prx($price);
                 $pname = $productAr[0]['name'];
-                // $mrp = $productAr[0]['mrp'];
-                $price = $productAr[0]['price'];
+                $mrp = $productAr[0]['mrp'];
+                // $price = $productAr[0]['price'];
                 $image = $productAr[0]['image'];
                 $qty = $val['qty'];
             ?>

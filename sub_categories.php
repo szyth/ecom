@@ -58,7 +58,6 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
 
 <?php
-
 if (count($get_product) > 0) {
 
 ?>
@@ -74,8 +73,8 @@ if (count($get_product) > 0) {
                 </div>
                 <form action="#" id="price_body" class="filter_options">
                     <input type="hidden" id="hidden_minimum_price" value="0" />
-                    <input type="hidden" id="hidden_maximum_price" value="65000" />
-                    <p id="price_show">100 - 65000</p>
+                    <input type="hidden" id="hidden_maximum_price" value="20000" />
+                    <p id="price_show">100 - 20000</p>
                     <div id="price_range"></div>
                 </form>
 
@@ -89,15 +88,18 @@ if (count($get_product) > 0) {
                 <form id="size_body" action="#" class="filter_options">
                     <?php
                     $query = "
-                    SELECT DISTINCT(size) FROM product WHERE status = '1' ORDER BY size ASC
+                    SELECT DISTINCT product_size.* FROM product_size,product_new 
+                    WHERE product_size.id = product_new.size
+                    AND product_new.subcat_id=$cat_id
                     ";
                     $res = mysqli_query($con, $query);
                     while ($row = mysqli_fetch_assoc($res)) {
+
                     ?>
                         <div class="list-group-item checkbox">
                             <label>
-                                <input type="checkbox" class="filled-in common_selector size" value="<?php echo $row['size']; ?>">
-                                <span><?php echo $row['size']; ?></span>
+                                <input type="checkbox" class="filled-in common_selector size" value="<?php echo $row['id']; ?>">
+                                <span><?php echo $row['name']; ?></span>
                             </label>
                         </div>
                     <?php
@@ -106,7 +108,7 @@ if (count($get_product) > 0) {
                 </form>
 
                 <div class="divider"></div>
-
+                <!-- 
                 <div id="type" class="">
                     <h1 class="filter_head">BRAND <span class="right"> &#9662;</span></h1>
                 </div>
@@ -153,7 +155,7 @@ if (count($get_product) > 0) {
 
                     ?>
                 </form>
-                <div class="divider"></div>
+                <div class="divider"></div> -->
 
 
 
@@ -164,15 +166,17 @@ if (count($get_product) > 0) {
                     <?php
 
                     $query = "
-                    SELECT DISTINCT(color) FROM product WHERE status = '1' ORDER BY color DESC
+                    SELECT DISTINCT product_color.* FROM product_color,product_new 
+                    WHERE product_color.id = product_new.color 
+                    AND product_new.subcat_id=$cat_id
                     ";
                     $res = mysqli_query($con, $query);
                     while ($row = mysqli_fetch_assoc($res)) {
                     ?>
                         <div class="list-group-item checkbox">
                             <label>
-                                <input type="checkbox" class="filled-in common_selector color" value="<?php echo $row['color']; ?>">
-                                <span><?php echo $row['color']; ?></span>
+                                <input type="checkbox" class="filled-in common_selector color" value="<?php echo $row['id']; ?>">
+                                <span><?php echo $row['name']; ?></span>
                             </label>
                         </div>
                     <?php

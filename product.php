@@ -21,7 +21,6 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 }
 
 
-
 ?>
 
 
@@ -57,7 +56,13 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 <div class="row">
     <div class="col m4 push-m1 l4 push-l1 s12 product_image">
         <!-- <img src="<?php echo "media/product/" . $colors['0']['0'] ?>" class="block__pic" alt=""> -->
-        <img src="media/product/<?php echo $get_product['0']['image'] ?>" class="block__pic" alt="">
+
+        <?php
+        for ($i = 0; $i < count($get_product[0]['image']); $i++) {
+        ?>
+            <img src="media/product/<?php echo $get_product['0']['image'][$i] ?>" class="block__pic" alt="">
+        <?php } ?>
+
         <!-- PRODUCT SLIDER  -->
 
     </div>
@@ -107,7 +112,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 </div>
                 <div class="">
                     <b>Quantity:</b>
-                    <input style="width: 50px;text-align:center;margin:0 10px" type="number" value="1" min="1" step="1">
+                    <input id="qty" style="width: 50px;text-align:center;margin:0 10px" type="number" value="1" min="1" step="1">
                     <!-- <select id="qty" class="browser-default">
                             <option value="1" selected>1</option>
                             <option>2</option>
@@ -126,15 +131,20 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 </div>
 
 
-                <?php if ($get_product['0']['discount_type'] == 'rate') {
+                <?php
+
+                $price = 0;
+                if ($get_product['0']['discount_type'] == 'rate') {
                     $price = ($get_product['0']['mrp'] - $get_product['0']['discount']);
                 } elseif ($get_product['0']['discount_type'] == 'percent') {
                     $price = ($get_product['0']['mrp'] - (($get_product['0']['discount'] * $get_product['0']['mrp']) / 100));
                 } else {
                     $price = $get_product['0']['mrp'];
                 }
+
                 ?>
-                <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $get_product['0']['mrp'] ?>')">Add to cart</a>
+
+                <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $price ?>')">Add to cart</a>
 
             </div>
         </div>

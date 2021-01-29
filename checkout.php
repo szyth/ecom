@@ -17,7 +17,7 @@ if (empty($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
 $cart_total = 0;
 foreach ($_SESSION['cart'] as $key => $val) {
     $productAr = get_product($con, '', '', $key);
-    $price = $productAr[0]['price'];
+    $price = $_SESSION['cart'][$key]['price'];
     $qty = $val['qty'];
     $cart_total = $cart_total + ($price * $qty);
 }
@@ -36,6 +36,9 @@ if (isset($_POST['submit'])) {
         $payment_status = 'success';
     }
     $order_status = '1';
+    date_default_timezone_set(
+        'Asia/Kolkata'
+    );
     $added_on = date('Y-m-d h:i:s');
 
 
@@ -69,7 +72,7 @@ if (isset($_POST['submit'])) {
         <form id="address_form" method="POST">
             <div class="row">
                 <div id="address_details" class="title center">
-                    <h1>Address Details</h1>
+                    <h1>Shipping Details</h1>
                 </div>
                 <div class="input-field col s6">
                     <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
@@ -110,6 +113,7 @@ if (isset($_POST['submit'])) {
                         <th>Product</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -119,7 +123,7 @@ if (isset($_POST['submit'])) {
                     $productAr = get_product($con, '', '', $key);
                     $pname = $productAr[0]['name'];
                     $mrp = $productAr[0]['mrp'];
-                    $price = $productAr[0]['price'];
+                    $price = $_SESSION['cart'][$key]['price'];
                     $image = $productAr[0]['image'];
                     $qty = $val['qty'];
                     $cart_total = $cart_total + ($price * $qty);
@@ -131,6 +135,7 @@ if (isset($_POST['submit'])) {
                             </td>
                             <td><?php echo $pname ?></td>
                             <td>Rs. <?php echo $price * $qty ?></td>
+                            <td>Rs. <?php echo $qty ?></td>
                             <td>
                                 <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')">
                                     <i class="material-icons-outlined">delete</i>

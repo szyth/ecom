@@ -75,9 +75,9 @@ $res = mysqli_query($con, $sql);
                                         <th>Image</th>
                                         <th id="4">MRP</th>
                                         <th id="5">Discount</th>
-                                        <th id="5">SP</th>
-                                        <th id="6">QTY</th>
-                                        <th id="7">Added By</th>
+                                        <th id="6">SP</th>
+                                        <th id="7">QTY</th>
+                                        <th id="8">Added By</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

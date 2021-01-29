@@ -26,7 +26,7 @@ $order_id = get_safe_value($con, $_GET['id']);
                     <tbody>
                         <?php
                         $uid = $_SESSION['USER_ID'];
-                        $res = mysqli_query($con, "SELECT DISTINCT(order_detail.id),order_detail.*,product.name, product.image from order_detail,product,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product.id=order_detail.product_id");
+                        $res = mysqli_query($con, "SELECT DISTINCT(order_detail.id),order_detail.*,product_new.name, product_new.image from order_detail,product_new,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product_new.id=order_detail.product_id");
                         $total_price = 0;
                         while ($row = mysqli_fetch_assoc($res)) {
                             $total_price = $total_price + ($row['qty'] * $row['price']);

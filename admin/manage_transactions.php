@@ -6,6 +6,9 @@ $msg = '';
 $vendor_id = get_safe_value($con, $_GET['id']);
 
 if (isset($_POST['submit'])) {
+    date_default_timezone_set(
+        'Asia/Kolkata'
+    );
     $date = date('Y-m-d h:i:s');
     $amount = get_safe_value($con, $_POST['amount']);
     $pending = get_safe_value($con, $_POST['pending']);

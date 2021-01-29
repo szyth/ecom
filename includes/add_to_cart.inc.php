@@ -1,9 +1,10 @@
 <?php
 class add_to_cart
 {
-    function addProduct($pid, $qty)
+    function addProduct($pid, $qty, $price)
     {
         $_SESSION['cart'][$pid]['qty'] = $qty;
+        $_SESSION['cart'][$pid]['price'] = $price;
     }
 
     function updateProduct($pid, $qty)

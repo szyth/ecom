@@ -254,7 +254,7 @@ function manage_cart(pid, type, price) {
   jQuery.ajax({
     url: "manage_cart.php",
     type: "post",
-    data: "pid=" + pid + "&qty=" + qty + "&type=" + type,
+    data: "pid=" + pid + "&qty=" + qty + "&type=" + type + "&price=" + price,
     success: function (result) {
       if (type == "update" || type == "remove") {
         location.reload(true);
@@ -283,7 +283,10 @@ $(document).ready(function () {
 
 
 
-//filter products
+//filter subcategory, category in footer js
+
+
+
 //script in footer
 
 

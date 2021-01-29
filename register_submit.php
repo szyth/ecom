@@ -6,6 +6,7 @@ $name = get_safe_value($con, $_POST['name']);
 $email = get_safe_value($con, $_POST['email']);
 $mobile = get_safe_value($con, $_POST['mobile']);
 $password = get_safe_value($con, $_POST['password']);
+date_default_timezone_set('Asia/Kolkata');
 $added_on = date('Y-m-d h:i:s');
 
 

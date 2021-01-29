@@ -161,9 +161,9 @@
         $('#price_range').slider({
             range: true,
             min: 100,
-            max: 65000,
-            values: [100, 65000],
-            step: 500,
+            max: 20000,
+            values: [100, 20000],
+            step: 200,
             stop: function(event, ui) {
                 $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
                 $('#hidden_minimum_price').val(ui.values[0]);
