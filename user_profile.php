@@ -63,23 +63,44 @@
                     <h3 class="title center">Wishlist</h3>
                     <?php
                     $uid = $_SESSION['USER_ID'];
-                    $res = mysqli_query($con, "SELECT product.* FROM product,wishlist WHERE wishlist.user_id='$uid' AND wishlist.product_id=product.id");
+                    $res = mysqli_query($con, "SELECT product_id FROM wishlist WHERE `user_id`='$uid'");
                     while ($list = mysqli_fetch_assoc($res)) {
+                        $get_product = get_product($con, '', '', $list['product_id']);
+
 
                     ?>
+
                         <div class="col s6 m4 l3 product_container_inner">
                             <div class="dress-card box_shadow center">
-                                <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
+                                <a href="product.php?id=<?php echo $get_product[0]['id'] ?>" class="black-text">
                                     <div class="dress-card-head">
-                                        <img class="dress-card-img-top" src="<?php echo "media/product/" . $list['image'] ?>" alt="">
+                                        <img class="dress-card-img-top" src="media/product/<?php echo $get_product[0]['image'][0] ?>" alt="">
                                     </div>
                                     <div class="dress-card-body">
-                                        <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
+                                        <h4 class="dress-card-title"> <?php echo $get_product[0]['name'] ?></h4>
                                         <p class="dress-card-para">
-                                            <span class="dress-card-price ">Rs.<?php echo $list['price'] ?> &ensp;</span>
-                                            <span class="dress-card-crossed ">Rs.<?php echo $list['mrp'] ?></span>
-                                            <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> -->
+
+                                            <?php
+                                            if ($get_product[0]['discount_type'] == "rate") {
+                                                echo  '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - $get_product[0]["discount"]) . '</span>';
+                                            } elseif ($get_product[0]['discount_type'] == "percent") {
+                                                echo '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - (($get_product[0]["discount"] * $get_product[0]["mrp"]) / 100)) . '</span>';
+                                            } else {
+                                                echo '<span class="dress-card-price ">Rs. ' . $get_product[0]["mrp"]  . '</span>';
+                                            }
+                                            ?>
+
+
+
                                         </p>
+
+
+
+                                        <a class="wishlist-remove" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product[0]['id'] ?>','remove')">
+                                            <i class="fa fa-times-circle "></i>Remove
+                                        </a>
+
+
                                     </div>
                                 </a>
 

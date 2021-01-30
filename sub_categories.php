@@ -251,6 +251,14 @@ if (count($get_product) > 0) {
     </div>
 <?php } else {
     echo '<h4 class="center">No products found</h4>';
+
+?>
+    <script>
+        setTimeout(function() {
+            window.history.back();
+        }, 1500)
+    </script>
+<?php
 }  ?>
 
 <section style="background-color: rgb(255, 255, 255);">

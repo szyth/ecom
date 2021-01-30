@@ -313,8 +313,8 @@ function wishlist_manage(pid, type) {
         window.location.href = 'login.php';
       }
       else if (result == 'remove') {
+        location.reload();
         M.toast({ html: 'Removed from Wishlist' })
-
       }
       else {
         M.toast({ html: 'Added to Wishlist' })

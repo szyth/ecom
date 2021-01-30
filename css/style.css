@@ -68,7 +68,7 @@ p {
 /* CUSTOM EDIT FROM HERE */
 
 body {
-  font-family: "Montserrat", sans-serif ;
+  font-family: "Montserrat", sans-serif !important;
   color: #000;
   /* background-color: rgb(248, 248, 248); */
 }
@@ -1432,6 +1432,49 @@ footer.page-footer {
   background-color: rgb(255, 255, 255);
   color: #160101;
 }
+.wishlist-remove{
+  /* position: absolute; */
+  color: #000;
+  font-size: 0.8em;
+  border: #000 1px solid;
+  border-radius: 3px;
+  padding: 7px;
+}
+.wishlist-remove i{
+  vertical-align: middle;
+  color: rgb(73, 51, 51) !important;
+}
+
+.wishlist-button.btn-large{
+   width: 200px;
+  height: 70px;
+  line-height: 70px;
+  padding:0 !important;
+  font-size: smaller;
+}
+
+.wishlist-button.add {
+  background-color: rgb(255, 163, 102);
+  color: rgb(255, 255, 255);
+}
+
+.wishlist-button.add:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
+.wishlist-button.remove {
+  background-color: rgb(255, 115, 102);
+  color: rgb(255, 255, 255);
+}
+
+.wishlist-button.remove:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
+}
+
 
 /* WISHLIST - END*/
 

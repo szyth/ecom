@@ -6,7 +6,7 @@ $pid = get_safe_value($con, $_POST['pid']);
 $type = get_safe_value($con, $_POST['type']);
 
 if ($type == "remove") {
-    // mysqli_query($con, "DELETE FROM wishlist WHERE product_id=$pid");
+    mysqli_query($con, "DELETE FROM wishlist WHERE product_id=$pid");
     echo "remove";
 } else {
     if (isset($_SESSION['USER_LOGIN'])) {
