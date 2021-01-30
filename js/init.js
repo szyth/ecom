@@ -282,7 +282,6 @@ $(document).ready(function () {
 
 
 
-
 //filter subcategory, category in footer js
 
 
@@ -323,4 +322,52 @@ function wishlist_manage(pid, type) {
   });
 }
 
-// PRODUCT SLIDER
+// Address Accordian
+$(document).ready(function () {
+  $('.collapsible').collapsible();
+
+  //Address Modal
+  $('.modal').modal();
+
+  if ($('.addressList')) {
+    populateAddress();
+  }
+
+  //address remove
+  $(document).on('click', '.address_remove', function () {
+    if (confirm('Are you sure you want to delete this address?')) {
+      var address_id = $(this).closest('.collapsible-header').attr('data-sg-aid');
+      $.ajax({
+        url: 'address_manage.php',
+        type: 'post',
+        data: 'aid=' + address_id,
+        success: function (result) {
+          if (result == 'remove') {
+            location.reload();
+          }
+        }
+      });
+    }
+  });
+
+});
+
+
+
+var populateAddress = function () {
+  $.ajax({
+    url: 'includes/get_api.php',
+    method: 'post',
+    data: { "target": 'address' },
+  }).done(function (response) {
+    // console.log(response);
+    response = JSON.parse(response);
+    if (response && response.length) {
+      $.each(response, function (index, item) {
+        // console.log(item);
+        $('.addressList ul.collapsible').append(`<li> <div class="collapsible-header" style="position:relative;" data-sg-aid="${item.id}"><i class="material-icons-outlined">fiber_manual_record</i>${item.name} <a class="address_remove right"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> <div class="collapsible-body"> <span> <p>${item.mobile}</p> <p>${item.address}</p> <p>${item.pincode}</p> <p>${item.city}</p> </span> </div></li>`);
+      })
+    }
+
+  });
+};

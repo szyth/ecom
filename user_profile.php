@@ -1,5 +1,18 @@
-<?php require('includes/header.inc.php'); ?>
+<?php require('includes/header.inc.php');
+if (isset($_POST['submit'])) {
+    $uid = $_SESSION['USER_ID'];
+    $name = get_safe_value($con, $_POST['name']);
+    $mobile = get_safe_value($con, $_POST['mobile']);
+    $address = get_safe_value($con, $_POST['address']);
+    $pincode = get_safe_value($con, $_POST['pincode']);
+    $city = get_safe_value($con, $_POST['city']);
 
+    date_default_timezone_set('Asia/Kolkata');
+    $added_on = date('Y-m-d h:i:s');
+    $sql = "INSERT INTO `address`(`user_id`, `name`, `mobile`, `address`, `pincode`, `city`, `added_on`) VALUES ('$uid','$name','$mobile','$address','$pincode','$city','$added_on')";
+    mysqli_query($con, $sql);
+}
+?>
 <section id="profile">
     <div class="row">
         <div class="col s12 m3 user_nav hide-on-med-and-down">
@@ -27,32 +40,54 @@
                         <h5><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $row['added_on'] ?></h5>
                     </div>
                     <div class="col s10 offset-s1 m5">
-                        <form id="address_form" method="POST">
-                            <div class="row">
-                                <div id="address_details" class="title center">
-                                    <h1 style="margin-top: 1.8rem !important;">My Saved Address</h1>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
-                                </div>
-                                <div class="input-field col s6">
-                                    <input placeholder="&nbsp;Mobile No." id="number" name="number" type="tel" class="validate">
-                                </div>
+                        <div id="address_details" class="title center">
+                            <h1 style="margin-top: 1.8rem !important;">My Saved Address</h1>
+                        </div>
+                        <a id="addAddress" class="waves-effect waves-light btn btn-small blue lighten-1 modal-trigger" href="#addressModal">Add new address</a>
+
+
+
+                        <!-- Modal Structure -->
+                        <div id="addressModal" class="modal">
+                            <div class="modal-content">
+                                <h4>New Address Details</h4>
+                                <form id="address_form" method="POST">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;Mobile No." id="mobile" name="mobile" type="tel" class="validate">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="number" class="validate">
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;City / State" id="city" name="city" type="text" class="validate">
+                                        </div>
+
+                                    </div>
+                                </form>
                             </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
-                                </div>
+                            <div class="modal-footer">
+                                <!-- <a class="modal-close waves-effect waves-green btn blue white-text"> -->
+                                <input type="submit" name="submit" value="Submit" form="address_form">
+                                <!-- </a> -->
                             </div>
-                            <div class="row">
-                                <div class="input-field col s6">
-                                    <input placeholder="&nbsp;City" id="city" name="city" type="text" class="validate">
-                                </div>
-                                <div class="input-field col s6">
-                                    <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="text" class="validate">
-                                </div>
-                            </div>
-                        </form>
+                        </div>
+
+                        <div class="addressList">
+                            <ul class="collapsible">
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>

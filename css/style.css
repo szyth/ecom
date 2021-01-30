@@ -770,31 +770,31 @@ textarea.materialize-textarea:focus:not([readonly]) {
   margin-left: 0;
   width: auto;
   height: 40px;
-  line-height: 40px; 
+  line-height: 40px;
   padding: 0 10px;
   font-size: medium;
-   background-color: rgb(255, 255, 255);
-   color: rgb(36, 36, 36);
-   border: solid #444 1px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  border: solid #444 1px;
 
 }
 
 #colors.btn-large:hover {
-   background-color: rgb(66, 66, 66);
-   color: rgb(255, 255, 255);
+  background-color: rgb(66, 66, 66);
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 768px) {
- #colors.btn-large {
-   margin: 5px;
-   margin-left: 0;
-   width: auto;
-   height: 40px;
-   line-height: 40px;
-   padding: 0 10px;
-   font-size: small;
+  #colors.btn-large {
+    margin: 5px;
+    margin-left: 0;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: small;
 
- }
+  }
 
 }
 
@@ -1432,7 +1432,8 @@ footer.page-footer {
   background-color: rgb(255, 255, 255);
   color: #160101;
 }
-.wishlist-remove{
+
+.wishlist-remove {
   /* position: absolute; */
   color: #000;
   font-size: 0.8em;
@@ -1440,16 +1441,17 @@ footer.page-footer {
   border-radius: 3px;
   padding: 7px;
 }
-.wishlist-remove i{
+
+.wishlist-remove i {
   vertical-align: middle;
   color: rgb(73, 51, 51) !important;
 }
 
-.wishlist-button.btn-large{
-   width: 200px;
+.wishlist-button.btn-large {
+  width: 200px;
   height: 70px;
   line-height: 70px;
-  padding:0 !important;
+  padding: 0 !important;
   font-size: smaller;
 }
 
@@ -1543,7 +1545,65 @@ footer.page-footer {
 
 /* USER PROFILE - END */
 
+/* ADDRESS ACCORDIAN */
+.collapsible-header .material-icons-outlined {
+  font-size: 20px !important;
+}
 
+
+.collapsible-body {
+  padding: 0.5em 2em !important;
+}
+
+.collapsible-body p {
+  line-height: 1.5;
+  margin: 3px !important;
+}
+
+.address_remove {
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+
+.address_remove i {
+  color: #fb0000b0 !important;
+  font-size: 16px !important;
+
+}
+
+/* ADDRESS ACCORDIAN - END */
+
+/* ADDRESS MODAL */
+.input-field {
+  margin: 0 !important;
+}
+
+.modal .modal-content {
+  padding-bottom: 5px;
+}
+
+.modal .modal-content form {
+  padding-top: 20px;
+}
+
+.modal .modal-footer>input {
+  background-color: #42A5F5 !important;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  height: 32.4px;
+  line-height: 32.4px;
+  font-size: 13px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  margin: 0 20px 20px 0;
+
+}
+
+/* ADDRESS MODAL - END */
 
 /* PRODUCT SLIDER */
 
