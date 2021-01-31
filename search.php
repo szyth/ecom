@@ -2,7 +2,7 @@
 if (isset($_POST['submit'])) {
     if ($_POST['search'] != '') {
         $search = get_safe_value($con, $_POST['search']);
-        $sql = "SELECT * FROM product WHERE name LIKE '%$search%' OR short_desc LIKE '%$search%' OR description LIKE '%$search%'";
+        $sql = "SELECT id FROM product_new WHERE name LIKE '%$search%' OR description LIKE '%$search%'";
         $res = mysqli_query($con, $sql);
         $search_data = array();
 
@@ -25,10 +25,9 @@ if (isset($_POST['submit'])) {
 <div class="row">
     <?php
     if (!empty($search_data)) {
-
     ?>
         <div class="row" style="background-color: #fff;margin-bottom: 0px;">
-            <div id="filters" class="col s12 m3" ;>
+            <!-- <div id="filters" class="col s12 m3" ;>
                 <h1 class="title center">Filters</h1>
 
                 <div class="divider"></div>
@@ -194,34 +193,40 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="divider"></div>
 
-            </div>
-            <div class="col s12 m9" style="border-left: solid rgb(196, 196, 196) 1px;">
+            </div> -->
+            <div class="col s12 m10 offset-m1">
                 <div class="row center product_container">
                     <?php
                     echo  '<h4>Search results for "' . $search . '"</h4>';
-                    foreach ($search_data as $list) { ?>
+                    foreach ($search_data as $id) {
+                        $get_product = get_product($con, '', '', $id['id']);
+                    ?>
 
 
                         <div class="col s6 m4 l3 product_container_inner">
-                            <a href="product.php?id=<?php echo $list['id'] ?>" class="black-text">
-                                <div class="dress-card box_shadow">
+                            <div class="dress-card box_shadow center">
+                                <a href="product.php?id=<?php echo $get_product[0]['id'] ?>" class="black-text">
                                     <div class="dress-card-head">
-                                        <img class="dress-card-img-top" src="<?php echo "media/product/" . $list['image'] ?>" alt="">
+                                        <img class="dress-card-img-top" src="media/product/<?php echo $get_product[0]['image'][0] ?>" alt="">
                                     </div>
                                     <div class="dress-card-body">
-                                        <h4 class="dress-card-title"> <?php echo $list['name'] ?></h4>
+                                        <h4 class="dress-card-title"> <?php echo $get_product[0]['name'] ?></h4>
                                         <p class="dress-card-para">
-                                            <span class="dress-card-price">Rs.<?php echo $list['mrp'] ?> &ensp;</span>
-                                            <span class="dress-card-crossed">Rs.<?php echo $list['price'] ?></span>
-                                            <!-- <span class="dress-card-off">&ensp;(60% OFF)</span> --> <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>
-                                            </a>
-                                        </p>
-                                        <!-- <a id="product_button" class="waves-effect waves-light btn-small  btn-flat" href="product.php?id=<?php echo $list['id'] ?>">View
-                                            More</a> -->
-                                    </div>
-                                </div>
-                            </a>
 
+                                            <?php
+                                            if ($get_product[0]['discount_type'] == "rate") {
+                                                echo  '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - $get_product[0]["discount"]) . '</span>';
+                                            } elseif ($get_product[0]['discount_type'] == "percent") {
+                                                echo '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - (($get_product[0]["discount"] * $get_product[0]["mrp"]) / 100)) . '</span>';
+                                            } else {
+                                                echo '<span class="dress-card-price ">Rs. ' . $get_product[0]["mrp"]  . '</span>';
+                                            }
+                                            ?>
+                                        </p>
+                                    </div>
+                                </a>
+
+                            </div>
                         </div>
                     <?php
                     }
