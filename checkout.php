@@ -1,12 +1,5 @@
 <?php require('includes/header.inc.php');
-if (!isset($_SESSION['USER_LOGIN'])) {
-?>
-    <script>
-        window.location.href = 'index.php'
-    </script>
-<?php
-}
-if (empty($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
+if (!isset($_SESSION['USER_LOGIN']) || empty($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
 ?>
     <script>
         window.location.href = 'index.php'
@@ -14,94 +7,99 @@ if (empty($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
 <?php
 }
 
-$cart_total = 0;
-foreach ($_SESSION['cart'] as $key => $val) {
-    $productAr = get_product($con, '', '', $key);
-    $price = $_SESSION['cart'][$key]['price'];
-    $qty = $val['qty'];
-    $cart_total = $cart_total + ($price * $qty);
-}
-
-
-if (isset($_POST['submit'])) {
-    $user_id = $_SESSION['USER_ID'];
+if (isset($_POST['addressForm'])) {
+    $uid = $_SESSION['USER_ID'];
     $name = get_safe_value($con, $_POST['name']);
-    $number = get_safe_value($con, $_POST['number']);
+    $mobile = get_safe_value($con, $_POST['mobile']);
     $address = get_safe_value($con, $_POST['address']);
-    $city = get_safe_value($con, $_POST['city']);
     $pincode = get_safe_value($con, $_POST['pincode']);
-    $payment_type = 'cod';
-    $total_price = $cart_total;
-    if ($payment_type == 'cod') {
-        $payment_status = 'success';
-    }
-    $order_status = '1';
-    date_default_timezone_set(
-        'Asia/Kolkata'
-    );
+    $city = get_safe_value($con, $_POST['city']);
+
+    date_default_timezone_set('Asia/Kolkata');
     $added_on = date('Y-m-d h:i:s');
-
-
-    $sql = "INSERT INTO `orders`(user_id,name,number,address,city,pincode,payment_type,total_price,payment_status,order_status,added_on) values('$user_id','$name','$number','$address','$city','$pincode','$payment_type','$total_price','$payment_status','$order_status','$added_on')";
+    $sql = "INSERT INTO `address`(`user_id`, `name`, `mobile`, `address`, `pincode`, `city`, `added_on`) VALUES ('$uid','$name','$mobile','$address','$pincode','$city','$added_on')";
     mysqli_query($con, $sql);
-
-    $order_id = mysqli_insert_id($con);
-    foreach ($_SESSION['cart'] as $key => $val) {
-        $productAr = get_product($con, '', '', $key);
-        $price = $productAr[0]['price'];
-        $qty = $val['qty'];
-
-        mysqli_query($con, "INSERT INTO `order_detail`(order_id, product_id, qty, price) values('$order_id','$key','$qty','$price')");
-    }
-
-    unset($_SESSION['cart']);
-?>
-    <script>
-        window.location.href = 'thankyou.php'
-    </script>
-<?php
 }
+
 ?>
 
 <div class="divider"></div>
-
-
-
 <div class="row">
     <div class="col s10 offset-s1 m5 offset-m1">
-        <form id="address_form" method="POST">
-            <div class="row">
-                <div id="address_details" class="title center">
-                    <h1>Shipping Details</h1>
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="&nbsp;Mobile No." id="number" name="number" type="tel" class="validate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="&nbsp;City" id="city" name="city" type="text" class="validate">
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="text" class="validate">
-                </div>
-            </div>
-        </form>
-        <div id="payment_mode" class="title center">
-            <h1>Payment Mode</h1>
-            <br>
-            <h5 style="border: solid #444 1px; padding: 5px; color:#444">Cash on Delivery</h5>
+        <!-- ADDRESS DETAILS -->
+        <div id="address_details" class="title center">
+            <h1 style="margin-top: 1.8rem !important;">My Saved Address</h1>
         </div>
+
+        <!-- populating address in Radio  -->
+        <div>
+            <form class="addressListRadio">
+            </form>
+        </div>
+
+        <br>
+        <a id="addAddress" class="waves-effect waves-light btn btn-small btn-flat white-text blue lighten-1 modal-trigger" href="#addressModal">Add new address</a>
+        <a class="waves-effect waves-light btn btn-small btn-flat white-text red lighten-2" href="user_profile.php">Manage addresses</a>
+        <!-- modal structure -->
+        <div id="addressModal" class="modal">
+            <div class="modal-content">
+                <h4>New Address Details</h4>
+                <form id="address_form" method="POST">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate" data-length="30">
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="&nbsp;Mobile No." id="mobile" name="mobile" type="tel" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="number" class="validate">
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="&nbsp;City / State" id="city" name="city" type="text" class="validate">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- <a class="modal-close waves-effect waves-green btn blue white-text"> -->
+                <input type="submit" name="addressForm" value="Submit" form="address_form">
+                <!-- </a> -->
+            </div>
+        </div>
+
+        <!-- ADDRESS DETAILS - END -->
     </div>
     <div class="col s10 offset-s1 m4 offset-m1">
+        <!-- PAYMENT MODE -->
+        <div id="payment_mode" class="title">
+            <h1 class="center">Payment Mode</h1>
+            <form>
+                <p>
+                    <label>
+                        <input name="group2" data-value="cod" type="radio" checked />
+                        <span>Cash On Delivery</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="group2" data-value="online" type="radio" />
+                        <span>RazorPay</span>
+                    </label>
+                </p>
+            </form>
+        </div>
+
+        <!-- PAYMENT MODE - END -->
+        <!-- ORDER DETAILS  -->
         <div class=" center">
             <div id="order_details" class="title center">
                 <h1>Order Details</h1>
@@ -124,7 +122,7 @@ if (isset($_POST['submit'])) {
                     $pname = $productAr[0]['name'];
                     $mrp = $productAr[0]['mrp'];
                     $price = $_SESSION['cart'][$key]['price'];
-                    $image = $productAr[0]['image'];
+                    $image = $productAr[0]['image'][0];
                     $qty = $val['qty'];
                     $cart_total = $cart_total + ($price * $qty);
                 ?>
@@ -135,7 +133,7 @@ if (isset($_POST['submit'])) {
                             </td>
                             <td><?php echo $pname ?></td>
                             <td>Rs. <?php echo $price * $qty ?></td>
-                            <td>Rs. <?php echo $qty ?></td>
+                            <td><?php echo $qty ?></td>
                             <td>
                                 <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')">
                                     <i class="material-icons-outlined">delete</i>
@@ -156,16 +154,11 @@ if (isset($_POST['submit'])) {
             <br>
 
             <div id="address_form_submit">
-                <input type="submit" name="submit" value="Place Order" form="address_form">
+                <input type="submit" name="submit" id="submit" value="Place Order">
             </div>
-
-
         </div>
-
-
     </div>
-
-
+    <!-- ORDER DETAILS - END -->
 </div>
 
 

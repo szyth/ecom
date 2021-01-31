@@ -1574,6 +1574,14 @@ footer.page-footer {
 
 /* ADDRESS ACCORDIAN - END */
 
+/* ADDRESS RADIO BUTTON */
+.addressListRadio p {
+  line-height: 0.5rem !important;
+}
+
+/* ADDRESS RADIO BUTTON - END */
+
+
 /* ADDRESS MODAL */
 .input-field {
   margin: 0 !important;

@@ -24,6 +24,8 @@ if (isset($_POST['update_order_status'])) {
                                     <tr>
                                         <th>Product Name</th>
                                         <th>Product Image</th>
+                                        <th>Size</th>
+                                        <th>Color</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>Total Price</th>
@@ -31,30 +33,45 @@ if (isset($_POST['update_order_status'])) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $uid = $_SESSION['USER_ID'];
-                                    $res = mysqli_query($con, "SELECT DISTINCT(order_detail.id),order_detail.*,product.name as prodname, product.image, orders.name,orders.number,orders.address,orders.city,orders.pincode,orders.order_status from order_detail,product,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product.id=order_detail.product_id");
+
+                                    // $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,product.name as prodname, product.image, orders.name,orders.number,orders.address,orders.city,orders.pincode,orders.order_status from order_detail,product,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product.id=order_detail.product_id";
+                                    $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,orders.user_id FROM order_detail,orders WHERE order_detail.order_id=$order_id ";
+                                    $res = mysqli_query($con, $sql);
                                     $total_price = 0;
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $name = $row['name'];
-                                        $number = $row['number'];
-                                        $address = $row['address'];
-                                        $city = $row['city'];
-                                        $pincode = $row['pincode'];
-                                        $total_price = $total_price + ($row['qty'] * $row['price']);
-                                        $order_status = $row['order_status'];
+                                        $productId = $row['product_id'];
+                                        $qty = $row['qty'];
+                                        $price = $row['price'];
+                                        $uid = $row['user_id'];
 
+                                        $productArr = get_product($con, '', '', $productId);
+                                        $total_price = $total_price + ($qty * $price);
                                     ?>
                                         <tr>
-                                            <td><?php echo $row['prodname'] ?></td>
-                                            <td> <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "../media/product/" . $row['image'] ?>" alt="">
+                                            <td>
+                                                <a style="color: black;" href="../product.php?id=<?php echo $productArr[0]['id'] ?>">
+                                                    <?php echo $productArr[0]['name'] ?>
+                                                </a>
                                             </td>
-                                            <td><?php echo $row['qty'] ?></td>
-                                            <td>Rs. <?php echo $row['price'] ?></td>
-                                            <td>Rs. <?php echo $row['qty'] * $row['price'] ?></td>
+                                            <td> <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "../media/product/" . $productArr[0]['image'][0] ?>" alt="">
+                                            </td>
+                                            <td><?php
+                                                $sizeId = $productArr[0]['size'];
+                                                $size = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as size FROM product_size WHERE id=$sizeId"));
+                                                echo $size['size'];
+                                                ?></td>
+                                            <td><?php
+                                                $colorId = $productArr[0]['color'];
+                                                $color = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as color FROM product_color WHERE id=$colorId"));
+                                                echo $color['color'];
+                                                ?></td>
+                                            <td><?php echo $qty ?></td>
+                                            <td>Rs. <?php echo $price ?></td>
+                                            <td>Rs. <?php echo $qty * $price ?></td>
                                         </tr>
                                     <?php } ?>
                                     <tr>
-                                        <td colspan="3"></td>
+                                        <td colspan="5"></td>
                                         <td>Total Price</td>
                                         <td>Rs.
                                             <?php echo $total_price ?>
@@ -63,42 +80,42 @@ if (isset($_POST['update_order_status'])) {
                                 </tbody>
                             </table>
                             <div class="container">
-                                <strong>Address: </strong>
-                                <?php echo $name; ?>,
-                                <?php echo $number; ?>,
-                                <?php echo $address; ?>,
-                                <?php echo $city; ?>,
-                                <?php echo $pincode; ?>
-                                <br>
-                                <strong>Order Status: </strong>
-                                <?php
-                                $res = mysqli_query($con, "SELECT order_status.name FROM order_status, orders WHERE orders.id = $order_id AND orders.order_status = order_status.id");
-                                $order_status_arr = mysqli_fetch_assoc($res);
-                                echo $order_status_arr['name'];
-                                ?>
-                                <br>
-                                <div>
-                                    <form action="" method="post">
-                                        <select name="update_order_status" class="form-control">
-                                            <option>Select Status</option>
-                                            <?php
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <strong>Order Status: </strong>
+                                        <?php
+                                        $res = mysqli_query($con, "SELECT order_status.name FROM order_status, orders WHERE orders.id = $order_id AND orders.order_status = order_status.id");
+                                        $order_status_arr = mysqli_fetch_assoc($res);
+                                        echo $order_status_arr['name'];
+                                        ?>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <form action="" method="post">
+                                            <select name="update_order_status" class="form-control">
+                                                <option>Select Status</option>
+                                                <?php
 
 
-                                            $res = mysqli_query($con, "SELECT * FROM order_status");
-                                            while ($row = mysqli_fetch_assoc($res)) {
-                                                if ($row['id'] == $categories_id) {
-                                                    echo "<option selected value=" . $row['id'] . ">" . $row['name'] . "</option>";
-                                                } else {
-                                                    echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
+                                                $res = mysqli_query($con, "SELECT * FROM order_status");
+                                                while ($row = mysqli_fetch_assoc($res)) {
+                                                    if ($row['id'] == $categories_id) {
+                                                        echo "<option selected value=" . $row['id'] . ">" . $row['name'] . "</option>";
+                                                    } else {
+                                                        echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
+                                                    }
                                                 }
-                                            }
 
-                                            ?>
-                                        </select>
-                                        <input type="submit" name="" id="" class="form-control" value="Update Status">
-                                    </form>
+                                                ?>
+                                            </select>
+                                            <input type="submit" name="" id="" class="form-control" value="Update Status">
+                                        </form>
 
+                                    </div>
                                 </div>
+
+
+                                <br>
+
                                 <br>
                             </div>
                         </div>

@@ -328,11 +328,15 @@ $(document).ready(function () {
 
   //Address Modal
   $('.modal').modal();
+  $('input#name').characterCounter();
 
   if ($('.addressList')) {
     populateAddress();
   }
+  if ($('.addressListRadio')) {
+    populateAddressinRadio();
 
+  }
   //address remove
   $(document).on('click', '.address_remove', function () {
     if (confirm('Are you sure you want to delete this address?')) {
@@ -371,3 +375,49 @@ var populateAddress = function () {
 
   });
 };
+
+var populateAddressinRadio = function () {
+  $.ajax({
+    url: 'includes/get_api.php',
+    method: 'post',
+    data: { "target": "addressRadio" },
+  }).done(function (response) {
+    response = JSON.parse(response);
+    if (response && response.length) {
+      $.each(response, function (index, item) {
+        $('.addressListRadio').append(`<p> <label> <input data-sg-aid="${item.id}" name="group1" type="radio" /> <span style="line-height: 1.4rem;">${item.name}<br>${item.mobile}<br>${item.address}<br>${item.pincode}<br>${item.city}</span> </label> </p> <div class="divider"></div>`);
+      })
+    }
+  })
+}
+
+
+//checkout order
+$(document).ready(function () {
+  $('#address_form_submit #submit').click(function () {
+    var address_id = $('.addressListRadio input[name=group1]:checked').attr('data-sg-aid');
+    var payment_type = $('#payment_mode input[name=group2]:checked').attr('data-value');
+
+    if (address_id) {
+      if (payment_type == 'cod') {
+        $.ajax({
+          url: 'order_manage.php',
+          method: 'post',
+          data: { "address_id": address_id, "payment_type": 'cod' },
+        }).done(function (response) {
+          if (response == 'success') {
+            window.location.href = 'thankyou.php';
+          }
+        });
+      }
+      if (payment_type == 'online') {
+        alert('pay me money');
+      }
+    }
+    else {
+      alert("Please select an Address!");
+    }
+
+
+  })
+});

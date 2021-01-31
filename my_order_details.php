@@ -18,6 +18,8 @@ $order_id = get_safe_value($con, $_GET['id']);
                         <tr>
                             <th>Product Name</th>
                             <th>Product Image</th>
+                            <th>Size</th>
+                            <th>Color</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Total Price</th>
@@ -26,22 +28,45 @@ $order_id = get_safe_value($con, $_GET['id']);
                     <tbody>
                         <?php
                         $uid = $_SESSION['USER_ID'];
-                        $res = mysqli_query($con, "SELECT DISTINCT(order_detail.id),order_detail.*,product_new.name, product_new.image from order_detail,product_new,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product_new.id=order_detail.product_id");
+                        // $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,product_new.name, product_new.image from order_detail,product_new,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product_new.id=order_detail.product_id";
+
+                        $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,orders.user_id FROM order_detail,orders WHERE order_detail.order_id=$order_id AND orders.user_id='$uid'";
+                        $res = mysqli_query($con, $sql);
                         $total_price = 0;
                         while ($row = mysqli_fetch_assoc($res)) {
-                            $total_price = $total_price + ($row['qty'] * $row['price']);
+                            $productId = $row['product_id'];
+                            $qty = $row['qty'];
+                            $price = $row['price'];
+
+
+                            $productArr = get_product($con, '', '', $productId);
+                            $total_price = $total_price + ($qty * $price);
                         ?>
                             <tr>
-                                <td><?php echo $row['name'] ?></td>
-                                <td> <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "media/product/" . $row['image'] ?>" alt="">
+                                <td>
+                                    <a style="color: black;" href="product.php?id=<?php echo $productArr[0]['id'] ?>">
+                                        <?php echo $productArr[0]['name'] ?>
+                                    </a>
                                 </td>
-                                <td><?php echo $row['qty'] ?></td>
-                                <td>Rs. <?php echo $row['price'] ?></td>
-                                <td>Rs. <?php echo $row['qty'] * $row['price'] ?></td>
+                                <td> <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "media/product/" . $productArr[0]['image'][0] ?>" alt="">
+                                </td>
+                                <td><?php
+                                    $sizeId = $productArr[0]['size'];
+                                    $size = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as size FROM product_size WHERE id=$sizeId"));
+                                    echo $size['size'];
+                                    ?></td>
+                                <td><?php
+                                    $colorId = $productArr[0]['color'];
+                                    $color = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as color FROM product_color WHERE id=$colorId"));
+                                    echo $color['color'];
+                                    ?></td>
+                                <td><?php echo $qty ?></td>
+                                <td>Rs. <?php echo $price ?></td>
+                                <td>Rs. <?php echo $qty * $price ?></td>
                             </tr>
                         <?php } ?>
                         <tr>
-                            <td colspan="3"></td>
+                            <td colspan="5"></td>
                             <td>Total Price</td>
                             <td>Rs.
                                 <?php echo $total_price ?>

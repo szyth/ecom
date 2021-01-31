@@ -30,22 +30,32 @@ $res = mysqli_query($con, $sql);
                                 </thead>
                                 <tbody>
                                     <?php
-
-                                    $res = mysqli_query($con, "SELECT orders.*,order_status.name as order_status_str FROM orders,order_status WHERE order_status.id = orders.order_status");
+                                    // $sql="SELECT orders.*,order_status.name as order_status_str FROM orders,order_status WHERE order_status.id = orders.order_status";
+                                    $sql = "SELECT orders.*,address.name,address.mobile,address.address,address.pincode,address.city,order_status.name AS order_status FROM orders,address,order_status WHERE order_status.id = orders.order_status AND orders.address_id=address.id";
+                                    $res = mysqli_query($con, $sql);
                                     while ($row = mysqli_fetch_assoc($res)) {
                                     ?>
                                         <tr>
-                                            <td><a href="order_master_details.php?id=<?php echo $row['id'] ?>"><?php echo $row['id'] ?></a></td>
+                                            <td>
+                                                <a href="order_master_details.php?id=<?php echo $row['id'] ?>">
+                                                    <?php echo $row['id'] ?>
+                                                </a>
+                                            </td>
                                             <td><?php echo $row['added_on'] ?></td>
                                             <td>
-                                                <?php echo $row['address'] ?>
+                                                <?php echo $row['name'] ?><br>
+                                                <?php echo $row['mobile'] ?><br>
+                                                <?php echo $row['address'] ?><br>
+                                                <?php echo $row['pincode'] ?><br>
                                                 <?php echo $row['city'] ?>
-                                                <?php echo $row['pincode'] ?>
-                                            </td>
-                                            <td><?php echo $row['payment_type'] ?></td>
-                                            <td><?php echo $row['payment_status'] ?></td>
-                                            <td><?php echo $row['order_status_str'] ?></td>
 
+                                            </td>
+                                            <td><?php
+                                                if ($row['payment_type'] == 'cod')
+                                                    echo "Cash On Delivery";
+                                                ?></td>
+                                            <td><?php echo $row['payment_status'] ?></td>
+                                            <td><?php echo $row['order_status'] ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

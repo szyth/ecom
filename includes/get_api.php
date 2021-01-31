@@ -11,6 +11,9 @@ if (isset($_POST['target'])) {
         case "address":
             getAddress($con);
             break;
+        case "addressRadio":
+            getAddress($con);
+            break;
         default:
             echo $errorMsg;
     }
