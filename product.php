@@ -20,7 +20,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
     $super_cat_arr[] = $row1;
 }
 
-
+// prx($get_product['0']);
 ?>
 
 
@@ -55,18 +55,24 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 <!-- PRODUCT -->
 <div class="row">
     <div class="col m4 push-m1 l4 push-l1 s12 product_image">
-        <!-- <img src="<?php echo "media/product/" . $colors['0']['0'] ?>" class="block__pic" alt=""> -->
+        <div class="d-flex flex-column thumbnails">
+            <?php
+            for ($i = 0; $i < count($get_product[0]['image']); $i++) {
+            ?>
+                <div id="f1" class="tb "> <img class="thumbnail-img fit-image" src="media/product/<?php echo $get_product['0']['image'][$i] ?>"> </div>
+            <?php } ?>
+        </div>
 
         <?php
         for ($i = 0; $i < count($get_product[0]['image']); $i++) {
         ?>
-            <img src="media/product/<?php echo $get_product['0']['image'][$i] ?>" class="block__pic" alt="">
+            <fieldset id="f11" class="">
+                <div class="product-pic"> <img class="pic0" src="media/product/<?php echo $get_product['0']['image'][$i] ?>"> </div>
+            </fieldset>
         <?php } ?>
 
-        <!-- PRODUCT SLIDER  -->
-
     </div>
-
+    P
 
     <div class="col m6 push-m1 l6 push-l1 s10 push-s1">
         <div class="product_details">
@@ -90,41 +96,45 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
             </ul>
             <p class=""><?php echo $get_product['0']['description'] ?></p>
             <div class="">
-                <b>Colors:</b>
+                <b>Available Colors : Size</b>
                 <br>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Red</a>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Grey</a>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Blue</a>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">Violet</a>
-                <br>
-                <br>
+                <?php
+                $getParentId = $get_product['0']['parent_id'];
+                // prx($sizeId);
+                $response = (mysqli_query($con, "SELECT id,color,size FROM product_new WHERE parent_id=$getParentId"));
+                while ($size_color_id = mysqli_fetch_assoc($response)) {
+                    $colorSQL = "SELECT name as color FROM product_color where id='" . $size_color_id['color'] . "'";
+                    $color = mysqli_fetch_assoc(mysqli_query($con, $colorSQL));
+                    $size = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as size FROM product_size where id=" . $size_color_id['size'] . ""));
+                ?>
+                    <?php
+                    if ($size_color_id['id'] == $product_id) {
+                    ?>
+                        <a href="product.php?id=<?php echo $size_color_id['id'] ?>" id="colors" class="waves-effect waves-light btn-large btn-flat product-active"><?php echo $color['color'] . " : " . $size['size'] ?></a>
+                    <?php } else {
+                    ?>
+                        <a href="product.php?id=<?php echo $size_color_id['id'] ?>" id="colors" class="waves-effect waves-light btn-large btn-flat"><?php echo $color['color'] . " : " . $size['size'] ?></a>
+                    <?php
+                    }
+                    ?>
 
-                <b>Size:</b>
+                <?php } ?>
                 <br>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">S</a>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">M</a>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">L</a>
-                <a id="colors" class="waves-effect waves-light btn-large btn-flat">XL</a>
-
 
                 <div class="product_availability">
-                    <p><span class="black-text">Availability:</span> In Stock</p>
+                    <p><span class="black-text">Availability:</span>&nbsp;
+                        <?php
+                        if ($get_product['0']['quantity']) {
+                            echo $get_product['0']['quantity'] . " in stock";
+                        } else {
+                            echo 'Out of Stock';
+                        }
+
+                        ?></p>
                 </div>
                 <div class="">
                     <b>Quantity:</b>
-                    <input id="qty" style="width: 50px;text-align:center;margin:0 10px" type="number" value="1" min="1" step="1">
-                    <!-- <select id="qty" class="browser-default">
-                            <option value="1" selected>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </select> -->
+                    <input id="qty" style="width: 50px;text-align:center;margin:0 10px" type="number" value="1" min="1" step="1" max="<?php echo $get_product['0']['quantity'] ?>">
                 </div>
                 <div class="product_category">
                     <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>

@@ -310,13 +310,15 @@ function wishlist_manage(pid, type) {
     success: function (result) {
       if (result == 'not_login') {
         window.location.href = 'login.php';
-      }
-      else if (result == 'remove') {
+      } else if (result == 'remove') {
         location.reload();
-        M.toast({ html: 'Removed from Wishlist' })
-      }
-      else {
-        M.toast({ html: 'Added to Wishlist' })
+        M.toast({
+          html: 'Removed from Wishlist'
+        })
+      } else {
+        M.toast({
+          html: 'Added to Wishlist'
+        })
       }
     }
   });
@@ -362,7 +364,9 @@ var populateAddress = function () {
   $.ajax({
     url: 'includes/get_api.php',
     method: 'post',
-    data: { "target": 'address' },
+    data: {
+      "target": 'address'
+    },
   }).done(function (response) {
     // console.log(response);
     response = JSON.parse(response);
@@ -380,7 +384,9 @@ var populateAddressinRadio = function () {
   $.ajax({
     url: 'includes/get_api.php',
     method: 'post',
-    data: { "target": "addressRadio" },
+    data: {
+      "target": "addressRadio"
+    },
   }).done(function (response) {
     response = JSON.parse(response);
     if (response && response.length) {
@@ -403,21 +409,84 @@ $(document).ready(function () {
         $.ajax({
           url: 'order_manage.php',
           method: 'post',
-          data: { "address_id": address_id, "payment_type": 'cod' },
+          data: {
+            "address_id": address_id,
+            "payment_type": payment_type
+          },
         }).done(function (response) {
-          if (response == 'success') {
-            window.location.href = 'thankyou.php';
-          }
+          document.location.href = 'thankyou.php', true;
         });
       }
       if (payment_type == 'online') {
-        alert('pay me money');
+        rzp1.open();
       }
-    }
-    else {
+    } else {
       alert("Please select an Address!");
     }
 
 
   })
 });
+var options = {
+  "key": "rzp_test_z9RWfE5BZTr1Ie", // Enter the Key ID generated from the Dashboard
+  "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+  "currency": "INR",
+  "name": "One Big Bit",
+  "description": "Test Transaction",
+  "image": "https://example.com/your_logo",
+  "handler": function () {
+    alert("Success");
+    document.location.href = 'thankyou.php', true;
+
+  },
+  "prefill": {
+    "name": "Gaurav Kumar",
+    "email": "gaurav.kumar@example.com",
+    "contact": "9999999999"
+  },
+  "notes": {
+    "address": "Razorpay Corporate Office"
+  },
+  "theme": {
+    "color": "#3399cc"
+  }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response) {
+  alert(response.error.code);
+  alert(response.error.description);
+  alert(response.error.source);
+  alert(response.error.step);
+  alert(response.error.reason);
+  alert(response.error.metadata.order_id);
+  alert(response.error.metadata.payment_id);
+});
+
+// PRODUCT SLIDER 
+$(document).ready(function () {
+  $(".tb").hover(function () {
+    $(".tb").removeClass("tb-active");
+    $(this).addClass("tb-active");
+
+    current_fs = $(".active");
+
+    next_fs = $(this).attr("id");
+    next_fs = "#" + next_fs + "1";
+
+    $("fieldset").removeClass("active");
+    $(next_fs).addClass("active");
+
+    current_fs.animate({}, {
+      step: function () {
+        current_fs.css({
+          display: "none",
+          position: "relative",
+        });
+        next_fs.css({
+          display: "block",
+        });
+      },
+    });
+  });
+});
+// PRODUCT SLIDER - END

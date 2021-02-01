@@ -155,6 +155,7 @@ if (isset($_POST['addressForm'])) {
 
             <div id="address_form_submit">
                 <input type="submit" name="submit" id="submit" value="Place Order">
+                <!-- <input type="submit" name="submit" id="rzp-button1" value=" Order"> -->
             </div>
         </div>
     </div>

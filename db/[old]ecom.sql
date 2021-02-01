@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2020 at 01:16 PM
+-- Generation Time: Jan 10, 2021 at 09:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -71,8 +71,27 @@ INSERT INTO `categories` (`id`, `super_categories_id`, `categories`, `status`) V
 (21, 3, 'Jeans', 1),
 (22, 3, 'Track Pants and Pyjamas', 1),
 (26, 2, 'Indian and Fusion Wear and Fusion Wear', 1),
-(31, 2, 'Denims', 1),
-(32, 1, 'Tops', 1);
+(32, 3, 'Trousers', 1),
+(38, 3, 'banana', 1),
+(39, 3, 'Apple', 1),
+(40, 2, 'Test', 1),
+(41, 2, 'Test1', 1),
+(42, 2, 'Test2', 1),
+(43, 3, 'Pear', 1),
+(44, 2, 'cdfvdfvd', 1),
+(45, 2, 'cscsdc', 1),
+(47, 2, 'Donut', 1),
+(48, 2, 'Eclair', 1),
+(49, 2, 'Froyo', 1),
+(50, 2, 'Ginger', 1),
+(51, 2, 'Honey', 1),
+(52, 2, 'Ice', 1),
+(53, 2, 'Jelly', 1),
+(54, 2, 'kitkat', 1),
+(55, 3, 'Cucumber', 1),
+(56, 2, 'Lolipop', 1),
+(57, 1, 'Dresses', 1),
+(58, 1, 'Tops', 1);
 
 -- --------------------------------------------------------
 
@@ -200,28 +219,6 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `categories_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `added_by` int(11) NOT NULL,
-  `status` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`id`, `categories_id`, `name`, `description`, `added_by`, `status`) VALUES
-(141, 14, 'Applecreation Cotton Womens Dress', 'Designed and measured to fit a 12 to 14 laptops and with a convenient front pocket for your charger cable and notebook. We can also make you a custom sized and coloured sleeve to fit your laptop/macbook or tablet. Get in touch for details.\n\nHemp grows wild throughout Nepal and has long been used to create fabrics used in clothe making etc. You can now own a piece of this ancient tradition in the form of a functional, stylish laptop case.', 1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `productBackup`
---
-
-CREATE TABLE `productBackup` (
-  `id` int(11) NOT NULL,
-  `categories_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `mrp` float NOT NULL,
   `price` float NOT NULL,
   `qty` int(11) NOT NULL,
@@ -240,10 +237,10 @@ CREATE TABLE `productBackup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `productBackup`
+-- Dumping data for table `product`
 --
 
-INSERT INTO `productBackup` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `image`, `brand`, `color`, `size`, `fabric`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `added_by`, `status`) VALUES
+INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `image`, `brand`, `color`, `size`, `fabric`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `added_by`, `status`) VALUES
 (15, 18, 'Maxi Dress', 4799, 4299, 4, '991190464_1 (1).jpg', 'BIBA', 'brown', 32, 'VELVET', 'Women\'s dress', 'Top Fabric - Digital Print Lycra and Slub Silk with Two-Tone Silky Yoke., Inner - Santoon., Bottom - N/A., Dupatta - Two-Tone', '', '', '', 0, 1),
 (17, 18, 'New Autumn Maxi', 1299, 1099, 565, '761452992_1 (2).jpg', 'LEVIS', 'black', 34, 'CHIFFON', 'Women Dress', '2016 New Autumn Maxi Women Dress Ladies Blue Knee Length Elegant Casual Shirt Dresses', '', '', '', 0, 1),
 (18, 17, 'Pink Sleeveless Halter Neck', 21599, 6599, 8, '605444974_1 (3).jpg', 'AURELIA', 'pink', 36, 'COTTON', 'Women Bridesmaid Dress', 'Women Bridesmaid Dress Pink Sleeveless Halter Neck High Waist Party Cocktail Dresses', '', '', '', 0, 1),
@@ -254,6 +251,112 @@ INSERT INTO `productBackup` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty
 (23, 14, 'Women\'s net', 799, 399, 44, '345573862_1 (6).jpg', 'FABINDIA', 'brown', 40, 'CHIFFON', 'Women\'s net Dress', 'Royal Export Women\'s net Dress Material', '', '', '', 0, 1),
 (24, 14, 'Black Dress', 799, 159, 10, '586252605_1 (4).jpeg', 'H&M', 'gray', 38, 'POPLIN', 'Black Dress', 'Women A-line Black Dress', '', '', '', 0, 1),
 (25, 14, 'Latest Ladies Dress', 2299, 1299, 10, '329171796_1 (1).jpeg', 'WESTSIDE', 'green', 34, 'COTTON', 'Latest Ladies Dress', 'Specifications:\r\n- Color : Light Blue\r\n- Work : Printed\r\n- Size : S, M, L, XL', '', '', '', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_color`
+--
+
+CREATE TABLE `product_color` (
+  `id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_color`
+--
+
+INSERT INTO `product_color` (`id`, `value`, `name`) VALUES
+(2, 'black', 'Black'),
+(3, 'white', 'White'),
+(4, 'green', 'Green'),
+(5, 'blue', 'Blue'),
+(6, 'yellow', 'Yellow');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_images`
+--
+
+CREATE TABLE `product_images` (
+  `id` int(11) NOT NULL,
+  `super_id` int(11) NOT NULL,
+  `name` varchar(63) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `super_id`, `name`) VALUES
+(90, 4, 'X9AT7EJgpjvP0bZkbkS8.jpg'),
+(91, 5, 'y4FdgXbRCgvCS4cB8CYD.jpeg'),
+(92, 6, 'vEx8BINAKrprexlD12t6.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_new`
+--
+
+CREATE TABLE `product_new` (
+  `id` int(11) NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `subcat_id` int(11) NOT NULL,
+  `name` varchar(500) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `color` int(11) NOT NULL,
+  `size` int(11) NOT NULL,
+  `mrp` float NOT NULL,
+  `discount` float DEFAULT NULL,
+  `article_id` varchar(20) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `image_super_id` int(11) NOT NULL,
+  `discount_type` varchar(63) NOT NULL,
+  `added_by` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_new`
+--
+
+INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_by`, `status`) VALUES
+(69, 4, 3, 18, 'kurti', 'this is a Kurti', 2, 12, 2345, NULL, '', 23, 4, 'none', 1, 1),
+(70, 5, 3, 55, 'shirt', 'shirt by areeb', 5, 12, 234, NULL, '', 23, 5, 'none', 2, 1),
+(71, 6, 1, 58, 'Top#555', 'This is a top by H&M', 3, 1, 2344, NULL, '', 23, 6, 'none', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_size`
+--
+
+CREATE TABLE `product_size` (
+  `id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_size`
+--
+
+INSERT INTO `product_size` (`id`, `value`, `name`) VALUES
+(1, 's', 'Small'),
+(2, 'm', 'Medium'),
+(3, 'l', 'Large'),
+(4, 'fs', 'Free Size'),
+(8, 'xs', 'Extra Small'),
+(9, 'xl', 'Extra Large'),
+(10, 'xxxs', 'Extra Extra Large'),
+(11, 'xm', 'Extra Medium'),
+(12, 'xxs', 'Extra Extra Small'),
+(13, 'xxxl', 'Extra Extra Extra Large');
 
 -- --------------------------------------------------------
 
@@ -339,50 +442,6 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `variantDetails`
---
-
-CREATE TABLE `variantDetails` (
-  `color_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `color` varchar(25) NOT NULL,
-  `mrp` float NOT NULL,
-  `price` float NOT NULL,
-  `S` int(11) NOT NULL DEFAULT 0,
-  `M` int(11) NOT NULL DEFAULT 0,
-  `L` int(11) NOT NULL DEFAULT 0,
-  `XL` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `variantDetails`
---
-
-INSERT INTO `variantDetails` (`color_id`, `product_id`, `color`, `mrp`, `price`, `S`, `M`, `L`, `XL`) VALUES
-(116, 141, 'Blue', 299, 108.99, 23, 21, 123, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `variantImages`
---
-
-CREATE TABLE `variantImages` (
-  `image_id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL,
-  `image` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `variantImages`
---
-
-INSERT INTO `variantImages` (`image_id`, `color_id`, `image`) VALUES
-(215, 116, '761452992_1 (2).jpg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `vendor_docs`
 --
 
@@ -427,9 +486,7 @@ INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
 (10, 17, 20, '2020-09-30 11:15:44'),
 (11, 17, 19, '2020-09-30 11:16:26'),
 (12, 17, 17, '2020-09-30 11:30:08'),
-(13, 10, 24, '2020-09-30 09:07:18'),
-(14, 10, 20, '2020-12-10 12:44:45'),
-(15, 10, 135, '2020-12-10 12:15:10');
+(13, 10, 24, '2020-09-30 09:07:18');
 
 --
 -- Indexes for dumped tables
@@ -478,9 +535,27 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `productBackup`
+-- Indexes for table `product_color`
 --
-ALTER TABLE `productBackup`
+ALTER TABLE `product_color`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_images`
+--
+ALTER TABLE `product_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_new`
+--
+ALTER TABLE `product_new`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_size`
+--
+ALTER TABLE `product_size`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -508,18 +583,6 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `variantDetails`
---
-ALTER TABLE `variantDetails`
-  ADD PRIMARY KEY (`color_id`);
-
---
--- Indexes for table `variantImages`
---
-ALTER TABLE `variantImages`
-  ADD PRIMARY KEY (`image_id`);
-
---
 -- Indexes for table `vendor_docs`
 --
 ALTER TABLE `vendor_docs`
@@ -545,7 +608,7 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -575,13 +638,31 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `productBackup`
+-- AUTO_INCREMENT for table `product_color`
 --
-ALTER TABLE `productBackup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+ALTER TABLE `product_color`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `product_images`
+--
+ALTER TABLE `product_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+
+--
+-- AUTO_INCREMENT for table `product_new`
+--
+ALTER TABLE `product_new`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
+--
+-- AUTO_INCREMENT for table `product_size`
+--
+ALTER TABLE `product_size`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `super_category`
@@ -602,18 +683,6 @@ ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `variantDetails`
---
-ALTER TABLE `variantDetails`
-  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
-
---
--- AUTO_INCREMENT for table `variantImages`
---
-ALTER TABLE `variantImages`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
-
---
 -- AUTO_INCREMENT for table `vendor_docs`
 --
 ALTER TABLE `vendor_docs`
@@ -623,7 +692,7 @@ ALTER TABLE `vendor_docs`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

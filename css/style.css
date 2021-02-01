@@ -73,6 +73,10 @@ body {
   /* background-color: rgb(248, 248, 248); */
 }
 
+.black-text {
+  font-family: "Montserrat", sans-serif !important;
+}
+
 /* NAV */
 nav {
   height: 15vh !important;
@@ -764,6 +768,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
   background-color: #161616;
 }
 
+.product-active {
+  background-color: rgb(46, 45, 45) !important;
+  color: #fff !important;
+}
 
 #colors.btn-large {
   margin: 5px;
@@ -851,7 +859,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .product_image img {
   width: 80%;
   height: auto;
-  margin: 10%;
+  margin: 8% 18%;
 }
 
 .product_details {
@@ -1614,5 +1622,60 @@ footer.page-footer {
 /* ADDRESS MODAL - END */
 
 /* PRODUCT SLIDER */
+fieldset.active {
+  display: block !important;
+}
+
+fieldset {
+  display: none;
+}
+
+.pic0 {
+  width: 400px;
+  height: 500px;
+  margin-left: 85px;
+  margin-right: auto;
+  display: block;
+}
+
+.product-pic {
+  padding-left: auto;
+  padding-right: auto;
+  width: 100%;
+}
+
+.thumbnails {
+  position: absolute;
+}
+
+.fit-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.tb {
+  width: 62px;
+  height: 62px;
+  /* border: 1px solid grey; */
+  margin: 2px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.tb-active {
+  opacity: 1;
+}
+
+.thumbnail-img {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .pic0 {
+    width: 250px;
+    height: 350px;
+  }
+}
 
 /* PRODUCT SLIDER - END */

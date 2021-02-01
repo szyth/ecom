@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 10, 2021 at 09:22 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: 127.0.0.1
+-- Generation Time: Feb 01, 2021 at 10:46 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecom`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `address`
+--
+
+CREATE TABLE `address` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `mobile` varchar(16) NOT NULL,
+  `address` text NOT NULL,
+  `pincode` int(11) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `added_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -127,25 +144,13 @@ INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `comment`, `added_on`
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `number` int(11) NOT NULL,
-  `address` varchar(250) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `pincode` int(11) NOT NULL,
+  `address_id` int(11) NOT NULL,
   `payment_type` varchar(20) NOT NULL,
   `total_price` float NOT NULL,
   `payment_status` varchar(20) NOT NULL,
   `order_status` int(11) NOT NULL,
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `address`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `added_on`) VALUES
-(2, 17, 'Zaa', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 1698, 'success', 2, '2020-09-01 10:37:15'),
-(3, 17, 'a', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 159, 'success', 1, '2020-09-01 06:50:04');
 
 -- --------------------------------------------------------
 
@@ -160,32 +165,6 @@ CREATE TABLE `order_detail` (
   `qty` int(11) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order_detail`
---
-
-INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
-(1, 1, 28, 1, 1),
-(2, 1, 29, 1, 23),
-(3, 2, 25, 1, 1299),
-(4, 2, 23, 1, 399),
-(5, 0, 24, 1, 159),
-(6, 0, 25, 1, 1299),
-(7, 0, 15, 1, 4299),
-(8, 3, 24, 1, 159),
-(9, 0, 24, 1, 159),
-(10, 0, 23, 1, 399),
-(11, 0, 22, 4, 899),
-(12, 0, 24, 1, 159),
-(13, 0, 19, 1, 4299),
-(14, 0, 24, 1, 159),
-(15, 0, 22, 1, 899),
-(16, 0, 15, 1, 4299),
-(17, 0, 24, 1, 159),
-(18, 0, 15, 1, 4299),
-(19, 0, 22, 1, 899),
-(20, 0, 23, 8, 399);
 
 -- --------------------------------------------------------
 
@@ -294,7 +273,11 @@ CREATE TABLE `product_images` (
 INSERT INTO `product_images` (`id`, `super_id`, `name`) VALUES
 (90, 4, 'X9AT7EJgpjvP0bZkbkS8.jpg'),
 (91, 5, 'y4FdgXbRCgvCS4cB8CYD.jpeg'),
-(92, 6, 'vEx8BINAKrprexlD12t6.jpeg');
+(92, 6, 'vEx8BINAKrprexlD12t6.jpeg'),
+(93, 7, 'IhjBhQrvr18BvxffIBsV.jpg'),
+(94, 7, '3jsdk7JSApPBtpznOg4Y.jpeg'),
+(95, 7, 'Y1ckQetJiDeqNXR0B7Fa.jpg'),
+(96, 7, 'wdPAhNtvs7XkGa4WYCan.jpeg');
 
 -- --------------------------------------------------------
 
@@ -328,7 +311,8 @@ CREATE TABLE `product_new` (
 INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_by`, `status`) VALUES
 (69, 4, 3, 18, 'kurti', 'this is a Kurti', 2, 12, 2345, NULL, '', 23, 4, 'none', 1, 1),
 (70, 5, 3, 55, 'shirt', 'shirt by areeb', 5, 12, 234, NULL, '', 23, 5, 'none', 2, 1),
-(71, 6, 1, 58, 'Top#555', 'This is a top by H&M', 3, 1, 2344, NULL, '', 23, 6, 'none', 3, 1);
+(71, 6, 1, 58, 'Top#555', 'This is a top by H&M', 3, 1, 2344, NULL, '', 23, 6, 'none', 3, 1),
+(72, 7, 2, 26, 'Shirt', 'Mens Shirt', 2, 3, 8999, NULL, '', 6, 7, 'none', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -475,22 +459,14 @@ CREATE TABLE `wishlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `wishlist`
---
-
-INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
-(6, 17, 25, '2020-09-30 10:49:10'),
-(7, 17, 24, '2020-09-30 10:49:14'),
-(8, 17, 23, '2020-09-30 10:49:27'),
-(9, 17, 22, '2020-09-30 11:14:50'),
-(10, 17, 20, '2020-09-30 11:15:44'),
-(11, 17, 19, '2020-09-30 11:16:26'),
-(12, 17, 17, '2020-09-30 11:30:08'),
-(13, 10, 24, '2020-09-30 09:07:18');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin_users`
@@ -599,6 +575,12 @@ ALTER TABLE `wishlist`
 --
 
 --
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
@@ -620,13 +602,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -650,13 +632,13 @@ ALTER TABLE `product_color`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `product_new`
 --
 ALTER TABLE `product_new`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `product_size`
@@ -692,7 +674,7 @@ ALTER TABLE `vendor_docs`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
