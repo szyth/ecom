@@ -310,13 +310,15 @@ function wishlist_manage(pid, type) {
     success: function (result) {
       if (result == 'not_login') {
         window.location.href = 'login.php';
-      }
-      else if (result == 'remove') {
+      } else if (result == 'remove') {
         location.reload();
-        M.toast({ html: 'Removed from Wishlist' })
-      }
-      else {
-        M.toast({ html: 'Added to Wishlist' })
+        M.toast({
+          html: 'Removed from Wishlist'
+        })
+      } else {
+        M.toast({
+          html: 'Added to Wishlist'
+        })
       }
     }
   });
@@ -362,7 +364,9 @@ var populateAddress = function () {
   $.ajax({
     url: 'includes/get_api.php',
     method: 'post',
-    data: { "target": 'address' },
+    data: {
+      "target": 'address'
+    },
   }).done(function (response) {
     // console.log(response);
     response = JSON.parse(response);
@@ -380,7 +384,9 @@ var populateAddressinRadio = function () {
   $.ajax({
     url: 'includes/get_api.php',
     method: 'post',
-    data: { "target": "addressRadio" },
+    data: {
+      "target": "addressRadio"
+    },
   }).done(function (response) {
     response = JSON.parse(response);
     if (response && response.length) {
@@ -403,18 +409,18 @@ $(document).ready(function () {
         $.ajax({
           url: 'order_manage.php',
           method: 'post',
-          data: { "address_id": address_id, "payment_type": 'cod' },
+          data: {
+            "address_id": address_id,
+            "payment_type": 'cod'
+          },
         }).done(function (response) {
-          if (response == 'success') {
-            window.location.href = 'thankyou.php';
-          }
+          document.location.href = 'thankyou.php', true;
         });
       }
       if (payment_type == 'online') {
         alert('pay me money');
       }
-    }
-    else {
+    } else {
       alert("Please select an Address!");
     }
 

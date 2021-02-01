@@ -164,35 +164,40 @@ if (isset($_POST['submit'])) {
                         <tbody>
                             <?php
                             $uid = $_SESSION['USER_ID'];
-                            $sql = "SELECT orders.*,address.name,address.mobile,address.address,address.pincode,address.city,order_status.name AS order_status FROM orders,address,order_status WHERE orders.user_id=$uid AND order_status.id = orders.order_status AND orders.address_id=address.id";
+                            $sql = "SELECT `orders`.*,`address`.`name`,`address`.mobile,`address`.`address`,`address`.`pincode`,`address`.`city`,`order_status`.`name` AS order_status FROM `orders`,`address`,`order_status` WHERE `orders`.`user_id`=$uid AND `order_status`.`id` = `orders`.`order_status` AND `orders`.`address_id`=`address`.`id`";
                             $res = mysqli_query($con, $sql);
-                            while ($row = mysqli_fetch_assoc($res)) {
+
+                            if (mysqli_num_rows(mysqli_query($con, $sql))) {
+
+
+                                while ($row = mysqli_fetch_assoc($res)) {
 
                             ?>
-                                <tr>
-                                    <td>
-                                        <a href="my_order_details.php?id=<?php echo $row['id'] ?>">
-                                            <!-- <?php echo $row['id'] ?> -->
-                                            Click to know more
-                                        </a>
-                                    </td>
-                                    <td><?php echo $row['added_on'] ?></td>
-                                    <td>
-                                        <?php echo $row['name'] ?><br>
-                                        <?php echo $row['mobile'] ?><br>
-                                        <?php echo $row['address'] ?><br>
-                                        <?php echo $row['pincode'] ?><br>
-                                        <?php echo $row['city'] ?>
-                                    </td>
-                                    <td><?php
-                                        if ($row['payment_type'] == 'cod')
-                                            echo "Cash On Delivery";
-                                        ?></td>
-                                    <td><?php echo $row['payment_status'] ?></td>
-                                    <td><?php echo $row['order_status'] ?></td>
+                                    <tr>
+                                        <td>
+                                            <a href="my_order_details.php?id=<?php echo $row['id'] ?>">
+                                                <!-- <?php echo $row['id'] ?> -->
+                                                Click to know more
+                                            </a>
+                                        </td>
+                                        <td><?php echo $row['added_on'] ?></td>
+                                        <td>
+                                            <?php echo $row['name'] ?><br>
+                                            <?php echo $row['mobile'] ?><br>
+                                            <?php echo $row['address'] ?><br>
+                                            <?php echo $row['pincode'] ?><br>
+                                            <?php echo $row['city'] ?>
+                                        </td>
+                                        <td><?php
+                                            if ($row['payment_type'] == 'cod')
+                                                echo "Cash On Delivery";
+                                            ?></td>
+                                        <td><?php echo $row['payment_status'] ?></td>
+                                        <td><?php echo $row['order_status'] ?></td>
 
-                                </tr>
-                            <?php }  ?>
+                                    </tr>
+                            <?php }
+                            }  ?>
                         </tbody>
                     </table>
                 </div>

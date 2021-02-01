@@ -73,6 +73,10 @@ body {
   /* background-color: rgb(248, 248, 248); */
 }
 
+.black-text {
+  font-family: "Montserrat", sans-serif !important;
+}
+
 /* NAV */
 nav {
   height: 15vh !important;
