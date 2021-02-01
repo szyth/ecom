@@ -54,26 +54,29 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
 <!-- PRODUCT -->
 <div class="row">
+    <br>
     <div class="col m4 push-m1 l4 push-l1 s12 product_image">
         <div class="d-flex flex-column thumbnails">
             <?php
+            $active = 'tb-active';
             for ($i = 0; $i < count($get_product[0]['image']); $i++) {
+                $active = $i > 0 ? '' : 'tb-active';
             ?>
-                <div id="f1" class="tb "> <img class="thumbnail-img fit-image" src="media/product/<?php echo $get_product['0']['image'][$i] ?>"> </div>
+                <div id="f<?php echo $i + 1 ?>" class="tb <?php echo $active ?>"> <img class="thumbnail-img fit-image" src="media/product/<?php echo $get_product['0']['image'][$i] ?>"> </div>
             <?php } ?>
         </div>
 
         <?php
+        $active = 'active';
         for ($i = 0; $i < count($get_product[0]['image']); $i++) {
+            $active = $i > 0 ? '' : 'active';
         ?>
-            <fieldset id="f11" class="">
-                <div class="product-pic"> <img class="pic0" src="media/product/<?php echo $get_product['0']['image'][$i] ?>"> </div>
+            <fieldset id="f<?php echo $i + 1 ?>1" class="<?php echo $active ?>">
+                <div class="product-pic"> <img class="pic0 block__pic" src="media/product/<?php echo $get_product['0']['image'][$i] ?>"> </div>
             </fieldset>
         <?php } ?>
 
     </div>
-    P
-
     <div class="col m6 push-m1 l6 push-l1 s10 push-s1">
         <div class="product_details">
             <h2 class="product_title"><?php echo $get_product['0']['name'] ?></h2>

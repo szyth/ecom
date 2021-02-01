@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 ?>
 <section id="profile">
     <div class="row">
-        <div class="col s12 m3 user_nav hide-on-med-and-down">
+        <div class="col s12 m2 user_nav hide-on-med-and-down">
             <ul class="center">
                 <img class="pfp" src="media/user/profile-image-placeholder.png" alt="">
                 <li><a href="user_profile.php#user_profile">My Profile</a></li>
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
                 <li><a href="user_profile.php#my_order">My Orders</a></li>
             </ul>
         </div>
-        <div id="user_profile" class="col s12 l9" style="margin-top:10px ;">
+        <div id="user_profile" class="col s12 l10" style="margin-top:10px ;">
             <div class="card">
                 <div class="row">
                     <div class="col s10 offset-s1 m5 offset-m1">
@@ -38,6 +38,7 @@ if (isset($_POST['submit'])) {
                         <h5><i class="fa fa-envelope-o" aria-hidden="true"></i><?php echo $row['email'] ?></h5>
                         <h5><i class="fa fa-phone" aria-hidden="true"></i><?php echo $row['mobile'] ?></h5>
                         <h5><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $row['added_on'] ?></h5>
+                        <br>
                     </div>
                     <div class="col s10 offset-s1 m5">
                         <div id="address_details" class="title center">
@@ -130,10 +131,11 @@ if (isset($_POST['submit'])) {
                                         </p>
 
 
-
+                                        <br>
                                         <a class="wishlist-remove" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product[0]['id'] ?>','remove')">
                                             <i class="fa fa-times-circle "></i>Remove
                                         </a>
+                                        <br>
 
 
                                     </div>
@@ -147,18 +149,18 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
             <div id="my_order" class="card">
-                <div class="row" style="padding: 10px;">
+                <div class="row" style="padding: 10px 20px;">
                     <h3 class="title center">Orders</h3>
-                    <table class="highlight centered responsive-table" id="cart">
+                    <table class="highlight striped responsive-table" id="cart">
 
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Order Date</th>
-                                <th>Address</th>
-                                <th>Payment Type</th>
-                                <th>Payment Status</th>
-                                <th>Order Status</th>
+                                <th class="center">Order ID</th>
+                                <th class="center">Order Date</th>
+                                <th class="center">Address</th>
+                                <th class="center">Payment Mode</th>
+                                <th class="center">Payment Status</th>
+                                <th class="center">Order Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -174,26 +176,26 @@ if (isset($_POST['submit'])) {
 
                             ?>
                                     <tr>
-                                        <td>
-                                            <a href="my_order_details.php?id=<?php echo $row['id'] ?>">
+                                        <td class="center">
+                                            <a href=" my_order_details.php?id=<?php echo $row['id'] ?>">
                                                 <!-- <?php echo $row['id'] ?> -->
-                                                Click to know more
+                                                Know More
                                             </a>
                                         </td>
-                                        <td><?php echo $row['added_on'] ?></td>
-                                        <td>
+                                        <td class="center"><?php echo substr($row['added_on'], 0, 10) ?></td>
+                                        <td style="padding:15px 30px;width:25% !important">
                                             <?php echo $row['name'] ?><br>
                                             <?php echo $row['mobile'] ?><br>
                                             <?php echo $row['address'] ?><br>
                                             <?php echo $row['pincode'] ?><br>
                                             <?php echo $row['city'] ?>
                                         </td>
-                                        <td><?php
-                                            if ($row['payment_type'] == 'cod')
-                                                echo "Cash On Delivery";
-                                            ?></td>
-                                        <td><?php echo $row['payment_status'] ?></td>
-                                        <td><?php echo $row['order_status'] ?></td>
+                                        <td class="center"><?php
+                                                            if ($row['payment_type'] == 'cod')
+                                                                echo "Cash On Delivery";
+                                                            ?></td>
+                                        <td class="center"><?php echo $row['payment_status'] ?></td>
+                                        <td class="center"><?php echo $row['order_status'] ?></td>
 
                                     </tr>
                             <?php }

@@ -939,7 +939,7 @@ select {
 
 @media screen and (max-width: 768px) {
   .product_image img {
-    margin: 5%;
+    /* margin: 5%; */
     margin-bottom: 0;
   }
 }
@@ -1331,17 +1331,6 @@ span.htc__qua1 {
 /* CHECKOUT - END */
 
 
-/* IMAGE ZOOM ON HOVER  */
-
-.block__pic {
-  position: relative;
-  z-index: 9999;
-}
-
-/* IMAGE ZOOM ON HOVER - END */
-
-
-
 
 
 /* FOOTER */
@@ -1679,3 +1668,12 @@ fieldset {
 }
 
 /* PRODUCT SLIDER - END */
+
+/* IMAGE ZOOM ON HOVER  */
+
+.block__pic {
+  position: relative;
+  z-index: 9999;
+}
+
+/* IMAGE ZOOM ON HOVER - END */
