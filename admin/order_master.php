@@ -20,12 +20,14 @@ $res = mysqli_query($con, $sql);
                             <table class="table">
                                 <thead>
                                     <tr>
+
                                         <th id="1">Order ID</th>
                                         <th id="2">Order Date</th>
                                         <th id="3">Address</th>
                                         <th id="4">Payment Type</th>
                                         <th id="5">Payment Status</th>
                                         <th id="6">Order Status</th>
+                                        <th id="0"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,8 +38,9 @@ $res = mysqli_query($con, $sql);
                                     while ($row = mysqli_fetch_assoc($res)) {
                                     ?>
                                         <tr>
+
                                             <td>
-                                                <a href="order_master_details.php?id=<?php echo $row['id'] ?>">
+                                                <a>
                                                     <?php echo $row['id'] ?>
                                                 </a>
                                             </td>
@@ -56,6 +59,11 @@ $res = mysqli_query($con, $sql);
                                                 ?></td>
                                             <td><?php echo $row['payment_status'] ?></td>
                                             <td><?php echo $row['order_status'] ?></td>
+                                            <td>
+                                                <a class="btn btn-primary btn-sm" style="font-size: 12px;" href="order_master_details.php?id=<?php echo $row['id'] ?>">
+                                                    Change <br> Order Status
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

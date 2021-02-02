@@ -128,8 +128,8 @@ $res = mysqli_query($con, $sql);
                                                 $deleteString = "?type=delete&id=" . $row['id'];
                                                 $editString = "manage_products.php?action=edit&p_id=" . $row['id'];
                                                 ?>
-                                                <a title='Delete Product' href='javascript:void(0)' onClick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteString ?>')"><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>
                                                 <a title='Edit Product' href='<?php echo $editString ?>'><i style='color:#00587a' class='fa fa-edit fa-2x' aria-hidden='true'></i></a>
+                                                <a title='Delete Product' href='javascript:void(0)' onClick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteString ?>')"><i style='color:#ec4633' class='fa fa-trash-o fa-2x' aria-hidden='true'></i></a>
                                             </td>
                                         </tr>
                                     <?php

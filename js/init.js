@@ -376,6 +376,9 @@ var populateAddress = function () {
         $('.addressList ul.collapsible').append(`<li> <div class="collapsible-header" style="position:relative;" data-sg-aid="${item.id}"><i class="material-icons-outlined">fiber_manual_record</i>${item.name} <a class="address_remove right"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> <div class="collapsible-body"> <span> <p>${item.mobile}</p> <p>${item.address}</p> <p>${item.pincode}</p> <p>${item.city}</p> </span> </div></li>`);
       })
     }
+    else {
+      $('.addressList').append(`<p class="center">You have No Saved Addresses</p>`);
+    }
 
   });
 };
@@ -393,6 +396,9 @@ var populateAddressinRadio = function () {
       $.each(response, function (index, item) {
         $('.addressListRadio').append(`<p> <label> <input data-sg-aid="${item.id}" name="group1" type="radio" /> <span style="line-height: 1.4rem;">${item.name}<br>${item.mobile}<br>${item.address}<br>${item.pincode}<br>${item.city}</span> </label> </p> <div class="divider"></div>`);
       })
+    }
+    else {
+      $('.addressListRadio').append(`<br><p>You have No Saved Addresses</p>`);
     }
   })
 }

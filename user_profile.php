@@ -55,31 +55,31 @@ if (isset($_POST['submit'])) {
                         <!-- Modal Structure -->
                         <div id="addressModal" class="modal">
                             <div class="modal-content">
-                                <h4>New Address Details</h4>
-                                <form id="address_form" method="POST">
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
+                                <p>New Address Details</h4>
+                                    <form id="address_form" method="POST">
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input placeholder="&nbsp;Mobile No." id="mobile" name="mobile" type="tel" class="validate">
+                                            </div>
                                         </div>
-                                        <div class="input-field col s6">
-                                            <input placeholder="&nbsp;Mobile No." id="mobile" name="mobile" type="tel" class="validate">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="number" class="validate">
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input placeholder="&nbsp;City / State" id="city" name="city" type="text" class="validate">
-                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="number" class="validate">
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input placeholder="&nbsp;City / State" id="city" name="city" type="text" class="validate">
+                                            </div>
 
-                                    </div>
-                                </form>
+                                        </div>
+                                    </form>
                             </div>
                             <div class="modal-footer">
                                 <!-- <a class="modal-close waves-effect waves-green btn blue white-text"> -->
@@ -100,81 +100,89 @@ if (isset($_POST['submit'])) {
                     <?php
                     $uid = $_SESSION['USER_ID'];
                     $res = mysqli_query($con, "SELECT product_id FROM wishlist WHERE `user_id`='$uid'");
-                    while ($list = mysqli_fetch_assoc($res)) {
-                        $get_product = get_product($con, '', '', $list['product_id']);
+                    if (mysqli_num_rows($res)) {
+
+
+                        while ($list = mysqli_fetch_assoc($res)) {
+                            $get_product = get_product($con, '', '', $list['product_id']);
 
 
                     ?>
 
-                        <div class="col s6 m4 l3 product_container_inner">
-                            <div class="dress-card box_shadow center">
-                                <a href="product.php?id=<?php echo $get_product[0]['id'] ?>" class="black-text">
-                                    <div class="dress-card-head">
-                                        <img class="dress-card-img-top" src="media/product/<?php echo $get_product[0]['image'][0] ?>" alt="">
-                                    </div>
-                                    <div class="dress-card-body">
-                                        <h4 class="dress-card-title"> <?php echo $get_product[0]['name'] ?></h4>
-                                        <p class="dress-card-para">
+                            <div class="col s6 m4 l3 product_container_inner">
+                                <div class="dress-card box_shadow center">
+                                    <a href="product.php?id=<?php echo $get_product[0]['id'] ?>" class="black-text">
+                                        <div class="dress-card-head">
+                                            <img class="dress-card-img-top" src="media/product/<?php echo $get_product[0]['image'][0] ?>" alt="">
+                                        </div>
+                                        <div class="dress-card-body">
+                                            <h4 class="dress-card-title"> <?php echo $get_product[0]['name'] ?></h4>
+                                            <p class="dress-card-para">
 
-                                            <?php
-                                            if ($get_product[0]['discount_type'] == "rate") {
-                                                echo  '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - $get_product[0]["discount"]) . '</span>';
-                                            } elseif ($get_product[0]['discount_type'] == "percent") {
-                                                echo '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - (($get_product[0]["discount"] * $get_product[0]["mrp"]) / 100)) . '</span>';
-                                            } else {
-                                                echo '<span class="dress-card-price ">Rs. ' . $get_product[0]["mrp"]  . '</span>';
-                                            }
-                                            ?>
-
-
-
-                                        </p>
+                                                <?php
+                                                if ($get_product[0]['discount_type'] == "rate") {
+                                                    echo  '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - $get_product[0]["discount"]) . '</span>';
+                                                } elseif ($get_product[0]['discount_type'] == "percent") {
+                                                    echo '<span class="dress-card-crossed ">Rs. ' . $get_product[0]['mrp'] . '</span> &ensp;  <span class="dress-card-price ">Rs. ' . ($get_product[0]["mrp"] - (($get_product[0]["discount"] * $get_product[0]["mrp"]) / 100)) . '</span>';
+                                                } else {
+                                                    echo '<span class="dress-card-price ">Rs. ' . $get_product[0]["mrp"]  . '</span>';
+                                                }
+                                                ?>
 
 
-                                        <br>
-                                        <a class="wishlist-remove" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product[0]['id'] ?>','remove')">
-                                            <i class="fa fa-times-circle "></i>Remove
-                                        </a>
-                                        <br>
+
+                                            </p>
 
 
-                                    </div>
-                                </a>
+                                            <br>
+                                            <a class="wishlist-remove" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product[0]['id'] ?>','remove')">
+                                                <i class="fa fa-times-circle "></i>Remove
+                                            </a>
+                                            <br>
 
+
+                                        </div>
+                                    </a>
+
+                                </div>
                             </div>
-                        </div>
-                    <?php
-                    } ?>
+                        <?php
+                        }
+                    } else { ?>
 
+                        <p class="center">No items in Wishlist</p>
+                    <?php } ?>
                 </div>
             </div>
             <div id="my_order" class="card">
                 <div class="row" style="padding: 10px 20px;">
                     <h3 class="title center">Orders</h3>
-                    <table class="highlight striped responsive-table" id="cart">
 
-                        <thead>
-                            <tr>
-                                <th class="center">Order ID</th>
-                                <th class="center">Order Date</th>
-                                <th class="center">Address</th>
-                                <th class="center">Payment Mode</th>
-                                <th class="center">Payment Status</th>
-                                <th class="center">Order Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $uid = $_SESSION['USER_ID'];
-                            $sql = "SELECT `orders`.*,`address`.`name`,`address`.mobile,`address`.`address`,`address`.`pincode`,`address`.`city`,`order_status`.`name` AS order_status FROM `orders`,`address`,`order_status` WHERE `orders`.`user_id`=$uid AND `order_status`.`id` = `orders`.`order_status` AND `orders`.`address_id`=`address`.`id`";
-                            $res = mysqli_query($con, $sql);
+                    <?php $uid = $_SESSION['USER_ID'];
+                    $sql = "SELECT `orders`.*,`address`.`name`,`address`.mobile,`address`.`address`,`address`.`pincode`,`address`.`city`,`order_status`.`name` AS order_status FROM `orders`,`address`,`order_status` WHERE `orders`.`user_id`=$uid AND `order_status`.`id` = `orders`.`order_status` AND `orders`.`address_id`=`address`.`id`";
+                    $res = mysqli_query($con, $sql);
 
-                            if (mysqli_num_rows(mysqli_query($con, $sql))) {
+                    if (mysqli_num_rows(mysqli_query($con, $sql))) { ?>
+                        <table class="highlight striped responsive-table" id="cart">
+
+                            <thead>
+                                <tr>
+                                    <th class="center">Order ID</th>
+                                    <th class="center">Order Date</th>
+                                    <th class="center">Address</th>
+                                    <th class="center">Payment Mode</th>
+                                    <th class="center">Payment Status</th>
+                                    <th class="center">Order Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+
 
 
                                 while ($row = mysqli_fetch_assoc($res)) {
 
-                            ?>
+                                ?>
                                     <tr>
                                         <td class="center">
                                             <a href=" my_order_details.php?id=<?php echo $row['id'] ?>">
@@ -198,10 +206,14 @@ if (isset($_POST['submit'])) {
                                         <td class="center"><?php echo $row['order_status'] ?></td>
 
                                     </tr>
-                            <?php }
-                            }  ?>
-                        </tbody>
-                    </table>
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    <?php } else { ?>
+
+                        <p class="center">You have no Orders</p>
+                    <?php } ?>
                 </div>
             </div>
 

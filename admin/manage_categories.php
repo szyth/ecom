@@ -19,36 +19,39 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
     }
 }
 if (isset($_POST['submit'])) {
-    $categories = get_safe_value($con, $_POST['categories']);
-    $super_categories_id = get_safe_value($con, $_POST['super_categories_id']);
+    if (($_POST['super_categories_id']) > 0) {
+        $categories = get_safe_value($con, $_POST['categories']);
+        $super_categories_id = get_safe_value($con, $_POST['super_categories_id']);
 
 
 
-    $sql = "SELECT * FROM categories WHERE categories = '$categories'";
-    $res = mysqli_query($con, $sql);
-    $check = mysqli_num_rows($res);
+        $sql = "SELECT * FROM categories WHERE categories = '$categories'";
+        $res = mysqli_query($con, $sql);
+        $check = mysqli_num_rows($res);
 
-    if ($check > 0) {
-        if (isset($_GET['id']) && $_GET['id'] != '') {
-            $getData = mysqli_fetch_assoc($res);
-            if ($id == $getData['id']) {
+        if ($check > 0) {
+            if (isset($_GET['id']) && $_GET['id'] != '') {
+                $getData = mysqli_fetch_assoc($res);
+                if ($id == $getData['id']) {
+                } else {
+                    $msg = "Category already exists!";
+                }
             } else {
                 $msg = "Category already exists!";
             }
-        } else {
-            $msg = "Category already exists!";
+        }
+        if ($msg == '') {
+            if (isset($_GET['id']) && $_GET['id'] != '') {
+                $sql = "UPDATE categories SET categories='$categories',super_categories_id='$super_categories_id' WHERE id='$id'";
+            } else {
+                $sql = "INSERT INTO categories(super_categories_id,categories,status) VALUES ('$super_categories_id','$categories', '1')";
+            }
+            mysqli_query($con, $sql);
+            header('location:categories.php');
+            die();
         }
     }
-    if ($msg == '') {
-        if (isset($_GET['id']) && $_GET['id'] != '') {
-            $sql = "UPDATE categories SET categories='$categories',super_categories_id='$super_categories_id' WHERE id='$id'";
-        } else {
-            $sql = "INSERT INTO categories(super_categories_id,categories,status) VALUES ('$super_categories_id','$categories', '1')";
-        }
-        mysqli_query($con, $sql);
-        header('location:categories.php');
-        die();
-    }
+    echo '<h5 class="text-center">Please Select Category</h3>';
 }
 ?>
 <div class="content pb-0">
@@ -78,7 +81,7 @@ if (isset($_POST['submit'])) {
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="categories" class="form-control-label">Category</label>
+                                <label for="categories" class="form-control-label">Sub-Category</label>
                                 <input type="text" name="categories" placeholder="Enter Category name" value="<?php echo $categories ?>" class="form-control" required>
                             </div>
 

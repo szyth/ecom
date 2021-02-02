@@ -98,7 +98,7 @@ if (!empty($_SESSION['cart'])) {
         
 <script>
     setTimeout(function() {
-        window.location.href = "index.php#all_products";
+           window.history.back();
     }, 1500)
 </script>
 ';

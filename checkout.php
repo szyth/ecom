@@ -92,7 +92,7 @@ if (isset($_POST['addressForm'])) {
                 <p>
                     <label>
                         <input name="group2" data-value="online" type="radio" />
-                        <span>RazorPay</span>
+                        <span>Debit/Credit Card | UPI | Net Banking</span>
                     </label>
                 </p>
             </form>
