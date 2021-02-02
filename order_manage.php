@@ -41,6 +41,10 @@
             $qty = $val['qty'];
 
             mysqli_query($con, "INSERT INTO `order_detail`(`order_id`, `product_id`, `qty`, `price`) values('$order_id','$key','$qty','$price')");
+
+            $qtyinDB = $productAr[0]['quantity'] - $qty;
+            $product_id = $productAr[0]['id'];
+            mysqli_query($con, "UPDATE `product_new` SET `quantity`=$qtyinDB WHERE `id`=$product_id");
         }
 
         unset($_SESSION['cart']);

@@ -19,7 +19,7 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
     }
 }
 if (isset($_POST['submit'])) {
-    if (($_POST['super_categories_id']) > 0) {
+    if (($_POST['super_categories_id']) > 0 && $_POST['super_categories_id'] <= 3) {
         $categories = get_safe_value($con, $_POST['categories']);
         $super_categories_id = get_safe_value($con, $_POST['super_categories_id']);
 
@@ -50,8 +50,12 @@ if (isset($_POST['submit'])) {
             header('location:categories.php');
             die();
         }
+    } else { ?>
+        <script>
+            alert('Please Select Category')
+        </script>
+<?php
     }
-    echo '<h5 class="text-center">Please Select Category</h3>';
 }
 ?>
 <div class="content pb-0">

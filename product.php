@@ -124,71 +124,82 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 <?php } ?>
                 <br>
 
-                <div class="product_availability">
-                    <p><span class="black-text">Availability:</span>&nbsp;
+
+                <?php if ($get_product['0']['quantity']) {
+                ?>
+                    <div class="product_availability">
+                        <p><span class="black-text">Availability:</span>&nbsp;
+                            <?php
+                            echo '<span id="available">' . $get_product['0']['quantity'] . "</span> in stock";
+                            ?></p>
+                    </div>
+                    <div class="">
+                        <b>Quantity:</b>
+                        <input id="qty" style="width: 50px;text-align:center;margin:0 10px" value="1" type="number">
+                        <input class="inc" type="button" id='increment' value="+" />
+                        <input class="dec" type="button" id='decrement' value="-" />
+                    </div>
+
+                <?php
+                } else {
+                ?>
+                    <div class="product_availability">
+                        <p><span class="black-text">Availability:</span>&nbsp;
                         <?php
-                        if ($get_product['0']['quantity']) {
-                            echo $get_product['0']['quantity'] . " in stock";
+                        echo 'Out of Stock';
+                    }
+                        ?>
+                        <div class="product_category">
+                            <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
+                        </div>
+
+
+                        <?php
+
+                        $price = 0;
+                        if ($get_product['0']['discount_type'] == 'rate') {
+                            $price = ($get_product['0']['mrp'] - $get_product['0']['discount']);
+                        } elseif ($get_product['0']['discount_type'] == 'percent') {
+                            $price = ($get_product['0']['mrp'] - (($get_product['0']['discount'] * $get_product['0']['mrp']) / 100));
                         } else {
-                            echo 'Out of Stock';
+                            $price = $get_product['0']['mrp'];
                         }
 
-                        ?></p>
-                </div>
-                <div class="">
-                    <b>Quantity:</b>
-                    <input id="qty" style="width: 50px;text-align:center;margin:0 10px" type="number" value="1" min="1" step="1" max="<?php echo $get_product['0']['quantity'] ?>">
-                </div>
-                <div class="product_category">
-                    <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
-                </div>
+                        ?>
+                        <?php if ($get_product['0']['quantity']) {
+                        ?>
+                            <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $price ?>')">Add to cart</a>
+                        <?php } ?>
+
+                        <!-- WISHLIST -->
+                        <?php $uid = $_SESSION['USER_ID'];
+                        if (mysqli_num_rows(mysqli_query($con, "select * from wishlist where product_id =$product_id AND user_id=$uid"))) {
+                        ?> <a class="wishlist-button remove waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product['0']['id'] ?>','remove')">Remove from Wishlist
+                            </a>
+                        <?php
+                        } else {
+                        ?>
+
+                            <a class="wishlist-button add waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="window.location.reload();wishlist_manage('<?php echo $get_product['0']['id'] ?>','add');">Add To Wishlist
+                            </a>
+
+                        <?php
+                        }
+                        ?>
 
 
-                <?php
-
-                $price = 0;
-                if ($get_product['0']['discount_type'] == 'rate') {
-                    $price = ($get_product['0']['mrp'] - $get_product['0']['discount']);
-                } elseif ($get_product['0']['discount_type'] == 'percent') {
-                    $price = ($get_product['0']['mrp'] - (($get_product['0']['discount'] * $get_product['0']['mrp']) / 100));
-                } else {
-                    $price = $get_product['0']['mrp'];
-                }
-
-                ?>
-
-                <a id="add_to_cart" class="waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','<?php echo $price ?>')">Add to cart</a>
-
-
-                <!-- WISHLIST -->
-                <?php $uid = $_SESSION['USER_ID'];
-                if (mysqli_num_rows(mysqli_query($con, "select * from wishlist where product_id =$product_id AND user_id=$uid"))) {
-                ?> <a class="wishlist-button remove waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product['0']['id'] ?>','remove')">Remove from Wishlist
-                    </a>
-                <?php
-                } else {
-                ?>
-
-                    <a class="wishlist-button add waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="window.location.reload();wishlist_manage('<?php echo $get_product['0']['id'] ?>','add');">Add To Wishlist
-                    </a>
-
-                <?php
-                }
-                ?>
-
-
+                    </div>
             </div>
         </div>
     </div>
-</div>
-<!-- PRODUCT - END -->
+    <!-- PRODUCT - END -->
 
-<section>
-    <svg class="curve" data-name="layer" viewBox="0 0 1416.9 174.01">
-        <path d="M0,220.8S283.66,120,608.94,163.56s437.93,100.57,818,10.34V309.54H0V280.8Z" transform="translate(0 -120.53)" />
+    <section>
+        <svg class="curve" data-name="layer" viewBox="0 0 1416.9 174.01">
+            <path d="M0,220.8S283.66,120,608.94,163.56s437.93,100.57,818,10.34V309.54H0V280.8Z" transform="translate(0 -120.53)" />
 
-    </svg>
-</section>
+        </svg>
+    </section>
 
 
-<?php require('includes/footer.inc.php'); ?>
+    <?php require('includes/footer.inc.php'); ?>

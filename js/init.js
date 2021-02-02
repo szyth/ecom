@@ -1,3 +1,37 @@
+
+
+// PRODUCT QUANTITY INCREMENT/DECREMENT 
+
+$('#qty').change(function () {
+  var qty = Number($('#qty').val());
+  var available = Number($('#available')[0].innerHTML);
+
+  if (qty < 1)
+    $('#qty').val(1);
+  if (qty > available)
+    $('#qty').val(available);
+});
+
+
+$('#increment').click(function () {
+  var counter = $('#qty').val();
+  if (counter < ($('#available')[0].innerHTML)) {
+    counter++;
+    $('#qty').val(counter);
+  }
+
+
+});
+$('#decrement').click(function () {
+  var counter = $('#qty').val();
+  if (counter > 1) {
+    counter--;
+    $('#qty').val(counter);
+  }
+
+});
+// PRODUCT QUANTITY INCREMENT/DECREMENT - END
+
 (function ($) {
   $(function () {
     $(".sidenav").sidenav();

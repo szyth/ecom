@@ -1677,3 +1677,54 @@ fieldset {
 }
 
 /* IMAGE ZOOM ON HOVER - END */
+
+
+/* STYLE,HIDE UP DOWN IN INPUT NUMBER  */
+
+
+.inc {
+  background-color: rgb(255, 255, 255);
+  border: solid #ff00f2 2px;
+  color: #ff00f2;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.inc:hover {
+  background-color: rgb(255, 255, 255);
+  border: solid #080808 2px;
+  color: #131313;
+  transition: ease-out 500ms;
+}
+
+.dec {
+  background-color: #fff;
+  border: solid #ff00f2 2px;
+  color: #ff00f2;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.dec:hover {
+  background-color: rgb(255, 255, 255);
+  border: solid #080808 2px;
+  color: #131313;
+  transition: ease-out 500ms;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* STYLE,HIDE UP DOWN IN INPUT NUMBER - END */
