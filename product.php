@@ -173,7 +173,8 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
 
                         <!-- WISHLIST -->
                         <?php $uid = $_SESSION['USER_ID'];
-                        if (mysqli_num_rows(mysqli_query($con, "select * from wishlist where product_id =$product_id AND user_id=$uid"))) {
+                        $count = mysqli_num_rows(mysqli_query($con, "select * from wishlist where product_id =$product_id AND user_id=$uid"));
+                        if ($count) {
                         ?> <a class="wishlist-button remove waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product['0']['id'] ?>','remove')">Remove from Wishlist
                             </a>
                         <?php

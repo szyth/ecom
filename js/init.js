@@ -14,8 +14,10 @@ $('#qty').change(function () {
 
 
 $('#increment').click(function () {
-  var counter = $('#qty').val();
-  if (counter < ($('#available')[0].innerHTML)) {
+  var counter = Number($('#qty').val());
+  var available = Number($('#available')[0].innerHTML);
+
+  if (counter < available) {
     counter++;
     $('#qty').val(counter);
   }
@@ -23,7 +25,7 @@ $('#increment').click(function () {
 
 });
 $('#decrement').click(function () {
-  var counter = $('#qty').val();
+  var counter = Number($('#qty').val());
   if (counter > 1) {
     counter--;
     $('#qty').val(counter);

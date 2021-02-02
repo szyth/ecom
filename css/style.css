@@ -124,6 +124,13 @@ nav ul a:hover {
   z-index: 99999;
 }
 
+@media screen and (max-width: 992px) {
+  #index_search {
+    left: 0;
+    width: 100%;
+  }
+}
+
 /* 
 nav ul li {
   position: relative;
@@ -1242,7 +1249,7 @@ span.htc__qua1 {
     height: 15px;
     line-height: 15px;
     right: 0px;
-    top: 15%;
+    top: 29%;
 
   }
 
@@ -1253,6 +1260,17 @@ span.htc__qua1 {
     right: 0px;
     bottom: 10px;
 
+
+  }
+}
+
+@media screen and (max-width: 601px) {
+  span.htc__qua {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    right: 0px;
+    top: 50%;
 
   }
 }

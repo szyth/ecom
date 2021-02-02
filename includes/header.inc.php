@@ -295,7 +295,7 @@ $totalProduct = $obj->totalProduct();
                 </div>
                 <div class="input-field col s8 m12">
 
-                    <input id="search" placeholder="Search for products and more " name="search" type="text" class="validate center">
+                    <input id="search" placeholder="Search for products and more " name="search" type="text" class="validate">
                     <!-- <label for="search" style="color: #9e9e9e;">Search for products and more </label> -->
                 </div>
                 <div class="col s2 m2 right">
