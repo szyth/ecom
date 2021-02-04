@@ -31,8 +31,15 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
     }
     if ($type == "delete") {
         $id = get_safe_value($con, $_GET['id']);
-        $sql_delete_status = "DELETE FROM product_new WHERE id='$id' $condition1";
-        mysqli_query($con, $sql_delete_status);
+        $getproduct = get_product($con, '', '', $id);
+        $getImageSuperId = $getproduct[0]['image_super_id'];
+        mysqli_query($con, "DELETE FROM product_new WHERE id=$id $condition1");
+        $res = mysqli_query($con, "SELECT * FROM product_images WHERE super_id=$getImageSuperId");
+        while ($row = mysqli_fetch_assoc($res)) {
+            $filePath =  "../media/product/" . $row['name'];
+            unlink($filePath);
+        }
+        mysqli_query($con, "DELETE FROM product_images WHERE  super_id=$getImageSuperId");
     }
 }
 
