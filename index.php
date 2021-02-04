@@ -2,13 +2,21 @@
 
 
 <!-- SLIDER -->
+
 <div class="slider-container" style="background-color: #fff;">
 
     <div class="carousel carousel-slider">
-        <a class="carousel-item" href="#one!"><img src="media/slider/1.jpg"></a>
-        <a class="carousel-item" href="#two!"><img src="media/slider/2.jpg"></a>
-        <a class="carousel-item" href="#three!"><img src="media/slider/3.jpg"></a>
-        <a class="carousel-item" href="#four!"><img src="media/slider/4.jpg"></a>
+        <?php
+        $res = mysqli_query($con, "SELECT * FROM banner WHERE status=1 ORDER BY priority ASC");
+        if (mysqli_num_rows($res)) {
+            while ($row = mysqli_fetch_assoc($res)) {
+        ?>
+                <a class="carousel-item" alt="No image found"><img src="media/slider/<?php echo $row['image'] ?>"></a>
+            <?php  }
+        } else { ?>
+            <a class="carousel-item" alt="No image found"><img src="media/slider/0.jpg"></a>
+        <?php } ?>
+
     </div>
     <!-- <div class="text-translate">
         <div>
