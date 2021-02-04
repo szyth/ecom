@@ -16,7 +16,7 @@ $res = mysqli_query($con, $sql);
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
-                            <table class="table">
+                            <!-- <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Order ID</th>
@@ -50,6 +50,70 @@ $res = mysqli_query($con, $sql);
 
                                         </tr>
                                     <?php } ?>
+                                </tbody>
+                            </table> -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Product Name</th>
+                                        <th>Product Image</th>
+                                        <th>Size</th>
+                                        <th>Color</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+
+                                    // $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,product.name as prodname, product.image, orders.name,orders.number,orders.address,orders.city,orders.pincode,orders.order_status from order_detail,product,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product.id=order_detail.product_id";
+                                    $sql = "SELECT order_detail.* FROM order_detail inner join product_new on product_new.id=order_detail.product_id AND product_new.added_by ='" . $_SESSION['ADMIN_ID'] . "'  ";
+                                    $res = mysqli_query($con, $sql);
+                                    $total_price = 0;
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        $productId = $row['product_id'];
+                                        $qty = $row['qty'];
+                                        $price = $row['price'];
+                                        // $uid = $row['user_id'];
+
+                                        $productArr = get_product($con, '', '', $productId);
+                                        $total_price = $total_price + ($qty * $price);
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $row['order_id'] ?>
+                                            </td>
+                                            <td>
+                                                <a style="color: black;" href="../product.php?id=<?php echo $productArr[0]['id'] ?>">
+                                                    <?php echo $productArr[0]['name'] ?>
+                                                </a>
+                                            </td>
+                                            <td> <img class="responsive-img" style="width: 70px; height:70px;object-fit:cover" src="<?php echo "../media/product/" . $productArr[0]['image'][0] ?>" alt="">
+                                            </td>
+                                            <td><?php
+                                                $sizeId = $productArr[0]['size'];
+                                                $size = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as size FROM product_size WHERE id=$sizeId"));
+                                                echo $size['size'];
+                                                ?></td>
+                                            <td><?php
+                                                $colorId = $productArr[0]['color'];
+                                                $color = mysqli_fetch_assoc(mysqli_query($con, "SELECT name as color FROM product_color WHERE id=$colorId"));
+                                                echo $color['color'];
+                                                ?></td>
+                                            <td><?php echo $qty ?></td>
+                                            <td>Rs. <?php echo $price ?></td>
+                                            <td>Rs. <?php echo $qty * $price ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    <tr>
+                                        <td colspan="5"></td>
+                                        <td>Total Price</td>
+                                        <td>Rs.
+                                            <?php echo $total_price ?>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

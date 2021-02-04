@@ -97,7 +97,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 <!-- <li class="mrp">Rs. <?php echo $get_product['0']['mrp'] ?></li>
                 <li class="price">Rs. <?php echo $get_product['0']['mrp'] - $get_product['0']['discount']  ?></li> -->
             </ul>
-            <p class=""><?php echo $get_product['0']['description'] ?></p>
+
             <div class="">
                 <b>Available Colors : Size</b>
                 <br>
@@ -130,7 +130,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                     <div class="product_availability">
                         <p><span class="black-text">Availability:</span>&nbsp;
                             <?php
-                            echo '<span id="available">' . $get_product['0']['quantity'] . "</span> in stock";
+                            echo '<span id="available" style="display:none">' . $get_product['0']['quantity'] . "</span> In stock";
                             ?></p>
                     </div>
                     <div class="">
@@ -150,10 +150,12 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                     }
                         ?>
                         <div class="product_category">
-                            <span class="black-text">Category:</span> <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
+                            Category: <a href="sub_categories.php?id=<?php echo $get_product['0']['subcat_id'] ?>"> <?php echo $get_product['0']['categories'] ?></a>
                         </div>
 
-
+                        <b>Description: </b>
+                        <h6 class=""><?php echo $get_product['0']['description'] ?>
+                        </h6>
                         <?php
 
                         $price = 0;
@@ -172,19 +174,24 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                         <?php } ?>
 
                         <!-- WISHLIST -->
-                        <?php $uid = $_SESSION['USER_ID'];
-                        $count = mysqli_num_rows(mysqli_query($con, "select * from wishlist where product_id =$product_id AND user_id=$uid"));
-                        if ($count) {
+                        <?php
+                        if (!empty($_SESSION['USER_ID'])) {
+
+
+                            $uid = $_SESSION['USER_ID'];
+                            $count = mysqli_num_rows(mysqli_query($con, "select * from wishlist where product_id =$product_id AND user_id=$uid"));
+                            if ($count) {
                         ?> <a class="wishlist-button remove waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="wishlist_manage('<?php echo $get_product['0']['id'] ?>','remove')">Remove from Wishlist
-                            </a>
-                        <?php
-                        } else {
-                        ?>
+                                </a>
+                            <?php
+                            } else {
+                            ?>
 
-                            <a class="wishlist-button add waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="window.location.reload();wishlist_manage('<?php echo $get_product['0']['id'] ?>','add');">Add To Wishlist
-                            </a>
+                                <a class="wishlist-button add waves-effect waves-light btn-large btn-flat" href="javascript:void(0)" onclick="window.location.reload();wishlist_manage('<?php echo $get_product['0']['id'] ?>','add');">Add To Wishlist
+                                </a>
 
                         <?php
+                            }
                         }
                         ?>
 

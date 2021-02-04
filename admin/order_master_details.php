@@ -35,14 +35,14 @@ if (isset($_POST['update_order_status'])) {
                                     <?php
 
                                     // $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,product.name as prodname, product.image, orders.name,orders.number,orders.address,orders.city,orders.pincode,orders.order_status from order_detail,product,orders WHERE order_detail.order_id='$order_id' AND orders.user_id='$uid' AND product.id=order_detail.product_id";
-                                    $sql = "SELECT DISTINCT(order_detail.id),order_detail.*,orders.user_id FROM order_detail,orders WHERE order_detail.order_id=$order_id ";
+                                    $sql = "SELECT * FROM order_detail WHERE order_id=$order_id ";
                                     $res = mysqli_query($con, $sql);
                                     $total_price = 0;
                                     while ($row = mysqli_fetch_assoc($res)) {
                                         $productId = $row['product_id'];
                                         $qty = $row['qty'];
                                         $price = $row['price'];
-                                        $uid = $row['user_id'];
+                                        // $uid = $row['user_id'];
 
                                         $productArr = get_product($con, '', '', $productId);
                                         $total_price = $total_price + ($qty * $price);

@@ -255,7 +255,7 @@ if (count($get_product) > 0) {
 ?>
     <script>
         setTimeout(function() {
-            window.history.back();
+            window.history.go(-1);
         }, 1500)
     </script>
 <?php

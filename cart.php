@@ -98,7 +98,7 @@ if (!empty($_SESSION['cart'])) {
         
 <script>
     setTimeout(function() {
-           window.history.back();
+           window.history.go(-1);
     }, 1500)
 </script>
 ';

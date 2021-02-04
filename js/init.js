@@ -274,7 +274,7 @@ function user_login() {
           jQuery(".login_msg p").html("Please enter valid login details");
         }
         if (result == "valid") {
-          window.location.href = "index.php";
+          window.location.href = "checkout.php";
         }
       },
     });
