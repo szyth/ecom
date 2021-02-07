@@ -19,10 +19,12 @@
                     <div class="card-content white-text">
                         <span class="card-title">Contact details</span>
                         <ul class="quick-links">
-                            <li>C-25, Aliganj, Lucknow - 226024, Uttar Pradesh, India.</li>
-                            <li>info@onebigbit.com</li>
-                            <li> business@onebigbit.com</li>
-                            <li>+91-522-431-6496</li>
+                            <li>K 1024, Jagpal Kheda <br>
+                                Chotta Bharwara<br>
+                                Gomti Nagar Vistar<br>
+                                Lucknow, UP 226028</li>
+                            <li>support@classicloset.com</li>
+                            <li>+91 80909 12433</li>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +45,7 @@
             </div>
 
         </div>
-        <div class="row valign-wrapper">
+        <div class="row valign-wrapper" style="margin-bottom: 0px;">
             <div class="col s12 m4 center">
                 <a id="logo-container" class="brand-logo-footer white-text" href="index.php">CLASSY CLOSET</a>
             </div>
@@ -60,11 +62,11 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
+    <!-- <div class="footer-copyright">
         <div class="container">
             Made by <a class="brown-text text-lighten-3" href="https://onebigbit.com/">One Big Bit</a>
         </div>
-    </div>
+    </div> -->
 </footer>
 
 <!--  Scripts-->

@@ -17,7 +17,7 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Admin Panel - OBB</title>
+   <title>Admin Panel</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="assets/css/normalize.css">
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -85,8 +85,8 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
       <header id="header" class="header">
          <div class="top-left">
             <div class="navbar-header">
-               <a class="navbar-brand" href="../index.php"><img src="images/logo.png" alt="Logo"></a>
-               <a class="navbar-brand hidden" href="../index.php"><img src="images/logo2.png" alt="Logo"></a>
+               <a class="navbar-brand" style="font-family: 'Oswald', sans-serif;" href="../index.php">CLASSY CLOSET</a>
+               <a class="navbar-brand hidden" href="../index.php">CLASSY CLOSET</a>
                <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
             </div>
          </div>

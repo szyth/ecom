@@ -1003,6 +1003,11 @@ select {
   margin-top: 10px;
 }
 
+.address__details .ct__address {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 /* MAPS - END*/
 
 .contact_card_custom {
