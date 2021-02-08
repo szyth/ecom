@@ -19,12 +19,12 @@
                     <div class="card-content white-text">
                         <span class="card-title">Contact details</span>
                         <ul class="quick-links">
-                            <li>K 1024, Jagpal Kheda <br>
+                            <!-- <li>K 1024, Jagpal Kheda <br>
                                 Chotta Bharwara<br>
                                 Gomti Nagar Vistar<br>
                                 Lucknow, UP 226028</li>
                             <li>support@classicloset.com</li>
-                            <li>+91 80909 12433</li>
+                            <li>+91 80909 12433</li> -->
                         </ul>
                     </div>
                 </div>
