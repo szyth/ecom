@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2021 at 09:22 AM
+-- Generation Time: Feb 04, 2021 at 01:49 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecom`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `address`
+--
+
+CREATE TABLE `address` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `mobile` varchar(16) NOT NULL,
+  `address` text NOT NULL,
+  `pincode` int(11) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `added_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO `address` (`id`, `user_id`, `name`, `mobile`, `address`, `pincode`, `city`, `added_on`) VALUES
+(3, 10, 'Syed Shayan Nasir', '9653478512', '84/885, Aminabad', 226007, ' Lucknow / Uttar Pradesh', '2021-01-30 12:19:26'),
+(24, 2, 'Mohd Areeb Shamsi', '8555871879', '4334/34232 Somewhere in Model House', 13432, 'Lucknow / UP', '2021-02-02 02:14:10');
 
 -- --------------------------------------------------------
 
@@ -46,6 +71,29 @@ INSERT INTO `admin_users` (`id`, `username`, `password`, `role`, `email`, `mobil
 (2, 'zia', 'zia', 1, 'zia@zia.com', '9862145789', 1),
 (3, 'shayan', 'shayan', 1, 'shayan@shayan.com', '9632668745', 1),
 (4, 'areeb', 'areeb', 1, 'areeb@areeb.com', '9213653248', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banner`
+--
+
+CREATE TABLE `banner` (
+  `id` int(11) NOT NULL,
+  `image` varchar(63) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `banner`
+--
+
+INSERT INTO `banner` (`id`, `image`, `priority`, `status`) VALUES
+(1, '1.jpg', 1, 1),
+(2, '2.jpg', 2, 1),
+(3, '3.jpg', 3, 1),
+(4, '4.jpg', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -89,8 +137,6 @@ INSERT INTO `categories` (`id`, `super_categories_id`, `categories`, `status`) V
 (53, 2, 'Jelly', 1),
 (54, 2, 'kitkat', 1),
 (55, 3, 'Cucumber', 1),
-(56, 2, 'Lolipop', 1),
-(57, 1, 'Dresses', 1),
 (58, 1, 'Tops', 1);
 
 -- --------------------------------------------------------
@@ -127,25 +173,13 @@ INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `comment`, `added_on`
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `number` int(11) NOT NULL,
-  `address` varchar(250) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `pincode` int(11) NOT NULL,
+  `address_id` int(11) NOT NULL,
   `payment_type` varchar(20) NOT NULL,
   `total_price` float NOT NULL,
   `payment_status` varchar(20) NOT NULL,
   `order_status` int(11) NOT NULL,
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `address`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `added_on`) VALUES
-(2, 17, 'Zaa', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 1698, 'success', 2, '2020-09-01 10:37:15'),
-(3, 17, 'a', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 159, 'success', 1, '2020-09-01 06:50:04');
 
 -- --------------------------------------------------------
 
@@ -160,32 +194,6 @@ CREATE TABLE `order_detail` (
   `qty` int(11) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order_detail`
---
-
-INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
-(1, 1, 28, 1, 1),
-(2, 1, 29, 1, 23),
-(3, 2, 25, 1, 1299),
-(4, 2, 23, 1, 399),
-(5, 0, 24, 1, 159),
-(6, 0, 25, 1, 1299),
-(7, 0, 15, 1, 4299),
-(8, 3, 24, 1, 159),
-(9, 0, 24, 1, 159),
-(10, 0, 23, 1, 399),
-(11, 0, 22, 4, 899),
-(12, 0, 24, 1, 159),
-(13, 0, 19, 1, 4299),
-(14, 0, 24, 1, 159),
-(15, 0, 22, 1, 899),
-(16, 0, 15, 1, 4299),
-(17, 0, 24, 1, 159),
-(18, 0, 15, 1, 4299),
-(19, 0, 22, 1, 899),
-(20, 0, 23, 8, 399);
 
 -- --------------------------------------------------------
 
@@ -287,15 +295,6 @@ CREATE TABLE `product_images` (
   `name` varchar(63) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `product_images`
---
-
-INSERT INTO `product_images` (`id`, `super_id`, `name`) VALUES
-(90, 4, 'X9AT7EJgpjvP0bZkbkS8.jpg'),
-(91, 5, 'y4FdgXbRCgvCS4cB8CYD.jpeg'),
-(92, 6, 'vEx8BINAKrprexlD12t6.jpeg');
-
 -- --------------------------------------------------------
 
 --
@@ -320,15 +319,6 @@ CREATE TABLE `product_new` (
   `added_by` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `product_new`
---
-
-INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_by`, `status`) VALUES
-(69, 4, 3, 18, 'kurti', 'this is a Kurti', 2, 12, 2345, NULL, '', 23, 4, 'none', 1, 1),
-(70, 5, 3, 55, 'shirt', 'shirt by areeb', 5, 12, 234, NULL, '', 23, 5, 'none', 2, 1),
-(71, 6, 1, 58, 'Top#555', 'This is a top by H&M', 3, 1, 2344, NULL, '', 23, 6, 'none', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -474,28 +464,96 @@ CREATE TABLE `wishlist` (
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `wishlist`
+-- Table structure for table `[old]orders`
 --
 
-INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
-(6, 17, 25, '2020-09-30 10:49:10'),
-(7, 17, 24, '2020-09-30 10:49:14'),
-(8, 17, 23, '2020-09-30 10:49:27'),
-(9, 17, 22, '2020-09-30 11:14:50'),
-(10, 17, 20, '2020-09-30 11:15:44'),
-(11, 17, 19, '2020-09-30 11:16:26'),
-(12, 17, 17, '2020-09-30 11:30:08'),
-(13, 10, 24, '2020-09-30 09:07:18');
+CREATE TABLE `[old]orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `number` int(11) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pincode` int(11) NOT NULL,
+  `payment_type` varchar(20) NOT NULL,
+  `total_price` float NOT NULL,
+  `payment_status` varchar(20) NOT NULL,
+  `order_status` int(11) NOT NULL,
+  `added_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `[old]orders`
+--
+
+INSERT INTO `[old]orders` (`id`, `user_id`, `name`, `number`, `address`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `added_on`) VALUES
+(2, 17, 'Zaa', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 1698, 'success', 2, '2020-09-01 10:37:15'),
+(3, 17, 'a', 564563125, '6559/52 Balaganj', 'lko', 226001, 'cod', 159, 'success', 1, '2020-09-01 06:50:04'),
+(4, 10, 'areeb', 12345679, 'model house', 'lko', 226001, 'cod', 10.8, 'success', 2, '2021-01-23 09:22:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `[old]order_detail`
+--
+
+CREATE TABLE `[old]order_detail` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `price` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `[old]order_detail`
+--
+
+INSERT INTO `[old]order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
+(1, 1, 28, 1, 1),
+(2, 1, 29, 1, 23),
+(3, 2, 25, 1, 1299),
+(4, 2, 23, 1, 399),
+(5, 0, 24, 1, 159),
+(6, 0, 25, 1, 1299),
+(7, 0, 15, 1, 4299),
+(8, 3, 24, 1, 159),
+(9, 0, 24, 1, 159),
+(10, 0, 23, 1, 399),
+(11, 0, 22, 4, 899),
+(12, 0, 24, 1, 159),
+(13, 0, 19, 1, 4299),
+(14, 0, 24, 1, 159),
+(15, 0, 22, 1, 899),
+(16, 0, 15, 1, 4299),
+(17, 0, 24, 1, 159),
+(18, 0, 15, 1, 4299),
+(19, 0, 22, 1, 899),
+(20, 0, 23, 8, 399);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `admin_users`
 --
 ALTER TABLE `admin_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -595,8 +653,26 @@ ALTER TABLE `wishlist`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `[old]orders`
+--
+ALTER TABLE `[old]orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `[old]order_detail`
+--
+ALTER TABLE `[old]order_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `admin_users`
@@ -605,10 +681,16 @@ ALTER TABLE `admin_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -620,13 +702,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -650,19 +732,19 @@ ALTER TABLE `product_color`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `product_new`
 --
 ALTER TABLE `product_new`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `product_size`
 --
 ALTER TABLE `product_size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `super_category`
@@ -692,7 +774,19 @@ ALTER TABLE `vendor_docs`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT for table `[old]orders`
+--
+ALTER TABLE `[old]orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `[old]order_detail`
+--
+ALTER TABLE `[old]order_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

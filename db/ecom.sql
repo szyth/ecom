@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2021 at 01:49 PM
+-- Generation Time: Feb 14, 2021 at 07:44 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -80,7 +80,7 @@ INSERT INTO `admin_users` (`id`, `username`, `password`, `role`, `email`, `mobil
 
 CREATE TABLE `banner` (
   `id` int(11) NOT NULL,
-  `image` varchar(63) NOT NULL,
+  `image` varchar(200) NOT NULL,
   `priority` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -413,7 +413,7 @@ INSERT INTO `transaction` (`id`, `vendor_id`, `date`, `amount`, `pending`, `note
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mobile` varchar(15) NOT NULL,
   `added_on` datetime NOT NULL
@@ -424,10 +424,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
-(1, 'Syed Shayan', 'shayan@123', 'Shayan@gmail.com', '9865857412', '2020-08-04 21:06:06'),
-(2, 'Areeb Shamsi', 'areeb@123', 'areeb@gmail.com', '9745823685', '2020-08-04 21:06:06'),
-(9, 'Shaabi Ataa Khan', 'shaabi@123', 'shaabi@gmail.com', '93256897456', '2020-08-08 05:06:43'),
-(10, 'Syed Zia', 'zia@123', 'zia@gmail.com', '8574803737', '2020-08-08 05:56:55');
+(2, 'Areeb Shamsi', '$2y$10$24r7My0q7DPeY7n1xh5YjOZN7.UZv7xUKYdEWZv9MkPu3wmagEVTG', 'areeb@gmail.com', '9745823685', '2020-08-04 21:06:06'),
+(18, 'Shaabi Ata Khan', '$2y$10$wNlNK9n/RaHhI/N3BQMxwOVQ49n5wbNe9KLRPSB1BqjZe67308C6.', 'shabi@gmail.com', '857485858', '2021-02-14 11:20:04'),
+(23, 'Anas', '$2y$10$3aVRp4xCYTk9STmGIlwZLeHnUTl.37hnsSBxW507l/0jqFKm4q8FC', 'anas@gmail.com', '6545486', '2021-02-14 11:29:30');
 
 -- --------------------------------------------------------
 
@@ -762,7 +761,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `vendor_docs`
