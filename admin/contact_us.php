@@ -39,7 +39,6 @@ $res = mysqli_query($con, $sql);
                                         <th id="5">Mobile</th>
                                         <th id="6">Query</th>
                                         <th id="7">Date</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,13 +54,18 @@ $res = mysqli_query($con, $sql);
                                             <td><?php echo $row['mobile'] ?></td>
                                             <td><?php echo $row['comment'] ?></td>
                                             <td><?php echo $row['added_on'] ?></td>
-                                            <td>
+
+
+
+                                            <!-- COMMENTED OUT DELETE  -->
+
+                                            <!-- <td>
                                                 <?php
                                                 $msg = "Are you sure you want delete this Query?";
                                                 $deleteQuery = "?type=delete&id=" . $row['id'];
                                                 ?>
                                                 <a href='javascript:void(0)' , onclick="return getConfirmation('<?php echo $msg ?>', '<?php echo $deleteQuery ?>')"><span class='badge badge-danger'>Delete</span></a>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php
                                     }

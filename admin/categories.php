@@ -85,7 +85,10 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                                                 $deleteQuery = "?type=delete&id=" . $row['id'];
                                                 ?>
                                                 <a href='<?php echo $editQuery ?>'><span class='badge badge-primary'>Edit</span></a>
-                                                <a href='javascript:void(0)' onclick='return getConfirmation("<?php echo $msg ?>", "<?php echo $deleteQuery ?>")'><span class='badge badge-danger'>Delete</span></a>
+
+                                                <!-- COMMENTED OUT DELETE  -->
+
+                                                <!-- <a href='javascript:void(0)' onclick='return getConfirmation("<?php echo $msg ?>", "<?php echo $deleteQuery ?>")'><span class='badge badge-danger'>Delete</span></a> -->
                                             </td>
                                         </tr>
                                     <?php

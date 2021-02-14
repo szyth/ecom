@@ -13,6 +13,7 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
     if ($check > 0) {
         $row = mysqli_fetch_assoc($res);
         $categories = $row['categories'];
+        $sid = $row['super_categories_id'];
     } else {
         header('location:categories.php');
         die();
@@ -74,7 +75,7 @@ if (isset($_POST['submit'])) {
 
                                     $res = mysqli_query($con, "SELECT id,super_category FROM super_category ORDER BY super_category ASC");
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        if ($row['id'] == $categories_id) {
+                                        if ($row['id'] == $sid) {
                                             echo "<option selected value=" . $row['id'] . ">" . $row['super_category'] . "</option>";
                                         } else {
                                             echo "<option value=" . $row['id'] . ">" . $row['super_category'] . "</option>";
