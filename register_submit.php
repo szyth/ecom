@@ -16,6 +16,15 @@ $check_user = mysqli_num_rows(mysqli_query($con, $sql));
 if ($check_user > 0) {
     echo "wrong";
 } else {
-    mysqli_query($con, "INSERT INTO users(name,password,email,mobile,added_on) VALUES ('$name','$password','$email','$mobile','$added_on')");
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    mysqli_query($con, "INSERT INTO users(name,password,email,mobile,added_on) VALUES ('$name','$hashed_password','$email','$mobile','$added_on')");
+
+    $_SESSION['USER_LOGIN'] = 'yes';
+    $_SESSION['USER_ID'] = mysqli_insert_id($con);
+    $_SESSION['USER_NAME'] = $name;
+    if (isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID'] != '') {
+        wishlist_add($con, $_SESSION['USER_ID'], $_SESSION['WISHLIST_ID']);
+        unset($_SESSION['WISHLIST_ID']);
+    }
     echo 'valid';
 }

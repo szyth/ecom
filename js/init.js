@@ -241,7 +241,8 @@ function user_register() {
           jQuery(".register_msg p").html("Email already registered");
         }
         if (result == "valid") {
-          jQuery(".register_msg p").html("Thank You for registering!");
+          // jQuery(".register_msg p").html("Thank You for registering!");
+          window.location.href = "checkout.php";
         }
       },
     });
@@ -532,3 +533,53 @@ $(document).ready(function () {
   });
 });
 // PRODUCT SLIDER - END
+
+//PASSWORD CHANGE
+$("#pswd").click(function () {
+  var oldpass = $('#oldpass').val();
+  var newpass = $('#newpass').val();
+  var cnewpass = $('#cnewpass').val();
+  var oldpassDB = '';
+  function ajaxpswdChange() {
+    $.ajax({
+      url: 'includes/post_user_pass.php',
+      method: 'post',
+      data: {
+        'newpass': newpass,
+        'cnewpass': cnewpass
+      },
+      success: function (response) {
+        alert(response);
+      }
+    })
+    $('#pswdModal').modal('close');
+  }
+  if (oldpass == '' || newpass == '' || cnewpass == '') {
+    alert("Empty field");
+  }
+
+  else {
+    $.ajax({
+      url: 'includes/get_user_pass.php',
+      method: 'post',
+      data: {
+        'oldpass': oldpass
+      },
+      success: function (response) {
+        oldpassDB = response;
+        if (oldpass == oldpassDB) {
+          if (newpass == cnewpass) {
+            ajaxpswdChange();
+          }
+          else {
+            $('.helper-text').html("Confirmation Password didn't match")
+          }
+
+        }
+        else {
+          $('.helper-text').html("Wrong Current Password")
+        }
+      }
+    })
+  }
+})

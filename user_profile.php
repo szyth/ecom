@@ -39,7 +39,36 @@ if (isset($_POST['submit'])) {
                         <h5><i class="fa fa-phone" aria-hidden="true"></i><?php echo $row['mobile'] ?></h5>
                         <h5><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $row['added_on'] ?></h5>
                         <br>
+                        <a style="margin-bottom: 10px;" id="changepswd" class="waves-effect waves-light btn btn-small red lighten-1 modal-trigger" href="#pswdModal">Change Password</a>
                     </div>
+                    <!-- Password Modal Structure -->
+                    <div id="pswdModal" class="modal" style="width: 30%;">
+                        <div class="modal-content">
+                            <h5>Change Password</h5>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Current Password" id="oldpass" name="oldpass" type="password" class="validate" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="New Password" id="newpass" name="newpass" type="password" class="validate" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Confirm New Password" id="cnewpass" name="cnewpass" type="password" class="validate" required="" aria-required="true"> <span class="helper-text red-text"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <!-- <a class="modal-close waves-effect waves-green btn blue white-text"> -->
+                            <a id="pswd" class="waves-effect waves-light btn btn-small blue lighten-1 modal-trigger" type="submit">Submit</a>
+                            <!-- </a> -->
+                        </div>
+                    </div>
+
                     <div class="col s10 offset-s1 m5">
                         <div id="address_details" class="title center">
                             <h1 style="margin-top: 1.8rem !important;">My Saved Address</h1>
@@ -52,34 +81,34 @@ if (isset($_POST['submit'])) {
                         </div>
 
 
-                        <!-- Modal Structure -->
+                        <!-- Address Modal Structure -->
                         <div id="addressModal" class="modal">
                             <div class="modal-content">
-                                <p>New Address Details</h4>
-                                    <form id="address_form" method="POST">
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <input placeholder="&nbsp;Mobile No." id="mobile" name="mobile" type="tel" class="validate">
-                                            </div>
+                                <h5>New Address Details</h5>
+                                <form id="address_form" method="POST">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;Full Name" id="name" name="name" type="text" class="validate">
                                         </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
-                                            </div>
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;Mobile No." id="mobile" name="mobile" type="tel" class="validate">
                                         </div>
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="number" class="validate">
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <input placeholder="&nbsp;City / State" id="city" name="city" type="text" class="validate">
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="&nbsp;Address" id="address" name="address" type="text" class="validate">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;Pincode" id="pincode" name="pincode" type="number" class="validate">
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input placeholder="&nbsp;City / State" id="city" name="city" type="text" class="validate">
+                                        </div>
 
-                                        </div>
-                                    </form>
+                                    </div>
+                                </form>
                             </div>
                             <div class="modal-footer">
                                 <!-- <a class="modal-close waves-effect waves-green btn blue white-text"> -->
