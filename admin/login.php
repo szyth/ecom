@@ -1,17 +1,18 @@
 <?php
 require('includes/connection.inc.php');
 require('includes/functions.inc.php');
-
+$count = 0;
 $msg = '';
 if (isset($_POST['submit'])) {
    $username = get_safe_value($con, $_POST['username']);
    $password = get_safe_value($con, $_POST['password']);
-   $sql = "SELECT * FROM admin_users WHERE username = '$username' AND password = '$password'";
-   $res = mysqli_query($con, $sql);
-   $count = mysqli_num_rows($res);
+   $res = mysqli_query($con, "SELECT * FROM admin_users WHERE username = '$username'");
+   $row =  mysqli_fetch_assoc($res);
+   $hashed_password = $row['password'];
+   if (password_verify($password, $hashed_password)) {
+      $count = mysqli_num_rows($res);
+   }
    if ($count > 0) {
-      $row = mysqli_fetch_assoc($res);
-
       if ($row['status'] == '0') {
          $msg = "Account Deactivated";
       } else {
@@ -19,7 +20,7 @@ if (isset($_POST['submit'])) {
          $_SESSION['ADMIN_ID'] = $row['id'];
          $_SESSION['ADMIN_USERNAME'] = $username;
          $_SESSION['ADMIN_ROLE'] = $row['role'];
-         header('location:categories.php');
+         header('location:product.php');
          die();
       }
    } else {

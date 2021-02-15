@@ -57,9 +57,16 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input placeholder="Confirm New Password" id="cnewpass" name="cnewpass" type="password" class="validate" required="" aria-required="true"> <span class="helper-text red-text"></span>
+                                    <input placeholder="Confirm New Password" id="cnewpass" name="cnewpass" type="password" class="validate" required="" aria-required="true">
                                 </div>
                             </div>
+                            <p class="helper-text red-text"></p>
+                            <p>
+                                <label>
+                                    <input id="show" class="filled-in" type="checkbox" />
+                                    <span>Show Password</span>
+                                </label>
+                            </p>
                         </div>
 
                         <div class="modal-footer">

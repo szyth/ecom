@@ -95,7 +95,8 @@ $(document).ready(function () {
     $("#cancel-edit").on("click", function () {
         // location.href = location.origin + "/ecom/admin/product.php";
         //szyth: above code gave error 404 in some browser, hence
-        window.history.go(-1);
+        // window.history.go(-1);
+        location.href = "product.php"
 
     })
 

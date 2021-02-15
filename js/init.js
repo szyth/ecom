@@ -555,7 +555,7 @@ $("#pswd").click(function () {
     $('#pswdModal').modal('close');
   }
   if (oldpass == '' || newpass == '' || cnewpass == '') {
-    alert("Empty field");
+    $('.helper-text').html("Please fill all fields!");
   }
 
   else {
@@ -583,3 +583,91 @@ $("#pswd").click(function () {
     })
   }
 })
+$(document).ready(function () {
+  $('#show').click(function () {
+    $(this).is(':checked') ? $('#oldpass').attr('type', 'text') : $('#oldpass').attr('type', 'password');
+    $(this).is(':checked') ? $('#newpass').attr('type', 'text') : $('#newpass').attr('type', 'password');
+    $(this).is(':checked') ? $('#cnewpass').attr('type', 'text') : $('#cnewpass').attr('type', 'password');
+  });
+});
+
+// LOAD MORE BUTTON 
+$(document).ready(function () {
+  $('#all_product_button').click(function () {
+    var row = Number($('#row').val());
+    var allcount = Number($('#all').val());
+    var productperpage = 8;
+    row = row + productperpage;
+
+    if (row <= allcount) {
+      $("#row").val(row);
+
+      $.ajax({
+        url: 'loadMore.php',
+        type: 'post',
+        data: { row: row },
+        beforeSend: function () {
+          $("#all_product_button").text("Loading...");
+        },
+        success: function (response) {
+          response = JSON.parse(response);
+          // Setting little delay while displaying new content
+          setTimeout(function () {
+            // appending posts after last post with class="post"
+            // $(".product_container:last").after(response).show().fadeIn("slow");
+            // console.log(response);
+            $.each(response, function (index, item) {
+              if (item.discount_type == "rate") {
+                item.price = item.mrp - item.discount;
+                $('.product_container').append(` <div class="col s6 m4 l3 product_container_inner"> <div class="dress-card box_shadow center"> <a href="product.php?id=${item.id}" class="black-text"> <div class="dress-card-head"> <img class="dress-card-img-top" src="media/product/${item.image}" alt=""> </div> <div class="dress-card-body"> <h4 class="dress-card-title"> ${item.name}</h4> <p class="dress-card-para"><span class="dress-card-crossed ">Rs. ${item.mrp}</span> &ensp; <span class="dress-card-price ">Rs. ${item.price}</span><a href="javascript:void(0)" onclick="wishlist_manage('${item.id}','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i> </a> </p> </div> </a> </div> </div>`);
+              }
+              else if (item.discount_type == "percent") {
+                item.price = (item.mrp - ((item.discount * item.mrp) / 100));
+                $('.product_container').append(` <div class="col s6 m4 l3 product_container_inner"> <div class="dress-card box_shadow center"> <a href="product.php?id=${item.id}" class="black-text"> <div class="dress-card-head"> <img class="dress-card-img-top" src="media/product/${item.image}" alt=""> </div> <div class="dress-card-body"> <h4 class="dress-card-title"> ${item.name}</h4> <p class="dress-card-para"><span class="dress-card-crossed ">Rs. ${item.mrp}</span> &ensp; <span class="dress-card-price ">Rs. ${item.price}</span><a href="javascript:void(0)" onclick="wishlist_manage('${item.id}','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i> </a> </p> </div> </a> </div> </div>`);
+              }
+              else {
+                $('.product_container').append(` <div class="col s6 m4 l3 product_container_inner"> <div class="dress-card box_shadow center"> <a href="product.php?id=${item.id}" class="black-text"> <div class="dress-card-head"> <img class="dress-card-img-top" src="media/product/${item.image}" alt=""> </div> <div class="dress-card-body"> <h4 class="dress-card-title"> ${item.name}</h4> <p class="dress-card-para"><span class="dress-card-price ">Rs. ${item.mrp}</span><a href="javascript:void(0)" onclick="wishlist_manage('${item.id}','add')" class="wishlist"><i class="fa fa-heart" aria-hidden="true"></i> </a> </p> </div> </a> </div> </div>`);
+              }
+
+            })
+
+
+            var rowno = row + productperpage;
+
+            // checking row value is greater than allcount or not
+            if (rowno > allcount) {
+
+              // Change the text and background
+              $('.loadMOre').append(`<h5>That's all Folks!</h5>`);
+              $('#all_product_button').remove();
+              // $('#all_product_button').css({ "background-color": "darkorchid", "color": "white", "cursor": "not-allowed" });
+              // $('#all_product_button').removeAttr("id");
+            } else {
+              $("#all_product_button").text("Load more");
+            }
+          }, 2000);
+
+        }
+      });
+    } else {
+      $('#all_product_button').text("Loading...");
+
+      // Setting little delay while removing contents
+      setTimeout(function () {
+
+        // When row is greater than allcount then remove all class='product_container' element after 3 element
+        $('.product_container:nth-child(8)').nextAll('.product_container').remove();
+
+        // Reset the value of row
+        $("#row").val(0);
+
+        // Change the text and background
+        $('#all_product_button').text("Load more");
+        $('#all_product_button').css("background", "#15a9ce");
+
+      }, 2000);
+
+
+    }
+  });
+});

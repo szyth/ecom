@@ -38,7 +38,7 @@ $res = mysqli_query($con, $sql);
                                         <th id="4">Email</th>
                                         <th id="5">Mobile</th>
                                         <th id="6">Query</th>
-                                        <th id="7">Date</th>
+                                        <th id="7">Date Format</th>
                                     </tr>
                                 </thead>
                                 <tbody>

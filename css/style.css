@@ -1696,7 +1696,7 @@ fieldset {
 
 .block__pic {
   position: relative;
-  z-index: 9999;
+  z-index: 99;
 }
 
 /* IMAGE ZOOM ON HOVER - END */

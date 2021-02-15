@@ -58,7 +58,7 @@ $res = mysqli_query($con, $sql);
                                         <th class="serial" id="1">#</th>
                                         <th id="2">ID</th>
                                         <th id="3">Username</th>
-                                        <th id="4">Password</th>
+                                        <th id="4">Encrypted Password</th>
                                         <th id="5">Email</th>
                                         <th id="6">Mobile</th>
                                         <th></th>

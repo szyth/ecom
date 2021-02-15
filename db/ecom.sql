@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2021 at 07:44 PM
+-- Generation Time: Feb 15, 2021 at 07:56 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -67,10 +67,7 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password`, `role`, `email`, `mobile`, `status`) VALUES
-(1, 'admin', 'admin', 0, '', '', 1),
-(2, 'zia', 'zia', 1, 'zia@zia.com', '9862145789', 1),
-(3, 'shayan', 'shayan', 1, 'shayan@shayan.com', '9632668745', 1),
-(4, 'areeb', 'areeb', 1, 'areeb@areeb.com', '9213653248', 1);
+(1, 'admin', '$2y$10$EYwbRbDUIfIW.uMTnXtumu1QKRGB.huev14GaJ9Uy08rNkoyVTcMW', 0, '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -413,20 +410,11 @@ INSERT INTO `transaction` (`id`, `vendor_id`, `date`, `amount`, `pending`, `note
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `password` varchar(60) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mobile` varchar(15) NOT NULL,
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
-(2, 'Areeb Shamsi', '$2y$10$24r7My0q7DPeY7n1xh5YjOZN7.UZv7xUKYdEWZv9MkPu3wmagEVTG', 'areeb@gmail.com', '9745823685', '2020-08-04 21:06:06'),
-(18, 'Shaabi Ata Khan', '$2y$10$wNlNK9n/RaHhI/N3BQMxwOVQ49n5wbNe9KLRPSB1BqjZe67308C6.', 'shabi@gmail.com', '857485858', '2021-02-14 11:20:04'),
-(23, 'Anas', '$2y$10$3aVRp4xCYTk9STmGIlwZLeHnUTl.37hnsSBxW507l/0jqFKm4q8FC', 'anas@gmail.com', '6545486', '2021-02-14 11:29:30');
 
 -- --------------------------------------------------------
 
@@ -677,7 +665,7 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -731,13 +719,13 @@ ALTER TABLE `product_color`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `product_new`
 --
 ALTER TABLE `product_new`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `product_size`
@@ -761,7 +749,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `vendor_docs`
@@ -773,7 +761,7 @@ ALTER TABLE `vendor_docs`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `[old]orders`

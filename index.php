@@ -111,7 +111,7 @@
     <div class="row center product_container">
 
         <?php
-        $get_product = get_product($con, '', '', '');
+        $get_product = get_product($con, '8', '', '');
         // prx($get_product);
         foreach ($get_product as $list) {
         ?>
@@ -148,10 +148,13 @@
         <?php
         }
         ?>
-        <div class="col s12">
-            <a id="all_product_button" class="waves-effect waves-light btn-large  btn-flat center">Load More...</a> </div>
+
 
     </div>
+    <div class="center loadMOre">
+        <a id="all_product_button" class="waves-effect waves-light btn-large  btn-flat center">Load More...</a>
+        <input type="hidden" id="row" value="0">
+        <input type="hidden" id="all" value="<?php echo mysqli_num_rows(mysqli_query($con, "SELECT * FROM product_new")); ?>"></div>
 </div>
 <!-- ALL PRODUCTS - END -->
 

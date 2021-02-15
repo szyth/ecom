@@ -217,3 +217,63 @@ jQuery(document).ready(function ($) {
         sortTable(f_nm, n);
     });
 });
+$('#pswdModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
+
+//PASSWORD CHANGE
+$("#pswd").click(function () {
+    var oldpass = $('#oldpass').val();
+    var newpass = $('#newpass').val();
+    var cnewpass = $('#cnewpass').val();
+    var oldpassDB = '';
+    function ajaxpswdChange() {
+        $.ajax({
+            url: 'includes/post_user_pass.php',
+            method: 'post',
+            data: {
+                'newpass': newpass,
+                'cnewpass': cnewpass
+            },
+            success: function (response) {
+                alert(response);
+            }
+        })
+        $('#pswdModal').modal('hide');
+    }
+    if (oldpass == '' || newpass == '' || cnewpass == '') {
+        $('.helper-text').html("Please fill all fields!");
+    }
+
+    else {
+        $.ajax({
+            url: 'includes/get_user_pass.php',
+            method: 'post',
+            data: {
+                'oldpass': oldpass
+            },
+            success: function (response) {
+                oldpassDB = response;
+                if (oldpass == oldpassDB) {
+                    if (newpass == cnewpass) {
+                        ajaxpswdChange();
+                    }
+                    else {
+                        $('.helper-text').html("Confirmation Password didn't match")
+                    }
+
+                }
+                else {
+                    $('.helper-text').html("Wrong Current Password")
+                }
+            }
+        })
+    }
+})
+$(document).ready(function () {
+    $('#show').click(function () {
+        $(this).is(':checked') ? $('#oldpass').attr('type', 'text') : $('#oldpass').attr('type', 'password');
+        $(this).is(':checked') ? $('#newpass').attr('type', 'text') : $('#newpass').attr('type', 'password');
+        $(this).is(':checked') ? $('#cnewpass').attr('type', 'text') : $('#cnewpass').attr('type', 'password');
+    });
+});

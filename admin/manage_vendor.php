@@ -30,7 +30,8 @@ if (isset($_POST['submit'])) {
         }
     }
     if ($msg == '') {
-        $sql = "INSERT INTO admin_users(username,password,role,email,mobile,status) VALUES ('$username','$password', '1','$email','$mobile','1')";
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO admin_users(username,password,role,email,mobile,status) VALUES ('$username','$hashed_password', '1','$email','$mobile','1')";
         mysqli_query($con, $sql);
         header('location:vendor_management.php');
         die();
