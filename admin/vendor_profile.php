@@ -15,6 +15,7 @@ $vendor_id = $_SESSION['ADMIN_ID'];
                         <h4 class="box-title">Profile </h4>
                         <h4 class="box-link"><a href="manage_vendor_profile.php"><span class='badge badge-danger'>Click to add/update your Government IDs</span></a></h4>
                         <h4 class="box-link"><a href="" data-toggle="modal" data-target="#pswdModal"><span class='badge badge-primary'>Change Password</span></a></h4>
+                        <p style="  color: #ff1b4c;font-size:13px;margin:16px 0">Tip: Change Password on First Login</p>
                         <!-- PASSWORD CHANGE MODAL  -->
                         <div class="modal fade" id="pswdModal" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">

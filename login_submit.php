@@ -7,12 +7,16 @@ $password = get_safe_value($con, $_POST['password']);
 date_default_timezone_set('Asia/Kolkata');
 $added_on = date('Y-m-d h:i:s');
 
+$check_user = 0;
 $res = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
 $row =  mysqli_fetch_assoc($res);
-$hashed_password = $row['password'];
-if (password_verify($password, $hashed_password)) {
-    $check_user = mysqli_num_rows($res);
+if (mysqli_num_rows($res)) {
+    $hashed_password = $row['password'];
+    if (password_verify($password, $hashed_password)) {
+        $check_user = mysqli_num_rows($res);
+    }
 }
+
 
 
 

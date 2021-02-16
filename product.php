@@ -104,7 +104,7 @@ while ($row1 = mysqli_fetch_assoc($super_cat_res)) {
                 <?php
                 $getParentId = $get_product['0']['parent_id'];
                 // prx($sizeId);
-                $response = (mysqli_query($con, "SELECT id,color,size FROM product_new WHERE parent_id=$getParentId"));
+                $response = (mysqli_query($con, "SELECT id,color,size FROM product_new WHERE parent_id=$getParentId AND status=1"));
                 while ($size_color_id = mysqli_fetch_assoc($response)) {
                     $colorSQL = "SELECT name as color FROM product_color where id='" . $size_color_id['color'] . "'";
                     $color = mysqli_fetch_assoc(mysqli_query($con, $colorSQL));

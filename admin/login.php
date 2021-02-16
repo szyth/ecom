@@ -6,12 +6,18 @@ $msg = '';
 if (isset($_POST['submit'])) {
    $username = get_safe_value($con, $_POST['username']);
    $password = get_safe_value($con, $_POST['password']);
+
+
+   $count = 0;
    $res = mysqli_query($con, "SELECT * FROM admin_users WHERE username = '$username'");
    $row =  mysqli_fetch_assoc($res);
-   $hashed_password = $row['password'];
-   if (password_verify($password, $hashed_password)) {
-      $count = mysqli_num_rows($res);
+   if (mysqli_num_rows($res)) {
+      $hashed_password = $row['password'];
+      if (password_verify($password, $hashed_password)) {
+         $count = mysqli_num_rows($res);
+      }
    }
+
    if ($count > 0) {
       if ($row['status'] == '0') {
          $msg = "Account Deactivated";

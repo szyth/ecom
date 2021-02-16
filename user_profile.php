@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
                         <a style="margin-bottom: 10px;" id="changepswd" class="waves-effect waves-light btn btn-small red lighten-1 modal-trigger" href="#pswdModal">Change Password</a>
                     </div>
                     <!-- Password Modal Structure -->
-                    <div id="pswdModal" class="modal" style="width: 30%;">
+                    <div id="pswdModal" class="modal">
                         <div class="modal-content">
                             <h5>Change Password</h5>
                             <div class="row">

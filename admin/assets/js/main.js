@@ -264,7 +264,7 @@ $("#pswd").click(function () {
 
                 }
                 else {
-                    $('.helper-text').html("Wrong Current Password")
+                    $('.helper-text').html("Current Password is Incorrect")
                 }
             }
         })

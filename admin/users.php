@@ -47,7 +47,7 @@ $res = mysqli_query($con, $sql);
                                     while ($row = mysqli_fetch_assoc($res)) {
                                     ?>
                                         <tr>
-                                            <td class="serial"><?php echo $i ?></td>
+                                            <td class="serial"><?php echo $i++ ?></td>
                                             <td><?php echo $row['id'] ?></td>
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['password'] ?></td>

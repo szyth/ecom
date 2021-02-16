@@ -95,9 +95,55 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
                <div class="user-area dropdown float-right">
                   <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <?php echo $_SESSION['ADMIN_USERNAME'] ?></a>
                   <div class="user-menu dropdown-menu">
+
+                     <?php
+                     // prx($_SESSION);
+                     if (!$_SESSION['ADMIN_ROLE']) {
+
+                     ?>
+                        <a class="nav-link" data-toggle="modal" data-target="#pswdModal" style="cursor:pointer"><i class="fa fa-key"></i>Change Admin Password</a>
+
+                     <?php } ?>
                      <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
                   </div>
                </div>
             </div>
          </div>
       </header>
+
+      <!-- PASSWORD CHANGE MODAL  -->
+      <div class="modal fade" id="pswdModal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title">Change Password</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <form>
+                     <div class="form-group">
+                        <label for="oldpass" class="col-form-label">Current Password:</label>
+                        <input type="password" class="form-control" id="oldpass">
+                     </div>
+                     <div class="form-group">
+                        <label for="newpass" class="col-form-label">New Password:</label>
+                        <input type="password" class="form-control" id="newpass">
+                     </div>
+                     <div class="form-group">
+                        <label for="cnewpass" class="col-form-label">Confirm Password:</label>
+                        <input type="password" class="form-control" id="cnewpass">
+                     </div>
+                     <input id="show" type="checkbox">
+                     <label for="show" class="col-form-label">Show Password</label>
+                     <p class="helper-text text-danger"></p>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" id="pswd" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>

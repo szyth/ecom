@@ -1751,3 +1751,23 @@ input[type=number] {
 }
 
 /* STYLE,HIDE UP DOWN IN INPUT NUMBER - END */
+
+
+/* PASSWORD MODAL  */
+#pswdModal {
+  width: 30%;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  #pswdModal {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  #pswdModal {
+    width: 95%;
+  }
+}
+
+/* PASSWORD MODAL - END */
