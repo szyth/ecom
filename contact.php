@@ -21,7 +21,8 @@
 
 <div class="row">
     <div class="col s12 m6 offset-m1 maps">
-        <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=India+(Classy%20Closet)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div>
+        <!-- <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=India+(Classy%20Closet)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div> -->
+        <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=jagpal%20kheda+(Classi%20Closet)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div>
     </div>
     <div class="col s12 m4">
         <div class="address">
@@ -31,11 +32,10 @@
             </div>
             <div class="address__details">
                 <h2 class="ct__title">our address</h2>
-                <!-- <p class="ct__address">K 1024, Jagpal Kheda
-                    Chotta Bharwara
+                <p class="ct__address">K 1024, Jagpal Kheda
                     Gomti Nagar Vistar
-                    Lucknow, UP 226028
-                </p> -->
+                    Lucknow, Uttar Pradesh 226028
+                </p>
             </div>
         </div>
 
@@ -45,7 +45,7 @@
             </div>
             <div class="address__details">
                 <h2 class="ct__title">Phone Number</h2>
-                <!-- <p>+91 80909 12433</p> -->
+                <p>+91-809-091-2433</p>
             </div>
         </div>
         <div class="address">
@@ -54,7 +54,7 @@
             </div>
             <div class="address__details">
                 <h2 class="ct__title">customer support</h2>
-                <!-- <p>support@classicloset.com</p> -->
+                <p>support@classicloset.com</p>
             </div>
         </div>
 

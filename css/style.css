@@ -1371,6 +1371,12 @@ footer.page-footer {
   color: rgb(223, 223, 223) !important;
 }
 
+footer.page-footer p {
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
 .footer-copyright {
   background-color: rgb(17, 17, 17) !important;
 }
@@ -1771,3 +1777,17 @@ input[type=number] {
 }
 
 /* PASSWORD MODAL - END */
+
+/* POLICY */
+.policy p {
+  text-align: justify;
+  line-height: 1.4;
+}
+
+.policy h5.heading {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 40px 0
+}
+
+/* POLICY - END  */

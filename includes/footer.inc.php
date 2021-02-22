@@ -4,13 +4,19 @@
             <div class="col s12 m4">
                 <div class="card footer_card z-depth-0">
                     <div class="card-content white-text">
-                        <span class="card-title">about</span>
-                        <ul class="quick-links">
+                        <span class="card-title">about us</span>
+                        <p style="margin-bottom: 5px;">Established in 2014, ClassiCloset is a lifestyle destination focused on providing everyday women, men, and kids clothing across India and abroad. With an exquisite range of modern and ethnic wear for women, men, and kids, ClassiCloset's goal is to provide the best quality products at the most valuable prices to our customers.
+                        </p>
+                        <p>Our website classicloset.com is your one-stop-shop for daily casual wear that has been creatively-designed and strenuously-woven for today's stylish, global citizen.</p>
+                        <p>Our collection reflects the sentiment of Make in India and a sense of individuality.</p>
+
+
+                        <!-- <ul class="quick-links">
                             <li>24x7 Customer Support</li>
                             <li>Easy Returns</li>
                             <li>Convenient Shopping</li>
                             <li>One Stop Shop</li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>
@@ -19,12 +25,12 @@
                     <div class="card-content white-text">
                         <span class="card-title">Contact details</span>
                         <ul class="quick-links">
-                            <!-- <li>K 1024, Jagpal Kheda <br>
-                                Chotta Bharwara<br>
-                                Gomti Nagar Vistar<br>
-                                Lucknow, UP 226028</li>
+                            <li>K 1024, Jagpal Kheda, <br>
+                                Gomti Nagar Vistar,<br>
+                                Lucknow, Uttar Pradesh 226028
+                            </li>
+                            <li>Ph: +91-809-091-2433</li>
                             <li>support@classicloset.com</li>
-                            <li>+91 80909 12433</li> -->
                         </ul>
                     </div>
                 </div>
@@ -37,6 +43,9 @@
                             <li><a class="white-text" href="index.php">HOME</a></li>
                             <li><a class="white-text" href="super_categories.php">CATEGORIES</a></li>
                             <li><a class="white-text" href="contact.php">CONTACT</a></li>
+                            <li><a class="white-text" href="privacypolicy.php">PRIVACY POLICY</a></li>
+                            <li><a class="white-text" href="terms_conditions.php">TERMS & CONDITIONS</a></li>
+                            <li><a class="white-text" href="refundpolicy.php">REFUND POLICY</a></li>
                             <!-- <li><a class="white-text" href="login.php">LOGIN</a></li> -->
                             <li><a class="white-text" href="admin/login.php">ADMIN LOGIN</a></li>
                         </ul>
