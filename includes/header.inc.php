@@ -16,7 +16,7 @@ $totalProduct = $obj->totalProduct();
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classy Closet</title>
+    <title>Classi Closet</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
@@ -94,7 +94,7 @@ $totalProduct = $obj->totalProduct();
     <nav id="nav" class="white z-depth-0" role="navigation">
         <div class="row">
             <div class="col s12 m3 center">
-                <a id="logo-container" class="brand-logo" href="index.php">CLASSY CLOSET</a>
+                <a id="logo-container" class="brand-logo" href="index.php">CLASSI CLOSET</a>
             </div>
             <div class="col s12 m5 offset-m1">
                 <ul id="hover" class="hide-on-med-and-down nav-ul">

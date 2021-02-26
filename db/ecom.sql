@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 15, 2021 at 07:56 AM
+-- Generation Time: Feb 26, 2021 at 08:54 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -67,7 +67,9 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password`, `role`, `email`, `mobile`, `status`) VALUES
-(1, 'admin', '$2y$10$EYwbRbDUIfIW.uMTnXtumu1QKRGB.huev14GaJ9Uy08rNkoyVTcMW', 0, '', '', 1);
+(1, 'admin', '$2y$10$ckaKXdxRftjzyQ/hG6WgJuEmtQZin2KzFvYOniYOFGxg1pJIaO/kG', 0, '', '', 1),
+(7, 'ram', '$2y$10$myRmZt3MKuYHj30lCp5Qa.cBqrRxvCrmu9f.MupNf.Jtv7rJKRUsC', 1, 'ram@gmail.com', '446', 1),
+(8, 'shyam', '$2y$10$CJu1rX3FEGsLAhvxAWXVz.8oYNyVIpdGONM8FbMFViY0Mu.3FjYiq', 1, 'shyam@gmail.com', '96385274185', 1);
 
 -- --------------------------------------------------------
 
@@ -91,6 +93,27 @@ INSERT INTO `banner` (`id`, `image`, `priority`, `status`) VALUES
 (2, '2.jpg', 2, 1),
 (3, '3.jpg', 3, 1),
 (4, '4.jpg', 4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `qty`) VALUES
+(22, 27, 99, 5),
+(23, 27, 98, 5);
 
 -- --------------------------------------------------------
 
@@ -292,6 +315,14 @@ CREATE TABLE `product_images` (
   `name` varchar(63) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `super_id`, `name`) VALUES
+(112, 1, 'xL1Or1Pk1GiFqWjeX5KI.jpg'),
+(113, 2, 'DuB8fFrxIDYf7MQHZPVJ.jpeg');
+
 -- --------------------------------------------------------
 
 --
@@ -316,6 +347,14 @@ CREATE TABLE `product_new` (
   `added_by` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_new`
+--
+
+INSERT INTO `product_new` (`id`, `parent_id`, `cat_id`, `subcat_id`, `name`, `description`, `color`, `size`, `mrp`, `discount`, `article_id`, `quantity`, `image_super_id`, `discount_type`, `added_by`, `status`) VALUES
+(98, 1, 1, 58, 'Jacket #3', 'Cool Jacket', 2, 11, 399, NULL, '', 5, 1, 'none', 1, 1),
+(99, 1, 1, 58, 'Jacket #3', 'Cool Jacket', 5, 1, 299, 20, '', 5, 2, 'rate', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -416,6 +455,15 @@ CREATE TABLE `users` (
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
+(25, 'ana@gmail.com', '$2y$10$i2La0vy7GDoyciK44qu3/urNPM7mL8KwrzRVXe9rkK.cMhhDXeniW', 'ana@gmail.com', '968574485', '2021-02-15 12:39:14'),
+(26, 'ana@gmail.com', '$2y$10$i2La0vy7GDoyciK44qu3/urNPM7mL8KwrzRVXe9rkK.cMhhDXeniW', 'ana@gmail.com', '968574485', '2021-02-15 12:39:14'),
+(27, 'test4', '$2y$10$8fCOa8pBeH/qKDkX2BsQdOoFsPR8HOQTuNgRuPWKtvgstPp8XRzp2', 'test4@test.com', '9638527412', '2021-02-16 11:26:51');
+
 -- --------------------------------------------------------
 
 --
@@ -450,6 +498,13 @@ CREATE TABLE `wishlist` (
   `product_id` int(11) NOT NULL,
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
+(67, 27, 98, '2021-02-26 12:32:30');
 
 -- --------------------------------------------------------
 
@@ -541,6 +596,12 @@ ALTER TABLE `admin_users`
 -- Indexes for table `banner`
 --
 ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -665,13 +726,19 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -719,13 +786,13 @@ ALTER TABLE `product_color`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `product_new`
 --
 ALTER TABLE `product_new`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `product_size`
@@ -749,7 +816,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `vendor_docs`
@@ -761,7 +828,7 @@ ALTER TABLE `vendor_docs`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `[old]orders`

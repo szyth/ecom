@@ -85,8 +85,8 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
       <header id="header" class="header">
          <div class="top-left">
             <div class="navbar-header">
-               <a class="navbar-brand" style="font-family: 'Oswald', sans-serif;" href="../index.php">CLASSY CLOSET</a>
-               <a class="navbar-brand hidden" href="../index.php">CLASSY CLOSET</a>
+               <a class="navbar-brand" style="font-family: 'Oswald', sans-serif;" href="../index.php">CLASSI CLOSET</a>
+               <a class="navbar-brand hidden" href="../index.php">CLASSI CLOSET</a>
                <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
             </div>
          </div>

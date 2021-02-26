@@ -2,7 +2,7 @@
         <nav id="nav" class="white z-depth-0" role="navigation">
             <div class="row">
                 <div class="col s12 m3 center">
-                    <a id="logo-container" class="brand-logo" href="index.php">CLASSY CLOSET</a>
+                    <a id="logo-container" class="brand-logo" href="index.php">CLASSI CLOSET</a>
                 </div>
                 <div class="col s12 m6 push-custom">
                     <div class="menu-container">

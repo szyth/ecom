@@ -474,7 +474,7 @@ var options = {
   "key": "rzp_test_z9RWfE5BZTr1Ie", // Enter the Key ID generated from the Dashboard
   "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
   "currency": "INR",
-  "name": "Classy Closet",
+  "name": "Classi Closet",
   "description": "Test Transaction",
   "image": "https://example.com/your_logo",
   "handler": function () {
