@@ -4,11 +4,11 @@ session_start();
 
 //CONNECTION STRING, USE this on CLASSI SERVER
 //FTP: classycloset.onebigbit.com classycloset !sa6pT12
-$con = mysqli_connect("localhost", "classy_closet", "O33y*ee3", "classy_closet");
+// $con = mysqli_connect("localhost", "classy_closet", "O33y*ee3", "classy_closet");
 
 
 //CONNECTION STRING, USE this on local machine
-// $con = mysqli_connect("localhost", "root", "", "ecom");
+$con = mysqli_connect("localhost", "root", "", "ecom");
 
 
 

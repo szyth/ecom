@@ -144,15 +144,15 @@ function addProducts($con)
         $pdo =
             new PDO(
                 //CONNECTION STRING, USE this on CLASSI SERVER
-                "mysql:host=localhost;dbname=classy_closet",
-                "classy_closet",
-                "O33y*ee3",
+                // "mysql:host=localhost;dbname=classy_closet",
+                // "classy_closet",
+                // "O33y*ee3",
                 //END
 
                 //CONNECTION STRING, USE this on local machine
-                // "mysql:host=localhost;dbname=ecom",
-                // "root",
-                // "",
+                "mysql:host=localhost;dbname=ecom",
+                "root",
+                "",
                 //END
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
