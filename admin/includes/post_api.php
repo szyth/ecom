@@ -151,16 +151,16 @@ function addProducts($con)
 
 
                 //CONNECTION STRING, USE this on PLESK classicloset.com
-                "mysql:host=localhost;dbname=classicloset",
-                "classicloset",
-                "Gg75b!t4",
+                // "mysql:host=localhost;dbname=classicloset",
+                // "classicloset",
+                // "Gg75b!t4",
 
 
 
                 //CONNECTION STRING, USE this on local machine
-                // "mysql:host=localhost;dbname=ecom",
-                // "root",
-                // "",
+                "mysql:host=localhost;dbname=ecom",
+                "root",
+                "",
 
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)

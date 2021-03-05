@@ -9,12 +9,12 @@ session_start();
 
 
 //CONNECTION STRING, USE this on local machine
-// $con = mysqli_connect("localhost", "root", "", "ecom");
+$con = mysqli_connect("localhost", "root", "", "ecom");
 
 
 
 //CONNECTION STRING, USE this on PLESK classicloset.com
-$con = mysqli_connect("localhost", "classicloset", "Gg75b!t4", "classicloset");
+// $con = mysqli_connect("localhost", "classicloset", "Gg75b!t4", "classicloset");
 
 
 if (mysqli_connect_errno()) {

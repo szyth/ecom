@@ -93,8 +93,10 @@ $totalProduct = $obj->totalProduct();
 <body class="">
     <nav id="nav" class="white z-depth-0" role="navigation">
         <div class="row">
-            <div class="col s12 m3 center">
-                <a id="logo-container" class="brand-logo" href="index.php">CLASSI CLOSET</a>
+            <div class="col s12 offset-m2 m1 center">
+                <a id="logo-container" class="brand-logo" href="index.php">
+                    <img class="" height="95" src="media/logo/logo-low-min.png" alt="">
+                </a>
             </div>
             <div class="col s12 m5 offset-m1">
                 <ul id="hover" class="hide-on-med-and-down nav-ul">
