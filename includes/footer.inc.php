@@ -56,7 +56,9 @@
         </div>
         <div class="row valign-wrapper" style="margin-bottom: 0px;">
             <div class="col s12 m4 center">
-                <a id="logo-container" class="brand-logo-footer white-text" href="index.php">CLASSI CLOSET</a>
+                <a id="logo-container" class="brand-logo-footer white-text" href="index.php">
+                    <img class="" height="95" src="media/logo/logo-low-min.png" alt="">
+                </a>
             </div>
             <div class="col s12 m8">
                 <div class="card footer_card z-depth-0">
