@@ -16,7 +16,8 @@ $totalProduct = $obj->totalProduct();
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classi Closet</title>
+    <!-- <title>Classi Closet</title> -->
+    <title>OneBigBit - Online Shopping</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
@@ -93,9 +94,12 @@ $totalProduct = $obj->totalProduct();
 <body class="">
     <nav id="nav" class="white z-depth-0" role="navigation">
         <div class="row">
-            <div class="col s12 offset-m2 m1 center">
-                <a id="logo-container" class="brand-logo" href="index.php">
-                    <img class="" height="95" src="media/logo/logo-low-min.png" alt="">
+            <div class="col s12 m3 center">
+                <!-- <div class="col s12 offset-m2 m1 center"> -->
+                <!-- <a id="logo-container" class="brand-logo" href="index.php"> -->
+                <a id="logo-container" class="brand-logo" href="index.php" style="margin:10px 0;">
+                    <img class="" src="media/logo.png" alt="">
+                    <!-- <img class="" height="95" src="media/logo/logo-low-min.png" alt=""> -->
                 </a>
             </div>
             <div class="col s12 m5 offset-m1">

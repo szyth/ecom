@@ -86,10 +86,12 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
          <div class="top-left">
             <div class="navbar-header">
                <a class="navbar-brand" style="font-family: 'Oswald', sans-serif;" href="../index.php">
-                  <img class="img-responsive" height="40" src="../media/logo/logo-low.png" alt="">
+                  <!-- <img class="img-responsive" height="40" src="../media/logo/logo-low.png" alt=""> -->
+                  <img class="img-responsive" src="../media/logo.png" alt="">
 
                </a>
-               <a class="navbar-brand hidden" href="../index.php">CLASSI CLOSET</a>
+               <!-- <a class="navbar-brand hidden" href="../index.php">CLASSI CLOSET</a> -->
+               <a class="navbar-brand hidden" href="../index.php">OneBigBit</a>
                <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
             </div>
          </div>

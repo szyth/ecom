@@ -9,7 +9,7 @@ $con = mysqli_connect("localhost", "classy_closet", "O33y*ee3", "classy_closet")
 
 
 //CONNECTION STRING, USE this on local machine
-$con = mysqli_connect("localhost", "root", "", "ecom");
+// $con = mysqli_connect("localhost", "root", "", "ecom");
 
 
 

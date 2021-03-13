@@ -21,8 +21,11 @@
 
 <div class="row">
     <div class="col s12 m6 offset-m1 maps">
-        <!-- <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=India+(Classy%20Closet)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div> -->
-        <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=jagpal%20kheda+(Classi%20Closet)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div>
+        <!-- OBB MAP  -->
+        <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=onebigbit+(OneBigBit%20Technologies%20Pvt%20Ltd)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div>
+
+        <!-- CLASSI Closet MAP  -->
+        <!-- <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=jagpal%20kheda+(Classi%20Closet)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm"></a></div> -->
     </div>
     <div class="col s12 m4">
         <div class="address">
@@ -32,9 +35,11 @@
             </div>
             <div class="address__details">
                 <h2 class="ct__title">our address</h2>
-                <p class="ct__address">K 1024, Jagpal Kheda
+                <!-- <p class="ct__address">K 1024, Jagpal Kheda
                     Gomti Nagar Vistar
                     Lucknow, Uttar Pradesh 226028
+                </p> -->
+                <p class="ct__address"> C-25, Aliganj, Lucknow - 226024, Uttar Pradesh, India.
                 </p>
             </div>
         </div>
@@ -45,7 +50,8 @@
             </div>
             <div class="address__details">
                 <h2 class="ct__title">Phone Number</h2>
-                <p>+91-809-091-2433</p>
+                <!-- <p>+91-809-091-2433</p> -->
+                <p>+91-522-431-6496, <br> +91-800-400-8123</p>
             </div>
         </div>
         <div class="address">
@@ -54,7 +60,8 @@
             </div>
             <div class="address__details">
                 <h2 class="ct__title">customer support</h2>
-                <p>support@classicloset.com</p>
+                <!-- <p>support@classicloset.com</p> -->
+                <p>info@onebigbit.com</p>
             </div>
         </div>
 
